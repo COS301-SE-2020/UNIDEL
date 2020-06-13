@@ -41,6 +41,14 @@
                 <input type="checkbox" onclick="toggleVisiblePassword()"> Show Password
             </div>
 
+            @*Always*@
+            <div class="form-group Info">
+                <label for="Verifypassword">Verify password</label>
+                <input type="password" class="form-control" id="Verifypassword" autocomplete required placeholder="Verify password">
+                <small id="verfpassErrorMsg" class="error-msg text-danger" hidden>Passwords do not match</small>
+                @*<input type="checkbox" onclick="toggleVisiblePassword()"> Show Password*@
+            </div>
+
 
             @*<button type="submit" name="submit" id="login" class="btn btn-block btn-warning btn-color" style="margin:auto">Login</button>*@
             @*<br>*@

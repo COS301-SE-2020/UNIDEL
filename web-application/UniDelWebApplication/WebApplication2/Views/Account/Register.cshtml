@@ -32,6 +32,13 @@
             </div>
 
             <div class="form-group Info">
+                <label for="Verifypassword">Verify password</label>
+                <input type="password" class="form-control" id="Verifypassword" autocomplete required placeholder="Verify password">
+                <small id="verfpassErrorMsg" class="error-msg text-danger" hidden>Passwords do not match</small>
+                @*<input type="checkbox" onclick="toggleVisiblePassword()"> Show Password*@
+            </div>
+
+            <div class="form-group Info">
                 <label for="tel">Telephone</label>
                 <input type="tel" class="form-control" id="email" required placeholder="Telephone number">
                 <small id="telErrorMsg" class="error-msg text-danger" hidden>Invalid Email Telephone, please enter valid telephone number</small>
