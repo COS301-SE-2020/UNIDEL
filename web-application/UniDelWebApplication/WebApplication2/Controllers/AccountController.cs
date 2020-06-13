@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using UniDelWebApplication.Models;
+//for hashing
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace UniDelWebApplication.Controllers
 {
@@ -43,19 +46,14 @@ namespace UniDelWebApplication.Controllers
             };
             uniDelDb.Customers.Add(cust1);  //ADD THE NEW OBJECT TO OUR DATABASE. NO NEED FOR ANY SQL STATEMENTS. ALL OF THAT IS DONE WITHIN THIS CLASS
             uniDelDb.SaveChanges();         //SAVE THE CHANGES... THE CHANGES WILL BE REFLECTED IN THE DATABASE
-
             // update
-
             Customer custUpdt = uniDelDb.Customers.Find(100); 
             custUpdt.CompanyName = "Company Name Changed";
             uniDelDb.SaveChanges();
-
             // delete
-
             Customer custDel = uniDelDb.Customers.Find(200);
             uniDelDb.Customers.Remove(custDel);
             uniDelDb.SaveChanges();
-
             return View(uniDelDb.Customers.ToList()); //THIS DEFINES THE MODEL THAT SHOULD BE SENT TO THE VIEW
             */
             return View();  //ALL IActionResult FUNCTIONS SHOULD CONTAIN THIS STATEMENT. IT LOADS THE CORRESPONDING VIEW
@@ -68,13 +66,138 @@ namespace UniDelWebApplication.Controllers
             return View();
         }
 
-        public IActionResult Login()
+        public IActionResult Logout()
         {
+            //Go to a different page?
+            return View();
+        }
+
+        public IActionResult Login(String email, String pass)
+        {
+            String salt=Convert.ToBase64String(email);
+            String p=password+salt;
+            HashAlgorithm hashAlg = new SHA256CryptoServiceProvider(); 
+            byte[] bytValue = System.Text.Encoding.UTF8.GetBytes(p);
+            byte[] bytHash = hashAlg.ComputeHash(bytValue);
+            string base64 = Convert.ToBase64String(bytHash);
+            User us = context.Unideldb.Where(User=>User.UserEmail==email).FirstOrDefault();
+            if(base64==us.UserPassword)
+            {
+                int id=us.UserID;
+                //should I return the ID?
+            }
             return View();
         }
 
         public IActionResult Register()
         {
+            //Should this function be called and hen decide where to send the request?
+            return View();
+        }
+
+        public IActionResult RegisterClient(String email,String password, String verifyPass, String name, String number, String address)
+        {
+            if(password==verifyPass)
+            {
+                String salt=Convert.ToBase64String(email);
+                String p=password+salt;
+                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider(); 
+                byte[] bytValue = System.Text.Encoding.UTF8.GetBytes(p);
+                byte[] bytHash = hashAlg.ComputeHash(bytValue);
+                string base64 = Convert.ToBase64String(bytHash);
+                User us = new User() // CREATE A NEW OBJECT OF THE CORRESPONDING TYPE
+                {
+                    UserEmail=email,
+                    UserPassword=base64,
+                    UserType="Client"
+                };
+                uniDelDb.Users.Add(us);  //ADD THE NEW OBJECT TO OUR DATABASE. NO NEED FOR ANY SQL STATEMENTS. ALL OF THAT IS DONE WITHIN THIS CLASS
+                uniDelDb.SaveChanges();  
+                us = context.Unideldb.Where(User=>User.UserEmail==email).FirstOrDefault();
+                int id=us.UserID;
+                Client cli=new Client()
+                {
+                    ClientName=name,
+                    ClientTelephone=number,
+                    CLientAddress=address,
+                    UserID=id
+
+                };
+                uniDelDb.Client.Add(cli);
+                uniDelDb.SaveChanges();
+
+            }
+            return View();
+        }
+
+        public IActionResult RegisterCourierCompany(String email,String password, String verifyPass, String name, String number, String address)
+        {
+            if(password==verifyPass)
+            {
+                String salt=Convert.ToBase64String(email);
+                String p=password+salt;
+                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider(); 
+                byte[] bytValue = System.Text.Encoding.UTF8.GetBytes(p);
+                byte[] bytHash = hashAlg.ComputeHash(bytValue);
+                string base64 = Convert.ToBase64String(bytHash);
+                User us = new User() 
+                {
+                    UserEmail=email,
+                    UserPassword=base64,
+                    UserType="Client"
+                };
+                uniDelDb.Users.Add(us);
+                uniDelDb.SaveChanges();  
+                us = context.Unideldb.Where(User=>User.UserEmail==email).FirstOrDefault();
+                int id=us.UserID;
+                CourierCompany cc=new CourierCompany()
+                {
+                    CourierCompanyName=name,
+                    CourierCompanyTelephone=number,
+                    //CLientAddress=address,
+                    UserID=id
+
+                };
+                uniDelDb.CourierCompany.Add(cc);
+                uniDelDb.SaveChanges();
+
+            }
+            return View();
+        }
+
+        public IActionResult RegisterDriver(String email,String password, String verifyPass, String name,String surname, String number)
+        {
+            if(password==verifyPass)
+            {
+                String salt=Convert.ToBase64String(email);
+                String p=password+salt;
+                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider(); 
+                byte[] bytValue = System.Text.Encoding.UTF8.GetBytes(p);
+                byte[] bytHash = hashAlg.ComputeHash(bytValue);
+                string base64 = Convert.ToBase64String(bytHash);
+                User us = new User() 
+                {
+                    UserEmail=email,
+                    UserPassword=base64,
+                    UserType="Driver"
+                };
+                uniDelDb.Users.Add(us);  
+                uniDelDb.SaveChanges();  
+                us = context.Unideldb.Where(User=>User.UserEmail==email).FirstOrDefault();
+                int id=us.UserID;
+                Driver dri=new Driver()
+                {
+                    DriverName=name,
+                    DriverSurname=surname,
+                    DriverRating=5.0,
+                    DriverCellphone=number,
+                    UserID=id
+
+                };
+                uniDelDb.Drivers.Add(cli);
+                uniDelDb.SaveChanges();
+
+            }
             return View();
         }
 
