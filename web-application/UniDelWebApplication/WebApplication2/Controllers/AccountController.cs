@@ -17,6 +17,13 @@ namespace UniDelWebApplication.Controllers
     //TO CREATE A CONTROLLER RIGHT CLICK ON THE 'Controllers' FOLDER, SCROLL TO ADD, SELECT CONTROLLER, MVC CONTROLLER - EMPTY, GIVE IT AN APPROPRIATE NAME + 'Controller' e.g CourierCompanyController.cs
 
     //IDK BUT I FEEL LIKE WE CAN KEEP THIS CONTROLLER AND USE IT AS THE HUB OF OUR WEB APPLICATION
+
+    public int loginId;
+    public string loginName;
+    public string loaginEmail;
+
+
+
     public class AccountController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -69,6 +76,8 @@ namespace UniDelWebApplication.Controllers
         public IActionResult Logout()
         {
             //Go to a different page?
+            loginId="";
+            loginEmail="";
             return View();
         }
 
@@ -83,19 +92,38 @@ namespace UniDelWebApplication.Controllers
             User us = context.Unideldb.Where(User=>User.UserEmail==email).FirstOrDefault();
             if(base64==us.UserPassword)
             {
-                int id=us.UserID;
+                loginId=us.UserID;
+                loginEmail=us.UserEmail;
+
                 //should I return the ID?
             }
             return View();
         }
 
-        public IActionResult Register()
+        public IActionResult Register(String typeUser="", String email="",String password="", String verifyPass="", String name="", String number="", String address="", String surname="")
         {
-            //Should this function be called and hen decide where to send the request?
+            //
+            if(typeUser=="Client")
+            {
+                RegisterClient(email,password,verifyPass,name,number,address);
+            }
+            else if(typeUser=="Driver")
+            {
+                RegisterDriver(email,password,verifyPass,name,surname,number);
+            }
+            else if(typeUser=="CourierCompany")
+            {
+                RegisterCourierCompany(email,password,verifyPass,name,number,address);
+            }
+            else
+            {
+                //non valid user declaration
+            }
+            
             return View();
         }
 
-        public IActionResult RegisterClient(String email,String password, String verifyPass, String name, String number, String address)
+        public void RegisterClient(String email,String password, String verifyPass, String name, String number, String address)
         {
             if(password==verifyPass)
             {
@@ -127,10 +155,10 @@ namespace UniDelWebApplication.Controllers
                 uniDelDb.SaveChanges();
 
             }
-            return View();
+            //return View();
         }
 
-        public IActionResult RegisterCourierCompany(String email,String password, String verifyPass, String name, String number, String address)
+        public void RegisterCourierCompany(String email,String password, String verifyPass, String name, String number, String address)
         {
             if(password==verifyPass)
             {
@@ -162,10 +190,10 @@ namespace UniDelWebApplication.Controllers
                 uniDelDb.SaveChanges();
 
             }
-            return View();
+            //return View();
         }
 
-        public IActionResult RegisterDriver(String email,String password, String verifyPass, String name,String surname, String number)
+        public void RegisterDriver(String email,String password, String verifyPass, String name,String surname, String number)
         {
             if(password==verifyPass)
             {
@@ -194,11 +222,11 @@ namespace UniDelWebApplication.Controllers
                     UserID=id
 
                 };
-                uniDelDb.Drivers.Add(cli);
+                uniDelDb.Drivers.Add(dri);
                 uniDelDb.SaveChanges();
 
             }
-            return View();
+           // return View();
         }
 
         public IActionResult EmployeeReg()
