@@ -1,5 +1,7 @@
 # UNIDEL
 
+![Test Image 1](https://raw.githubusercontent.com/COS301-SE-2020/UNIDEL/Design2_coloured_3.png)
+
 ## Description
 
 UniDel is a unified delivery tracking system that supports fleet management. The system manages the deliveries of products using mobile devices that scan QR codes to track the statuses of the deliveries. Courier companies can track deliveries and manage their fleets and drivers in a single unified system. The system will consist of a web application that manages the entire system and a mobile application, used by drivers and customers, in order to track and manage the progress of deliveries.
@@ -55,7 +57,7 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 <details>
  <summary>Profile Description</summary>
 
- <p>Profile Description</p>
+ <p>I study BSc Computer Science who enjoys challenging coding. My favourite programming languages are Java, Python, JavaScript and BASIC. My hobbies include basic video editing and designs in Paint.net. I always strive to improve my skills and help my fellow colleagues.</p>
 </details>
 
 
