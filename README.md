@@ -20,42 +20,43 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 
 ### Ihlaam Abrahams
 - [Github Profile](www.github.com)
-- <IDesc>
+<details>
  <summary>Profile Description</summary>
- <br>
-Profile Description
-</IDesc>
+
+ <p>Profile Description</p>
+</details>
 
 ### Kevin Mynhardt
 - [Github Profile](https://kevin-mynhardt.github.io/)
-- <KDesc>
+<details>
  <summary>Profile Description</summary>
- <br>
-Profile Description
-</KDesc>
+
+ <p>Profile Description</p>
+</details>
 
 ### Khakhu Ramakuela
 - [Github Profile](https://u17283818.github.io./)
-- <RDesc>
+<details>
  <summary>Profile Description</summary>
- <br>
-I am a final year BSc Computer Science student. I am a passionate programmer with interests in various fields within Computer Science such as databases, web development as well as theoretical computer science. I enjoy programming in C++, NodeJS ,Python and in Java using the spring framework. I enjoy taking up challenges as well as reading in my spare time.
-</RDesc>
+
+ <p>I am a final year BSc Computer Science student. I am a passionate programmer with interests in various fields within Computer Science such as databases, web development as well as theoretical computer science. I enjoy programming in C++, NodeJS ,Python and in Java using the spring framework. I enjoy taking up challenges as well as reading in my spare time.</p>
+</details>
 
 ### William Tandwe
 - [Github Profile](https://williamtandweup.github.io/online-cv/)
-- <WDesc>
+<details>
  <summary>Profile Description</summary>
- <br>
-I am a versatile programmer who is fluent in C++, Java, C#, PHP, and SQL.
-</WDesc>
+
+ <p> I am a versatile programmer who is fluent in C++, Java, C#, PHP, and SQL.</p>
+</details>
 
 ### Marlene Viljoen
 - [Github Profile](https://u17028397.github.io/)
-- <MDesc>
+<details>
  <summary>Profile Description</summary>
- <br>
-Profile Description
-</MDesc>
+
+ <p>Profile Description</p>
+</details>
+
 
 
