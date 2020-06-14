@@ -14,21 +14,13 @@ namespace UniDelWebApplication.Controllers
     public class FleetManagementController : Controller
     {
         private readonly ILogger<FleetManagementController> _logger;
-        private readonly UniDelDbContext uniDelDb; //EVERY CONTROLLER IN OUR PROJECT SHOULD INCLUDE THIS TO HAVE ACCESS TO THE DATABASE
+        private UniDelDbContext uniDelDb; //EVERY CONTROLLER IN OUR PROJECT SHOULD INCLUDE THIS TO HAVE ACCESS TO THE DATABASE
 
         public FleetManagementController(ILogger<FleetManagementController> logger, UniDelDbContext db)
         {
             _logger = logger;
             uniDelDb = db;
         }
-
-        /*private List<Vehicle> veh = new List<Vehicle>(){
-                new Vehicle() { VehicleID = 0, VehicleMake = "A", VehicleModel = "Z", VehicleVIN = "I", VehicleMileage = 20, VehicleLicensePlate = "E", VehicleLicenseDiskExpiry = new DateTime(2033, 12, 25, 10, 30, 50), VehicleLastService = new DateTime(2019, 10, 25, 10, 30, 50), VehicleNextMileageService = 30, VehicleNextDateService = new DateTime(2020, 10, 25, 10, 30, 50) },
-                new Vehicle() { VehicleID = 1, VehicleMake = "B", VehicleModel = "Y", VehicleVIN = "F", VehicleMileage = 12, VehicleLicensePlate = "E", VehicleLicenseDiskExpiry =new DateTime(2023, 12, 25, 10, 30, 50), VehicleLastService = new DateTime(2019, 10, 25, 10, 35, 50), VehicleNextMileageService = 30, VehicleNextDateService = new DateTime(2020, 10, 25, 10, 30, 50) },
-                new Vehicle() { VehicleID = 2, VehicleMake = "C", VehicleModel = "X", VehicleVIN = "J", VehicleMileage = 23, VehicleLicensePlate = "E", VehicleLicenseDiskExpiry = new DateTime(2035, 12, 25, 10, 30, 50), VehicleLastService = new DateTime(2019, 10, 25, 10, 40, 50), VehicleNextMileageService = 30, VehicleNextDateService = new DateTime(2020, 10, 25, 10, 30, 50) },
-                new Vehicle() { VehicleID = 3, VehicleMake = "D", VehicleModel = "W", VehicleVIN = "G", VehicleMileage = 10, VehicleLicensePlate = "E", VehicleLicenseDiskExpiry = new DateTime(2025, 12, 25, 10, 30, 50), VehicleLastService = new DateTime(2019, 10, 25, 10, 50, 50), VehicleNextMileageService = 30, VehicleNextDateService = new DateTime(2020, 10, 25, 10, 30, 50) },
-                new Vehicle() { VehicleID = 4, VehicleMake = "E", VehicleModel = "V", VehicleVIN = "H", VehicleMileage = 26, VehicleLicensePlate = "E", VehicleLicenseDiskExpiry = new DateTime(2030, 12, 25, 10, 30, 50), VehicleLastService = new DateTime(2019, 10, 25, 11, 30, 50), VehicleNextMileageService = 30, VehicleNextDateService = new DateTime(2020, 10, 25, 10, 30, 50) }
-        };*/
 
         // GET: /<controller>/
         public IActionResult Index(String sortV, String search)
@@ -77,8 +69,9 @@ namespace UniDelWebApplication.Controllers
         {
             if (vMake != "")
             {
-                Vehicle newVehicle = new Vehicle() { VehicleID = uniDelDb.Vehicles.Count(), VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
+                Vehicle newVehicle = new Vehicle() { /*VehicleID = uniDelDb.Vehicles.Count()+2,*/ VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
                 uniDelDb.Vehicles.Add(newVehicle);
+                //uniDelDb.Vehicles.Attach(newVehicle);
                 uniDelDb.SaveChanges();
             }
             return View(uniDelDb.Vehicles);
@@ -134,7 +127,8 @@ namespace UniDelWebApplication.Controllers
 
 
             //redirect back to index page after deleting vehicle
-            return Index(null,null);
+            //return Index(null,null);
+            return View();
         }
     }
 }

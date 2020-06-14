@@ -148,3 +148,4 @@ C:/Users/HP/source/repos/WebApplication2/WebApplication2/obj/Debug/netcoreapp3.1
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/code /UNIDEL/web-application/UniDelWebApplication/WebApplication2/obj/Debug/netcoreapp3.1/UniDelWebApplication.genruntimeconfig.cache
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/code /UNIDEL/web-application/UniDelWebApplication/WebApplication2/obj/Debug/netcoreapp3.1/UniDelWebApplication.csprojAssemblyReference.cache
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/code /UNIDEL/web-application/UniDelWebApplication/WebApplication2/obj/Debug/netcoreapp3.1/Razor/Views/FleetManagement/Alter.cshtml.g.cs
+/Users/khakhu_ramakuela/Documents/COS 301/Capstone/code /UNIDEL/web-application/UniDelWebApplication/WebApplication2/obj/Debug/netcoreapp3.1/Razor/Views/FleetManagement/Delete.cshtml.g.cs

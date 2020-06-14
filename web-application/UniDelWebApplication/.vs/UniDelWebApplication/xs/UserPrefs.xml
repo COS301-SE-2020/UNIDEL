@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{60140119-B5CC-44CD-88B1-77DFCEFEDB95}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="WebApplication2/Views/FleetManagement/Edit.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WebApplication2/Views/FleetManagement/Delete.cshtml">
     <Files>
-      <File FileName="WebApplication2/Controllers/FleetManagementController.cs" Line="109" Column="145" IsPinned="True" />
-      <File FileName="WebApplication2/Views/FleetManagement/Index.cshtml" Line="11" Column="68" />
-      <File FileName="WebApplication2/Views/FleetManagement/AddVehicle.cshtml" Line="25" Column="5" />
-      <File FileName="WebApplication2/Controllers/HomeController.cs" Line="49" Column="13" />
-      <File FileName="WebApplication2/Views/FleetManagement/Edit.cshtml" Line="15" Column="33" />
+      <File FileName="WebApplication2/Controllers/FleetManagementController.cs" Line="131" Column="25" IsPinned="True" />
+      <File FileName="WebApplication2/Views/FleetManagement/Index.cshtml" />
+      <File FileName="WebApplication2/Views/FleetManagement/AddVehicle.cshtml" Line="1" Column="1" />
+      <File FileName="WebApplication2/Views/FleetManagement/Delete.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,7 +15,7 @@
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="FleetManagement" expanded="True">
-                  <Node name="Edit.cshtml" selected="True" />
+                  <Node name="Delete.cshtml" selected="True" />
                 </Node>
               </Node>
               <Node name="wwwroot" expanded="True" />
