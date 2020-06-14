@@ -1,6 +1,6 @@
 # UNIDEL
 
-![Test Image 1](https://raw.githubusercontent.com/COS301-SE-2020/UNIDEL/master/Design2_coloured_3.png)
+![UniDel Logo](https://raw.githubusercontent.com/COS301-SE-2020/UNIDEL/master/Design2_coloured_3.png)
 
 ## Description
 
@@ -19,6 +19,8 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 [Trello](https://trello.com/memoryinjectllamas)
 
 ## Team Member Profile
+
+![Team Member Profile Picture](https://raw.githubusercontent.com/COS301-SE-2020/UNIDEL/master/Github_cover1.png)
 
 ### Ihlaam Abrahams
 - [Github Profile](www.github.com)
