@@ -42,13 +42,13 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 <details>
  <summary>Profile Description</summary>
 
- <p>Profile Description</p>
+  <p>3rd year Computer Science student at the University of Pretoria. Started my interest in programming with Delphi in highschool. Since then I have learned: C++, Java, Web development, PHP, Javascript and SQL with focus beaing on RA. I have also as of lately been interested in AI, Compiler construction and computer graphics.</p>
  
  #### What I Did 
-- 
--  
--
-- 
+- Made the domain model (SRC Document)
+- Made the trace-ability matrix (SRS Document) 
+- Made the subsystem matrix (SRS Document)
+- Account Management
 </details>
 
 
