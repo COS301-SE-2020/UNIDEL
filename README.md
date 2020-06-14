@@ -1,6 +1,6 @@
 # UNIDEL
 
-![Test Image 1](https://raw.githubusercontent.com/COS301-SE-2020/UNIDEL/Design2_coloured_3.png)
+![Test Image 1](https://raw.githubusercontent.com/COS301-SE-2020/UNIDEL/master/Design2_coloured_3.png)
 
 ## Description
 
