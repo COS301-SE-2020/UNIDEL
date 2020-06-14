@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UniDelWebApplication.Models
 {
-    [Table("Delivery")]
+    [Table("Vehicle")]
     public class Vehicle
     {
         [Column("VehicleID")]

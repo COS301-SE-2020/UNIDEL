@@ -17,7 +17,7 @@ namespace UniDelWebApplication.Models
         public DbSet<Client> Clients { get; set; }
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<FleetManager> FleetManagers { get; set; }
-        public DbSet<User> Vehicles { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<CourierCompany> CourierCompanies { get; set; }
         public DbSet<CompanyVehicle> CompanyVehicles { get; set; }
