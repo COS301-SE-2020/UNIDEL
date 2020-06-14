@@ -6,6 +6,8 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 
 ## Link to video
 
+[Youtube](https://www.youtube.com)
+
 ## SRS documents
 
 [Overleaf](https://www.overleaf.com/project/5ebaa5b0855fe70001eb365b)
@@ -17,14 +19,40 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 ## Team Member Profile
 
 ### Ihlaam Abrahams
+* [Github Profile](www.github.com)
+* <Desc>
+ <summary>Profile Description</summary>
+ <br>
+Profile Description
+</Desc>
 ### Kevin Mynhardt
-https://kevin-mynhardt.github.io/
+* [Github Profile](https://kevin-mynhardt.github.io/)
+* <Desc>
+ <summary>Profile Description</summary>
+ <br>
+Profile Description
+</Desc>
 ### Khakhu Ramakuela
-https://u17283818.github.io./
+* [Github Profile](https://u17283818.github.io./)
+* <Desc>
+ <summary>Profile Description</summary>
+ <br>
+I am a final year BSc Computer Science student. I am a passionate programmer with interests in various fields within Computer Science such as databases, web development as well as theoretical computer science. I enjoy programming in C++, NodeJS ,Python and in Java using the spring framework. I enjoy taking up challenges as well as reading in my spare time.
+</Desc>
+* 
 ### William Tandwe
-https://williamtandweup.github.io/online-cv/
+* [Github Profile](https://williamtandweup.github.io/online-cv/)
+* <Desc>
+ <summary>Profile Description</summary>
+ <br>
 I am a versatile programmer who is fluent in C++, Java, C#, PHP, and SQL.
+</Desc>
 ### Marlene Viljoen
-https://u17028397.github.io/
+* [Github Profile](https://u17028397.github.io/)
+* <Desc>
+ <summary>Profile Description</summary>
+ <br>
+Profile Description
+</Desc>
 
 
