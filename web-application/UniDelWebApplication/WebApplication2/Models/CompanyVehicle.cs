@@ -11,6 +11,9 @@ namespace UniDelWebApplication.Models
     public class CompanyVehicle
     {
         [Column("CourierCompanyID")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         public int CourierCompanyID { get; set; }
 
         [ForeignKey("CourierCompanyID")]

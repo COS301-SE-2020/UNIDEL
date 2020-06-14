@@ -8,13 +8,11 @@
 
 <h2>Vehicles</h2>
 @Html.ActionLink("Add", "AddVehicle", "FleetManagement")<br>
-@Html.ActionLink("Capture Service", "CaptureService", "FleetManagement")<br>
-@Html.ActionLink("Renew License Disk", "RenewLicenseDisk", "FleetManagement")<br>
-@Html.ActionLink("Edit", "Edit", "FleetManagement")<br>
+@Html.ActionLink("Manage Vehicles", "Alter", "FleetManagement")<br>
 
 @using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
 {
-    <input type="text" name="search" placeholder="Search..">
+    <input type="text" name="search" placeholder="Search using VIN">
     <input type="submit" value="Search">
 }
 
@@ -44,28 +42,28 @@
             <th>Make</th>
             <th>Model</th>
             <th>VIN</th>
-            <th>Mileage</th>
             <th>License Plate</th>
             <th>License Disk Expiry</th>
-            <th>Last Service</th>
+            <th>Mileage</th>
             <th>Next Mileage Service</th>
+            <th>Last Service</th>
             <th>Next Date Service</th>
         </tr>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.VehicleID</td>
-                    <td>@item.VehicleMake</td>
-                    <td>@item.VehicleModel</td>
-                    <td>@item.VehicleVIN</td>
-                    <td>@item.VehicleMileage</td>
-                    <td>@item.VehicleLicensePlate</td>
-                    <td>@item.VehicleLicenseDiskExpiry</td>
-                    <td>@item.VehicleLastService</td>
-                    <td>@item.VehicleNextMileageService</td>
-                    <td>@item.VehicleNextDateService</td>
-                </tr>
+            <tr>
+                <td>@item.VehicleID</td>
+                <td>@item.VehicleMake</td>
+                <td>@item.VehicleModel</td>
+                <td>@item.VehicleVIN</td>
+                <td>@item.VehicleLicensePlate</td>
+                <td>@item.VehicleLicenseDiskExpiry</td>
+                <td>@item.VehicleMileage</td>
+                <td>@item.VehicleNextMileageService</td>
+                <td>@item.VehicleLastService</td>
+                <td>@item.VehicleNextDateService</td>
+            </tr>
             }
         </tbody>
     </table>

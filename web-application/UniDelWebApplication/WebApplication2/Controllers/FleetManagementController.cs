@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UniDelWebApplication.Models;
+using Microsoft.Extensions.Logging;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,30 +13,39 @@ namespace UniDelWebApplication.Controllers
 
     public class FleetManagementController : Controller
     {
-        private List<Vehicle> veh = new List<Vehicle>(){
+        private readonly ILogger<FleetManagementController> _logger;
+        private readonly UniDelDbContext uniDelDb; //EVERY CONTROLLER IN OUR PROJECT SHOULD INCLUDE THIS TO HAVE ACCESS TO THE DATABASE
+
+        public FleetManagementController(ILogger<FleetManagementController> logger, UniDelDbContext db)
+        {
+            _logger = logger;
+            uniDelDb = db;
+        }
+
+        /*private List<Vehicle> veh = new List<Vehicle>(){
                 new Vehicle() { VehicleID = 0, VehicleMake = "A", VehicleModel = "Z", VehicleVIN = "I", VehicleMileage = 20, VehicleLicensePlate = "E", VehicleLicenseDiskExpiry = new DateTime(2033, 12, 25, 10, 30, 50), VehicleLastService = new DateTime(2019, 10, 25, 10, 30, 50), VehicleNextMileageService = 30, VehicleNextDateService = new DateTime(2020, 10, 25, 10, 30, 50) },
                 new Vehicle() { VehicleID = 1, VehicleMake = "B", VehicleModel = "Y", VehicleVIN = "F", VehicleMileage = 12, VehicleLicensePlate = "E", VehicleLicenseDiskExpiry =new DateTime(2023, 12, 25, 10, 30, 50), VehicleLastService = new DateTime(2019, 10, 25, 10, 35, 50), VehicleNextMileageService = 30, VehicleNextDateService = new DateTime(2020, 10, 25, 10, 30, 50) },
                 new Vehicle() { VehicleID = 2, VehicleMake = "C", VehicleModel = "X", VehicleVIN = "J", VehicleMileage = 23, VehicleLicensePlate = "E", VehicleLicenseDiskExpiry = new DateTime(2035, 12, 25, 10, 30, 50), VehicleLastService = new DateTime(2019, 10, 25, 10, 40, 50), VehicleNextMileageService = 30, VehicleNextDateService = new DateTime(2020, 10, 25, 10, 30, 50) },
                 new Vehicle() { VehicleID = 3, VehicleMake = "D", VehicleModel = "W", VehicleVIN = "G", VehicleMileage = 10, VehicleLicensePlate = "E", VehicleLicenseDiskExpiry = new DateTime(2025, 12, 25, 10, 30, 50), VehicleLastService = new DateTime(2019, 10, 25, 10, 50, 50), VehicleNextMileageService = 30, VehicleNextDateService = new DateTime(2020, 10, 25, 10, 30, 50) },
                 new Vehicle() { VehicleID = 4, VehicleMake = "E", VehicleModel = "V", VehicleVIN = "H", VehicleMileage = 26, VehicleLicensePlate = "E", VehicleLicenseDiskExpiry = new DateTime(2030, 12, 25, 10, 30, 50), VehicleLastService = new DateTime(2019, 10, 25, 11, 30, 50), VehicleNextMileageService = 30, VehicleNextDateService = new DateTime(2020, 10, 25, 10, 30, 50) }
-        };
+        };*/
 
         // GET: /<controller>/
-        public IActionResult Index(String sortV,String search)
+        public IActionResult Index(String sortV, String search)
         {
+            List<Vehicle> veh = uniDelDb.Vehicles.ToList();
             List<Vehicle> v = new List<Vehicle>();
-            //veh[0].VehicleMake=search;
-            if (search==null)
+            if (search == null)
                 v = new List<Vehicle>(veh);
             else
             {
-                foreach(var ve in veh)
+                foreach (var ve in veh)
                 {
                     if (ve.VehicleVIN.Contains(search))
                         v.Add(ve);
                 }
             }
-            if (sortV=="vID")
+            if (sortV == "vID")
                 v = v.OrderBy(order => order.VehicleID).ToList();
             else if (sortV == "vMake")
                 v = v.OrderBy(order => order.VehicleMake).ToList();
@@ -63,43 +73,68 @@ namespace UniDelWebApplication.Controllers
             return View();
         }
 
-        public IActionResult Add(String vMake, String vModel,String vVIN, int vMileage, String vLicensePlate, DateTime vLicenseDiskExpiry, DateTime vLastService, int vNextMileageService, DateTime vNextDateService)
+        public IActionResult Add(String vMake="", String vModel = "", String vVIN = "", int vMileage = -1, String vLicensePlate = "", DateTime vLicenseDiskExpiry = new DateTime(), DateTime vLastService = new DateTime(), int vNextMileageService = -1, DateTime vNextDateService = new DateTime())
         {
-            List<Vehicle> v = new List<Vehicle>();
-            veh.Add(new Vehicle() { VehicleID = veh.Count(), VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService });
-            //Index(null,null);
-            return View(veh);
+            if (vMake != "")
+            {
+                Vehicle newVehicle = new Vehicle() { VehicleID = uniDelDb.Vehicles.Count(), VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
+                uniDelDb.Vehicles.Add(newVehicle);
+                uniDelDb.SaveChanges();
+            }
+            return View(uniDelDb.Vehicles);
         }
 
-        public IActionResult CaptureService()
+        public IActionResult CaptureService(int selectV, DateTime nextService)
         {
-            return View(veh);
+            Vehicle v = uniDelDb.Vehicles.Find(selectV);
+            v.VehicleLastService =DateTime.Now;
+            v.VehicleNextDateService = nextService;
+            uniDelDb.SaveChanges();
+            return View(v);
         }
 
-        public IActionResult Capture()
+        public IActionResult Alter()
         {
-            return View(veh);
+            return View(uniDelDb.Vehicles.ToList());
         }
 
-        public IActionResult RenewLicenseDisk()
+        public IActionResult RenewLicenseDisk(int selectV, DateTime newExp)
         {
-            return View();
+            Vehicle v = uniDelDb.Vehicles.Find(selectV);
+            v.VehicleLicenseDiskExpiry = newExp;
+            uniDelDb.SaveChanges();
+            return View(v);
         }
 
-        public IActionResult Edit()
+        public IActionResult Edit(int selectV, DateTime lservV = new DateTime(), DateTime nservV = new DateTime(), DateTime expV= new DateTime(), int mileV = -1, int mileageV = -1, String vinV = "", String licenseV = "", String modelV = "", String makeV="")
         {
-            //page to edit any other vehicle details
-            return View();
+            Vehicle v = uniDelDb.Vehicles.Find(selectV);
+            if (makeV != "")
+            {
+                v.VehicleMake = makeV;
+                v.VehicleModel = modelV;
+                v.VehicleLicensePlate = licenseV;
+                v.VehicleVIN = vinV;
+                v.VehicleMileage = mileageV;
+                v.VehicleNextMileageService = mileV;
+                v.VehicleLicenseDiskExpiry = expV;
+                v.VehicleLastService = lservV;
+                v.VehicleNextDateService = nservV;
+            }
+            uniDelDb.SaveChanges();
+            return View(v);
         }
 
-        public IActionResult Delete()
+        public IActionResult Delete(int selectV)
         {
-            //code to remove vehicle from system
+            Vehicle v = uniDelDb.Vehicles.Find(selectV);
+            uniDelDb.Vehicles.Remove(v);
+            uniDelDb.SaveChanges();
 
 
 
             //redirect back to index page after deleting vehicle
-            return new RedirectToPageResult("Index");
+            return Index(null,null);
         }
     }
 }
