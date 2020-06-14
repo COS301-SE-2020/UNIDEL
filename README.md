@@ -6,7 +6,7 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 
 ## Link to video
 
-[Youtube](https://www.youtube.com)
+[Youtube](https://youtu.be/3lfkyC_QbbY)
 
 ## SRS documents
 
