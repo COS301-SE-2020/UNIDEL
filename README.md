@@ -28,12 +28,13 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  <summary>Profile Description</summary>
 
  <p>Profile Description</p>
-</details>
-#### What I Did 
+ #### What I Did 
 - 
 -  
 - 
 -
+</details>
+
 
 ### Kevin Mynhardt
 - [Github Profile](https://kevin-mynhardt.github.io/)
