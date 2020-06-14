@@ -10,6 +10,13 @@ namespace UniDelWebApplication.Models
     [Table("CompanyVehicle")]
     public class CompanyVehicle
     {
+        [Column("CompanyVehicleID")]
+        [Key]
+        [DatabaseGenerated
+            (DatabaseGeneratedOption.Identity)]
+        [Required]
+        public int CompanyVehicleID { get; set; }
+
         [Column("CourierCompanyID")]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
