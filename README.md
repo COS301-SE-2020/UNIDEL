@@ -41,12 +41,14 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  <summary>Profile Description</summary>
 
  <p>Profile Description</p>
-</details>
-#### What I Did 
+ 
+ #### What I Did 
 - 
 -  
 -
 - 
+</details>
+
 
 ### Khakhu Ramakuela
 - [Github Profile](https://u17283818.github.io./)
@@ -54,12 +56,14 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  <summary>Profile Description</summary>
 
  <p>I am a final year BSc Computer Science student. I am a passionate programmer with interests in various fields within Computer Science such as databases, web development as well as theoretical computer science. I enjoy programming in C++, NodeJS ,Python and in Java using the spring framework. I enjoy taking up challenges as well as reading in my spare time.</p>
+ 
+ #### What I Did 
+- 
+- 
+- 
+- 
 </details>
-#### What I Did 
-- 
-- 
-- 
-- 
+
 
 ### William Tandwe
 - [Github Profile](https://williamtandweup.github.io/online-cv/)
@@ -67,12 +71,15 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  <summary>Profile Description</summary>
 
  <p>I am a BSc Information Technology student who is passionate about coding. Coming from an IT background, I aspire to reach great heights and make a statement in the world of computer science. I have been exposed to projects that are outside the realm of academics and believe that because of that exposure I am well positioned to make my own mark on the IT industry.</p>
-</details>
-#### What I Did 
+ 
+ #### What I Did 
 - Setting up Azure Account
 - Intergration & Unit Testing
 - 
 - 
+
+</details>
+
 
 ### Marlene Viljoen
 - [Github Profile](https://u17028397.github.io/)
@@ -80,11 +87,13 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  <summary>Profile Description</summary>
 
  <p>I study BSc Computer Science who enjoys challenging coding. My favourite programming languages are Java, Python, JavaScript and BASIC. My hobbies include basic video editing and designs in Paint.net. I always strive to improve my skills and help my fellow colleagues.</p>
-</details>
-#### What I Did 
+ 
+ #### What I Did 
 - User Stories
 - Functional Requirement (SRS Document) 
 - Use Cases & diagrams (SRS Document)
 - Logo Design & Front-end for Account Subsystem
 - Video Editing
+</details>
+
 
