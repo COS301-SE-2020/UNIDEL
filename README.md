@@ -75,9 +75,9 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  #### What I Did 
 - Setting up Azure Account
 - Intergration & Unit Testing
-- 
-- 
-
+- Quality Requirements
+- Database Management
+- Git Management
 </details>
 
 
