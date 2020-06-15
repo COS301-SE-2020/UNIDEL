@@ -27,8 +27,6 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 <details>
  <summary>Profile Description</summary>
  I am a third year Bsc IT student with a major in Business. This collaboration is something I find very interesting and necessary in the larger contect of working and developing IT solutions for companies. I have experience in C++, Java and all phases of web development. Recently I have been finding some interest in database and network security, which I hope to learn more about
-
- <p>Profile Description</p>
  
  #### What I Did 
 - Front end development for Fleet Management
