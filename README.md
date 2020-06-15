@@ -60,10 +60,10 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  <p>I am a final year BSc Computer Science student. I am a passionate programmer with interests in various fields within Computer Science such as databases, web development as well as theoretical computer science. I enjoy programming in C++, NodeJS ,Python and in Java using the spring framework. I enjoy taking up challenges as well as reading in my spare time.</p>
  
  #### What I Did 
-- 
-- 
-- 
-- 
+- User Stories
+- Use Case Diagram
+- Functional Requirements
+- Fleet Management
 </details>
 
 
