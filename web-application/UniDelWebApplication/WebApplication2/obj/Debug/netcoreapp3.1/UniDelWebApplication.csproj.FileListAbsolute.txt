@@ -128,6 +128,15 @@ C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-
 C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\UniDelWebApplication.RazorCoreGenerate.cache
 C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Account\EmployeeReg.cshtml.g.cs
 C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\FleetManagement\Add.cshtml.g.cs
+C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\FleetManagement\AddVehicle.cshtml.g.cs
+C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\FleetManagement\Alter.cshtml.g.cs
+C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\FleetManagement\CaptureService.cshtml.g.cs
+C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\FleetManagement\Delete.cshtml.g.cs
+C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\FleetManagement\Edit.cshtml.g.cs
+C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\FleetManagement\Index.cshtml.g.cs
+C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\FleetManagement\RenewLicenseDisk.cshtml.g.cs
 C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -144,4 +153,3 @@ C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-
 C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\UniDelWebApplication.dll
 C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\UniDelWebApplication.pdb
 C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\UniDelWebApplication.genruntimeconfig.cache
-C:\Users\HP\Documents\School Work\2020\COS 301\Capstone Project\Code\UNIDEL\web-application\UniDelWebApplication\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
