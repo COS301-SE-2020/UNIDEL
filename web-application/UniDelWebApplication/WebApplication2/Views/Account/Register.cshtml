@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+@*@model List<UniDelWebApplication.Models.Customer> PROVIDE THIS CODE TO ACCESS THE MODEL SENT BY FUNCTION return View(uniDelDb.Customers.ToList())*@
+
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "loginForm", @class = "form-card" }))
+        {
+            <div class="form-group">
+                <h1 class="text-center LOGIN">SIGN UP YOUR COURIER COMPANY</h1>
+            </div>
+
+            @*<div class="form-group Info">
+                <label for="TypeOfUser">User Type:</label>
+                <select class="form-control" id="userType">
+                    <option>Call Centre</option>
+                    <option>Fleet Manager</option>
+                </select>
+            </div>*@
+
+            <div class="form-group Info">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="Enter email">
+                <small id="emailErrorMsg" class="error-msg text-danger" hidden>Invalid Email Provided, please enter valid email address</small>
+            </div>
+
+            <div class="form-group Info">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required placeholder="Password">
+                <small id="passErrorMsg" class="error-msg text-danger" hidden>Invalid Password. Password must have at least one upper case, at least one lower case, at least one digit and have Minimum of eight characters in length .</small>
+                <input type="checkbox" onclick="toggleVisiblePassword()"> Show Password
+            </div>
+
+            <div class="form-group Info">
+                <label for="verifyPass">Verify password</label>
+                <input type="password" class="form-control" id="Verifypassword" name="verifyPass" required placeholder="Verify password">
+                <small id="verfpassErrorMsg" class="error-msg text-danger" hidden>Passwords do not match</small>
+                @*<input type="checkbox" onclick="toggleVisiblePassword()"> Show Password*@
+            </div>
+
+            <div class="form-group-info">
+                <label for="typeUser">User Type</label>
+                <select name="typeUser">
+                    <option value="CourierCompany">Courier Company</option>
+                    <!--<option value="FleetManager">Fleet Manager</option>
+                <option value="Driver">Driver</option>-->
+                </select>
+            </div>
+
+            <div class="form-group Info">
+                <label for="compName">Courier Company Name</label>
+                <input type="text" class="form-control" id="compName" name="compName" required placeholder="Company Name">
+            </div>
+
+            <div class="form-group Info">
+                <label for="tel">Telephone</label>
+                <input type="tel" class="form-control" id="tel" name="tel" required placeholder="Telephone number">
+                <small id="telErrorMsg" class="error-msg text-danger" hidden>Invalid Email Telephone, please enter valid telephone number</small>
+            </div>
+
+            <button type="submit" name="submit" id="login" class="btn btn-block btn-primary btn-color" style="margin:auto">Sign Up</button>
+            @*<br>*@
+            @*<a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-block btn-primary btn-color" style="margin:auto">Register</a>*@
+
+            <div class="container-fluid text-center">
+                @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>*@
+                @*<a href="register.html" class="text-warning">Register</a>*@
+
+            </div>
+        }
+    </div>
+</body>
