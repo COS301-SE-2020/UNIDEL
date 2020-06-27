@@ -10,11 +10,12 @@ namespace UniDelWebApplication.Models
     [Table("CompanyDelivery")]
     public class CompanyDelivery
     {
-        [Column("CourierCompanyID")]
+        [Column("CompanyDeliveryID")]
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated
+            (DatabaseGeneratedOption.Identity)]
         [Required]
-        public int CourierCompanyID { get; set; }
+        public int CompanyDeliveryID { get; set; }
 
         [ForeignKey("CourierCompanyID")]
         public CourierCompany CourierCompany { get; set; }

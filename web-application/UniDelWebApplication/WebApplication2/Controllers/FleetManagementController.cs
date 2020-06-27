@@ -128,7 +128,7 @@ namespace UniDelWebApplication.Controllers
 
             //redirect back to index page after deleting vehicle
             //return Index(null,null);
-            return View();
+            return new RedirectToPageResult("Index");
         }
     }
 }
