@@ -78,7 +78,7 @@ namespace UniDelWebApplication.Controllers
             //Go to a different page?
             loginId = -1;
             loginEmail = "";
-            return View();
+            return RedirectToAction("Login","Account");
         }
 
         public IActionResult Login(String email="", String pass="")
@@ -130,7 +130,7 @@ namespace UniDelWebApplication.Controllers
                 {
                     loginId = u.UserID;
                     loginEmail = u.UserEmail;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "FleetManagement");
                 }
 
                 ViewBag.Message = "Login failed. Email or Password is incorrect";

@@ -13,6 +13,8 @@ namespace UniDelWebApplication.Models
 
         }
 
+
+
         public DbSet<User> Users { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Driver> Drivers { get; set; }

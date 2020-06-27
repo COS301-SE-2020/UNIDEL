@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Fleet Management";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Fleet Management</h1>
+</div>
+
+<h2>Vehicles</h2>
+@Html.ActionLink("Add", "AddVehicle", "FleetManagement")<br>
+@Html.ActionLink("Manage Vehicles", "Alter", "FleetManagement")<br>
+
+@using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
+{
+    <input type="text" name="search" placeholder="Search using VIN">
+    <input type="submit" value="Search">
+}
+
+
+@using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
+{
+    <label for="sortV">Sort by:</label>
+    <select name="sortV" id="sortV">
+        <option value="vId">ID</option>
+        <option value="vMake">Make</option>
+        <option value="vModel">Model</option>
+        <option value="vVIN">VIN</option>
+        <option value="vMileage">Mileage</option>
+        <option value="vLicensePlate">License Plate</option>
+        <option value="vLicenseDiskExpiry">License Disk Expiry</option>
+        <option value="vLastService">Last Service</option>
+        <option value="vNextMileageService">Next Mileage Service</option>
+        <option value="vNextDateService">Next Date Service</option>
+    </select>
+    <input type="submit" value="Sort">
+}
+
+<div style="overflow-x:auto;">
+    <table border="1" cellpadding="11">
+        <tr>
+            <th>ID</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>VIN</th>
+            <th>License Plate</th>
+            <th>License Disk Expiry</th>
+            <th>Mileage</th>
+            <th>Next Mileage Service</th>
+            <th>Last Service</th>
+            <th>Next Date Service</th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.VehicleID</td>
+                <td>@item.VehicleMake</td>
+                <td>@item.VehicleModel</td>
+                <td>@item.VehicleVIN</td>
+                <td>@item.VehicleLicensePlate</td>
+                <td>@item.VehicleLicenseDiskExpiry</td>
+                <td>@item.VehicleMileage</td>
+                <td>@item.VehicleNextMileageService</td>
+                <td>@item.VehicleLastService</td>
+                <td>@item.VehicleNextDateService</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
