@@ -82,7 +82,7 @@ namespace UniDelWebApplication.Controllers
             v.VehicleLastService =DateTime.Now;
             v.VehicleNextDateService = nextService;
             uniDelDb.SaveChanges();
-            return View(v);
+            return RedirectToAction("Alter", "FleetManagement");
         }
 
         public IActionResult Alter()
