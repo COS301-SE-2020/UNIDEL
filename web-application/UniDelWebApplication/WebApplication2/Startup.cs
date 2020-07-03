@@ -25,6 +25,13 @@ namespace UniDelWebApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //ADDED SESSION MANAGEMENT CODE FROM HERE
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+            });
+            //TO HERE
+
             services.AddControllersWithViews();
             services.AddDbContext<UniDelDbContext>(
                 o => o.UseMySql(Configuration.GetConnectionString("Unidel"))
@@ -50,6 +57,10 @@ namespace UniDelWebApplication
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //ADDED CODE HERE
+            app.UseSession();
+            //TO HERE
 
             app.UseEndpoints(endpoints =>
             {

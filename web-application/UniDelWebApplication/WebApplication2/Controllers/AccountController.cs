@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
 using System.Security.Policy;
+using Microsoft.AspNetCore.Http;        //INCLUDE FOR SESSION MANAGEMENT
 
 namespace UniDelWebApplication.Controllers
 {
@@ -23,9 +24,10 @@ namespace UniDelWebApplication.Controllers
 
     public class AccountController : Controller
     {
-        public int loginId;
-        public string loginName;
-        public string loginEmail;
+        public static int loginId;
+        public static string loginName;
+        public static string loginEmail;
+        public static string UserType;
         private readonly ILogger<HomeController> _logger;
         private readonly UniDelDbContext uniDelDb; //EVERY CONTROLLER IN OUR PROJECT SHOULD INCLUDE THIS TO HAVE ACCESS TO THE DATABASE
 
@@ -73,11 +75,36 @@ namespace UniDelWebApplication.Controllers
             return View();
         }
 
+        public string getSessionID()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("ID")))
+                return HttpContext.Session.GetString("ID");
+            else
+                return "-1";
+        }
+
+        public string getSessionEmail()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Email")))
+                return HttpContext.Session.GetString("Email");
+            else
+                return "";
+        }
+
+        public string getSessionUserType()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserType")))
+                return HttpContext.Session.GetString("UserType");
+            else
+                return "";
+        }
+
         public IActionResult Logout()
         {
             //Go to a different page?
             loginId = -1;
             loginEmail = "";
+            HttpContext.Session.Clear();
             return RedirectToAction("Login","Account");
         }
 
@@ -128,8 +155,12 @@ namespace UniDelWebApplication.Controllers
                 
                 if ((final == u.UserPassword) && (email == u.UserEmail))
                 {
-                    loginId = u.UserID;
-                    loginEmail = u.UserEmail;
+                    HttpContext.Session.SetString("ID", u.UserID.ToString()); //Store User ID Retrieve using HttpContext.Session.GetString("ID")
+                    HttpContext.Session.SetString("Email", u.UserEmail);      //Store User Email Retrieve using HttpContext.Session.GetString("Email")
+                    HttpContext.Session.SetString("UserType", u.UserType);    //Store User type Retrieve using HttpContext.Session.GetString("UserType")
+                    loginId = Convert.ToInt16(HttpContext.Session.GetString("ID"));
+                    loginEmail = HttpContext.Session.GetString("Email");
+                    UserType = HttpContext.Session.GetString("UserType");
                     return RedirectToAction("Index", "FleetManagement");
                 }
 
