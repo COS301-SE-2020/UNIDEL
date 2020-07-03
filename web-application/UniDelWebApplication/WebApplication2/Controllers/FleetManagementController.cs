@@ -69,9 +69,8 @@ namespace UniDelWebApplication.Controllers
         {
             if (vMake != "")
             {
-                Vehicle newVehicle = new Vehicle() { /*VehicleID = uniDelDb.Vehicles.Count()+2,*/ VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
+                Vehicle newVehicle = new Vehicle() { VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
                 uniDelDb.Vehicles.Add(newVehicle);
-                //uniDelDb.Vehicles.Attach(newVehicle);
                 uniDelDb.SaveChanges();
             }
             return View(uniDelDb.Vehicles);
