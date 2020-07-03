@@ -98,7 +98,26 @@ namespace UniDelWebApplication.Controllers
             return View(v);
         }
 
-        public IActionResult Edit(int selectV, DateTime lservV = new DateTime(), DateTime nservV = new DateTime(), DateTime expV= new DateTime(), int mileV = -1, int mileageV = -1, String vinV = "", String licenseV = "", String modelV = "", String makeV="")
+        public IActionResult Edit(int selectV/*, DateTime lservV = new DateTime(), DateTime nservV = new DateTime(), DateTime expV= new DateTime(), int mileV = -1, int mileageV = -1, String vinV = "", String licenseV = "", String modelV = "", String makeV=""*/)
+        {
+            Vehicle v = uniDelDb.Vehicles.Find(selectV);
+            /*if (makeV != "")
+            {
+                v.VehicleMake = makeV;
+                v.VehicleModel = modelV;
+                v.VehicleLicensePlate = licenseV;
+                v.VehicleVIN = vinV;
+                v.VehicleMileage = mileageV;
+                v.VehicleNextMileageService = mileV;
+                v.VehicleLicenseDiskExpiry = expV;
+                v.VehicleLastService = lservV;
+                v.VehicleNextDateService = nservV;
+            }
+            uniDelDb.SaveChanges();*/
+            return View(v);
+        }
+
+        public IActionResult EditVehicle(int selectV, DateTime lservV = new DateTime(), DateTime nservV = new DateTime(), DateTime expV= new DateTime(), int mileV = -1, int mileageV = -1, String vinV = "", String licenseV = "", String modelV = "", String makeV="")
         {
             Vehicle v = uniDelDb.Vehicles.Find(selectV);
             if (makeV != "")
@@ -114,7 +133,7 @@ namespace UniDelWebApplication.Controllers
                 v.VehicleNextDateService = nservV;
             }
             uniDelDb.SaveChanges();
-            return View(v);
+            return RedirectToAction("Alter", "FleetManagement");
         }
 
         public IActionResult Delete(int selectV)
@@ -122,7 +141,6 @@ namespace UniDelWebApplication.Controllers
             Vehicle v = uniDelDb.Vehicles.Find(selectV);
             uniDelDb.Vehicles.Remove(v);
             uniDelDb.SaveChanges();
-
             return RedirectToAction("Alter", "FleetManagement");
         }
     }

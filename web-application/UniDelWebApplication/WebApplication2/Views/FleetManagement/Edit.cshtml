@@ -8,7 +8,7 @@
 
 <h1>Vehicle Information</h1>
 
-@using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
+@using (Html.BeginForm("EditVehicle", "FleetManagement", FormMethod.Post))
 {
     <div class="form-group row">
         <label for="vehicle_id" class="col-sm-2 col-form-label">Vehicle ID</label>
@@ -70,12 +70,6 @@
             <input type="text" class="form-control-plaintext" id="vehicle_nextService" name="nextservV" value=@Html.DisplayFor(m => m.VehicleNextDateService)>
         </div>
     </div>
-
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="checkbox">
-        <label class="form-check-label" for="checkbox">Edit vehicle info</label>
-    </div>
-    <!--uf checkbox is checked then inputs will turn off of read only and can change values-->
     
     <input type="submit" value="Edit Vehicle Details">
 }
