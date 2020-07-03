@@ -77,6 +77,14 @@ namespace UniDelWebApplication.Controllers
             return View(uniDelDb.Vehicles);
         }
 
+        public void DeleteVehicle([FromBody]int id)
+        {
+            Vehicle v = uniDelDb.Vehicles.Find(id);
+            uniDelDb.Vehicles.Remove(v);
+            uniDelDb.SaveChanges();
+            //return new RedirectToPageResult("Index");
+        }
+
         public IActionResult CaptureService(int selectV, DateTime nextService)
         {
             Vehicle v = uniDelDb.Vehicles.Find(selectV);
@@ -124,11 +132,7 @@ namespace UniDelWebApplication.Controllers
             uniDelDb.Vehicles.Remove(v);
             uniDelDb.SaveChanges();
 
-
-
-            //redirect back to index page after deleting vehicle
-            //return Index(null,null);
-            return new RedirectToPageResult("Index");
+            return RedirectToAction("Alter", "FleetManagement");
         }
     }
 }

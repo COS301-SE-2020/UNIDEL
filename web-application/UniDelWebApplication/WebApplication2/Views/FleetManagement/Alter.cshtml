@@ -25,20 +25,6 @@
     <input type="submit" value="Renew License Disk">
 }
 
-@using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
-{
-    <label for="selectV">Vehicle Id:</label>
-    <input type="number" id="selectV" name="selectV" placeholder="1">
-    <input type="submit" value="Edit">
-}
-
-@using (Html.BeginForm("Delete", "FleetManagement", FormMethod.Post))
-{
-    <label for="selectV">Vehicle Id:</label>
-    <input type="number" id="selectV" name="selectV" placeholder="1">
-    <input type="submit" value="Delete">
-}
-
 <table border="1" cellpadding="11">
     <tr>
         <th>ID</th>
@@ -51,6 +37,8 @@
         <th>Last Service</th>
         <th>Next Mileage Service</th>
         <th>Next Date Service</th>
+        <!--th>Edit</th>
+        <th>Delete</th-->
     </tr>
     <tbody>
         @foreach (var item in Model)
@@ -66,9 +54,27 @@
                 <td>@item.VehicleLastService</td>
                 <td>@item.VehicleNextMileageService</td>
                 <td>@item.VehicleNextDateService</td>
+                <td>
+                    @using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
+                    {
+                        <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
+                        <button type="submit">Edit</button>
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("Delete", "FleetManagement", FormMethod.Post))
+                    {
+                        <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
+                        <button type="submit" onclick="return confirm('Are you sure you want to delete Vehicle : @item.VehicleID @item.VehicleMake @item.VehicleModel')">Delete</button>
+                    }
+                </td>
             </tr>
         }
     </tbody>
 </table>
+<div runat="server" id="AlertBox" class="alertBox" Visible="false">
+    <div runat="server" id="AlertBoxMessage"></div>
+    <button onclick="closeAlert.call(this, event)">Ok</button>
+</div>
 
 
