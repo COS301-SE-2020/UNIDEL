@@ -77,14 +77,6 @@ namespace UniDelWebApplication.Controllers
             return View(uniDelDb.Vehicles);
         }
 
-        public void DeleteVehicle([FromBody]int id)
-        {
-            Vehicle v = uniDelDb.Vehicles.Find(id);
-            uniDelDb.Vehicles.Remove(v);
-            uniDelDb.SaveChanges();
-            //return new RedirectToPageResult("Index");
-        }
-
         public IActionResult CaptureService(int selectV, DateTime nextService)
         {
             Vehicle v = uniDelDb.Vehicles.Find(selectV);
