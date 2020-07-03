@@ -31,11 +31,11 @@
         <th>Make</th>
         <th>Model</th>
         <th>VIN</th>
-        <th>Mileage</th>
         <th>License Plate</th>
         <th>License Disk Expiry</th>
-        <th>Last Service</th>
+        <th>Mileage</th>
         <th>Next Mileage Service</th>
+        <th>Last Service</th>
         <th>Next Date Service</th>
         <!--th>Edit</th>
         <th>Delete</th-->
@@ -43,32 +43,32 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@item.VehicleID</td>
-                <td>@item.VehicleMake</td>
-                <td>@item.VehicleModel</td>
-                <td>@item.VehicleVIN</td>
-                <td>@item.VehicleMileage</td>
-                <td>@item.VehicleLicensePlate</td>
-                <td>@item.VehicleLicenseDiskExpiry</td>
-                <td>@item.VehicleLastService</td>
-                <td>@item.VehicleNextMileageService</td>
-                <td>@item.VehicleNextDateService</td>
-                <td>
-                    @using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
-                    {
-                        <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
-                        <button type="submit">Edit</button>
-                    }
-                </td>
-                <td>
-                    @using (Html.BeginForm("Delete", "FleetManagement", FormMethod.Post))
-                    {
-                        <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
-                        <button type="submit" onclick="return confirm('Are you sure you want to delete Vehicle : @item.VehicleID @item.VehicleMake @item.VehicleModel')">Delete</button>
-                    }
-                </td>
-            </tr>
+        <tr>
+            <td>@item.VehicleID</td>
+            <td>@item.VehicleMake</td>
+            <td>@item.VehicleModel</td>
+            <td>@item.VehicleVIN</td>
+            <td>@item.VehicleLicensePlate</td>
+            <td>@item.VehicleLicenseDiskExpiry</td>
+            <td>@item.VehicleMileage</td>
+            <td>@item.VehicleNextMileageService</td>
+            <td>@item.VehicleLastService</td>
+            <td>@item.VehicleNextDateService</td>
+            <td>
+                @using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
+                {
+                    <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
+                    <button type="submit">Edit</button>
+                }
+            </td>
+            <td>
+                @using (Html.BeginForm("Delete", "FleetManagement", FormMethod.Post))
+                {
+                    <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
+                    <button type="submit" onclick="return confirm('Are you sure you want to delete Vehicle : @item.VehicleID @item.VehicleMake @item.VehicleModel')">Delete</button>
+                }
+            </td>
+        </tr>
         }
     </tbody>
 </table>
