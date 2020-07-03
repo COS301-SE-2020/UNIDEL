@@ -95,7 +95,7 @@ namespace UniDelWebApplication.Controllers
             Vehicle v = uniDelDb.Vehicles.Find(selectV);
             v.VehicleLicenseDiskExpiry = newExp;
             uniDelDb.SaveChanges();
-            return View(v);
+            return RedirectToAction("Alter", "FleetManagement");
         }
 
         public IActionResult Edit(int selectV)
