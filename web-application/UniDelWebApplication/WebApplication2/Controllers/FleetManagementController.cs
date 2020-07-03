@@ -73,7 +73,7 @@ namespace UniDelWebApplication.Controllers
                 uniDelDb.Vehicles.Add(newVehicle);
                 uniDelDb.SaveChanges();
             }
-            return View(uniDelDb.Vehicles);
+            return RedirectToAction("Alter", "FleetManagement");
         }
 
         public IActionResult CaptureService(int selectV, DateTime nextService)
