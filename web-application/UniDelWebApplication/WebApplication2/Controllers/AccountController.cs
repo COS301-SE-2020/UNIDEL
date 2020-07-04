@@ -75,6 +75,7 @@ namespace UniDelWebApplication.Controllers
             return View();
         }
 
+        //FUNCTIONS FOR UNIT TESTING PURPOSES
         public string getSessionID()
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("ID")))
@@ -98,6 +99,7 @@ namespace UniDelWebApplication.Controllers
             else
                 return "";
         }
+        //END OF UNIT TESTING FUNCTIONS
 
         public IActionResult Logout()
         {
