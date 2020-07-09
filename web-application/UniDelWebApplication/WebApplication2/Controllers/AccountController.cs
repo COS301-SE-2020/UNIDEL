@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
 using System.Security.Policy;
 using Microsoft.AspNetCore.Http;        //INCLUDE FOR SESSION MANAGEMENT
+using System.Net.Http;                  //INCLUDE FOR RECAPTCHA
+using Newtonsoft.Json.Linq;             //INCLUDE FOR VALIDATING RECAPTCHA RESPONSE
+using System.Net;
 
 namespace UniDelWebApplication.Controllers
 {
@@ -171,12 +174,46 @@ namespace UniDelWebApplication.Controllers
             }
         }
 
+        public static bool ReCaptchaPassed(string gRecaptchaResponse, string secret, ILogger logger)
+        {
+            HttpClient httpClient = new HttpClient();
+            var res = httpClient.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secret}&response={gRecaptchaResponse}").Result;
+            if (res.StatusCode != HttpStatusCode.OK)
+            {
+                logger.LogError("Error while sending request to ReCaptcha");
+                return false;
+            }
+
+            string JSONres = res.Content.ReadAsStringAsync().Result;
+            dynamic JSONdata = JObject.Parse(JSONres);
+            if (JSONdata.success != "true")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public IActionResult Register(String typeUser = "", String email = "", String password = "", String verifyPass = "", String compName = "",String tel="", String number = "", String address = "", String surname = "")
         {
             //User details were not received therefore load register page to allow user to register
+            ViewBag.Error = "";
+            //LOAD DEFAULT PAGE IF ALL VARIABLES ARE UNSET
             if (email == "")
+            {
+                ViewData["ReCaptchaKey"] = SiteSettings.GoogleRecaptchaSiteKey;
                 return View();
+            }
 
+            //VALIDATE RECAPTCHA
+            if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"],SiteSettings.GoogleRecaptchaSecretKey,_logger))
+            {
+                //ModelState.AddModelError(string.Empty, "You failed the CAPTCHA, stupid robot. Go play some 1x1 on SFs instead.");
+                ViewBag["Error"] = "You failed the CAPTCHA, stupid robot. Go play some 1x1 on SFs instead.";
+                return View();
+            }
+
+            //IF WE ARE HERE THAT MEANS RECAPTCHA SUCCEEDED
             //User details were received. Proceed to add user to database
             //Start by hashing and salting the password
             byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(password);
