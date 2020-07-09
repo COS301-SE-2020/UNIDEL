@@ -17,9 +17,9 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 
 ## Documentation
 
-[User Manual](https://www.overleaf.com/read/tssghbtczsgh)
-[Architectural Designs Documentation](https://www.overleaf.com/read/jqmcttqkwhfw)
-[Coding Standard/Quality Documentation](https://www.overleaf.com/read/qmbsdjcpgktx)
+[User Manual](https://www.overleaf.com/read/tssghbtczsgh)  
+[Architectural Designs Documentation](https://www.overleaf.com/read/jqmcttqkwhfw)  
+[Coding Standard/Quality Documentation](https://www.overleaf.com/read/qmbsdjcpgktx)  
 
 ## Project management tool
 
