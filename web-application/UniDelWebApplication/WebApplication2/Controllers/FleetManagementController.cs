@@ -54,8 +54,11 @@ namespace UniDelWebApplication.Controllers
                 if (ve.CourierCompany.UserID == 3)
                     myVeh.Add(ve);
             }
-            Console.WriteLine("-----------------VEHSIZE---------------- "+myVeh.Count);
             List<Vehicle> veh = uniDelDb.Vehicles.ToList();
+            foreach(var ve in myVeh)
+            {
+                veh.Add(uniDelDb.Vehicles.Find(ve.VehicleID));
+            }
             List<Vehicle> v = new List<Vehicle>();
             if (search == null)
                 v = new List<Vehicle>(veh);
