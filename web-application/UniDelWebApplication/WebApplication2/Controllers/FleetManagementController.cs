@@ -41,17 +41,12 @@ namespace UniDelWebApplication.Controllers
                 if (ve.CourierCompany.UserID == 3)
                     Console.WriteLine(ve);
             }*/
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
             Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
             List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
             List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
             foreach (var ve in cV)
             {
-                if (ve.CourierCompany.UserID == 3)
+                if (ve.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
                     myVeh.Add(ve);
             }
             List<Vehicle> veh = new List<Vehicle>();
