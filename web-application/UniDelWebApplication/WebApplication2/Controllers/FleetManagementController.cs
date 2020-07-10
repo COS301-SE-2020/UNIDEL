@@ -37,8 +37,8 @@ namespace UniDelWebApplication.Controllers
             Console.WriteLine(cV.Count);
             foreach (var ve in cV)
             {
-                Console.WriteLine(ve.CourierCompany);
-                //if (ve.CourierCompany.CourierCompanyID == 3)
+                Console.WriteLine(ve.CourierCompany.UserID);
+                //if (ve.CourierCompany.UserID == 3)
                   //  Console.WriteLine(ve);
             }
             Console.WriteLine("---------------------------------");
