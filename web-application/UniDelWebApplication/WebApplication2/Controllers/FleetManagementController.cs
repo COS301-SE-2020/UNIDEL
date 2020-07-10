@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UniDelWebApplication.Models;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,6 +26,24 @@ namespace UniDelWebApplication.Controllers
         // GET: /<controller>/
         public IActionResult Index(String sortV, String search)
         {
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine(HttpContext.Session.GetString("ID"));
+            List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
+            Console.WriteLine(cV.Count);
+            foreach (var ve in cV)
+            {
+                Console.WriteLine(ve);
+            }
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
             List<Vehicle> veh = uniDelDb.Vehicles.ToList();
             List<Vehicle> v = new List<Vehicle>();
             if (search == null)
