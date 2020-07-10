@@ -95,9 +95,6 @@ namespace UniDelWebApplication.Controllers
 
         public IActionResult Add(String vMake="", String vModel = "", String vVIN = "", int vMileage = -1, String vLicensePlate = "", DateTime vLicenseDiskExpiry = new DateTime(), DateTime vLastService = new DateTime(), int vNextMileageService = -1, DateTime vNextDateService = new DateTime())
         {
-            //CompanyVehicle comVeh = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(3), VehicleID = 1 };
-            //uniDelDb.CompanyVehicles.Add(comVeh);
-            //uniDelDb.SaveChanges();
             if (vMake != "")
             {
                 Vehicle newVehicle = new Vehicle() { VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
