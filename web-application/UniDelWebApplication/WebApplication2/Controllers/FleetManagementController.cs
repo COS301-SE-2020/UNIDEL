@@ -26,21 +26,6 @@ namespace UniDelWebApplication.Controllers
         // GET: /<controller>/
         public IActionResult Index(String sortV, String search)
         {
-            /*Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            /*List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
-            Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));
-            Console.WriteLine(cV.Count);
-            foreach (var ve in cV)
-            {
-                Console.WriteLine(ve.CourierCompany.UserID);
-                if (ve.CourierCompany.UserID == 3)
-                    Console.WriteLine(ve);
-            }*/
             Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
             List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
             List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
