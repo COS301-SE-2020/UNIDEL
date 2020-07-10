@@ -54,8 +54,8 @@ namespace UniDelWebApplication.Controllers
                 if (ve.CourierCompany.UserID == 3)
                     myVeh.Add(ve);
             }
-            List<Vehicle> veh = uniDelDb.Vehicles.ToList();
-            foreach(var ve in myVeh)
+            List<Vehicle> veh = new List<Vehicle>();
+            foreach (var ve in myVeh)
             {
                 veh.Add(uniDelDb.Vehicles.Find(ve.VehicleID));
             }
