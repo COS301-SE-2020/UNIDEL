@@ -26,6 +26,9 @@ namespace UniDelWebApplication.Controllers
         // GET: /<controller>/
         public IActionResult Index(String sortV, String search)
         {
+            //CompanyVehicle newVehicle = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(3), VehicleID = 1 };
+            //uniDelDb.CompanyVehicles.Add(newVehicle);
+            //uniDelDb.SaveChanges();
             Console.WriteLine("---------------------------------");
             Console.WriteLine("---------------------------------");
             Console.WriteLine("---------------------------------");
