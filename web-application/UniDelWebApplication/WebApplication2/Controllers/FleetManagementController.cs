@@ -26,6 +26,26 @@ namespace UniDelWebApplication.Controllers
         // GET: /<controller>/
         public IActionResult Index(String sortV, String search)
         {
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
+            Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));
+            Console.WriteLine(cV.Count);
+            foreach (var ve in cV)
+            {
+                Console.WriteLine(ve.CourierCompany);
+                //if (ve.CourierCompany.CourierCompanyID == 3)
+                  //  Console.WriteLine(ve);
+            }
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
             List<Vehicle> veh = uniDelDb.Vehicles.ToList();
             List<Vehicle> v = new List<Vehicle>();
             if (search == null)
