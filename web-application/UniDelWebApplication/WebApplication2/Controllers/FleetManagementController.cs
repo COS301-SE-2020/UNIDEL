@@ -26,27 +26,6 @@ namespace UniDelWebApplication.Controllers
         // GET: /<controller>/
         public IActionResult Index(String sortV, String search)
         {
-            //CompanyVehicle newVehicle = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(3), VehicleID = 1 };
-            //uniDelDb.CompanyVehicles.Add(newVehicle);
-            //uniDelDb.SaveChanges();
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine(HttpContext.Session.GetString("ID"));
-            List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
-            Console.WriteLine(cV.Count);
-            foreach (var ve in cV)
-            {
-                Console.WriteLine(ve);
-            }
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
             List<Vehicle> veh = uniDelDb.Vehicles.ToList();
             List<Vehicle> v = new List<Vehicle>();
             if (search == null)
@@ -89,11 +68,33 @@ namespace UniDelWebApplication.Controllers
 
         public IActionResult Add(String vMake="", String vModel = "", String vVIN = "", int vMileage = -1, String vLicensePlate = "", DateTime vLicenseDiskExpiry = new DateTime(), DateTime vLastService = new DateTime(), int vNextMileageService = -1, DateTime vNextDateService = new DateTime())
         {
+            //CompanyVehicle comVeh = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(3), VehicleID = 1 };
+            //uniDelDb.CompanyVehicles.Add(comVeh);
+            //uniDelDb.SaveChanges();
             if (vMake != "")
             {
                 Vehicle newVehicle = new Vehicle() { VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
                 uniDelDb.Vehicles.Add(newVehicle);
                 uniDelDb.SaveChanges();
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("Current Vehicle ID " + newVehicle.VehicleID);
+                Console.WriteLine("Current User ID " + HttpContext.Session.GetString("ID"));
+                List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
+                Console.WriteLine(cV.Count);
+                foreach (var ve in cV)
+                {
+                    Console.WriteLine(ve);
+                }
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine("---------------------------------");
             }
             return RedirectToAction("Alter", "FleetManagement");
         }
