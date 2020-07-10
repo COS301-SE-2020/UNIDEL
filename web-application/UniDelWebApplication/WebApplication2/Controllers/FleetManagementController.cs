@@ -76,25 +76,9 @@ namespace UniDelWebApplication.Controllers
                 Vehicle newVehicle = new Vehicle() { VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
                 uniDelDb.Vehicles.Add(newVehicle);
                 uniDelDb.SaveChanges();
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("Current Vehicle ID " + newVehicle.VehicleID);
-                Console.WriteLine("Current User ID " + HttpContext.Session.GetString("ID"));
-                List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
-                Console.WriteLine(cV.Count);
-                foreach (var ve in cV)
-                {
-                    Console.WriteLine(ve);
-                }
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine("---------------------------------");
+                CompanyVehicle comVeh = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))), VehicleID = newVehicle.VehicleID };
+                uniDelDb.CompanyVehicles.Add(comVeh);
+                uniDelDb.SaveChanges();
             }
             return RedirectToAction("Alter", "FleetManagement");
         }
