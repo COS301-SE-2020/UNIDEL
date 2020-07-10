@@ -36,32 +36,34 @@
 }
 
 <div style="overflow-x:auto;">
-    <table border="1" cellpadding="11">
-        <tr>
-            <th>Make</th>
-            <th>Model</th>
-            <th>VIN</th>
-            <th>License Plate</th>
-            <th>License Disk Expiry</th>
-            <th>Mileage</th>
-            <th>Next Mileage Service</th>
-            <th>Last Service</th>
-            <th>Next Date Service</th>
-        </tr>
+    <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
+        <thead class="btn-primary whitefont">
+            <tr>
+                <th class="my-auto align-middle text-light">Make</th>
+                <th class="my-auto align-middle text-light">Model</th>
+                <th class="my-auto align-middle text-light">VIN</th>
+                <th class="my-auto align-middle text-light">License Plate</th>
+                <th class="my-auto align-middle text-light">License Disk Expiry</th>
+                <th class="my-auto align-middle text-light">Mileage</th>
+                <th class="my-auto align-middle text-light">Next Mileage Service</th>
+                <th class="my-auto align-middle text-light">Last Service</th>
+                <th class="my-auto align-middle text-light">Next Date Service</th>
+            </tr>
+        </thead>
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>@item.VehicleMake</td>
-                <td>@item.VehicleModel</td>
-                <td>@item.VehicleVIN</td>
-                <td>@item.VehicleLicensePlate</td>
-                <td>@item.VehicleLicenseDiskExpiry</td>
-                <td>@item.VehicleMileage</td>
-                <td>@item.VehicleNextMileageService</td>
-                <td>@item.VehicleLastService</td>
-                <td>@item.VehicleNextDateService</td>
-            </tr>
+                <tr>
+                    <td>@item.VehicleMake</td>
+                    <td>@item.VehicleModel</td>
+                    <td>@item.VehicleVIN</td>
+                    <td style="white-space:nowrap">@item.VehicleLicensePlate</td>
+                    <td>@item.VehicleLicenseDiskExpiry</td>
+                    <td>@item.VehicleMileage</td>
+                    <td>@item.VehicleNextMileageService</td>
+                    <td>@item.VehicleLastService</td>
+                    <td>@item.VehicleNextDateService</td>
+                </tr>
             }
         </tbody>
     </table>
