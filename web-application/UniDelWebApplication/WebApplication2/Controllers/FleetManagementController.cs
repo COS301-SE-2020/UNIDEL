@@ -46,14 +46,13 @@ namespace UniDelWebApplication.Controllers
             Console.WriteLine("---------------------------------");
             Console.WriteLine("---------------------------------");
             Console.WriteLine("---------------------------------");
-            Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));
+            Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
             List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
             List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
             foreach (var ve in cV)
             {
-                Console.WriteLine(ve.CourierCompany);
-                /*if (ve.CourierCompany.UserID == 3)
-                    myVeh.Add(ve);*/
+                if (ve.CourierCompany.UserID == 3)
+                    myVeh.Add(ve);
             }
             //Console.WriteLine("-----------------VEHSIZE---------------- "+myVeh.Count);
             List<Vehicle> veh = uniDelDb.Vehicles.ToList();
