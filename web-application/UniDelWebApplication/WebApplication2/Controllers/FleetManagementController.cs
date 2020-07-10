@@ -26,13 +26,13 @@ namespace UniDelWebApplication.Controllers
         // GET: /<controller>/
         public IActionResult Index(String sortV, String search)
         {
+            /*Console.WriteLine("---------------------------------");
             Console.WriteLine("---------------------------------");
             Console.WriteLine("---------------------------------");
             Console.WriteLine("---------------------------------");
             Console.WriteLine("---------------------------------");
             Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
+            /*List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
             Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));
             Console.WriteLine(cV.Count);
             foreach (var ve in cV)
@@ -40,12 +40,22 @@ namespace UniDelWebApplication.Controllers
                 Console.WriteLine(ve.CourierCompany.UserID);
                 if (ve.CourierCompany.UserID == 3)
                     Console.WriteLine(ve);
+            }*/
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));
+            List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
+            List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
+            foreach (var ve in cV)
+            {
+                Console.WriteLine(ve.CourierCompany);
+                /*if (ve.CourierCompany.UserID == 3)
+                    myVeh.Add(ve);*/
             }
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine("---------------------------------");
+            //Console.WriteLine("-----------------VEHSIZE---------------- "+myVeh.Count);
             List<Vehicle> veh = uniDelDb.Vehicles.ToList();
             List<Vehicle> v = new List<Vehicle>();
             if (search == null)
