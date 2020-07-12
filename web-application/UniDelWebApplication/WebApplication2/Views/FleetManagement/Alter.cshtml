@@ -7,51 +7,54 @@
     <p></p>
 </div>
 
-@using (Html.BeginForm("CaptureService", "FleetManagement", FormMethod.Post))
-{
-    <label for="selectV">Vehicle Id:</label>
-    <input type="number" id="selectV" name="selectV" placeholder="1">
-    <label for="nextService" class="input-group-text" id="inputGroup-sizing-sm">New Service</label>
-    <input type="date" class="form-control" aria-label="New Service Date" aria-describedby="inputGroup-sizing-sm" name="nextService">
-    <input type="submit" value="Service">
-}
+<div class="form-row">
+    <div class="col shadow p-2">
+        @using (Html.BeginForm("CaptureService", "FleetManagement", FormMethod.Post))
+        {
+            <h2>Service Vehicle</h2>
+            <label for="selectV">Vehicle Id:</label>
+            <input type="number" id="selectV" name="selectV" placeholder="1">
+            <label for="nextService" class="input-group-text" id="inputGroup-sizing-sm">New Service</label>
+            <input type="date" class="form-control" aria-label="New Service Date" aria-describedby="inputGroup-sizing-sm" name="nextService">
+            <br />
+            <input type="submit" value="Service" class="btn btn-block btn-primary btn-color">
+        }
+    </div>
+    <div class="col-"></div>
+    <div class="col shadow p-2">
+        @using (Html.BeginForm("RenewLicenseDisk", "FleetManagement", FormMethod.Post))
+        {
+            <h2>Renew License Disk</h2>
+            <label for="selectV">Vehicle Id:</label>
+            <input type="number" id="selectV" name="selectV" placeholder="1">
+            <label for="newExp" class="input-group-text" id="inputGroup-sizing-sm">New Expiry Date</label>
+            <input type="date" class="form-control" aria-label="New Expiry Date" aria-describedby="inputGroup-sizing-sm" name="newExp">
+            <br />
+            <input type="submit" value="Renew License Disk" class="btn btn-block btn-primary btn-color">
+        }
+    </div>
+</div>
 
-@using (Html.BeginForm("RenewLicenseDisk", "FleetManagement", FormMethod.Post))
-{
-    <label for="selectV">Vehicle Id:</label>
-    <input type="number" id="selectV" name="selectV" placeholder="1">
-    <label for="newExp" class="input-group-text" id="inputGroup-sizing-sm">New Expiry Date</label>
-    <input type="date" class="form-control" aria-label="New Expiry Date" aria-describedby="inputGroup-sizing-sm" name="newExp">
-    <input type="submit" value="Renew License Disk">
-}
+<br />
 
-@using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
-{
-    <label for="selectV">Vehicle Id:</label>
-    <input type="number" id="selectV" name="selectV" placeholder="1">
-    <input type="submit" value="Edit">
-}
-
-@using (Html.BeginForm("Delete", "FleetManagement", FormMethod.Post))
-{
-    <label for="selectV">Vehicle Id:</label>
-    <input type="number" id="selectV" name="selectV" placeholder="1">
-    <input type="submit" value="Delete">
-}
-
-<table border="1" cellpadding="11">
-    <tr>
-        <th>ID</th>
-        <th>Make</th>
-        <th>Model</th>
-        <th>VIN</th>
-        <th>Mileage</th>
-        <th>License Plate</th>
-        <th>License Disk Expiry</th>
-        <th>Last Service</th>
-        <th>Next Mileage Service</th>
-        <th>Next Date Service</th>
-    </tr>
+<table cellpadding="13" class="table table-bordered table-hover shadow p-2">
+    <thead class="btn-primary whitefont">
+        <tr>
+            <th class="my-auto align-middle text-light">ID</th>
+            <th class="my-auto align-middle text-light">Make</th>
+            <th class="my-auto align-middle text-light">Model</th>
+            <th class="my-auto align-middle text-light">VIN</th>
+            <th class="my-auto align-middle text-light">License Plate</th>
+            <th class="my-auto align-middle text-light">License Disk Expiry</th>
+            <th class="my-auto align-middle text-light">Mileage</th>
+            <th class="my-auto align-middle text-light">Next Mileage Service</th>
+            <th class="my-auto align-middle text-light">Last Service</th>
+            <th class="my-auto align-middle text-light">Next Date Service</th>
+            <th colspan="2" class="my-auto align-middle text-light"></th>
+            <!--th>Edit</th>
+    <th>Delete</th-->
+        </tr>
+    </thead>
     <tbody>
         @foreach (var item in Model)
         {
@@ -60,12 +63,26 @@
                 <td>@item.VehicleMake</td>
                 <td>@item.VehicleModel</td>
                 <td>@item.VehicleVIN</td>
-                <td>@item.VehicleMileage</td>
-                <td>@item.VehicleLicensePlate</td>
+                <td style="white-space:nowrap">@item.VehicleLicensePlate</td>
                 <td>@item.VehicleLicenseDiskExpiry</td>
-                <td>@item.VehicleLastService</td>
+                <td>@item.VehicleMileage</td>
                 <td>@item.VehicleNextMileageService</td>
+                <td>@item.VehicleLastService</td>
                 <td>@item.VehicleNextDateService</td>
+                <td class="my-auto align-middle" cellpadding="8">
+                    @using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
+                    {
+                        <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
+                        <button class="btn btn-light" type="submit"><img src="~/images/pencil-alt-solid.svg" width="15" alt=""></button>
+                    }
+                </td>
+                <td class="my-auto align-middle" cellpadding="8">
+                    @using (Html.BeginForm("Delete", "FleetManagement", FormMethod.Post))
+                    {
+                        <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
+                        <button class="btn btn-light" type="submit" onclick="return confirm('Are you sure you want to delete Vehicle : @item.VehicleID @item.VehicleMake @item.VehicleModel')"><img src="~/images/trash-solid.svg" width="15" alt=""></button>
+                    }
+                </td>
             </tr>
         }
     </tbody>
