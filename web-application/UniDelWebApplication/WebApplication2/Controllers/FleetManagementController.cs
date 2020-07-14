@@ -23,22 +23,33 @@ namespace UniDelWebApplication.Controllers
             uniDelDb = db;
         }
 
-        // GET: /<controller>/
-        public IActionResult Index(String sortV, String search)
+        //Helper function to filter vehicles
+        private List<Vehicle> filterVehicles()
         {
             Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
-            List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
+            List <CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
             List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
             foreach (var ve in cV)
             {
-                if (ve.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
-                    myVeh.Add(ve);
+                if (ve.CourierCompany!= null)
+                {
+                    if (ve.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
+                        myVeh.Add(ve);
+                }
             }
             List<Vehicle> veh = new List<Vehicle>();
             foreach (var ve in myVeh)
             {
                 veh.Add(uniDelDb.Vehicles.Find(ve.VehicleID));
             }
+            return veh;
+        }
+
+        // GET: /<controller>/
+        public IActionResult Index(String sortV, String search)
+        {
+            List<Vehicle> veh=filterVehicles();
+            //List<Vehicle> veh = uniDelDb.Vehicles.ToList();
             List<Vehicle> v = new List<Vehicle>();
             if (search == null)
                 v = new List<Vehicle>(veh);
@@ -103,7 +114,9 @@ namespace UniDelWebApplication.Controllers
 
         public IActionResult Alter()
         {
-            return View(uniDelDb.Vehicles.ToList());
+            List<Vehicle> veh = filterVehicles();
+            //List<Vehicle> veh = uniDelDb.Vehicles.ToList();
+            return View(veh);
         }
 
         public IActionResult RenewLicenseDisk(int selectV, DateTime newExp)
