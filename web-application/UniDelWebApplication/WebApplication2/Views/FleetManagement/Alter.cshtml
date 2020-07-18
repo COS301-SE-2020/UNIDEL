@@ -58,32 +58,32 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@item.VehicleID</td>
-                <td>@item.VehicleMake</td>
-                <td>@item.VehicleModel</td>
-                <td>@item.VehicleVIN</td>
-                <td style="white-space:nowrap">@item.VehicleLicensePlate</td>
-                <td>@item.VehicleLicenseDiskExpiry</td>
-                <td>@item.VehicleMileage</td>
-                <td>@item.VehicleNextMileageService</td>
-                <td>@item.VehicleLastService</td>
-                <td>@item.VehicleNextDateService</td>
-                <td class="my-auto align-middle" cellpadding="8">
-                    @using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
-                    {
-                        <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
-                        <button class="btn btn-light" type="submit"><img src="~/images/pencil-alt-solid.svg" width="15" alt=""></button>
-                    }
-                </td>
-                <td class="my-auto align-middle" cellpadding="8">
-                    @using (Html.BeginForm("Delete", "FleetManagement", FormMethod.Post))
-                    {
-                        <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
-                        <button class="btn btn-light" type="submit" onclick="return confirm('Are you sure you want to delete Vehicle : @item.VehicleID @item.VehicleMake @item.VehicleModel')"><img src="~/images/trash-solid.svg" width="15" alt=""></button>
-                    }
-                </td>
-            </tr>
+        <tr>
+            <td>@item.VehicleID</td>
+            <td>@item.VehicleMake</td>
+            <td>@item.VehicleModel</td>
+            <td>@item.VehicleVIN</td>
+            <td>@item.VehicleLicensePlate</td>
+            <td>@item.VehicleLicenseDiskExpiry.ToString("yyyy-MM-dd")</td>
+            <td>@item.VehicleMileage</td>
+            <td>@item.VehicleNextMileageService</td>
+            <td>@item.VehicleLastService.ToString("yyyy-MM-dd")</td>
+            <td>@item.VehicleNextDateService.ToString("yyyy-MM-dd")</td>
+            <td class="my-auto align-middle" cellpadding="8">
+                @using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
+                {
+                    <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
+                    <button class="btn btn-light" type="submit"><img src="~/images/pencil-alt-solid.svg" width="15" alt=""></button>
+                }
+            </td>
+            <td class="my-auto align-middle" cellpadding="8">
+                @using (Html.BeginForm("Delete", "FleetManagement", FormMethod.Post))
+                {
+                    <input type="hidden" id="selectV" name="selectV" value="@item.VehicleID">
+                    <button class="btn btn-light" type="submit" onclick="return confirm('Are you sure you want to delete Vehicle : @item.VehicleID @item.VehicleMake @item.VehicleModel')"><img src="~/images/trash-solid.svg" width="15" alt=""></button>
+                }
+            </td>
+        </tr>
         }
     </tbody>
 </table>
