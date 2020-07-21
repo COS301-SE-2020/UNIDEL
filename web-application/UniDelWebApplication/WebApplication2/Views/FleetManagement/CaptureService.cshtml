@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Capture Service";
+}
+
+@using UniDelWebApplication.Models
+@model Vehicle
+
+<h1>Capture a Service</h1>
+
+<form>
+    <div class="form-group row">
+        <label for="vehicle_mileage" class="col-sm-2 col-form-label">Vehicle mileage</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="vehicle_mileage" value=@Html.DisplayFor(m => m.VehicleMileage)>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="vehicle_next_mileage_service" class="col-sm-2 col-form-label">Vehicle next mileage service</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="vehicle_next_mileage_service" value=@Html.DisplayFor(m => m.VehicleNextMileageService)>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="vehicle_last_service" class="col-sm-2 col-form-label">Vehicle last service</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="vehicle_last_service" value=@Html.DisplayFor(m => m.VehicleLastService)>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="vehicle_next_service" class="col-sm-2 col-form-label">Vehicle next service</label>
+        <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="vehicleMileage" value=@Html.DisplayFor(m => m.VehicleNextDateService)>
+        </div>
+    </div>
+
+    <!--if a service was done today the box will be checked and the inputs above will turn off of read only - press submit to save changes-->
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="checkbox">
+        <label class="form-check-label" for="checkbox">Was a service done today?</label>
+    </div>
+    <div>
+        <button type="button" class="btn btn-light">Submit</button>
+    </div>
+</form>
