@@ -37,7 +37,7 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  
  #### What I Did 
 - Front end development for Fleet Management
-- User Charachteristics (SRS Document)
+- User Characteristics (SRS Document)
 - Quality requirements (SRS Document)
 </details>
 
