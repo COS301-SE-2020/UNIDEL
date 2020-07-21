@@ -6,13 +6,20 @@
 
 UniDel is a unified delivery tracking system that supports fleet management. The system manages the deliveries of products using mobile devices that scan QR codes to track the statuses of the deliveries. Courier companies can track deliveries and manage their fleets and drivers in a single unified system. The system will consist of a web application that manages the entire system and a mobile application, used by drivers and customers, in order to track and manage the progress of deliveries.
 
-## Link to video
+## Link to videos
 
-[Youtube](https://youtu.be/3lfkyC_QbbY)
+[Demo 1](https://youtu.be/3lfkyC_QbbY)
 
-## SRS documents
+## SRS Document
 
-[Overleaf](https://www.overleaf.com/read/mbfchyfknqwn)
+[Version 1](https://www.overleaf.com/read/mbfchyfknqwn)  
+[Version 2](https://www.overleaf.com/read/pcvqtdmywjtr)  
+
+## Documentation
+
+[User Manual](https://www.overleaf.com/read/tssghbtczsgh)  
+[Architectural Designs Documentation](https://www.overleaf.com/read/jqmcttqkwhfw)  
+[Coding Standard/Quality Documentation](https://www.overleaf.com/read/qmbsdjcpgktx)  
 
 ## Project management tool
 
