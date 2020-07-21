@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj": {}
+    "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj": {
+    "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
+        "projectUniqueName": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
         "projectName": "UniDel.Android",
-        "projectPath": "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\obj\\",
+        "projectPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
+        "packagesPath": "C:\\Users\\FoxyFast\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FoxyFast\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
-                "projectPath": "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj"
+              "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
+                "projectPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj"
               }
             }
           }
@@ -54,21 +54,20 @@
         }
       }
     },
-    "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
+    "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
+        "projectUniqueName": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
         "projectName": "UniDel",
-        "projectPath": "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\obj\\",
+        "projectPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
+        "packagesPath": "C:\\Users\\FoxyFast\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FoxyFast\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
