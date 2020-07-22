@@ -57,12 +57,12 @@
                     <td>@item.VehicleMake</td>
                     <td>@item.VehicleModel</td>
                     <td>@item.VehicleVIN</td>
-                    <td style="white-space:nowrap">@item.VehicleLicensePlate</td>
-                    <td>@item.VehicleLicenseDiskExpiry</td>
+                    <td>@item.VehicleLicensePlate</td>
+                    <td>@item.VehicleLicenseDiskExpiry.ToString("yyyy-MM-dd")</td>
                     <td>@item.VehicleMileage</td>
                     <td>@item.VehicleNextMileageService</td>
-                    <td>@item.VehicleLastService</td>
-                    <td>@item.VehicleNextDateService</td>
+                    <td>@item.VehicleLastService.ToString("yyyy-MM-dd")</td>
+                    <td>@item.VehicleNextDateService.ToString("yyyy-MM-dd")</td>
                 </tr>
             }
         </tbody>
