@@ -110,6 +110,7 @@ namespace UniDelWebApplication.Controllers
             loginId = -1;
             loginEmail = "";
             HttpContext.Session.Clear();
+            UserType = null;
             return RedirectToAction("Login","Account");
         }
 
