@@ -48,6 +48,7 @@ D:\Documents\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandar
 D:\Documents\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
 D:\Documents\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\MenuPage.xaml.g.cs
 D:\Documents\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
+D:\Documents\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\QRScanningPage.xaml.g.cs
 D:\Documents\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.AssemblyInfoInputs.cache
 D:\Documents\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.AssemblyInfo.cs
 D:\Documents\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.csproj.CoreCompileInputs.cache

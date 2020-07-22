@@ -3,6 +3,7 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "UniDel.Android.dll" comes first in this list. */
 		"UniDel.Android.dll",
+		"FastAndroidCamera.dll",
 		"FormsViewGroup.dll",
 		"UniDel.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
@@ -47,6 +48,9 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Forms.Platform.Android.dll",
 		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Forms.Xaml.dll",
+		"ZXing.Net.Mobile.Core.dll",
+		"zxing.portable.dll",
+		"ZXingNetMobile.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

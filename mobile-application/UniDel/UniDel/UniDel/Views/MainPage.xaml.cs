@@ -36,6 +36,9 @@ namespace UniDel.Views
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+                    case (int)MenuItemType.QRCode:
+                        MenuPages.Add(id, new NavigationPage(new QRScanningPage()));
+                        break;
                 }
             }
 
