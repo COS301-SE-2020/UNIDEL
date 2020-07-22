@@ -91,7 +91,7 @@ namespace UniDelWebApplication.Controllers
 
         public IActionResult Index()
         {
-            return View(uniDelDb.Vehicles.ToList());
+            return View(uniDelDb.Deliveries.ToList());
         }
 
         [ValidateAntiForgeryToken]
