@@ -7,7 +7,6 @@ namespace UniDel.Views
 {
     public partial class MapPage : ContentPage
     {
-        private static RestClient client = new RestClient("https://unidelapi.azurewebsites.net/api/");
 
         public MapPage()
         {
