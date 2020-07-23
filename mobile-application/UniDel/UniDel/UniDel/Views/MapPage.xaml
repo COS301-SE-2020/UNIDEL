@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UniDel.Views.MapPage">
-    <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-        <Label Text="Map:" FontSize="Medium" />
-    </StackLayout>
-    </ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             x:Class="UniDel.Views.MapPage">
+    <StackLayout Margin="20,35,20,20">
+       <Label Text="Before:" FontSize="Medium" />
+        <Image Source="https://gyazo.com/f3e28388a426adc03f036aaf77d7410f" />
+        <Image Source="https://aka.ms/campus.jpg" />
+       <Button Text="View Map" Clicked="viewMap"/>
+   </StackLayout>
 </ContentPage>
