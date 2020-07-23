@@ -12,6 +12,14 @@ namespace UniDel.Views
         public MapPage()
         {
             InitializeComponent();
+
+            WebView webView = new WebView
+            {
+                Source = new UrlWebViewSource
+                {
+                    Url = "https://memoryinjectllamas.carto.com/builder/9c8296c3-1e37-43b0-8327-5ec2a868dd57/embed",
+                },
+            };
         }
 
         void viewMap(object sender, EventArgs e)
