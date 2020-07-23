@@ -7,6 +7,7 @@ namespace UniDel.Models
     public enum MenuItemType
     {
         Browse,
+        Map,
         About
     }
     public class HomeMenuItem

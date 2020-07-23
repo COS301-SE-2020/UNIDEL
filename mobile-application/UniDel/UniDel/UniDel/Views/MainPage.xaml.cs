@@ -33,6 +33,9 @@ namespace UniDel.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
+                    case(int)MenuItemType.Map:
+                        MenuPages.Add(id, new NavigationPage(new MapPage()));
+                        break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;

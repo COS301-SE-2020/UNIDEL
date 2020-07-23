@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UniDel.Views.MainPage.xaml", "Views/MainPage.xaml", typeof(global::UniDel.Views.MainPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UniDel.Views.MapPage.xaml", "Views/MapPage.xaml", typeof(global::UniDel.Views.MapPage))]
 
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/MainPage.xaml")]
-    public partial class MainPage : global::Xamarin.Forms.MasterDetailPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/MapPage.xaml")]
+    public partial class MapPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MapPage));
         }
     }
 }
