@@ -13,13 +13,24 @@ namespace UniDel.Views
         {
             InitializeComponent();
 
-            WebView webView = new WebView
+            /*WebView webView = new WebView
             {
-                Source = new UrlWebViewSource
+                /*Source = new UrlWebViewSource
                 {
                     Url = "https://memoryinjectllamas.carto.com/builder/9c8296c3-1e37-43b0-8327-5ec2a868dd57/embed",
-                },
-            };
+                }
+                Source= "https://memoryinjectllamas.carto.com/builder/9c8296c3-1e37-43b0-8327-5ec2a868dd57/embed",
+            };*/
+        }
+
+        void webviewNavigating(object sender, WebNavigatingEventArgs e)
+        {
+            labelLoading.IsVisible = true;
+        }
+
+        void webviewNavigated(object sender, WebNavigatedEventArgs e)
+        {
+            labelLoading.IsVisible = false;
         }
 
         void viewMap(object sender, EventArgs e)
