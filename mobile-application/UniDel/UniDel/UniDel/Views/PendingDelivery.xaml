@@ -25,7 +25,7 @@
                        Padding="10"
                        VerticalOptions="Center"
                        VerticalTextAlignment="Center"/>
-                <Label Text="pickup address"
+                <Label Text="13 Umgazi St, Menlo Park, Pretoria, 0081"
                        FontSize="Small"
                        TextColor="#1861ac"
                        FontFamily="UnidelFont"
@@ -48,7 +48,7 @@
                        Padding="10"
                        VerticalOptions="Center"
                        VerticalTextAlignment="Center"/>
-                   <Label Text="dropoff address"
+                   <Label Text="273 Lynnwood Rd, Menlo Park, Pretoria, 0081"
                        FontSize="Small"
                        TextColor="#1861ac"
                        FontFamily="UnidelFont"
@@ -60,7 +60,7 @@
                              Margin="10">
                     <Label x:Name="dropoffLocation"
                            Margin="10"
-                           Text="LOCATION NAME"
+                           Text="Caltex, Lynwood"
                            FontSize="Small"
                            FontFamily="UnidelFont"
                            TextColor="#1861ac"

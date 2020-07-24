@@ -15,6 +15,7 @@ namespace UniDel.Views
         void Complete_Clicked(System.Object sender, System.EventArgs e)
         {
             Navigation.PopAsync();
+            
         }
 
 
