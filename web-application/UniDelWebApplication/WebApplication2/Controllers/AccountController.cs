@@ -11,6 +11,12 @@ using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Text;
 using System.Security.Policy;
+using Microsoft.AspNetCore.Http;        //INCLUDE FOR SESSION MANAGEMENT
+using System.Net.Http;                  //INCLUDE FOR RECAPTCHA
+using Newtonsoft.Json.Linq;             //INCLUDE FOR VALIDATING RECAPTCHA RESPONSE
+using System.Net;
+using System.Net.Mail;
+using System.Configuration;
 
 namespace UniDelWebApplication.Controllers
 {
@@ -78,6 +84,8 @@ namespace UniDelWebApplication.Controllers
             //Go to a different page?
             loginId = -1;
             loginEmail = "";
+            HttpContext.Session.Clear();
+            UserType = null;
             return RedirectToAction("Login","Account");
         }
 
@@ -125,6 +133,11 @@ namespace UniDelWebApplication.Controllers
                 }
                 string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
 
+                if (u.UserConfirmed == false)
+                {
+                    TempData["email"] = u.UserEmail;
+                    return RedirectToAction("NotConfirmed", "Account");
+                }
                 
                 if ((final == u.UserPassword) && (email == u.UserEmail))
                 {
@@ -138,10 +151,48 @@ namespace UniDelWebApplication.Controllers
             }
         }
 
+        public IActionResult NotConfirmed()
+        {
+            string email = TempData["email"].ToString();
+            object e = (object)email;
+            return View(e);
+        }
+
+        public static bool ReCaptchaPassed(string gRecaptchaResponse, string secret, ILogger logger)
+        {
+            HttpClient httpClient = new HttpClient();
+            var res = httpClient.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secret}&response={gRecaptchaResponse}").Result;
+            if (res.StatusCode != HttpStatusCode.OK)
+            {
+                logger.LogError("Error while sending request to ReCaptcha");
+                return false;
+            }
+
+            string JSONres = res.Content.ReadAsStringAsync().Result;
+            dynamic JSONdata = JObject.Parse(JSONres);
+            if (JSONdata.success != "true")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public IActionResult Register(String typeUser = "", String email = "", String password = "", String verifyPass = "", String compName = "",String tel="", String number = "", String address = "", String surname = "")
         {
             //User details were not received therefore load register page to allow user to register
             if (email == "")
+
+            {
+                ViewData["ReCaptchaKey"] = SiteSettings.GoogleRecaptchaSiteKey;
+                return View();
+            }
+
+            //VALIDATE RECAPTCHA
+            if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"],SiteSettings.GoogleRecaptchaSecretKey,_logger))
+            {
+                //ModelState.AddModelError(string.Empty, "You failed the CAPTCHA, stupid robot. Go play some 1x1 on SFs instead.");
+                ViewBag.Error = "You failed the CAPTCHA, stupid robot. Go play some 1x1 on SFs instead.";
                 return View();
 
             //User details were received. Proceed to add user to database
@@ -167,6 +218,7 @@ namespace UniDelWebApplication.Controllers
             u.UserPassword = final;
             u.UserType = typeUser;
             u.UserProfilePic = null;
+            u.UserConfirmed = false;
 
             uniDelDb.Users.Add(u);
             uniDelDb.SaveChanges();
@@ -188,8 +240,8 @@ namespace UniDelWebApplication.Controllers
             {
                 //Do something
             }
-            
-          
+
+
 
             /*if (typeUser == "Client")
             {
@@ -207,8 +259,91 @@ namespace UniDelWebApplication.Controllers
             {
                 //non valid user declaration
             }*/
+            TempData["email"] = email;
+            return RedirectToAction("ConfirmationSent","Account");
+        }
 
-            return RedirectToAction("Login","Account");
+        public IActionResult ConfirmationSent(string em="")
+        {
+            object e;
+            string email;
+            if (em == "")
+            {
+                e = TempData["email"];
+                email = e.ToString();
+            }
+            else
+            {
+                e = (object)em;
+                email = em;
+            }
+            
+            User u = uniDelDb.Users.Where(o => o.UserEmail == email).FirstOrDefault();
+            if (u == null)
+            {
+                e = (object)"Confirmation email was unable to send";
+                return View(e);
+            }
+
+            string token;
+            if (u.UserToken == null)
+            {
+                token = Guid.NewGuid().ToString();
+                u.UserToken = token;
+                uniDelDb.SaveChanges();
+            } 
+            else
+            {
+                token = u.UserToken;
+            }
+
+            //code to send email should come here
+
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("memoryinjectlamas@gmail.com");
+                mail.To.Add(email);
+                mail.Subject = "UniDel confirmation email";
+                mail.Body = "Your UniDel account has been created. To activate your account click on the following confirmation link \r\n " +
+                    "https://localhost:44394/Account/ConfirmEmail?email=" + email + "&token=" + token;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("memoryinjectlamas@gmail.com", SiteSettings.getPW);
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                return View(e);
+            }
+            catch (Exception ex)
+            {
+                e = (object)ex.Message;
+                return View(e);
+            }
+        }
+
+        public IActionResult ConfirmEmail(string email="", string token="")
+        {
+            ViewBag.Error = "";
+            User u = uniDelDb.Users.Where(o => o.UserEmail == email).FirstOrDefault();
+            if (u.UserConfirmed == false && u.UserToken == token)
+            {
+                u.UserConfirmed = true;
+                uniDelDb.SaveChanges();
+            } 
+            else if (u.UserToken != token)
+            {
+                ViewBag.ErrorID = 1;
+                ViewBag.Error = "Account confirmation failed. Authentication error";
+            }
+            else
+            {
+                ViewBag.ErrorID = 2;
+                ViewBag.Error = "This account is already confirmed";
+            }
+            return View();
         }
 
         public void RegisterClient(String email, String password, String verifyPass, String name, String number, String address)
