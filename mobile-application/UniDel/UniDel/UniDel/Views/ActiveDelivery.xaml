@@ -26,7 +26,8 @@
                             FontFamily="UnidelFont"
                             BorderWidth="5"
                             CornerRadius="5"
-                            BackgroundColor="#1b6ec2"/>
+                            BackgroundColor="#1b6ec2"
+                            Clicked="Navigate_Clicked"/>
 
                 <Label Text="PICK UP"
                        FontSize="Small"
