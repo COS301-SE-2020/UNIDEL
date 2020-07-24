@@ -28,12 +28,17 @@
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/UniDel.pdb
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/App.xaml.g.cs
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/AboutPage.xaml.g.cs
+/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ActiveDelivery.xaml.g.cs
+/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/CompleteDelivery.xaml.g.cs
+/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryDetails.xaml.g.cs
+/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryPage.xaml.g.cs
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ItemDetailPage.xaml.g.cs
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ItemsPage.xaml.g.cs
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MapPage.xaml.g.cs
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MenuPage.xaml.g.cs
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/NewItemPage.xaml.g.cs
+/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/PendingDelivery.xaml.g.cs
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.AssemblyInfoInputs.cache
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.AssemblyInfo.cs
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csproj.CoreCompileInputs.cache
@@ -41,9 +46,3 @@
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.dll
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/ref/UniDel.dll
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.pdb
-/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csprojAssemblyReference.cache
-/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ActiveDelivery.xaml.g.cs
-/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/CompleteDelivery.xaml.g.cs
-/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryDetails.xaml.g.cs
-/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryPage.xaml.g.cs
-/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/PendingDelivery.xaml.g.cs
