@@ -13,11 +13,10 @@
         {
             <h2>Service Vehicle</h2>
             <label for="selectV">Vehicle Id:</label>
-            <input type="number" id="selectV" class="form-control" name="selectV" placeholder="1" required>
-            <label for="nextService" class="input-group-text" id="inputGroup-sizing-sm">Next Service</label>
-            <input type="date" class="form-control" aria-label="New Service Date" max="2020-07-19" placeholder="@System.DateTime.Now.Date" aria-describedby="inputGroup-sizing-sm" name="nextService" required>
+            <input type="number" id="selectV" name="selectV" placeholder="1">
+            <label for="nextService" class="input-group-text" id="inputGroup-sizing-sm">New Service</label>
+            <input type="date" class="form-control" aria-label="New Service Date" aria-describedby="inputGroup-sizing-sm" name="nextService">
             <br />
-
             <input type="submit" value="Service" class="btn btn-block btn-primary btn-color">
         }
     </div>
@@ -27,17 +26,14 @@
         {
             <h2>Renew License Disk</h2>
             <label for="selectV">Vehicle Id:</label>
-            <input type="number" id="selectV" class="form-control" name="selectV" placeholder="1" required>
+            <input type="number" id="selectV" name="selectV" placeholder="1">
             <label for="newExp" class="input-group-text" id="inputGroup-sizing-sm">New Expiry Date</label>
-            <input type="date" class="form-control" aria-label="New Expiry Date" min="@DateTime.Now" aria-describedby="inputGroup-sizing-sm" name="newExp" required>
+            <input type="date" class="form-control" aria-label="New Expiry Date" aria-describedby="inputGroup-sizing-sm" name="newExp">
             <br />
             <input type="submit" value="Renew License Disk" class="btn btn-block btn-primary btn-color">
         }
     </div>
 </div>
-
-@Html.ActionLink("Fleet Management", "Index", "FleetManagement")
-<br>
 
 <br />
 
@@ -56,7 +52,7 @@
             <th class="my-auto align-middle text-light">Next Date Service</th>
             <th colspan="2" class="my-auto align-middle text-light"></th>
             <!--th>Edit</th>
-            <th>Delete</th-->
+    <th>Delete</th-->
         </tr>
     </thead>
     <tbody>
@@ -67,12 +63,12 @@
                 <td>@item.VehicleMake</td>
                 <td>@item.VehicleModel</td>
                 <td>@item.VehicleVIN</td>
-                <td>@item.VehicleLicensePlate</td>
-                <td>@item.VehicleLicenseDiskExpiry.ToString("yyyy-MM-dd")</td>
+                <td style="white-space:nowrap">@item.VehicleLicensePlate</td>
+                <td>@item.VehicleLicenseDiskExpiry</td>
                 <td>@item.VehicleMileage</td>
                 <td>@item.VehicleNextMileageService</td>
-                <td>@item.VehicleLastService.ToString("yyyy-MM-dd")</td>
-                <td>@item.VehicleNextDateService.ToString("yyyy-MM-dd")</td>
+                <td>@item.VehicleLastService</td>
+                <td>@item.VehicleNextDateService</td>
                 <td class="my-auto align-middle" cellpadding="8">
                     @using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
                     {
