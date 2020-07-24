@@ -9,3 +9,5 @@ mobile-application/UniDelMobileApplication/.vs
 mobile-application/UniDel/.vs
 mobile-application/UniDel/UniDel/UniDel.Android/bin/Debug
 mobile-application/UniDel/UniDel/UniDel.Android/obj/Debug
+*.icloud
+*.inc
