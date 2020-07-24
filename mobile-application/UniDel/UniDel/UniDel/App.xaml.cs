@@ -3,22 +3,18 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using UniDel.Services;
 using UniDel.Views;
-[assembly: ExportFont("Jura-VariableFont_wght.ttf", Alias = "UnidelFont")]
 
 namespace UniDel
 {
     public partial class App : Application
     {
 
-        public static INavigation Nav { get; set; }
         public App()
         {
             InitializeComponent();
+
             DependencyService.Register<MockDataStore>();
             MainPage = new MainPage();
-
-            var myNavigationPage = new NavigationPage(new ActiveDelivery());
-            Nav = myNavigationPage.Navigation;
         }
 
         protected override void OnStart()

@@ -1,33 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj": {}
+    "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.iOS\\UniDel.iOS.csproj": {}
   },
   "projects": {
-    "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj": {
+    "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.iOS\\UniDel.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
+        "projectUniqueName": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.iOS\\UniDel.iOS.csproj",
         "projectName": "UniDel.iOS",
-        "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
-        "packagesPath": "/Users/khakhu_ramakuela/.nuget/packages/",
-        "outputPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/obj/",
+        "projectPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.iOS\\UniDel.iOS.csproj",
+        "packagesPath": "C:\\Users\\FoxyFast\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "/Users/khakhu_ramakuela/.config/NuGet/NuGet.Config"
+          "C:\\Users\\FoxyFast\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "xamarinios10"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
-                "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
+              "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
+                "projectPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj"
               }
             }
           }
@@ -59,22 +65,28 @@
         }
       }
     },
-    "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
+    "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
+        "projectUniqueName": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
         "projectName": "UniDel",
-        "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
-        "packagesPath": "/Users/khakhu_ramakuela/.nuget/packages/",
-        "outputPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/",
+        "projectPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
+        "packagesPath": "C:\\Users\\FoxyFast\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "/Users/khakhu_ramakuela/.config/NuGet/NuGet.Config"
+          "C:\\Users\\FoxyFast\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -91,19 +103,11 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
-            "Microsoft.AspNet.WebApi.Client": {
-              "target": "Package",
-              "version": "[5.2.7, )"
-            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
-            },
-            "RestSharp": {
-              "target": "Package",
-              "version": "[106.11.4, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -124,7 +128,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
