@@ -100,7 +100,7 @@ namespace UniDelWebApplication.Controllers
                 uniDelDb.CompanyVehicles.Add(comVeh);
                 uniDelDb.SaveChanges();
             }
-            return RedirectToAction("Index", "FleetManagement");
+            return RedirectToAction("Alter", "FleetManagement");
         }
 
         public IActionResult CaptureService(int selectV, DateTime nextService)

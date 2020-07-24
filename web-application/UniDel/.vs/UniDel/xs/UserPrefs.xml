@@ -1,0 +1,40 @@
+﻿<Properties StartupConfiguration="{4BB67416-7CAD-4C2D-A25C-C878621B4644}|Default">
+  <MonoDevelop.Ide.ItemProperties.UniDel.Android AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.pixel_2_pie_9_0_-_api_28" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="UniDel/UniDel/Views/MainPage.xaml.cs">
+    <Files>
+      <File FileName="UniDel/UniDel/Views/PendingDelivery.xaml.cs" Line="5" Column="1" />
+      <File FileName="UniDel/UniDel/Views/ActiveDelivery.xaml" Line="1" Column="1" />
+      <File FileName="UniDel/UniDel/Views/ActiveDelivery.xaml.cs" Line="1" Column="1" />
+      <File FileName="UniDel/UniDel/Views/CompleteDelivery.xaml.cs" Line="6" Column="6" />
+      <File FileName="UniDel/UniDel/Views/CompleteDelivery.xaml" />
+      <File FileName="../../../../../Downloads/UNIDEL-mobile-application/mobile-application/UniDel/UniDel/UniDel/Views/ActiveDelivery.xaml" Line="99" Column="17" />
+      <File FileName="../../../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/Android/Xamarin.Android.Common.targets" Line="700" Column="2" />
+      <File FileName="UniDel/UniDel/Views/MainPage.xaml" Line="1" Column="1" />
+      <File FileName="UniDel/UniDel/Views/MainPage.xaml.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="UniDel" expanded="True">
+            <Node name="UniDel" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="ActiveDelivery.xaml" expanded="True" />
+                <Node name="CompleteDelivery.xaml" expanded="True" />
+                <Node name="MainPage.xaml" expanded="True">
+                  <Node name="MainPage.xaml.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="UniDel.Android" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
