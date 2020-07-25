@@ -31,12 +31,5 @@ namespace UniDelWebApplication.Models
         [Column("UserType")]
         [StringLength(255)]
         public string UserType { get; set; }
-
-        [Column("UserConfirmed")]
-        public bool UserConfirmed { get; set; }
-
-        [Column("UserToken")]
-        [StringLength(255)]
-        public string UserToken { get; set; }
     }
 }
