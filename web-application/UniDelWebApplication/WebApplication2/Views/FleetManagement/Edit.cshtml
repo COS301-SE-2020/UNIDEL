@@ -8,86 +8,74 @@
 
 <h1>Vehicle Information</h1>
 
-@using (Html.BeginForm("EditVehicle", "FleetManagement", FormMethod.Post))
+@using (Html.BeginForm("Edit", "FleetManagement", FormMethod.Post))
 {
-    <div class="input-group mb-4">
+    <div class="form-group row">
         <label for="vehicle_id" class="col-sm-2 col-form-label">Vehicle ID</label>
-        <input type="number" class="form-control" id="vehicle_id" name="selectV" maxlength="30" size="30" value=@Html.DisplayFor(m => m.VehicleID)>
-        <div class="input-group-append">
-            <span class="input-group-text"><img src="~/images/pencil-alt-solid.svg" width="20" alt=""></span>
+        <div class="col-sm-10">
+            <input type="number" class="form-control-plaintext" id="vehicle_id" name="selectV" value=@Html.DisplayFor(m => m.VehicleID)>
         </div>
     </div>
-    <div class="input-group mb-3">
+    <div class="form-group row">
         <label for="vehicle_make" class="col-sm-2 col-form-label">Vehicle make</label>
-        <input type="text" class="form-control" id="vehicle_make" name="makeV" value=@Html.DisplayFor(m => m.VehicleMake)>
-        <div class="input-group-append">
-            <span class="input-group-text"><img src="~/images/pencil-alt-solid.svg" width="20" alt=""></span>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="vehicle_make" name="makeV" value=@Html.DisplayFor(m => m.VehicleMake)>
         </div>
     </div>
-    <div class="input-group mb-3">
+    <div class="form-group row">
         <label for="vehicle_model" class="col-sm-2 col-form-label">Vehicle model</label>
-
-        <input type="text" class="form-control" id="vehicle_model" name="modelV" value=@Html.DisplayFor(m => m.VehicleModel)>
-        <div class="input-group-append">
-            <span class="input-group-text"><img src="~/images/pencil-alt-solid.svg" width="20" alt=""></span>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="vehicle_model" name="modelV" value=@Html.DisplayFor(m => m.VehicleModel)>
         </div>
     </div>
-    <div class="input-group mb-3">
-        <label for="vehicle_license_plate" class="col-sm-2 col-form-label">License plate</label>
-
-        <input type="text" class="form-control" id="vehicle_license_plate" name="licenseV" value=@Html.DisplayFor(m => m.VehicleLicensePlate)>
-        <div class="input-group-append">
-            <span class="input-group-text"><img src="~/images/pencil-alt-solid.svg" width="20" alt=""></span>
+    <div class="form-group row">
+        <label for="vehicle_license_plate" class="col-sm-2 col-form-label">Vehicle license plate</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="vehicle_license_plate" name="licenseV" value=@Html.DisplayFor(m => m.VehicleLicensePlate)>
         </div>
     </div>
-    <div class="input-group mb-3">
+    <div class="form-group row">
         <label for="vehicle_vin" class="col-sm-2 col-form-label">Vehicle VIN</label>
-
-        <input type="text" class="form-control" id="vehicle_vin" name="vinV" value=@Html.DisplayFor(m => m.VehicleVIN)>
-        <div class="input-group-append">
-            <span class="input-group-text"><img src="~/images/pencil-alt-solid.svg" width="20" alt=""></span>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="vehicle_vin" name="vinV" value=@Html.DisplayFor(m => m.VehicleVIN)>
         </div>
     </div>
-    <div class="input-group mb-3">
+    <div class="form-group row">
         <label for="vehicle_mileage" class="col-sm-2 col-form-label">Vehicle mileage</label>
-
-        <input type="text" class="form-control" id="vehicleMileage" name="mileageV" value=@Html.DisplayFor(m => m.VehicleMileage)>
-        <div class="input-group-append">
-            <span class="input-group-text"><img src="~/images/pencil-alt-solid.svg" width="20" alt=""></span>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="vehicleMileage" name="mileageV" value=@Html.DisplayFor(m => m.VehicleMileage)>
         </div>
     </div>
-    <div class="input-group mb-3">
-        <label for="vehicle_nextMileage" class="col-sm-2 col-form-label">KM till next service</label>
-
-        <input type="text" class="form-control" id="vehicle_nextMileage" name="mileV" value=@Html.DisplayFor(m => m.VehicleNextMileageService)>
-        <div class="input-group-append">
-            <span class="input-group-text"><img src="~/images/pencil-alt-solid.svg" width="20" alt=""></span>
+    <div class="form-group row">
+        <label for="vehicle_nextMileage" class="col-sm-2 col-form-label">Vehicle next mileageservice</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="vehicle_nextMileage" name="mileV" value=@Html.DisplayFor(m => m.VehicleNextMileageService)>
         </div>
     </div>
-    <div class="input-group mb-3">
-        <label for="vehicle_licenseExpiry" class="col-sm-2 col-form-label">License disk expiry</label>
-
-        <input type="text" class="form-control" id="vehicle_licenseExpiry" name="expV" value=@Html.DisplayFor(m => m.VehicleLicenseDiskExpiry)>
-        <div class="input-group-append">
-            <span class="input-group-text"><img src="~/images/pencil-alt-solid.svg" width="20" alt=""></span>
+    <div class="form-group row">
+        <label for="vehicle_licenseExpiry" class="col-sm-2 col-form-label">Vehicle license disk expiry</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="vehicle_licenseExpiry" name="expV" value=@Html.DisplayFor(m => m.VehicleLicenseDiskExpiry)>
         </div>
     </div>
-    <div class="input-group mb-3">
+    <div class="form-group row">
         <label for="vehicle_lastService" class="col-sm-2 col-form-label">Vehicle last service</label>
-
-        <input type="text" class="form-control" id="vehicle_lastService" name="lservV" value=@Html.DisplayFor(m => m.VehicleLastService)>
-        <div class="input-group-append">
-            <span class="input-group-text"><img src="~/images/pencil-alt-solid.svg" width="20" alt=""></span>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="vehicle_lastService" name="lservV" value=@Html.DisplayFor(m => m.VehicleLastService)>
         </div>
     </div>
-    <div class="input-group mb-3">
+    <div class="form-group row">
         <label for="vehicle_next_service" class="col-sm-2 col-form-label">Vehicle next service</label>
-
-        <input type="text" class="form-control" id="vehicle_nextService" name="nextservV" value=@Html.DisplayFor(m => m.VehicleNextDateService)>
-        <div class="input-group-append">
-            <span class="input-group-text"><img src="~/images/pencil-alt-solid.svg" width="20" alt=""></span>
+        <div class="col-sm-10">
+            <input type="text" class="form-control-plaintext" id="vehicle_nextService" name="nextservV" value=@Html.DisplayFor(m => m.VehicleNextDateService)>
         </div>
     </div>
 
-    <input type="submit" value="Edit Vehicle Details" class="btn btn-block btn-primary btn-color">
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="checkbox">
+        <label class="form-check-label" for="checkbox">Edit vehicle info</label>
+    </div>
+    <!--uf checkbox is checked then inputs will turn off of read only and can change values-->
+    
+    <input type="submit" value="Edit Vehicle Details">
 }
