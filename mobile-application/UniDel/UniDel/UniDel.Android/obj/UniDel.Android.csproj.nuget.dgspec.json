@@ -1,0 +1,129 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj": {}
+  },
+  "projects": {
+    "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
+        "projectName": "UniDel.Android",
+        "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
+        "packagesPath": "/Users/khakhu_ramakuela/.nuget/packages/",
+        "outputPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/obj/",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "/Users/khakhu_ramakuela/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid90"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid90": {
+            "projectReferences": {
+              "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
+                "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid90": {
+          "dependencies": {
+            "Xamarin.Android.Support.v7.CardView": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.3.1, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[4.5.0.495, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.7.335, )"
+            }
+          }
+        }
+      }
+    },
+    "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
+        "projectName": "UniDel",
+        "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
+        "packagesPath": "/Users/khakhu_ramakuela/.nuget/packages/",
+        "outputPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/khakhu_ramakuela/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.11.4, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.3.1, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[4.5.0.495, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

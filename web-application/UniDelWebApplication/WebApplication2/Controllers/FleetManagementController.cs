@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UniDelWebApplication.Models;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,10 +23,33 @@ namespace UniDelWebApplication.Controllers
             uniDelDb = db;
         }
 
+        //Helper function to filter vehicles
+        private List<Vehicle> filterVehicles()
+        {
+            Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
+            List <CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
+            List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
+            foreach (var ve in cV)
+            {
+                if (ve.CourierCompany!= null)
+                {
+                    if (ve.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
+                        myVeh.Add(ve);
+                }
+            }
+            List<Vehicle> veh = new List<Vehicle>();
+            foreach (var ve in myVeh)
+            {
+                veh.Add(uniDelDb.Vehicles.Find(ve.VehicleID));
+            }
+            return veh;
+        }
+
         // GET: /<controller>/
         public IActionResult Index(String sortV, String search)
         {
-            List<Vehicle> veh = uniDelDb.Vehicles.ToList();
+            List<Vehicle> veh=filterVehicles();
+            //List<Vehicle> veh = uniDelDb.Vehicles.ToList();
             List<Vehicle> v = new List<Vehicle>();
             if (search == null)
                 v = new List<Vehicle>(veh);
@@ -69,12 +93,14 @@ namespace UniDelWebApplication.Controllers
         {
             if (vMake != "")
             {
-                Vehicle newVehicle = new Vehicle() { /*VehicleID = uniDelDb.Vehicles.Count()+2,*/ VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
+                Vehicle newVehicle = new Vehicle() { VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
                 uniDelDb.Vehicles.Add(newVehicle);
-                //uniDelDb.Vehicles.Attach(newVehicle);
+                uniDelDb.SaveChanges();
+                CompanyVehicle comVeh = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))), VehicleID = newVehicle.VehicleID };
+                uniDelDb.CompanyVehicles.Add(comVeh);
                 uniDelDb.SaveChanges();
             }
-            return View(uniDelDb.Vehicles);
+            return RedirectToAction("Alter", "FleetManagement");
         }
 
         public IActionResult CaptureService(int selectV, DateTime nextService)
@@ -83,12 +109,14 @@ namespace UniDelWebApplication.Controllers
             v.VehicleLastService =DateTime.Now;
             v.VehicleNextDateService = nextService;
             uniDelDb.SaveChanges();
-            return View(v);
+            return RedirectToAction("Alter", "FleetManagement");
         }
 
         public IActionResult Alter()
         {
-            return View(uniDelDb.Vehicles.ToList());
+            List<Vehicle> veh = filterVehicles();
+            //List<Vehicle> veh = uniDelDb.Vehicles.ToList();
+            return View(veh);
         }
 
         public IActionResult RenewLicenseDisk(int selectV, DateTime newExp)
@@ -96,10 +124,16 @@ namespace UniDelWebApplication.Controllers
             Vehicle v = uniDelDb.Vehicles.Find(selectV);
             v.VehicleLicenseDiskExpiry = newExp;
             uniDelDb.SaveChanges();
+            return RedirectToAction("Alter", "FleetManagement");
+        }
+
+        public IActionResult Edit(int selectV)
+        {
+            Vehicle v = uniDelDb.Vehicles.Find(selectV);
             return View(v);
         }
 
-        public IActionResult Edit(int selectV, DateTime lservV = new DateTime(), DateTime nservV = new DateTime(), DateTime expV= new DateTime(), int mileV = -1, int mileageV = -1, String vinV = "", String licenseV = "", String modelV = "", String makeV="")
+        public IActionResult EditVehicle(int selectV, DateTime lservV = new DateTime(), DateTime nservV = new DateTime(), DateTime expV= new DateTime(), int mileV = -1, int mileageV = -1, String vinV = "", String licenseV = "", String modelV = "", String makeV="")
         {
             Vehicle v = uniDelDb.Vehicles.Find(selectV);
             if (makeV != "")
@@ -115,7 +149,7 @@ namespace UniDelWebApplication.Controllers
                 v.VehicleNextDateService = nservV;
             }
             uniDelDb.SaveChanges();
-            return View(v);
+            return RedirectToAction("Alter", "FleetManagement");
         }
 
         public IActionResult Delete(int selectV)
@@ -123,12 +157,7 @@ namespace UniDelWebApplication.Controllers
             Vehicle v = uniDelDb.Vehicles.Find(selectV);
             uniDelDb.Vehicles.Remove(v);
             uniDelDb.SaveChanges();
-
-
-
-            //redirect back to index page after deleting vehicle
-            //return Index(null,null);
-            return new RedirectToPageResult("Index");
+            return RedirectToAction("Alter", "FleetManagement");
         }
     }
 }

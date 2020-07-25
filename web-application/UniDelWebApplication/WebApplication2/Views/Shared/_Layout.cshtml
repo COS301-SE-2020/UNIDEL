@@ -7,46 +7,28 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/vehicles.css" />
+    <link rel="stylesheet" href="~/css/mystyle.css" />
+    <script src="~/js/accountScript.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 font">
+            <a class="navbar-brand font" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/Logo.png" width="45" alt="" class="d-inline-block align-middle mr-2">UniDel</a>
             <div class="container font">
-                @*<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse font">*@
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="navbar-brand font text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/Logo.png" width="45" alt="" class="d-inline-block align-middle mr-2">UniDel</a>
-                    </li>
-                    @if (UniDelWebApplication.Controllers.AccountController.UserType == "CourierCompany")
-                    {
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse font">
+                    <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="Account" asp-action="EmployeeReg">Employees</a>
+                            <a class="nav-link text-dark float-left font" asp-area="" asp-controller="Account" asp-action="EmployeeReg">Employees</a>
                         </li>
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="FleetManagement" asp-action="Index">Fleet Management</a>
+                            <a class="nav-link text-dark float-right border border-dark font" asp-area="" asp-controller="Account" asp-action="Login">Sign in</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="CallCentre" asp-action="Index">Deliveries</a>
-                        </li>
-                    }
-                </ul>
-                @*</div>
-                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">*@
-            <ul class="nav justify-content-end">
-                @if (UniDelWebApplication.Controllers.AccountController.UserType == null)
-                {
-                    <li class="nav-item">
-                        <a class="nav-link text-dark float-right border border-dark font" asp-area="" asp-controller="Account" asp-action="Login">Sign in</a>
-                    </li>
-                }
-                else
-                {
-                    <li class="nav-item">
-                        <a class="nav-link text-dark float-right border border-dark font" asp-area="" asp-controller="Account" asp-action="Logout">Sign out</a>
-                    </li>
-                }
-            </ul>
-                @*</div>*@
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
