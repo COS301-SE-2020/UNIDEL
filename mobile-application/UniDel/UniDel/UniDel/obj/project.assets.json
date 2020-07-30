@@ -3927,19 +3927,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/khakhu_ramakuela/.nuget/packages/": {}
+    "/Users/khakhuramakuela/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
+      "projectUniqueName": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
       "projectName": "UniDel",
-      "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
-      "packagesPath": "/Users/khakhu_ramakuela/.nuget/packages/",
-      "outputPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/",
+      "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
+      "packagesPath": "/Users/khakhuramakuela/.nuget/packages/",
+      "outputPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/khakhu_ramakuela/.config/NuGet/NuGet.Config"
+        "/Users/khakhuramakuela/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"

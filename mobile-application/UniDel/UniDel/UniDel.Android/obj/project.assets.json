@@ -4351,20 +4351,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/khakhu_ramakuela/.nuget/packages/": {}
+    "/Users/khakhuramakuela/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
+      "projectUniqueName": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
       "projectName": "UniDel.Android",
-      "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
-      "packagesPath": "/Users/khakhu_ramakuela/.nuget/packages/",
-      "outputPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/obj/",
+      "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
+      "packagesPath": "/Users/khakhuramakuela/.nuget/packages/",
+      "outputPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/khakhu_ramakuela/.config/NuGet/NuGet.Config"
+        "/Users/khakhuramakuela/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "monoandroid90"
@@ -4375,8 +4375,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
-              "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
+            "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
+              "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
             }
           }
         }
