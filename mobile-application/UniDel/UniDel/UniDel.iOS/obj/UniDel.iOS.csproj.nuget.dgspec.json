@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj": {}
+    "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj": {}
   },
   "projects": {
-    "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj": {
+    "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
+        "projectUniqueName": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
         "projectName": "UniDel.iOS",
-        "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
-        "packagesPath": "/Users/khakhu_ramakuela/.nuget/packages/",
-        "outputPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/obj/",
+        "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
+        "packagesPath": "/Users/khakhuramakuela/.nuget/packages/",
+        "outputPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "/Users/khakhu_ramakuela/.config/NuGet/NuGet.Config"
+          "/Users/khakhuramakuela/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "xamarinios10"
@@ -26,8 +26,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
-                "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
+              "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
+                "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
               }
             }
           }
@@ -59,17 +59,17 @@
         }
       }
     },
-    "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
+    "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
+        "projectUniqueName": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
         "projectName": "UniDel",
-        "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
-        "packagesPath": "/Users/khakhu_ramakuela/.nuget/packages/",
-        "outputPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/",
+        "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
+        "packagesPath": "/Users/khakhuramakuela/.nuget/packages/",
+        "outputPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/khakhu_ramakuela/.config/NuGet/NuGet.Config"
+          "/Users/khakhuramakuela/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
