@@ -5,11 +5,10 @@ web-application/UniDelWebApplication/WebApplication2/bin
 web-application/UniDelWebApplication/WebApplication2/obj
 web-application/UniDelWebApplication/UniDelWebAppUnitTesting/bin
 web-application/UniDelWebApplication/UniDelWebAppUnitTesting/obj
-web-application/UniDelWebApplication/UniDelWebAppUnitTesting/obj/Debug/netcoreapp3.1/UniDelWebAppUnitTesting.csprojAssemblyReference.cache
 mobile-application/UniDelMobileApplication/.vs
-mobile-application/UniDelMobileApplication/UniDelMobileApplication/bin
-mobile-application/UniDelMobileApplication/UniDelMobileApplication/obj
-mobile-application/UniDelMobileApplication/UniDelMobileApplication.Android/bin
-mobile-application/UniDelMobileApplication/UniDelMobileApplication.Android/obj
-mobile-application/UniDelMobileApplication/UniDelMobileApplication.iOS/bin
-mobile-application/UniDelMobileApplication/UniDelMobileApplication.iOS/obj
+mobile-application/UniDel/.vs
+mobile-application/UniDel/UniDel/UniDel.Android/bin/Debug
+mobile-application/UniDel/UniDel/UniDel.Android/obj/Debug
+*.icloud
+*.inc
+mobile-application/UniDel/UniDel/UniDel.Android/obj/project.assets.json
