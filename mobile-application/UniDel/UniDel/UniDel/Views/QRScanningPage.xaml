@@ -6,10 +6,12 @@
              mc:Ignorable="d"
              x:Class="UniDel.Views.QRScanningPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Spacing="10">
+            <Button Text="Add Delivery"
+                    x:Name="btnScan"
+                    Clicked="btnScan_Clicked"/>
+            <Entry x:Name="txtBarcode"
+                   Placeholder="QR-Code result goes here."/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
