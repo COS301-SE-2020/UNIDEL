@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj": {}
+    "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj": {
+    "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
+        "projectUniqueName": "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
         "projectName": "UniDelWebAppUnitTesting",
-        "projectPath": "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Documents\\School Work\\2020\\COS 301\\Capstone Project\\Code Demo 2\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\obj\\",
+        "projectPath": "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
+        "packagesPath": "C:\\Users\\FoxyFast\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FoxyFast\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
