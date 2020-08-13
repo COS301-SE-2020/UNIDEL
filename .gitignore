@@ -1,14 +1,14 @@
 .DS_Store
 
-web-application/UniDelWebApplication/.vs
-web-application/UniDelWebApplication/WebApplication2/bin
-web-application/UniDelWebApplication/WebApplication2/obj
-web-application/UniDelWebApplication/UniDelWebAppUnitTesting/bin
-web-application/UniDelWebApplication/UniDelWebAppUnitTesting/obj
-mobile-application/UniDelMobileApplication/.vs
-mobile-application/UniDel/.vs
-mobile-application/UniDel/UniDel/UniDel.Android/bin/Debug
-mobile-application/UniDel/UniDel/UniDel.Android/obj/Debug
+web-application/UniDelWebApplication/.vs/
+web-application/UniDelWebApplication/WebApplication2/bin/
+web-application/UniDelWebApplication/WebApplication2/obj/
+web-application/UniDelWebApplication/UniDelWebAppUnitTesting/bin/
+web-application/UniDelWebApplication/UniDelWebAppUnitTesting/obj/
+mobile-application/UniDelMobileApplication/.vs/
+mobile-application/UniDel/.vs/
+mobile-application/UniDel/UniDel/UniDel.Android/bin/Debug/
+mobile-application/UniDel/UniDel/UniDel.Android/obj/Debug/
 *.icloud
 *.inc
-mobile-application/UniDel/UniDel/UniDel.Android/obj/project.assets.json
+mobile-application/UniDel/.vs/UniDel/v16/.suo
