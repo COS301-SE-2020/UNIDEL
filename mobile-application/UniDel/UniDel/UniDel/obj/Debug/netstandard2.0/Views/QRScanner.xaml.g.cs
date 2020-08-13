@@ -13,9 +13,9 @@
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\ActiveDelivery.xaml")]
-    public partial class ActiveDelivery : global::Xamarin.Forms.ContentPage {
-       
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\QRScanner.xaml")]
+    public partial class Page1 : global::Xamarin.Forms.ContentPage {
+        
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Button btnScan;
         

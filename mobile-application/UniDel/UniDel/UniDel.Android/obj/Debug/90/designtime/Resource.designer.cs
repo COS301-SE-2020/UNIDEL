@@ -8300,70 +8300,67 @@ namespace UniDel.Droid
 			public const int design_snackbar_background = 2131165275;
 			
 			// aapt resource value: 0x7F07005C
-			public const int dots = 2131165276;
+			public const int ic_mtrl_chip_checked_black = 2131165276;
 			
 			// aapt resource value: 0x7F07005D
-			public const int ic_mtrl_chip_checked_black = 2131165277;
+			public const int ic_mtrl_chip_checked_circle = 2131165277;
 			
 			// aapt resource value: 0x7F07005E
-			public const int ic_mtrl_chip_checked_circle = 2131165278;
+			public const int ic_mtrl_chip_close_circle = 2131165278;
 			
 			// aapt resource value: 0x7F07005F
-			public const int ic_mtrl_chip_close_circle = 2131165279;
+			public const int mtrl_snackbar_background = 2131165279;
 			
 			// aapt resource value: 0x7F070060
-			public const int mtrl_snackbar_background = 2131165280;
+			public const int mtrl_tabs_default_indicator = 2131165280;
 			
 			// aapt resource value: 0x7F070061
-			public const int mtrl_tabs_default_indicator = 2131165281;
+			public const int navigation_empty_icon = 2131165281;
 			
 			// aapt resource value: 0x7F070062
-			public const int navigation_empty_icon = 2131165282;
+			public const int notification_action_background = 2131165282;
 			
 			// aapt resource value: 0x7F070063
-			public const int notification_action_background = 2131165283;
+			public const int notification_bg = 2131165283;
 			
 			// aapt resource value: 0x7F070064
-			public const int notification_bg = 2131165284;
+			public const int notification_bg_low = 2131165284;
 			
 			// aapt resource value: 0x7F070065
-			public const int notification_bg_low = 2131165285;
+			public const int notification_bg_low_normal = 2131165285;
 			
 			// aapt resource value: 0x7F070066
-			public const int notification_bg_low_normal = 2131165286;
+			public const int notification_bg_low_pressed = 2131165286;
 			
 			// aapt resource value: 0x7F070067
-			public const int notification_bg_low_pressed = 2131165287;
+			public const int notification_bg_normal = 2131165287;
 			
 			// aapt resource value: 0x7F070068
-			public const int notification_bg_normal = 2131165288;
+			public const int notification_bg_normal_pressed = 2131165288;
 			
 			// aapt resource value: 0x7F070069
-			public const int notification_bg_normal_pressed = 2131165289;
+			public const int notification_icon_background = 2131165289;
 			
 			// aapt resource value: 0x7F07006A
-			public const int notification_icon_background = 2131165290;
+			public const int notification_template_icon_bg = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int notification_template_icon_bg = 2131165291;
+			public const int notification_template_icon_low_bg = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
-			public const int notification_template_icon_low_bg = 2131165292;
+			public const int notification_tile_bg = 2131165292;
 			
 			// aapt resource value: 0x7F07006D
-			public const int notification_tile_bg = 2131165293;
+			public const int notify_panel_notification_icon_bg = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
-			public const int notify_panel_notification_icon_bg = 2131165294;
+			public const int tooltip_frame_dark = 2131165294;
 			
 			// aapt resource value: 0x7F07006F
-			public const int tooltip_frame_dark = 2131165295;
+			public const int tooltip_frame_light = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int tooltip_frame_light = 2131165296;
-			
-			// aapt resource value: 0x7F070071
-			public const int xamarin_logo = 2131165297;
+			public const int xamarin_logo = 2131165296;
 			
 			static Drawable()
 			{
@@ -9276,76 +9273,73 @@ namespace UniDel.Droid
 			public const int FlyoutContent = 2131427329;
 			
 			// aapt resource value: 0x7F0B0032
-			public const int list_item = 2131427378;
+			public const int mtrl_layout_snackbar = 2131427378;
 			
 			// aapt resource value: 0x7F0B0033
-			public const int mtrl_layout_snackbar = 2131427379;
+			public const int mtrl_layout_snackbar_include = 2131427379;
 			
 			// aapt resource value: 0x7F0B0034
-			public const int mtrl_layout_snackbar_include = 2131427380;
+			public const int notification_action = 2131427380;
 			
 			// aapt resource value: 0x7F0B0035
-			public const int notification_action = 2131427381;
+			public const int notification_action_tombstone = 2131427381;
 			
 			// aapt resource value: 0x7F0B0036
-			public const int notification_action_tombstone = 2131427382;
+			public const int notification_media_action = 2131427382;
 			
 			// aapt resource value: 0x7F0B0037
-			public const int notification_media_action = 2131427383;
+			public const int notification_media_cancel_action = 2131427383;
 			
 			// aapt resource value: 0x7F0B0038
-			public const int notification_media_cancel_action = 2131427384;
+			public const int notification_template_big_media = 2131427384;
 			
 			// aapt resource value: 0x7F0B0039
-			public const int notification_template_big_media = 2131427385;
+			public const int notification_template_big_media_custom = 2131427385;
 			
 			// aapt resource value: 0x7F0B003A
-			public const int notification_template_big_media_custom = 2131427386;
+			public const int notification_template_big_media_narrow = 2131427386;
 			
 			// aapt resource value: 0x7F0B003B
-			public const int notification_template_big_media_narrow = 2131427387;
+			public const int notification_template_big_media_narrow_custom = 2131427387;
 			
 			// aapt resource value: 0x7F0B003C
-			public const int notification_template_big_media_narrow_custom = 2131427388;
+			public const int notification_template_custom_big = 2131427388;
 			
 			// aapt resource value: 0x7F0B003D
-			public const int notification_template_custom_big = 2131427389;
+			public const int notification_template_icon_group = 2131427389;
 			
 			// aapt resource value: 0x7F0B003E
-			public const int notification_template_icon_group = 2131427390;
+			public const int notification_template_lines_media = 2131427390;
 			
 			// aapt resource value: 0x7F0B003F
-			public const int notification_template_lines_media = 2131427391;
+			public const int notification_template_media = 2131427391;
 			
 			// aapt resource value: 0x7F0B0040
-			public const int notification_template_media = 2131427392;
+			public const int notification_template_media_custom = 2131427392;
 			
 			// aapt resource value: 0x7F0B0041
-			public const int notification_template_media_custom = 2131427393;
+			public const int notification_template_part_chronometer = 2131427393;
 			
 			// aapt resource value: 0x7F0B0042
-			public const int notification_template_part_chronometer = 2131427394;
-			
-			// aapt resource value: 0x7F0B0043
-			public const int notification_template_part_time = 2131427395;
+			public const int notification_template_part_time = 2131427394;
 			
 			// aapt resource value: 0x7F0B0002
 			public const int RootLayout = 2131427330;
 			
+			// aapt resource value: 0x7F0B0043
+			public const int select_dialog_item_material = 2131427395;
+			
 			// aapt resource value: 0x7F0B0044
-			public const int select_dialog_item_material = 2131427396;
+			public const int select_dialog_multichoice_material = 2131427396;
 			
 			// aapt resource value: 0x7F0B0045
-			public const int select_dialog_multichoice_material = 2131427397;
-			
-			// aapt resource value: 0x7F0B0046
-			public const int select_dialog_singlechoice_material = 2131427398;
+			public const int select_dialog_singlechoice_material = 2131427397;
 			
 			// aapt resource value: 0x7F0B0003
 			public const int ShellContent = 2131427331;
 			
-			// aapt resource value: 0x7F0B0047
-			public const int support_simple_spinner_dropdown_item = 2131427399;
+			// aapt resource value: 0x7F0B0046
+			public const int support_simple_spinner_dropdown_item = 2131427398;
 			
 			// aapt resource value: 0x7F0B0004
 			public const int Tabbar = 2131427332;
