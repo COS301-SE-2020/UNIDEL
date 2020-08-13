@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "2reRGe0AzmjH6A7+u1Fl07fDx/4WgyZ8GRT4AoR+SVt/Jy20d043E0TijJaUGps+P6TcsRZpr3yZc2Ct+nxO2Q==",
+  "dgSpecHash": "3JOBxnUr8W8JrWjSvNDoYo/154wCBFrKGgPFz1ky5BMqfbSHBNvQzxzVuoDEmwbLox3JNGnFHXpSY+F6tZkDqw==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.iOS\\UniDel.iOS.csproj",
+  "projectFilePath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.iOS\\UniDel.iOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\FoxyFast\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.5.0.495\\xamarin.forms.4.5.0.495.nupkg.sha512"
+    "C:\\Users\\Blue Fox\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Blue Fox\\.nuget\\packages\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
+    "C:\\Users\\Blue Fox\\.nuget\\packages\\xamarin.forms\\4.5.0.495\\xamarin.forms.4.5.0.495.nupkg.sha512"
   ],
   "logs": []
 }

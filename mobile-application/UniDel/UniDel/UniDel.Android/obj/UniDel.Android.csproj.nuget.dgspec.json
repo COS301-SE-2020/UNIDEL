@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj": {}
+    "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj": {
+    "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
+        "projectUniqueName": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
         "projectName": "UniDel.Android",
-        "projectPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
-        "packagesPath": "C:\\Users\\FoxyFast\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\obj\\",
+        "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
+        "packagesPath": "C:\\Users\\Blue Fox\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\FoxyFast\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Blue Fox\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
-                "projectPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj"
+              "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
+                "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj"
               }
             }
           }
@@ -42,6 +42,10 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "Xamarin.Android.Support.v7.CardView": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.3.1, )"
@@ -50,28 +54,28 @@
               "target": "Package",
               "version": "[4.5.0.495, )"
             },
-            "ZXing.Net.Mobile": {
+            "sqlite-net-pcl": {
               "target": "Package",
-              "version": "[2.4.1, )"
+              "version": "[1.7.335, )"
             }
           }
         }
       }
     },
-    "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
+    "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
+        "projectUniqueName": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
         "projectName": "UniDel",
-        "projectPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
-        "packagesPath": "C:\\Users\\FoxyFast\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\obj\\",
+        "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
+        "packagesPath": "C:\\Users\\Blue Fox\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\FoxyFast\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Blue Fox\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -121,7 +125,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
