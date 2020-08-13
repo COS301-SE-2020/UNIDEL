@@ -4125,32 +4125,39 @@
     ]
   },
   "packageFolders": {
-    "/Users/khakhu_ramakuela/.nuget/packages/": {}
+    "C:\\Users\\Blue Fox\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.iOS\\UniDel.iOS.csproj",
       "projectName": "UniDel.iOS",
-      "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
-      "packagesPath": "/Users/khakhu_ramakuela/.nuget/packages/",
-      "outputPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/obj/",
+      "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.iOS\\UniDel.iOS.csproj",
+      "packagesPath": "C:\\Users\\Blue Fox\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "/Users/khakhu_ramakuela/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Blue Fox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
-              "projectPath": "/Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
+            "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
+              "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj"
             }
           }
         }
