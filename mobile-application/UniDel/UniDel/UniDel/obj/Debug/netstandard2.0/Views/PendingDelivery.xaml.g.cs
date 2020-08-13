@@ -8,25 +8,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UniDel.Views.QRScanner.xaml", "Views/QRScanner.xaml", typeof(global::UniDel.Views.Page1))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UniDel.Views.PendingDelivery.xaml", "Views/PendingDelivery.xaml", typeof(global::UniDel.Views.PendingDelivery))]
 
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\ActiveDelivery.xaml")]
-    public partial class ActiveDelivery : global::Xamarin.Forms.ContentPage {
-       
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Button btnScan;
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\PendingDelivery.xaml")]
+    public partial class PendingDelivery : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Entry txtBarcode;
+        private global::Xamarin.Forms.Label dropoffLocation;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Button pickup_btn;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(Page1));
-            btnScan = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnScan");
-            txtBarcode = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "txtBarcode");
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(PendingDelivery));
+            dropoffLocation = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "dropoffLocation");
+            pickup_btn = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "pickup_btn");
         }
     }
 }

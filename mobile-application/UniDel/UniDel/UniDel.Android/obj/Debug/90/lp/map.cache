@@ -41,3 +41,4 @@ Xamarin.Essentials
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 ZXingNetMobile
+SQLitePCLRaw.lib.e_sqlite3.android
