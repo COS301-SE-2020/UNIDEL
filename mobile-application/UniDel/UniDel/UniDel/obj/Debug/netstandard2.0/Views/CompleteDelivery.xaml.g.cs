@@ -13,7 +13,7 @@
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/CompleteDelivery.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\CompleteDelivery.xaml")]
     public partial class CompleteDelivery : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
