@@ -10,29 +10,22 @@ namespace UniDelWebApplication.Models
     [Table("CallLog")]
     public class CallLog
     {
-        [Column("ClientID")]
+        [Column("CallID")]
         [Key]
         [DatabaseGenerated
             (DatabaseGeneratedOption.Identity)]
         [Required]
-        public int ClientID { get; set; }
+        public int CallID { get; set; }
 
-        [Column("ClientName")]
+        [Column("CallDateTime")]
+        public DateTime CallDateTime { get; set; }
+
+        [Column("CallNotes")]
         [StringLength(255)]
-        public string ClientName { get; set; }
+        public string CallNotes { get; set; }
 
-        [Column("ClientTelephone")]
+        [Column("CallReason")]
         [StringLength(255)]
-        public string ClientTelephone { get; set; }
-
-        [Column("ClientAddress")]
-        [StringLength(255)]
-        public string ClientAddress { get; set; }
-
-        [Column("UserID")]
-        public int UserID { get; set; }
-
-        [ForeignKey("UserID")]
-        public User User { get; set; }
+        public string CallReason { get; set; }
     }
 }
