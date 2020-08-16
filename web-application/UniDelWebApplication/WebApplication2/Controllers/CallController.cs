@@ -25,7 +25,7 @@ namespace UniDelWebApplication.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<CallLog> c = uniDelDb.CallLog.ToList();
+            List<CallLog> c = uniDelDb.CallLogs.ToList();
             return View(c);
         }
 
@@ -39,7 +39,7 @@ namespace UniDelWebApplication.Controllers
             if (reason != "")
             {
                 CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
-                uniDelDb.CallLog.Add(newCall);
+                uniDelDb.CallLogs.Add(newCall);
                 uniDelDb.SaveChanges();
             }
             return RedirectToAction("Index", "Call");
