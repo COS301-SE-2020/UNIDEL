@@ -30,13 +30,10 @@ namespace UniDelWebApplication.Controllers
 
         public IActionResult Log(DateTime cDateTime = new DateTime(), String reason = "", String notes = "")
         {
-            if (reason != "")
-            {
-                CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
-                uniDelDb.CallLog.Add(newCall);
-                uniDelDb.SaveChanges();
-            }
-            return RedirectToAction("Alter", "FleetManagement");
+            CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
+            uniDelDb.CallLog.Add(newCall);
+            uniDelDb.SaveChanges();
+            return RedirectToAction("Log", "CallLog");
         }
     }
 }

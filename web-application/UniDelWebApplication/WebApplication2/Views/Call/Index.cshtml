@@ -11,7 +11,7 @@
     <label for="cDateTime">Call date and time:</label>
     <input type="datetime-local" id="cDateTime" name="cDateTime" required><br>
     <label for="reason">Reason for call:</label>
-    <input type="text" list="reason" required/>
+    <input type="text" name="reason" list="reason" required/>
     <datalist id="reason">
       <option>Delivery not arrived</option>
       <option>Incorrect package</option>
@@ -19,6 +19,6 @@
       <option>Damaged Goods</option>
     </datalist><br>
     <label for="notes">Notes:</label>
-    <textarea id="notes" rows="4" cols="50"></textarea><br>
+    <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br>
     <input type="submit" value="Log Call">
 }
