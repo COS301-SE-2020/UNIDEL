@@ -8,9 +8,9 @@
 
 @using (Html.BeginForm("Log", "Call", FormMethod.Post))
 {
-    <label for="refNum">Caller Reference number:</label>
-    <input type="text" id="refNum" name="refNum" placeholder="384FHG465"><br>
-    <label for="reason">Reason for query:</label>
+    <label for="callDateTime">Call date and time:</label>
+    <input type="datetime-local" id="callDateTime" name="callDateTime"><br>
+    <label for="reason">Reason for call:</label>
     <input type="text" list="reason" />
     <datalist id="reason">
       <option>Delivery not arrived</option>
@@ -18,7 +18,7 @@
       <option>Bad delivery time</option>
       <option>Damaged Goods</option>
     </datalist><br>
-    <label for="callDateTime">Call date an time:</label>
-    <input type="datetime-local" id="callDateTime" name="callDateTime"><br>
+    <label for="notes">Notes:</label>
+    <textarea id="notes" rows="4" cols="50"></textarea><br>
     <input type="submit" value="Log Call">
 }
