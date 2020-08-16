@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace UniDelWebApplication.Models
 {
-    [Table("Client")]
-    public class Client
+    [Table("CallLog")]
+    public class CallLog
     {
         [Column("ClientID")]
         [Key]
