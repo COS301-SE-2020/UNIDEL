@@ -33,7 +33,7 @@ namespace UniDelWebApplication.Controllers
             CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
             uniDelDb.CallLog.Add(newCall);
             uniDelDb.SaveChanges();
-            return RedirectToAction("Log", "CallLog");
+            return RedirectToAction("Index", "Call");
         }
     }
 }
