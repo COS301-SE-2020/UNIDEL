@@ -1,24 +1,69 @@
 ﻿@{
-    ViewData["Title"] = "Log call";
+    ViewData["Title"] = "Logged Calls";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Logged Calls</h1>
+    <h1 class="display-4">Fleet Management</h1>
 </div>
 
-@using (Html.BeginForm("Log", "Call", FormMethod.Post))
+<h2>Vehicles</h2>
+@Html.ActionLink("Log", "Call")<br>
+
+@using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
 {
-    <label for="cDateTime">Call date and time:</label>
-    <input type="datetime-local" id="cDateTime" name="cDateTime" required><br>
-    <label for="reason">Reason for call:</label>
-    <input type="text" name="reason" list="reason" required/>
-    <datalist id="reason">
-      <option>Delivery not arrived</option>
-      <option>Incorrect package</option>
-      <option>Bad delivery time</option>
-      <option>Damaged Goods</option>
-    </datalist><br>
-    <label for="notes">Notes:</label>
-    <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br>
-    <input type="submit" value="Log Call">
+    <input type="text" name="search" placeholder="Search using VIN">
+    <input type="submit" value="Search">
 }
+
+
+@using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
+{
+    <label for="sortV">Sort by:</label>
+    <select name="sortV" id="sortV">
+        <option value="vId">ID</option>
+        <option value="vMake">Make</option>
+        <option value="vModel">Model</option>
+        <option value="vVIN">VIN</option>
+        <option value="vMileage">Mileage</option>
+        <option value="vLicensePlate">License Plate</option>
+        <option value="vLicenseDiskExpiry">License Disk Expiry</option>
+        <option value="vLastService">Last Service</option>
+        <option value="vNextMileageService">Next Mileage Service</option>
+        <option value="vNextDateService">Next Date Service</option>
+    </select>
+    <input type="submit" value="Sort">
+}
+
+<div style="overflow-x:auto;">
+    <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
+        <thead class="btn-primary whitefont">
+            <tr>
+                <th class="my-auto align-middle text-light">Make</th>
+                <th class="my-auto align-middle text-light">Model</th>
+                <th class="my-auto align-middle text-light">VIN</th>
+                <th class="my-auto align-middle text-light">License Plate</th>
+                <th class="my-auto align-middle text-light">License Disk Expiry</th>
+                <th class="my-auto align-middle text-light">Mileage</th>
+                <th class="my-auto align-middle text-light">Next Mileage Service</th>
+                <th class="my-auto align-middle text-light">Last Service</th>
+                <th class="my-auto align-middle text-light">Next Date Service</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.VehicleMake</td>
+                    <td>@item.VehicleModel</td>
+                    <td>@item.VehicleVIN</td>
+                    <td style="white-space:nowrap">@item.VehicleLicensePlate</td>
+                    <td>@item.VehicleLicenseDiskExpiry</td>
+                    <td>@item.VehicleMileage</td>
+                    <td>@item.VehicleNextMileageService</td>
+                    <td>@item.VehicleLastService</td>
+                    <td>@item.VehicleNextDateService</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
