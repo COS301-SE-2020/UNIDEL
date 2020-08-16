@@ -3,65 +3,28 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Fleet Management</h1>
+    <h1 class="display-4">Log Calls</h1>
 </div>
 
-<h2>Vehicles</h2>
-@Html.ActionLink("Log", "Call")<br>
-
-@using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
-{
-    <input type="text" name="search" placeholder="Search using VIN">
-    <input type="submit" value="Search">
-}
-
-
-@using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
-{
-    <label for="sortV">Sort by:</label>
-    <select name="sortV" id="sortV">
-        <option value="vId">ID</option>
-        <option value="vMake">Make</option>
-        <option value="vModel">Model</option>
-        <option value="vVIN">VIN</option>
-        <option value="vMileage">Mileage</option>
-        <option value="vLicensePlate">License Plate</option>
-        <option value="vLicenseDiskExpiry">License Disk Expiry</option>
-        <option value="vLastService">Last Service</option>
-        <option value="vNextMileageService">Next Mileage Service</option>
-        <option value="vNextDateService">Next Date Service</option>
-    </select>
-    <input type="submit" value="Sort">
-}
+<h2>Logged Calls</h2>
+@Html.ActionLink("Log Call", "LogCall")<br>
 
 <div style="overflow-x:auto;">
     <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
         <thead class="btn-primary whitefont">
             <tr>
-                <th class="my-auto align-middle text-light">Make</th>
-                <th class="my-auto align-middle text-light">Model</th>
-                <th class="my-auto align-middle text-light">VIN</th>
-                <th class="my-auto align-middle text-light">License Plate</th>
-                <th class="my-auto align-middle text-light">License Disk Expiry</th>
-                <th class="my-auto align-middle text-light">Mileage</th>
-                <th class="my-auto align-middle text-light">Next Mileage Service</th>
-                <th class="my-auto align-middle text-light">Last Service</th>
-                <th class="my-auto align-middle text-light">Next Date Service</th>
+                <th class="my-auto align-middle text-light">Date and Time</th>
+                <th class="my-auto align-middle text-light">Reason</th>
+                <th class="my-auto align-middle text-light">Notes</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.VehicleMake</td>
-                    <td>@item.VehicleModel</td>
-                    <td>@item.VehicleVIN</td>
-                    <td style="white-space:nowrap">@item.VehicleLicensePlate</td>
-                    <td>@item.VehicleLicenseDiskExpiry</td>
-                    <td>@item.VehicleMileage</td>
-                    <td>@item.VehicleNextMileageService</td>
-                    <td>@item.VehicleLastService</td>
-                    <td>@item.VehicleNextDateService</td>
+                    <td>@item.CallDateTime</td>
+                    <td>@item.CallReason</td>
+                    <td>@item.CallNotes</td>
                 </tr>
             }
         </tbody>

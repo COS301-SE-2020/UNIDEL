@@ -25,15 +25,24 @@ namespace UniDelWebApplication.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            List<CallLog> c = uniDelDb.CallLog.ToList();
+            return View(c);
+        }
+
+        public IActionResult LogCall()
+        {
             return View();
         }
 
         public IActionResult Log(DateTime cDateTime = new DateTime(), String reason = "", String notes = "")
         {
-            CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
-            uniDelDb.CallLog.Add(newCall);
-            uniDelDb.SaveChanges();
-            return View();
+            if (reason != "")
+            {
+                CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
+                uniDelDb.CallLog.Add(newCall);
+                uniDelDb.SaveChanges();
+            }
+            return RedirectToAction("Index", "Call");
         }
     }
 }
