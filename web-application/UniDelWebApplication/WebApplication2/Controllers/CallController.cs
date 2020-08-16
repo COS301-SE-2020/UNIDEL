@@ -33,10 +33,7 @@ namespace UniDelWebApplication.Controllers
             if (reason != "")
             {
                 CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
-                uniDelDb.Vehicles.Add(newVehicle);
-                uniDelDb.SaveChanges();
-                CompanyVehicle comVeh = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))), VehicleID = newVehicle.VehicleID };
-                uniDelDb.CompanyVehicles.Add(comVeh);
+                uniDelDb.CallLog.Add(newCall);
                 uniDelDb.SaveChanges();
             }
             return RedirectToAction("Alter", "FleetManagement");
