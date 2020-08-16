@@ -1,36 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Xamarin.Forms;
+using UniDel.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace UniDel.Views
 {
     public partial class PendingDelivery : ContentPage
     {
+        public ObservableCollection<PendingDeliveryViewModel> active_deliveries { get; set; }
+
         public PendingDelivery()
         {
             InitializeComponent();
             Navigation.PopToRootAsync();
+            BindingContext = this;
+
+
+            active_deliveries = new ObservableCollection<PendingDeliveryViewModel>();
+
+            active_deliveries.Add(new PendingDeliveryViewModel
+            { deliveryID = "Delivery ID : 1", pickupName = "BLEH2", dropoffName = "BLEH" });
+            active_deliveries.Add(new PendingDeliveryViewModel
+            { deliveryID = "Delivery ID : 2", pickupName = "BLEH2", dropoffName = "BLEH" });
+            active_deliveries.Add(new PendingDeliveryViewModel
+            { deliveryID = "Delivery ID : 3", pickupName = "BLEH2", dropoffName = "BLEH" });
+            active_deliveries.Add(new PendingDeliveryViewModel
+            { deliveryID = "Delivery ID : 4", pickupName = "BLEH2", dropoffName = "BLEH" });
+            active_deliveries.Add(new PendingDeliveryViewModel
+            { deliveryID = "Delivery ID : 5", pickupName = "BLEH2", dropoffName = "BLEH" });
+
+
+            activeView.ItemsSource = active_deliveries;
 
         }
 
-        void Details_Clicked(System.Object sender, System.EventArgs e)
+        async void OnItemSelected(object sender, EventArgs args)
         {
-            Navigation.PushAsync(new DeliveryDetails());
+            //var layout = (BindableObject)sender;
+            //var delivery = (Delivery)layout.BindingContext;
+            await Navigation.PushAsync(new NavigationPage(new DeliveryDetails()));
         }
 
-        //void Pickup_Clicked(System.Object sender, System.EventArgs e)
-        //{
-        //    Navigation.PushAsync(new ActiveDelivery());
-
-        //}
-
-        
-        private async void Pickup_Clicked(object sender, EventArgs e)
+        async void Add_Clicked(object sender, EventArgs e)
         {
-            await App.Nav.PushAsync(new ActiveDelivery());
-                      
+            await Navigation.PushModalAsync(new NavigationPage(new QRScanningPage()));
         }
+
 
     }
 }
