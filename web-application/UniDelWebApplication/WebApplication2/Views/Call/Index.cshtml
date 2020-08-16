@@ -8,10 +8,10 @@
 
 @using (Html.BeginForm("Log", "Call", FormMethod.Post))
 {
-    <label for="callDateTime">Call date and time:</label>
-    <input type="datetime-local" id="callDateTime" name="callDateTime"><br>
+    <label for="cDateTime">Call date and time:</label>
+    <input type="datetime-local" id="cDateTime" name="cDateTime" required><br>
     <label for="reason">Reason for call:</label>
-    <input type="text" list="reason" />
+    <input type="text" list="reason" required/>
     <datalist id="reason">
       <option>Delivery not arrived</option>
       <option>Incorrect package</option>
