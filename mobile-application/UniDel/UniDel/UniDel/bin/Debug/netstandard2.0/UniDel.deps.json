@@ -14,7 +14,8 @@
           "RestSharp": "106.11.4",
           "Xamarin.Essentials": "1.3.1",
           "Xamarin.Forms": "4.5.0.495",
-          "ZXing.Net.Mobile": "2.4.1"
+          "ZXing.Net.Mobile": "2.4.1",
+          "Mono.Android": "0.0.0.0"
         },
         "runtime": {
           "UniDel.dll": {}
@@ -692,6 +693,14 @@
             "fileVersion": "0.16.2.0"
           }
         }
+      },
+      "Mono.Android/0.0.0.0": {
+        "runtime": {
+          "Mono.Android.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1071,6 +1080,11 @@
       "sha512": "sha512-iCL2WcqOyUnC1iFFdzXijk0EXfoLMDqW88MyhoTZigSyhJZM2C5hKgSZVyfx9E35tgkde/IZwHkk8cVDnbQlYg==",
       "path": "zxing.net.mobile/2.4.1",
       "hashPath": "zxing.net.mobile.2.4.1.nupkg.sha512"
+    },
+    "Mono.Android/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
