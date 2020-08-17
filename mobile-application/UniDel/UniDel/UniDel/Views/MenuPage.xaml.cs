@@ -22,6 +22,8 @@ namespace UniDel.Views
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
+                new HomeMenuItem {Id = MenuItemType.QRCode, Title="QRCode" },
+                new HomeMenuItem {Id = MenuItemType.Map, Title="Map" },
                 new HomeMenuItem {Id = MenuItemType.Deliveries, Title="Deliveries" }
             };
 
