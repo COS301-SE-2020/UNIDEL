@@ -34,7 +34,7 @@ namespace UniDel
             DependencyService.Register<MockDataStore>();
             MainPage = new MainPage();
 
-            var myNavigationPage = new NavigationPage(new ActiveDelivery());
+            var myNavigationPage = new NavigationPage(new CurrentDelivery());
             Nav = myNavigationPage.Navigation;
         }
 
