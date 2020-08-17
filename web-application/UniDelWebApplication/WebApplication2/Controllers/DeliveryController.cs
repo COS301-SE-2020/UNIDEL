@@ -34,16 +34,15 @@ namespace UniDelWebApplication.Controllers
             return View();
         }
 
-        public IActionResult Add(DateTime cDateTime = new DateTime(), String reason = "", String notes = "")
+        public IActionResult Add(DateTime dDateTime = new DateTime(), String pLocation = "", String dState = "", int dDriver=-1, int dVehicle = -1, int dClient = -1, int dCompany = -1)
         {
-            if (reason != "")
+            if (pLocation != "")
             {
-                CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
-                uniDelDb.CallLogs.Add(newCall);
+                Delivery newDelivery = new Delivery() { DeliveryDate = dDateTime, DeliveryPickupLocation = pLocation, DeliveryState = dState, DriverID=dDriver, VehicleID=dVehicle, ClientID=dClient, CourierCompanyID=dCompany };
+                uniDelDb.Deliveries.Add(newDelivery);
                 uniDelDb.SaveChanges();
             }
-            return RedirectToAction("Index", "Call");
+            return RedirectToAction("Index", "Delivery");
         }
     }
-}
 }

@@ -1,24 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Log call";
+    ViewData["Title"] = "Add Delivery";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Log Call</h1>
+    <h1 class="display-4">Add Deliveries</h1>
 </div>
 
-@using (Html.BeginForm("Log", "Call", FormMethod.Post))
+@using (Html.BeginForm("Add", "Delivery", FormMethod.Post))
 {
-    <label for="cDateTime">Call date and time:</label>
-    <input type="datetime-local" id="cDateTime" name="cDateTime" required><br>
-    <label for="reason">Reason for call:</label>
-    <input type="text" name="reason" list="reason" required/>
-    <datalist id="reason">
-      <option>Delivery not arrived</option>
-      <option>Incorrect package</option>
-      <option>Bad delivery time</option>
-      <option>Damaged Goods</option>
-    </datalist><br>
-    <label for="notes">Notes:</label>
-    <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br>
-    <input type="submit" value="Log Call">
+    <label for="dDateTime">Delivery date and time:</label>
+    <input type="datetime-local" id="dDateTime" name="dDateTime" required><br>
+    <label for="pLocation">Pickup Location:</label>
+    <input type="text" name="pLocation" list="pLocation" required/><br>
+    <label for="dState">Delivery State:</label>
+    <input type="text" name="dState" list="dState" required/><br>
+    <label for="dDriver">Driver:</label>
+    <input type="number" name="dDriver" list="dDriver" required/><br>
+    <label for="dVehicle">Vehicle:</label>
+    <input type="number" name="dVehicle" list="dVehicle" required/><br>
+    <label for="dClient">Client:</label>
+    <input type="number" name="dClient" list="dClient" required/><br>
+    <label for="dCompany">Company:</label>
+    <input type="number" name="dCompany" list="dCompany" required/><br>
+    <input type="submit" value="Add Delivery">
 }
