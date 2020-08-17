@@ -3470,19 +3470,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/khakhuramakuela/.nuget/packages/": {}
+    "/Users/laam/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/UniDelWebAppUnitTesting.csproj",
+      "projectUniqueName": "/Users/laam/Documents/GitHub/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/UniDelWebAppUnitTesting.csproj",
       "projectName": "UniDelWebAppUnitTesting",
-      "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/UniDelWebAppUnitTesting.csproj",
-      "packagesPath": "/Users/khakhuramakuela/.nuget/packages/",
-      "outputPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/obj/",
+      "projectPath": "/Users/laam/Documents/GitHub/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/UniDelWebAppUnitTesting.csproj",
+      "packagesPath": "/Users/laam/.nuget/packages/",
+      "outputPath": "/Users/laam/Documents/GitHub/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/khakhuramakuela/.config/NuGet/NuGet.Config"
+        "/Users/laam/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

@@ -9,7 +9,7 @@ namespace UniDel.Views
     {
         public DeliveryPage()
         {
-            Children.Add(new PendingDelivery());
+            Children.Add(new CurrentDelivery());
             Children.Add(new CompleteDelivery());
 
             CurrentPage = Children[0];
