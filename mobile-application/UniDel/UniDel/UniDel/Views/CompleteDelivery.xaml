@@ -1,13 +1,60 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UniDel.Views.CompleteDelivery"
-             Title="Complete Deliveries">
+             mc:Ignorable="d"
+             xmlns:viewModel="clr-namespace:UniDel.ViewModels"
+             Title="Complete Deliveries"
+             x:Name="DoneDeliveries">
 
-        <ContentPage.Content>
-            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                <Label Text="All deliveries completed by driver" />
-            </StackLayout>
-        </ContentPage.Content>
+    <d:ContentPage.BindingContext>
+         <viewModel:CompleteDeliveryViewModel />
+    </d:ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Frame HasShadow="True"
+               IsClippedToBounds="True"
+               Padding="1"
+               BorderColor="#1861ac"
+               Margin="15"
+               HeightRequest="300">
+         <ListView x:Name="completeView" RowHeight="120">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical"
+                                             HorizontalOptions="Fill"
+                                             BackgroundColor="White">
+                                    <Label Text="{Binding deliveryID}"
+                                               FontSize="15"
+                                               TextColor="#1861ac"
+                                               FontAttributes="Bold"
+                                               CharacterSpacing="3"
+                                               FontFamily="UnidelFont"
+                                               Padding="3"
+                                               HorizontalTextAlignment="Start"
+                                               VerticalTextAlignment="Center"/>
+                                        <Label Text="{Binding pickupName}"
+                                               FontSize="Small"
+                                               TextColor="#1861ac"
+                                               CharacterSpacing="2"
+                                               FontFamily="UnidelFont"
+                                               Padding="3"/>
+                                        <Label Text="{Binding dropoffName}"
+                                               FontSize="Small"
+                                               TextColor="#1861ac"
+                                               CharacterSpacing="2"
+                                               FontFamily="UnidelFont"
+                                               Padding="3"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+        </Frame>
+    </ContentPage.Content>
+       
 
 </ContentPage>

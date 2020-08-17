@@ -5,7 +5,6 @@
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csprojAssemblyReference.cache
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/App.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/AboutPage.xaml.g.cs
-/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ActiveDelivery.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/CompleteDelivery.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryDetails.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryPage.xaml.g.cs
@@ -14,7 +13,6 @@
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MenuPage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/NewItemPage.xaml.g.cs
-/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/PendingDelivery.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.AssemblyInfoInputs.cache
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.AssemblyInfo.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csproj.CoreCompileInputs.cache
@@ -46,6 +44,36 @@
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.dll
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/ref/UniDel.dll
 /Users/khakhu_ramakuela/Documents/COS 301/Capstone/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.pdb
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/UniDel.deps.json
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/UniDel.dll
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/ref/UniDel.dll
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/UniDel.pdb
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csprojAssemblyReference.cache
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/AboutPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ActiveDelivery.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/CompleteDelivery.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryDetails.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ItemDetailPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ItemsPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MapPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MenuPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/NewItemPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/PendingDelivery.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/QRScanningPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.AssemblyInfoInputs.cache
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.AssemblyInfo.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csproj.CoreCompileInputs.cache
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.dll
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/ref/UniDel.dll
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.pdb
+/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MapPage.xaml.g.cs
+/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/QRScanningPage.xaml.g.cs
+/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/CurrentDelivery.xaml.g.cs
+/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MyPage.xaml.g.cs
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\UniDel.deps.json
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\UniDel.dll
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\ref\UniDel.dll
@@ -53,8 +81,8 @@ C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Deb
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.csprojAssemblyReference.cache
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
-C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\ActiveDelivery.xaml.g.cs
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\CompleteDelivery.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\CurrentDelivery.xaml.g.cs
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\DeliveryDetails.xaml.g.cs
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\DeliveryPage.xaml.g.cs
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\ItemDetailPage.xaml.g.cs
@@ -62,13 +90,13 @@ C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Deb
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\MapPage.xaml.g.cs
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\MenuPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\MyPage.xaml.g.cs
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
-C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\PendingDelivery.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\QRScanningPage.xaml.g.cs
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.AssemblyInfoInputs.cache
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.AssemblyInfo.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.csproj.CoreCompileInputs.cache
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.dll
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\ref\UniDel.dll
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.pdb
-C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\QRScanningPage.xaml.g.cs
-C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.csproj.CoreCompileInputs.cache
-C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\XamlC.stamp

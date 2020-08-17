@@ -21,5 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Views\FleetManagement\" />
+    <Folder Include="Views\Call\" />
+    <Folder Include="Views\Delivery\" />
   </ItemGroup>
 </Project>

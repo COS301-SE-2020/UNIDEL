@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Deliveries";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Deliveries</h1>
+</div>
+
+<h2>Deliveries</h2>
+@Html.ActionLink("Add Deliveries", "AddDelivery")<br>
+
+<div style="overflow-x:auto;">
+    <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
+        <thead class="btn-primary whitefont">
+            <tr>
+                <th class="my-auto align-middle text-light">Date and Time</th>
+                <th class="my-auto align-middle text-light">Pickup Location</th>
+                <th class="my-auto align-middle text-light">State</th>
+                <th class="my-auto align-middle text-light">Driver</th>
+                <th class="my-auto align-middle text-light">Vehicle</th>
+                <th class="my-auto align-middle text-light">Client</th>
+                <th class="my-auto align-middle text-light">Company</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.DeliveryDate</td>
+                <td>@item.DeliveryPickupLocation</td>
+                <td>@item.DeliveryState</td>
+                <td>@item.DriverID</td>
+                <td>@item.VehicleID</td>
+                <td>@item.ClientID</td>
+                <td>@item.CourierCompanyID</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
