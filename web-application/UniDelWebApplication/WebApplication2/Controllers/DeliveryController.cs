@@ -28,5 +28,22 @@ namespace UniDelWebApplication.Controllers
             List<Delivery> c = uniDelDb.Deliveries.ToList();
             return View(c);
         }
+
+        public IActionResult AddDelivery()
+        {
+            return View();
+        }
+
+        public IActionResult Add(DateTime cDateTime = new DateTime(), String reason = "", String notes = "")
+        {
+            if (reason != "")
+            {
+                CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
+                uniDelDb.CallLogs.Add(newCall);
+                uniDelDb.SaveChanges();
+            }
+            return RedirectToAction("Index", "Call");
+        }
     }
+}
 }
