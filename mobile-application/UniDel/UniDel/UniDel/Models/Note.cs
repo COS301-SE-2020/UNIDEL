@@ -1,4 +1,4 @@
-﻿using SQLite;
+﻿//using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +7,7 @@ namespace UniDel.Models
 {
     class Note
     {
-        [PrimaryKey, AutoIncrement]
+        //[PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public DateTime DeliveryDate { get; set; }
         public string DeliveryPickupLocation { get; set; }

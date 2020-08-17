@@ -1,6 +1,7 @@
 FastAndroidCamera
 FormsViewGroup
 SQLitePCLRaw.lib.e_sqlite3.android
+UniDel
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Core.Runtime
 Xamarin.Android.Arch.Lifecycle.Common
@@ -42,4 +43,3 @@ Xamarin.Essentials
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 ZXingNetMobile
-UniDel

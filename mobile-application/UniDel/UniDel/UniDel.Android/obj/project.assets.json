@@ -1236,8 +1236,7 @@
           "RestSharp": "106.11.4",
           "Xamarin.Essentials": "1.3.1",
           "Xamarin.Forms": "4.5.0.495",
-          "ZXing.Net.Mobile": "2.4.1",
-          "sqlite-net-pcl": "1.7.335"
+          "ZXing.Net.Mobile": "2.4.1"
         },
         "compile": {
           "bin/placeholder/UniDel.dll": {}
