@@ -88,7 +88,7 @@ namespace UniDel.Views
                 // QR scanned is null
                 //throw;
             }
-}
+        }
 
     }
 }
