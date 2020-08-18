@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{E3545572-F0ED-471A-BFD6-8AFB411D4325}|UniDelAPI">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UniDelAPI/Models/UniDelDbContext.cs">
+    <Files>
+      <File FileName="UniDelAPI/Controllers/ClientsController.cs" Line="19" Column="10" />
+      <File FileName="UniDelAPI/Controllers/CallLogController.cs" />
+      <File FileName="UniDelAPI/Models/CallLog.cs" />
+      <File FileName="UniDelAPI/Models/Client.cs" />
+      <File FileName="UniDelAPI/Models/UniDelDbContext.cs" Line="25" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="UniDelAPI" expanded="True">
+            <Node name="UniDelAPI" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="UniDelDbContext.cs" selected="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.UniDelAPI PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
