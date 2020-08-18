@@ -24,5 +24,6 @@ namespace UniDelAPI.Models
         public DbSet<CourierCompany> CourierCompanies { get; set; }
         public DbSet<CompanyVehicle> CompanyVehicles { get; set; }
         public DbSet<CompanyDelivery> CompanyDeliveries { get; set; }
+        public DbSet<CallLog> CallLogs { get; set; }
     }
 }
