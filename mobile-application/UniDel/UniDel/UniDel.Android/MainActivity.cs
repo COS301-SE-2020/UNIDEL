@@ -23,6 +23,8 @@ namespace UniDel.Droid
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, savedInstanceState); // Make Bundle null but coords might be wrong
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            //System.Net.ServicePointManager.ServerCertificateValidationCallback += (o, cert, chain, errors) => true;
+
 
             MobileBarcodeScanner.Initialize(this.Application);
             LoadApplication(new App());

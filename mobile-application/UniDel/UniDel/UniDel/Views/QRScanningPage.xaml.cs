@@ -6,10 +6,13 @@ using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
 using System.Net.Http;
 using Newtonsoft.Json;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using Android.Database;
 using System.Collections.ObjectModel;
 using UniDel.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
+using RestSharp.Extensions;
 
 namespace UniDel.Views
 {
@@ -18,6 +21,8 @@ namespace UniDel.Views
     {
         public ObservableCollection<CompleteDeliveryViewModel> complete_deliveries { get; set; }
         public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }
+        public Location currentLocation;
+        public Location dropOffLocation;
 
         public QRScanningPage()
         {
@@ -36,6 +41,24 @@ namespace UniDel.Views
                     txtBarcode.Text = result;
 
                     Console.WriteLine("QR Scanned");
+
+                    // Get device's current location
+                    CurrentLocation();
+
+                    // API Calls for Scanned QR-Code's ID
+                    Delivery(result);
+
+                    // Calculates coordinates of location
+                    ConvertToCoordinates("Silver Lakes SA");
+
+                    // Calculates kilometers the drop off location of package VS current location of device
+                    LocationDistance(currentLocation, dropOffLocation);
+
+                    // Send data to Active Deliveries Page
+                    SetUpDeliveryData();
+
+                    
+                    
 
                     //try
                     //{
@@ -94,11 +117,8 @@ namespace UniDel.Views
                 //throw;
             }
 
-            
-            AfterQRScan();
-            //Delivery();
-            LocationDistance();
-            SetUpDeliveryData();
+
+           
         }
 
         public void SetUpDeliveryData()
@@ -122,29 +142,30 @@ namespace UniDel.Views
 
         }
 
-        public async void Delivery()
+        public async void Delivery(String QR_ID_Scanned)
         {
-            
+            var httpClientHandler = new HttpClientHandler();
 
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetStringAsync("http://localhost:44362/api/Deliveries");
-            var delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
+            httpClientHandler.ServerCertificateCustomValidationCallback =
+            (message, cert, chain, errors) => { return true; };
 
-            Console.WriteLine(delivery);
+            var httpClient = new HttpClient(httpClientHandler);
+
+            //var httpClient = new HttpClient(new System.Net.Http.HttpClientHandler());
+            //var httpClient = new HttpClient();
+            var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Deliveries");
+            //var delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
+
+            Console.WriteLine(response);
         }
 
-        private void LocationDistance()
+        private void LocationDistance(Location loc1, Location loc2)
         {
-            Location loc1 = new Location(-26.119151, 27.741674);
-            
-
-            Location boston = new Location(42.358056, -71.063611);
-            Location sanFrancisco = new Location(37.783333, -122.416667);
-            double Kilos = Location.CalculateDistance(boston, sanFrancisco, DistanceUnits.Kilometers);
-            Console.WriteLine("...Distance between " + boston + " and " + sanFrancisco + " is " + Kilos+"kms....");
+            double Kilos = Location.CalculateDistance(loc1, loc2, DistanceUnits.Kilometers);
+            Console.WriteLine("...Distance between " + loc1 + " and " + loc2 + " is " + Kilos + "kms....");
         }
 
-        private async void AfterQRScan()
+        private async void CurrentLocation()
         {
             var locator = CrossGeolocator.Current;
 
@@ -153,6 +174,9 @@ namespace UniDel.Views
             Console.WriteLine("Position Status: {0}", position.Timestamp);
             Console.WriteLine("Position Latitude: {0}", position.Latitude);
             Console.WriteLine("Position Longitude: {0}", position.Longitude);
+
+            Location loc1 = new Location(-26.119151, 27.741674);
+            currentLocation = loc1;
 
             //try
             //{
@@ -185,6 +209,30 @@ namespace UniDel.Views
             //}
         }
 
+        private async void ConvertToCoordinates(String address)
+        {
+            try
+            {
+                //address = "Microsoft Building 25 Redmond WA USA";
+                var locations = await Geocoding.GetLocationsAsync(address);
+
+                var location = locations?.FirstOrDefault();
+                if (location != null)
+                {
+                    dropOffLocation = location;
+                    Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                }
+
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                // Feature not supported on device
+            }
+            catch (Exception ex)
+            {
+                // Handle exception that may have occurred in geocoding
+            }
+        }
 
 
     }
