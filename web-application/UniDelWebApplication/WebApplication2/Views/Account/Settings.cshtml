@@ -1,0 +1,35 @@
+﻿@using UniDelWebApplication.Models
+@model CourierCompany
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<h1>Settings</h1>
+
+@using (Html.BeginForm("Settings", "Account", FormMethod.Post, new { id = "loginForm", enctype = "multipart/form-data", @class = "form-card" }))
+{
+
+    <div class="form-group Info">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" required value="@Model.User.UserEmail">
+
+    </div>
+
+    <div class="form-group Info">
+        <label for="propic">Profile Picture</label>
+        <input type="file" class="form-control" id="propic" name="propic" accept="image/*">
+    </div>
+
+    <div class="form-group Info">
+        <label for="compName">Courier Company Name</label>
+        <input type="text" class="form-control" id="compName" name="compName" required value="@Model.CourierCompanyName">
+    </div>
+
+    <div class="form-group Info">
+        <label for="tel">Telephone</label>
+        <input type="tel" class="form-control" id="tel" name="tel" required value="@Model.CourierCompanyTelephone">
+    </div>
+
+    <button type="submit" name="submit" id="login" class="btn btn-block btn-primary btn-color" style="margin:auto">Update</button><br />
+    <button class="btn btn-block btn-primary btn-color" style="margin:auto" asp-controller="FleetManagement" asp-action="Index">Cancel</button>
+}
