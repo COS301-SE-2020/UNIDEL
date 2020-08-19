@@ -23,6 +23,9 @@
                    Placeholder="QR-Code result goes here"
                    VerticalTextAlignment="Center"
                    HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding DeliveryID}"></Label>
+            <Label Text="{Binding DeliveryDate}"></Label>
+            <Label Text="{Binding DeliveryPickupLocation}"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
