@@ -4,12 +4,21 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using Android.Database;
+using System.Collections.ObjectModel;
+using UniDel.ViewModels;
 
 namespace UniDel.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class QRScanningPage : ContentPage
     {
+        public ObservableCollection<CompleteDeliveryViewModel> complete_deliveries { get; set; }
+        public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }
+
         public QRScanningPage()
         {
             InitializeComponent();
@@ -85,9 +94,43 @@ namespace UniDel.Views
                 //throw;
             }
 
+            
             AfterQRScan();
+            //Delivery();
             LocationDistance();
+            SetUpDeliveryData();
+        }
 
+        public void SetUpDeliveryData()
+        {
+            active_deliveries = new ObservableCollection<CurrentDeliveryViewModel>();
+            active_deliveries.Add(new CurrentDeliveryViewModel
+            {
+                deliveryID = "JHASDY12",
+                pickupName = "Dawn Wing",
+                dropoffName = "SPAR: Silver Lakes"
+            });
+
+            active_deliveries.Add(new CurrentDeliveryViewModel
+            {
+                deliveryID = "IASO28G2",
+                pickupName = "BEX Express",
+                dropoffName = "Macro Centurion"
+            });
+
+            //DeliveriesData._array[DeliveryData.DeliveryID] = "JHASDY12";
+
+        }
+
+        public async void Delivery()
+        {
+            
+
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetStringAsync("http://localhost:44362/api/Deliveries");
+            var delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
+
+            Console.WriteLine(delivery);
         }
 
         private void LocationDistance()
