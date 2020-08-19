@@ -32,10 +32,10 @@ namespace UniDel
         {
             InitializeComponent();
             DependencyService.Register<MockDataStore>();
-            MainPage = new MainPage();
+            MainPage = new LoginPage();
 
-            var myNavigationPage = new NavigationPage(new CurrentDelivery());
-            Nav = myNavigationPage.Navigation;
+            /*var myNavigationPage = new NavigationPage(new CurrentDelivery());
+            Nav = myNavigationPage.Navigation;*/
         }
 
         protected override void OnStart()

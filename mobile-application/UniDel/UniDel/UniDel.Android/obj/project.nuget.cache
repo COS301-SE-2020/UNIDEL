@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "k1uFoLOQ9ULEfy08Hg8AkUv1K8QQamDXIHSXw0xfYSkcsIq/sDEJAu/0haAEQ1xgx8bXQmyAr7zhZ87jlk1t2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Demo 3 App\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Blue Fox\\.nuget\\packages\\fastandroidcamera\\2.0.0\\fastandroidcamera.2.0.0.nupkg.sha512",
     "C:\\Users\\Blue Fox\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
@@ -58,9 +58,9 @@
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.vector.drawable\\28.0.0.3\\xamarin.android.support.vector.drawable.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.versionedparcelable\\28.0.0.3\\xamarin.android.support.versionedparcelable.28.0.0.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.support.viewpager\\28.0.0.3\\xamarin.android.support.viewpager.28.0.0.3.nupkg.sha512",
-    "C:\\Users\\Blue Fox\\.nuget\\packages\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
-    "C:\\Users\\Blue Fox\\.nuget\\packages\\xamarin.forms\\4.5.0.495\\xamarin.forms.4.5.0.495.nupkg.sha512",
-    "C:\\Users\\Blue Fox\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512"
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.5.0.495\\xamarin.forms.4.5.0.495.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512"
   ],
   "logs": [
     {

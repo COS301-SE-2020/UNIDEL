@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="UniDel.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to UniDel! Please enter your login details" />
+            <Entry x:Name="loginEmail" Placeholder="Email" Keyboard="Email" />
+            <Entry x:Name="loginPassword" Placeholder="Password" IsPassword="True" />
+            <Button Text="Login" HorizontalOptions="CenterAndExpand" Clicked="OnLoginClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

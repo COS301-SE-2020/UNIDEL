@@ -831,23 +831,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Blue Fox\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Demo 3 App\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
       "projectName": "UniDel",
-      "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
-      "packagesPath": "C:\\Users\\Blue Fox\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\obj\\",
+      "projectPath": "C:\\Users\\HP\\Demo 3 App\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HP\\Demo 3 App\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Blue Fox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -917,7 +919,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
