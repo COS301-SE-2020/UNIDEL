@@ -114,6 +114,7 @@ namespace UniDelWebApplication.Controllers
             //Go to a different page?
             loginId = -1;
             loginEmail = "";
+            UserType = null;
             HttpContext.Session.Clear();
             return RedirectToAction("Login","Account");
         }
