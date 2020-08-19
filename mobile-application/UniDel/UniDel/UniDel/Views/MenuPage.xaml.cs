@@ -24,7 +24,8 @@ namespace UniDel.Views
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.QRCode, Title="QRCode" },
                 new HomeMenuItem {Id = MenuItemType.Map, Title="Map" },
-                new HomeMenuItem {Id = MenuItemType.Deliveries, Title="Deliveries" }
+                new HomeMenuItem {Id = MenuItemType.Deliveries, Title="Deliveries" },
+                new HomeMenuItem {Id = MenuItemType.Logout, Title="Logout"}
             };
 
             ListViewMenu.ItemsSource = menuItems;
