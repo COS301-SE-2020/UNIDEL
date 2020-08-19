@@ -31,6 +31,7 @@ namespace UniDelWebApplication.Controllers
         public static string loginName;
         public static string loginEmail;
         public static string UserType;
+        public static string profilePic;
         private readonly ILogger<HomeController> _logger;
         private readonly UniDelDbContext uniDelDb; //EVERY CONTROLLER IN OUR PROJECT SHOULD INCLUDE THIS TO HAVE ACCESS TO THE DATABASE
 
@@ -387,9 +388,62 @@ namespace UniDelWebApplication.Controllers
             // return View();
         }
 
-        public IActionResult EmployeeReg()
+        public IActionResult EmployeeReg(String typeUser = "", String email = "", String password = "", String verifyPass = "", String firstName = "")
         {
-            return View();
+            if (password == verifyPass)
+            {
+                //SALT AND HASH PASSWORD
+                byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(password);
+                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
+                byte[] salt = hashAlg.ComputeHash(b64pass);
+                byte[] finalString = new byte[b64pass.Length + salt.Length];
+                for (int i = 0; i < b64pass.Length; i++)
+                {
+                    finalString[i] = b64pass[i];
+                }
+                for (int i = 0; i < salt.Length; i++)
+                {
+                    finalString[b64pass.Length + i] = salt[i];
+                }
+                string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
+
+                //ADD NEW USER TO DB
+                User user = new User();
+                //u.UserID = 1;
+                user.UserEmail = email;
+                user.UserPassword = final;
+                user.UserType = typeUser;
+                user.UserProfilePic = null;
+
+                uniDelDb.Users.Add(user);
+                uniDelDb.SaveChanges();
+
+                user = uniDelDb.Users.Where(o => o.UserEmail == email).FirstOrDefault();
+                int uID = user.UserID;
+
+                if (typeUser == "FleetManager")
+                {
+                    FleetManager u = new FleetManager();
+                    u.FleetManagerName = firstName;
+                    //u.FleetManagerCellphone = tel;
+                    u.UserID = uID;
+                    uniDelDb.FleetManagers.Add(u);
+                    uniDelDb.SaveChanges();
+                }
+
+                if (typeUser == "Driver")
+                {
+                    Driver d = new Driver();
+                    d.DriverName = firstName;
+                    //d.DriverCellphone = tel;
+                    d.UserID = uID;
+                    uniDelDb.Drivers.Add(d);
+                    uniDelDb.SaveChanges();
+                }
+            }
+            TempData["email"] = email;
+            return RedirectToAction("ConfirmationSent", "Account");
+
         }
 
         //THIS VIEW IS ACCESSIBLE BY TYPING IN http://localhost/Home/Privacy/

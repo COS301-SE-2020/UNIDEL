@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/laam/.dotnet/store/|arch|/|tfm|",
+      "/Users/laam/.nuget/packages"
+    ]
+  }
+}
