@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using UniDel.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.Geolocator;
 
 namespace UniDel.Views
 {
@@ -32,54 +28,54 @@ namespace UniDel.Views
 
                     Console.WriteLine("QR Scanned");
 
-                    try
-                    {
-                        Console.WriteLine("Trying to get current location...");
-                        var requestLocation = new GeolocationRequest(GeolocationAccuracy.Medium);
+                    //try
+                    //{
+                    //    Console.WriteLine("Trying to get current location...");
+                    //    var requestLocation = new GeolocationRequest(GeolocationAccuracy.Medium);
 
-                        Console.WriteLine("Checking last known location...");
-                        var location = await Geolocation.GetLastKnownLocationAsync(); 
+                    //    Console.WriteLine("Checking last known location...");
+                    //    var location = await Geolocation.GetLastKnownLocationAsync(); 
 
-                        if (location == null)
-                        {
-                            Console.WriteLine("Requesting current location via API...");
-                            location = await Geolocation.GetLocationAsync(requestLocation);
-                        }
+                    //    if (location == null)
+                    //    {
+                    //        Console.WriteLine("Requesting current location via API...");
+                    //        location = await Geolocation.GetLocationAsync(requestLocation);
+                    //    }
 
-                        if (location != null)
-                        {
-                            Console.WriteLine("Current location found...");
-                            Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    //    if (location != null)
+                    //    {
+                    //        Console.WriteLine("Current location found...");
+                    //        Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
 
-                            // Calculate Distance between two locations
-                                Location boston = new Location(42.358056, -71.063611);
-                                Location sanFrancisco = new Location(37.783333, -122.416667);
+                    //        // Calculate Distance between two locations
+                    //            Location boston = new Location(42.358056, -71.063611);
+                    //            Location sanFrancisco = new Location(37.783333, -122.416667);
 
-                                double miles = Location.CalculateDistance(boston, sanFrancisco, DistanceUnits.Kilometers);
-                            
-                        }
-                        else
-                        {
-                            Console.WriteLine("Failed to obtain current location... ");
-                        }
-                    }
-                    catch (FeatureNotSupportedException fnsEx)
-                    {
-                        throw;
-                    }
-                    catch (FeatureNotEnabledException fneEx)
-                    {
-                        throw;
-                    }
-                    catch (PermissionException pEx)
-                    {
-                        throw;
-                    }
-                    catch (Exception QR_Location_ex)
-                    {
-                        // Unable to get location
-                        throw;
-                    }
+                    //            double miles = Location.CalculateDistance(boston, sanFrancisco, DistanceUnits.Kilometers);
+
+                    //    }
+                    //    else
+                    //    {
+                    //        Console.WriteLine("Failed to obtain current location... ");
+                    //    }
+                    //}
+                    //catch (FeatureNotSupportedException fnsEx)
+                    //{
+                    //    throw;
+                    //}
+                    //catch (FeatureNotEnabledException fneEx)
+                    //{
+                    //    throw;
+                    //}
+                    //catch (PermissionException pEx)
+                    //{
+                    //    throw;
+                    //}
+                    //catch (Exception QR_Location_ex)
+                    //{
+                    //    // Unable to get location
+                    //    throw;
+                    //}
                 }
             }
             catch (Exception QR_Scanner_ex)
@@ -88,7 +84,65 @@ namespace UniDel.Views
                 // QR scanned is null
                 //throw;
             }
+
+            AfterQRScan();
+            LocationDistance();
+
         }
+
+        private void LocationDistance()
+        {
+            Location loc1 = new Location(-26.119151, 27.741674);
+            
+
+            Location boston = new Location(42.358056, -71.063611);
+            Location sanFrancisco = new Location(37.783333, -122.416667);
+            double Kilos = Location.CalculateDistance(boston, sanFrancisco, DistanceUnits.Kilometers);
+            Console.WriteLine("...Distance between " + boston + " and " + sanFrancisco + " is " + Kilos+"kms....");
+        }
+
+        private async void AfterQRScan()
+        {
+            var locator = CrossGeolocator.Current;
+
+            var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
+
+            Console.WriteLine("Position Status: {0}", position.Timestamp);
+            Console.WriteLine("Position Latitude: {0}", position.Latitude);
+            Console.WriteLine("Position Longitude: {0}", position.Longitude);
+
+            //try
+            //{
+            //    Console.WriteLine("loooking for location...... !");
+            //    var request = new GeolocationRequest(GeolocationAccuracy.Medium);
+            //    var location = await Geolocation.GetLocationAsync(request);
+
+            //    Console.WriteLine("after awaaaaait...... !");
+            //    if (location != null)
+            //    {
+            //        Console.WriteLine("Location found !");
+            //        Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+            //    }
+            //}
+            //catch (FeatureNotSupportedException fnsEx)
+            //{
+            //    // Handle not supported on device exception
+            //}
+            //catch (FeatureNotEnabledException fneEx)
+            //{
+            //    // Handle not enabled on device exception
+            //}
+            //catch (PermissionException pEx)
+            //{
+            //    // Handle permission exception
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Unable to get location
+            //}
+        }
+
+
 
     }
 }
