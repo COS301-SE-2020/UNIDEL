@@ -26,7 +26,8 @@ namespace UniDelWebApplication.Models
         public string UserPassword { get; set; }
 
         [Column("UserProfilePic")]
-        public byte[] UserProfilePic { get; set; }
+        [StringLength(500000)]
+        public string UserProfilePic { get; set; }
 
         [Column("UserType")]
         [StringLength(255)]

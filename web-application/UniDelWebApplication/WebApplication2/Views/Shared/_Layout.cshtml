@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using UniDelWebApplication.Controllers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -33,7 +34,7 @@
                     }
                 </ul>
                 @*</div>
-                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">*@
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">*@
             <ul class="nav justify-content-end">
                 @if (UniDelWebApplication.Controllers.AccountController.UserType == null)
                 {
@@ -43,6 +44,24 @@
                 }
                 else
                 {
+                    <!--<li class="nav-item">
+            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="Account" asp-action="Settings">Settings</a>
+        </li>-->
+                    @if (AccountController.profilePic != "")
+                    {
+                        <li class="nav-item">
+                            <a href="@Url.Action("Settings","Account")">
+                                <!--<img style="display:block;width:50px;height:50px;border-radius:50%;" src="data:image/jpeg;base64, @AccountController.profilePic" />-->
+                                <img style="display:block;width:50px;height:50px;border-radius:50%;" src="data:image/jpeg;base64, @AccountController.profilePic" />
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="Account" asp-action="Settings">Settings</a>
+                        </li>
+                    }
                     <li class="nav-item">
                         <a class="nav-link text-dark float-right border border-dark font" asp-area="" asp-controller="Account" asp-action="Logout">Sign out</a>
                     </li>
