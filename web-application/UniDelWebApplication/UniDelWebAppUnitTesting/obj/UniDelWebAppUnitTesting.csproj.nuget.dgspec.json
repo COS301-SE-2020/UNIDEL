@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj": {}
+    "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj": {
+    "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
+        "projectUniqueName": "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
         "projectName": "UniDelWebAppUnitTesting",
-        "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
-        "packagesPath": "C:\\Users\\Blue Fox\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\obj\\",
+        "projectPath": "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
+        "packagesPath": "C:\\Users\\FoxyFast\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Blue Fox\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FoxyFast\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -69,12 +69,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
