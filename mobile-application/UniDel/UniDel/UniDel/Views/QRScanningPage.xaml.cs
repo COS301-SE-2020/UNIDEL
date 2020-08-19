@@ -6,13 +6,13 @@ using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
 using System.Net.Http;
 using Newtonsoft.Json;
-//using System.Collections.Generic;
 using Android.Database;
 using System.Collections.ObjectModel;
 using UniDel.ViewModels;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using System.Linq;
 using RestSharp.Extensions;
+using System.Collections.Generic;
 
 namespace UniDel.Views
 {
@@ -23,10 +23,14 @@ namespace UniDel.Views
         public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }
         public Location currentLocation;
         public Location dropOffLocation;
+        public bool done = false;
+        public bool doubleDone = false;
 
         public QRScanningPage()
         {
             InitializeComponent();
+            // Get device's current location
+            CurrentLocation();
         }
 
         private async void btnScan_Clicked(object sender, EventArgs e)
@@ -42,18 +46,18 @@ namespace UniDel.Views
 
                     Console.WriteLine("QR Scanned");
 
-                    // Get device's current location
-                    CurrentLocation();
-
                     // API Calls for Scanned QR-Code's ID
                     Delivery(result);
 
-                    // Calculates coordinates of location
-                    ConvertToCoordinates("Silver Lakes SA");
+                    if (done == true)
+                    {
+                        // Calculates coordinates of location
+                        ConvertToCoordinates("Silver Lakes SA");
 
-                    // Calculates kilometers the drop off location of package VS current location of device
-                    LocationDistance(currentLocation, dropOffLocation);
-
+                        if (doubleDone == true)
+                            // Calculates kilometers the drop off location of package VS current location of device
+                            LocationDistance(currentLocation, dropOffLocation);
+                    }
                     // Send data to Active Deliveries Page
                     SetUpDeliveryData();
 
@@ -154,9 +158,19 @@ namespace UniDel.Views
             //var httpClient = new HttpClient(new System.Net.Http.HttpClientHandler());
             //var httpClient = new HttpClient();
             var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Deliveries");
-            //var delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
+            //var delivery = JsonConvert.DeserializeObject<Delivery>(response);
+            var delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
+
+            Console.WriteLine("Delivery State: " + delivery[0].clientID);
+
 
             Console.WriteLine(response);
+
+            if (response == null)
+            {
+                txtBarcode.Text = "Delivery not found";
+            }
+            done = true;
         }
 
         private void LocationDistance(Location loc1, Location loc2)
@@ -175,7 +189,7 @@ namespace UniDel.Views
             Console.WriteLine("Position Latitude: {0}", position.Latitude);
             Console.WriteLine("Position Longitude: {0}", position.Longitude);
 
-            Location loc1 = new Location(-26.119151, 27.741674);
+            Location loc1 = new Location(position.Latitude, position.Longitude);
             currentLocation = loc1;
 
             //try
@@ -221,6 +235,7 @@ namespace UniDel.Views
                 {
                     dropOffLocation = location;
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    doubleDone = true;
                 }
 
             }
