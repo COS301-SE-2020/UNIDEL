@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UniDelAPI.Models;
+using Newtonsoft.Json;
+using System.Security.Cryptography;
 
 namespace UniDelAPI.Controllers
 {
@@ -99,6 +101,48 @@ namespace UniDelAPI.Controllers
             await _context.SaveChangesAsync();
 
             return user;
+        }
+
+        [HttpPost("Verify")]
+        public async Task<ActionResult<User>> Verify(PostParams creds)
+        {
+            //var s = JsonConvert.SerializeObject(creds);
+            try
+            {
+
+                byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(creds.password);
+                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
+                byte[] salt = hashAlg.ComputeHash(b64pass);
+                byte[] finalString = new byte[b64pass.Length + salt.Length];
+                for (int i = 0; i < b64pass.Length; i++)
+                {
+                    finalString[i] = b64pass[i];
+                }
+                for (int i = 0; i < salt.Length; i++)
+                {
+                    finalString[b64pass.Length + i] = salt[i];
+                }
+                string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
+
+                var user = await _context.Users.Where(o => o.UserEmail == creds.email).FirstOrDefaultAsync();
+                if (user == null)
+                {
+                    return NoContent();
+                }
+
+                if (user.UserPassword == final)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return StatusCode(403);
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { message = e.Message });
+            }
         }
 
         private bool UserExists(int id)
