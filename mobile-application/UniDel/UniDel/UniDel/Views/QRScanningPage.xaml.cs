@@ -6,7 +6,6 @@ using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
 using System.Net.Http;
 using Newtonsoft.Json;
-using Android.Database;
 using System.Collections.ObjectModel;
 using UniDel.ViewModels;
 //using System.Collections.Generic;

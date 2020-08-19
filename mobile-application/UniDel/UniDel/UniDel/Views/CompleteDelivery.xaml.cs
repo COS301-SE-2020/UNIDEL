@@ -7,7 +7,7 @@ namespace UniDel.Views
 {
     public partial class CompleteDelivery : ContentPage
     {
-        public ObservableCollection<CompleteDeliveryViewModel> complete_deliveries { get; set; }
+        public ObservableCollection<CompleteDeliveryViewModel> active_deliveries { get; set; }
 
         public CompleteDelivery()
         {
@@ -25,20 +25,14 @@ namespace UniDel.Views
 
             //}
 
-            complete_deliveries = new ObservableCollection<CompleteDeliveryViewModel>();
+            active_deliveries = new ObservableCollection<CompleteDeliveryViewModel>();
 
-            complete_deliveries.Add(new CompleteDeliveryViewModel
-                { deliveryID = "1", pickupName = "BLEH2", dropoffName = "BLEH" });
-            complete_deliveries.Add(new CompleteDeliveryViewModel
-            { deliveryID = "2", pickupName = "BLEH2", dropoffName = "BLEH" });
-            complete_deliveries.Add(new CompleteDeliveryViewModel
-            { deliveryID = "3", pickupName = "BLEH2", dropoffName = "BLEH" });
-            complete_deliveries.Add(new CompleteDeliveryViewModel
-            { deliveryID = "4", pickupName = "BLEH2", dropoffName = "BLEH" });
-            complete_deliveries.Add(new CompleteDeliveryViewModel
-            { deliveryID = "5", pickupName = "BLEH2", dropoffName = "BLEH" });
+            active_deliveries.Add(new CompleteDeliveryViewModel
+            { deliveryID = "Delivery ID : 128993", pickupName = "Dawn Wing", dropoffName = "Pick n Pay: Hatfield" });
+            active_deliveries.Add(new CompleteDeliveryViewModel
+            { deliveryID = "Delivery ID : 128994", pickupName = "BEX Express SA", dropoffName = "Pick n Pay: Hatfield" });
 
-            completeView.ItemsSource = complete_deliveries;
+            completeView.ItemsSource = active_deliveries;
         }
     }
 }

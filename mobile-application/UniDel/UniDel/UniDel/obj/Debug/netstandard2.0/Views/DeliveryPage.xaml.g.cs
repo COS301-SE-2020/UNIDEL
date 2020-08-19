@@ -13,7 +13,7 @@
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\DeliveryPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/DeliveryPage.xaml")]
     public partial class DeliveryPage : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
