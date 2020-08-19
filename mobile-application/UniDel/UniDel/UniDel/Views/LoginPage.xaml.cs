@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,22 +18,45 @@ namespace UniDel.Views
             InitializeComponent();
         }
 
-        void OnLoginClicked(object sender, EventArgs args)
+        public async void OnLoginClicked(object sender, EventArgs args)
         {
-            string em = loginEmail.Text;
-            string pw = loginPassword.Text;
-            if (em == "" || pw == "")
+            try
             {
-                DisplayAlert("Login Error", "All fields are required", "OK");
-            }
+                if (loginEmail.Text == null || loginPassword.Text == null)
+                {
+                    await DisplayAlert("Login Error", "All fields are required", "OK");
+                    return;
+                }
 
-            if (em == "fineyouwinallthetime@gmail.com")
-            {
-                Application.Current.MainPage = new MainPage();
+                var httpClientHandler = new HttpClientHandler();
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+
+                var httpClient = new HttpClient(httpClientHandler);
+
+                indicator.IsRunning = true;
+                indicator.IsVisible = true;
+                await Task.Run(async () =>
+                {
+                    var response = await httpClient.GetAsync("http://api.unideldeliveries.co.za/api/Deliveries");
+                });
+
+                string em = loginEmail.Text;
+                string pw = loginPassword.Text;
+
+                if (em == "fineyouwinallthetime@gmail.com")
+                {
+                    Application.Current.MainPage = new MainPage();
+                }
+                else
+                {
+                    await DisplayAlert("Login Error", "Login failed. Email or password is incorrect", "OK");
+                }
+                indicator.IsRunning = false;
+                indicator.IsVisible = false;
             }
-            else
+            catch(Exception e)
             {
-                DisplayAlert("Login Error", "Login failed. Email or password is incorrect", "OK");
+
             }
         }
     }

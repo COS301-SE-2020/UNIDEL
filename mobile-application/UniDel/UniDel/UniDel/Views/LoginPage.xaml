@@ -11,6 +11,13 @@
             <Entry x:Name="loginEmail" Placeholder="Email" Keyboard="Email" />
             <Entry x:Name="loginPassword" Placeholder="Password" IsPassword="True" />
             <Button Text="Login" HorizontalOptions="CenterAndExpand" Clicked="OnLoginClicked" />
+
+            <ActivityIndicator x:Name="indicator" 
+                Color="RoyalBlue" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="False" IsVisible="False"
+                />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
