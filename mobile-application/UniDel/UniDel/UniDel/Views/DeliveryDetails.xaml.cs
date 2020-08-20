@@ -73,8 +73,27 @@ namespace UniDel.Views
         async void Complete_Clicked(object sender, EventArgs e)
         {
             //code here to remove object from list
-            await DisplayAlert("Confirmation", "Delivery Complete", "OK");
-            await Navigation.PopAsync();
+            bool delivered = await DisplayAlert("Delivery Complete?", "Was the order delivered?", "No", "Yes");
+            if (delivered == true)
+            {
+                await Navigation.PopAsync();
+            }
+            else
+            {
+                bool reshedule = await DisplayAlert("Reschedule Delivery?", "Would you like to reschedule delivery?", "Yes", "No");
+                if(reshedule== true)
+                {
+                    await DisplayAlert("Confirmation", "Delivery rescheduled for tomorrow", "OK");
+                    await Navigation.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Confirmation", "Contact BEX Express SA on : 0123847748", "OK");
+                    await Navigation.PopAsync();
+                }
+            }
+
+
         }
 
         async void btnNavigate_Clicked(Object sender, EventArgs e)
