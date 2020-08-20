@@ -395,9 +395,68 @@ namespace UniDelWebApplication.Controllers
             // return View();
         }
 
-        public IActionResult EmployeeReg()
+        public IActionResult EmployeeReg(string email = "", string position = "", string firstname = "", string password = "", string verifypass = "")
         {
+            if (password == verifypass)
+            {
+                byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(password);
+                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
+                byte[] salt = hashAlg.ComputeHash(b64pass);
+                byte[] finalString = new byte[b64pass.Length + salt.Length];
+                for (int i = 0; i < b64pass.Length; i++)
+                {
+                    finalString[i] = b64pass[i];
+                }
+                for (int i = 0; i < salt.Length; i++)
+                {
+                    finalString[b64pass.Length + i] = salt[i];
+                }
+                string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
+
+
+                User u = new User();
+                //u.UserID = 1;
+                u.UserEmail = email;
+                u.UserPassword = final;
+                u.UserType = position;
+                u.UserProfilePic = null;
+
+                uniDelDb.Users.Add(u);
+                uniDelDb.SaveChanges();
+
+                u = uniDelDb.Users.Where(o => o.UserEmail == email).FirstOrDefault();
+                int uID = u.UserID;
+
+                if (position == "FleetManager")
+                {
+                    FleetManager fm = new FleetManager();
+                    fm.FleetManagerID = uID;
+                    fm.FleetManagerName = firstname;
+                    uniDelDb.FleetManagers.Add(fm);
+                    uniDelDb.SaveChanges();
+                    return RedirectToAction("Index", "FleetManagement");
+                }
+
+                if (position == "Driver")
+                {
+                    Driver dri = new Driver();
+                    dri.DriverName = firstname;
+                    dri.UserID = uID;
+                    uniDelDb.Drivers.Add(dri);
+                    uniDelDb.SaveChanges();
+                    return RedirectToAction("Index", "Delivery");
+                }
+
+                if (position == "CallCentre")
+                {
+                    return RedirectToAction("Index", "CallCentre");
+                }
+
+            }
+
+
             return View();
+
         }
 
         public async Task<IActionResult> Settings(string email = "", IFormFile propic = null, string compName = "", string tel = "")
