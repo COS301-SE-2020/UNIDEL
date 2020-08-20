@@ -25,6 +25,8 @@ namespace UniDel.Views
         public Location dropOffLocation;
         public bool done = false;
         public bool doubleDone = false;
+        public List<Delivery> delivery;
+        public double Kilos;
 
         public QRScanningPage()
         {
@@ -52,14 +54,25 @@ namespace UniDel.Views
                     if (done == true)
                     {
                         // Calculates coordinates of location
-                        ConvertToCoordinates("Silver Lakes SA");
+                        ConvertToCoordinates(delivery[0].deliveryPickupLocation);
 
                         if (doubleDone == true)
+                        {
                             // Calculates kilometers the drop off location of package VS current location of device
                             LocationDistance(currentLocation, dropOffLocation);
+
+                            if (Kilos <= 30)
+                            {
+                                // POST REQUEST to change state to Delivered.
+                            }
+                            else
+                            {
+                                // Send data to Active Deliveries Page
+                                SetUpDeliveryData(result);
+                            }
+                        }
                     }
-                    // Send data to Active Deliveries Page
-                    SetUpDeliveryData();
+                    
 
                     
                     
@@ -125,22 +138,22 @@ namespace UniDel.Views
            
         }
 
-        public void SetUpDeliveryData()
+        public void SetUpDeliveryData(string id)
         {
             active_deliveries = new ObservableCollection<CurrentDeliveryViewModel>();
             active_deliveries.Add(new CurrentDeliveryViewModel
             {
-                deliveryID = "JHASDY12",
-                pickupName = "Dawn Wing",
+                deliveryID = id,
+                pickupName = delivery[0].deliveryPickupLocation,
                 dropoffName = "SPAR: Silver Lakes"
             });
 
-            active_deliveries.Add(new CurrentDeliveryViewModel
-            {
-                deliveryID = "IASO28G2",
-                pickupName = "BEX Express",
-                dropoffName = "Macro Centurion"
-            });
+            //active_deliveries.Add(new CurrentDeliveryViewModel
+            //{
+            //    deliveryID = "IASO28G2",
+            //    pickupName = "BEX Express",
+            //    dropoffName = "Macro Centurion"
+            //});
 
             //DeliveriesData._array[DeliveryData.DeliveryID] = "JHASDY12";
 
@@ -157,11 +170,11 @@ namespace UniDel.Views
 
             //var httpClient = new HttpClient(new System.Net.Http.HttpClientHandler());
             //var httpClient = new HttpClient();
-            var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Deliveries");
+            var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Deliveries/"+QR_ID_Scanned);
             //var delivery = JsonConvert.DeserializeObject<Delivery>(response);
-            var delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
+            delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
 
-            Console.WriteLine("Delivery State: " + delivery[0].clientID);
+            Console.WriteLine("Delivery State: " + delivery[0].deliveryState);
 
 
             Console.WriteLine(response);
@@ -175,7 +188,7 @@ namespace UniDel.Views
 
         private void LocationDistance(Location loc1, Location loc2)
         {
-            double Kilos = Location.CalculateDistance(loc1, loc2, DistanceUnits.Kilometers);
+            Kilos = Location.CalculateDistance(loc1, loc2, DistanceUnits.Kilometers);
             Console.WriteLine("...Distance between " + loc1 + " and " + loc2 + " is " + Kilos + "kms....");
         }
 
