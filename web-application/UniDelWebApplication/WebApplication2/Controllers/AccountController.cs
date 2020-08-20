@@ -245,6 +245,8 @@ namespace UniDelWebApplication.Controllers
             u.UserPassword = final;
             u.UserType = typeUser;
             u.UserProfilePic = null;
+            u.UserConfirmed = true;
+            u.UserToken = "235-235";
 
             uniDelDb.Users.Add(u);
             uniDelDb.SaveChanges();
@@ -420,6 +422,8 @@ namespace UniDelWebApplication.Controllers
                 u.UserPassword = final;
                 u.UserType = position;
                 u.UserProfilePic = null;
+                u.UserConfirmed = true;
+                u.UserToken = "235-235";
 
                 uniDelDb.Users.Add(u);
                 uniDelDb.SaveChanges();
