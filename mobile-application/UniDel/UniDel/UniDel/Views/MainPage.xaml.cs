@@ -45,6 +45,12 @@ namespace UniDel.Views
                     case (int)MenuItemType.Deliveries:
                         MenuPages.Add(id, new NavigationPage(new DeliveryPage()));
                         break;
+                    case (int)MenuItemType.Logout:
+                        Session.UserEmail = null;
+                        Session.UserToken = null;
+                        Session.UserType = null;
+                        Application.Current.MainPage = new LoginPage();
+                        return;
                 }
             }
 

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniDel.Views.CurrentDelivery"
+             mc:Ignorable="d"
+             xmlns:viewModel="clr-namespace:UniDel.ViewModels"
+             Title="Current Deliveries"
+             x:Name="ActiveDeliveries">
+
+    <d:ContentPage.BindingContext>
+         <viewModel:CurrentDeliveryViewModel />
+    </d:ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Frame HasShadow="True"
+               IsClippedToBounds="True"
+               Padding="1"
+               BorderColor="#1861ac"
+               Margin="15"
+               HeightRequest="300">
+            <StackLayout>
+                <Button Text="ADD DELIVERY"
+                   x:Name="btnAdd"
+                   Margin="30"
+                   Scale=".95"
+                   CharacterSpacing="3"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   FontFamily="UnidelFont"
+                   BorderWidth="5"
+                   CornerRadius="5"
+                   BackgroundColor="#1b6ec2"
+                   Clicked="Add_Clicked"/>
+                 <ListView x:Name="activeView" RowHeight="140">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Vertical"
+                                                     HorizontalOptions="Fill"
+                                                     BackgroundColor="White">
+                                            <Label Text="{Binding deliveryID}"
+                                                       FontSize="15"
+                                                       TextColor="#1861ac"
+                                                       FontAttributes="Bold"
+                                                       CharacterSpacing="2"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"
+                                                       HorizontalTextAlignment="Start"
+                                                       VerticalTextAlignment="Center"/>
+                                            <Label Text="{Binding pickupName}"
+                                                       FontSize="Small"
+                                                       TextColor="#1861ac"
+                                                       CharacterSpacing="2"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"/>
+                                            <Label Text="{Binding dropoffName}"
+                                                       FontSize="Small"
+                                                       TextColor="#1861ac"
+                                                       CharacterSpacing="2"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"/>
+                                            <Button Text="COLLECT"
+                                                       x:Name="btnCollect"
+                                                       Scale=".75"
+                                                       CharacterSpacing="2"
+                                                       FontAttributes="Bold"
+                                                       TextColor="White"
+                                                       FontFamily="UnidelFont"
+                                                       BorderWidth="5"
+                                                       CornerRadius="5"
+                                                       HorizontalOptions="End"
+                                                       VerticalOptions="Center"
+                                                       BackgroundColor="#1b6ec2"
+                                                       Clicked="Collect_Clicked"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+       
+
+</ContentPage>

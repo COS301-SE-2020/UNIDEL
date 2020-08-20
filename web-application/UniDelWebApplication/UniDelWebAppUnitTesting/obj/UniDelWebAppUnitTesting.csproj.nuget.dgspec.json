@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj": {}
+    "/Users/laam/Documents/GitHub/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/UniDelWebAppUnitTesting.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj": {
+    "/Users/laam/Documents/GitHub/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/UniDelWebAppUnitTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
+        "projectUniqueName": "/Users/laam/Documents/GitHub/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/UniDelWebAppUnitTesting.csproj",
         "projectName": "UniDelWebAppUnitTesting",
-        "projectPath": "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
-        "packagesPath": "C:\\Users\\FoxyFast\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\obj\\",
+        "projectPath": "/Users/laam/Documents/GitHub/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/UniDelWebAppUnitTesting.csproj",
+        "packagesPath": "/Users/laam/.nuget/packages/",
+        "outputPath": "/Users/laam/Documents/GitHub/UNIDEL/web-application/UniDelWebApplication/UniDelWebAppUnitTesting/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\FoxyFast\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/laam/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,18 +63,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
         }
       }
     }
