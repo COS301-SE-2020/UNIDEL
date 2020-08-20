@@ -42,7 +42,7 @@ namespace UniDelWebApplication.Controllers
                 uniDelDb.Deliveries.Add(newDelivery);
                 uniDelDb.SaveChanges();
             }
-            return RedirectToAction("Index", "Delivery");
+            return RedirectToAction("Index", "CallCentre");
         }
     }
 }

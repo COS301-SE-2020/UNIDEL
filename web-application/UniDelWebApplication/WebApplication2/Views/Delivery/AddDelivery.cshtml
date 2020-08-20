@@ -13,7 +13,14 @@
     <label for="pLocation">Pickup Location:</label>
     <input type="text" name="pLocation" list="pLocation" required/><br>
     <label for="dState">Delivery State:</label>
-    <input type="text" name="dState" list="dState" required/><br>
+    @*<input type="text" name="dState" list="dState" required/><br>*@
+    <input type="text" name="dState" list="dState" required/>
+    <datalist id="dState">
+        <option>Placed</option>
+        <option>Pending</option>
+        <option>Delivered</option>
+        <option>In Progress</option>
+    </datalist><br>
     <label for="dDriver">Driver:</label>
     <input type="number" name="dDriver" list="dDriver" required/><br>
     <label for="dVehicle">Vehicle:</label>
