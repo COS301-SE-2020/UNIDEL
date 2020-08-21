@@ -56,7 +56,10 @@ namespace UniDel.Views
                     // Find this CourierCompany's ID
                     CourierCompanyID();
 
-                    if(client == null)
+                    // Find the Client for Dropofflocation
+                    ClientID();
+
+                    if (client == null)
                     {
                         return;
                     }
@@ -204,7 +207,7 @@ namespace UniDel.Views
 
 
             Console.WriteLine(response);
-            Console.WriteLine(packet);
+            Console.WriteLine("....DeliveryID: "+packet.deliveryID + " CourierCompany: " + packet.CourierCompany + " PickupLocation: " + packet.deliveryPickupLocation);
 
             done = true;
         }
@@ -367,7 +370,7 @@ namespace UniDel.Views
             }
 
             Console.WriteLine(response);
-            Console.WriteLine(client);
+            Console.WriteLine("...ClientID: "+client.ClientID+ " ClientAddress: " +client.ClientAddress + " ClientName: " + client.ClientName);
         }
 
     }
