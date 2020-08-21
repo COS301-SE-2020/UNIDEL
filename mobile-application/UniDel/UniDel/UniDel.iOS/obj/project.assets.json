@@ -1531,20 +1531,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/laam/.nuget/packages/": {}
+    "/Users/khakhuramakuela/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
+      "projectUniqueName": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
       "projectName": "UniDel.iOS",
-      "projectPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
-      "packagesPath": "/Users/laam/.nuget/packages/",
-      "outputPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/obj/",
+      "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/UniDel.iOS.csproj",
+      "packagesPath": "/Users/khakhuramakuela/.nuget/packages/",
+      "outputPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/laam/.config/NuGet/NuGet.Config"
+        "/Users/khakhuramakuela/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
@@ -1555,8 +1555,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
-              "projectPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
+            "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
+              "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
             }
           }
         }

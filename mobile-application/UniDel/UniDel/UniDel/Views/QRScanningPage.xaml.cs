@@ -25,7 +25,10 @@ namespace UniDel.Views
         public bool done = false;
         public bool doubleDone = false;
         public List<Delivery> delivery;
+        public Delivery packet;
         public double Kilos;
+        private object indicator;
+        private Client client;
 
         public QRScanningPage()
         {
@@ -50,10 +53,25 @@ namespace UniDel.Views
                     // API Calls for Scanned QR-Code's ID
                     Delivery(result);
 
-                    if (done == true)
+                    // Find this CourierCompany's ID
+                    CourierCompanyID();
+
+                    if(client == null)
+                    {
+                        return;
+                    }
+                    if(done == false)
+                    {
+                        //await DisplayAlert("Completed", "The Delivery has already been completed.", "OK");
+                    }
+                    else if(packet.deliveryState == "Completed")
+                    {
+                        await DisplayAlert("Completed", "The Delivery has already been completed.", "OK");
+                    }
+                    else if (done == true)
                     {
                         // Calculates coordinates of location
-                        ConvertToCoordinates(delivery[0].deliveryPickupLocation);
+                        ConvertToCoordinates(client.ClientAddress);
 
                         if (doubleDone == true)
                         {
@@ -143,8 +161,8 @@ namespace UniDel.Views
             active_deliveries.Add(new CurrentDeliveryViewModel
             {
                 deliveryID = id,
-                pickupName = delivery[0].deliveryPickupLocation,
-                dropoffName = "SPAR: Silver Lakes"
+                pickupName = packet.deliveryPickupLocation,
+                dropoffName = client.ClientAddress
             });
 
             //active_deliveries.Add(new CurrentDeliveryViewModel
@@ -169,19 +187,25 @@ namespace UniDel.Views
 
             //var httpClient = new HttpClient(new System.Net.Http.HttpClientHandler());
             //var httpClient = new HttpClient();
-            var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Deliveries/"+QR_ID_Scanned);
+            var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Deliveries");
             //var delivery = JsonConvert.DeserializeObject<Delivery>(response);
             delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
 
-            Console.WriteLine("Delivery State: " + delivery[0].deliveryState);
+            packet = SearchPacket(delivery, (int)Int64.Parse(QR_ID_Scanned));
+            if (packet == null)
+            {
+                txtBarcode.Text = "Delivery not found";
+                await DisplayAlert("Delivery not found", "Delivery not found on the system. Try a different QR-Code", "OK");
+                done = false;
+                return;
+            }
+
+            Console.WriteLine("Delivery State: " + packet.deliveryState);
 
 
             Console.WriteLine(response);
+            Console.WriteLine(packet);
 
-            if (response == null)
-            {
-                txtBarcode.Text = "Delivery not found";
-            }
             done = true;
         }
 
@@ -261,6 +285,92 @@ namespace UniDel.Views
             }
         }
 
+        private Delivery SearchPacket(List<Delivery> d, int email)
+        {
+            foreach (Delivery u in d)
+            {
+                if (u.deliveryID == email)
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+
+        private Client SearchClient(List<Client> d, int c)
+        {
+            foreach (Client u in d)
+            {
+                if (u.ClientID == c)
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+
+        private async void CourierCompanyID()
+        {
+            //var httpClientHandler = new HttpClientHandler();
+
+            //httpClientHandler.ServerCertificateCustomValidationCallback =
+            //(message, cert, chain, errors) => { return true; };
+
+            //var httpClient = new HttpClient(httpClientHandler);
+
+            ////var httpClient = new HttpClient(new System.Net.Http.HttpClientHandler());
+            ////var httpClient = new HttpClient();
+            //var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/clients");
+            ////var delivery = JsonConvert.DeserializeObject<Delivery>(response);
+            //delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
+
+            //courier = SearchPacket(delivery, (int)Int64.Parse(QR_ID_Scanned));
+            //if (courier == null)
+            //{
+            //    txtBarcode.Text = "Delivery not found";
+            //    await DisplayAlert("Delivery not found", "Delivery not found on the system. Try a different QR-Code", "OK");
+            //    done = false;
+            //    return;
+            //}
+
+            //Console.WriteLine("Delivery State: " + packet.deliveryState);
+
+
+            //Console.WriteLine(response);
+            //Console.WriteLine(packet);
+
+            //done = true;
+        }
+
+        private async void ClientID()
+        {
+            var httpClientHandler = new HttpClientHandler();
+
+            httpClientHandler.ServerCertificateCustomValidationCallback =
+            (message, cert, chain, errors) => { return true; };
+
+            var httpClient = new HttpClient(httpClientHandler);
+
+            //var httpClient = new HttpClient(new System.Net.Http.HttpClientHandler());
+            //var httpClient = new HttpClient();
+            var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/clients");
+            //var delivery = JsonConvert.DeserializeObject<Delivery>(response);
+            var clients = JsonConvert.DeserializeObject<List<Client>>(response);
+
+            client = SearchClient(clients, packet.clientID);
+            if (client == null)
+            {
+                txtBarcode.Text = "Client not found";
+                await DisplayAlert("Client not found", "Client not found on the system. Try a different QR-Code", "OK");
+                done = false;
+                return;
+            }
+
+            Console.WriteLine(response);
+            Console.WriteLine(client);
+        }
 
     }
+
+    
 }
