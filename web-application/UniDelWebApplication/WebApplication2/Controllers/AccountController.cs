@@ -208,10 +208,13 @@ namespace UniDelWebApplication.Controllers
             return true;
         }
 
-        public IActionResult Register(String typeUser = "", String email = "", String password = "", String verifyPass = "", String compName = "",String tel="", String number = "", String address = "", String surname = "")
+        public IActionResult Register(String typeUser = "", String email = "", String password = "", String verifyPass = "", String compName = "",String tel="", String number = "", String address = "", String surname = "", String regCode="")
         {
-            //User details were not received therefore load register page to allow user to register
             ViewBag.Error = "";
+            //Registration Code incorrect therefore return to page with error
+
+            //User details were not received therefore load register page to allow user to register
+            
             //LOAD DEFAULT PAGE IF ALL VARIABLES ARE UNSET
             if (email == "")
             {
@@ -219,11 +222,17 @@ namespace UniDelWebApplication.Controllers
                 return View();
             }
 
+            if (regCode != "a46e-c291-b75f")
+            {
+                ViewBag.Error = "Registration failed. Registration code is incorrect";
+                return View();
+            }
+
             //VALIDATE RECAPTCHA
             if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"],SiteSettings.GoogleRecaptchaSecretKey,_logger))
             {
                 //ModelState.AddModelError(string.Empty, "You failed the CAPTCHA, stupid robot. Go play some 1x1 on SFs instead.");
-                ViewBag["Error"] = "You failed the CAPTCHA, stupid robot. Go play some 1x1 on SFs instead.";
+                ViewBag["Error"] = "ReCaptcha Failed. Please validate ReCaptcha";
                 return View();
             }
 
