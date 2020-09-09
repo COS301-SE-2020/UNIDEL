@@ -128,3 +128,4 @@ C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Deb
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.dll
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\ref\UniDel.dll
 C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.pdb
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.csprojAssemblyReference.cache
