@@ -19,13 +19,14 @@ namespace UniDel.Views
         public LoginPage()
         {
             InitializeComponent();
+            BindingContext = this;
         }
 
         public async void OnLoginClicked(object sender, EventArgs args)
         {
             try
             {
-                if (loginEmail.Text == null || loginPassword.Text == null)
+                if (loginEmail.Text == null || loginPassword.Text == null || loginEmail.Text == "" || loginPassword.Text == "")
                 {
                     await DisplayAlert("Login Error", "All fields are required", "OK");
                     return;
@@ -50,18 +51,18 @@ namespace UniDel.Views
 
                 if (users == null)
                 {
-                    await DisplayAlert("Login Error", "Server Error", "OK");
                     indicator.IsRunning = false;
                     indicator.IsVisible = false;
+                    await DisplayAlert("Login Error", "Server error", "OK");
                     return;
                 }
 
                 User u = FindUser(users, em);
                 if (u == null)
                 {
-                    await DisplayAlert("Login Error", "Login failed. Email or password is incorrect", "OK");
                     indicator.IsRunning = false;
                     indicator.IsVisible = false;
+                    await DisplayAlert("Login Error", "Login failed. Email or password is incorrect", "OK");
                     return;
                 }
 
@@ -91,6 +92,8 @@ namespace UniDel.Views
                 string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
                 //PASSWORD HASHED
 
+                indicator.IsRunning = false;
+                indicator.IsVisible = false;
                 if (u.UserEmail == em && u.UserPassword == final)
                 {
                     Session.UserEmail = u.UserEmail;
@@ -102,14 +105,12 @@ namespace UniDel.Views
                 {
                     await DisplayAlert("Login Error", "Login failed. Email or password is incorrect", "OK");
                 }
-                indicator.IsRunning = false;
-                indicator.IsVisible = false;
             }
             catch(Exception e)
             {
-                await DisplayAlert("Login Error", e.Message, "OK");
                 indicator.IsRunning = false;
                 indicator.IsVisible = false;
+                await DisplayAlert("Login Error", e.Message, "OK");
             }
         }
 
@@ -124,5 +125,9 @@ namespace UniDel.Views
             }
             return null;
         }
+
+        public Command RegisterLinkCommand => new Command(() => {
+            Application.Current.MainPage = new RegisterPage();
+        } );
     }
 }

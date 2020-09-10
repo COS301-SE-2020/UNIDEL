@@ -11,6 +11,18 @@
             <Entry x:Name="loginEmail" Placeholder="Email" Keyboard="Email" />
             <Entry x:Name="loginPassword" Placeholder="Password" IsPassword="True" />
             <Button Text="Login" HorizontalOptions="CenterAndExpand" Clicked="OnLoginClicked" />
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="If you are a new user, Register " />
+                        <Span Text="here" TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RegisterLinkCommand}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
 
             <ActivityIndicator x:Name="indicator" 
                 Color="RoyalBlue" 
