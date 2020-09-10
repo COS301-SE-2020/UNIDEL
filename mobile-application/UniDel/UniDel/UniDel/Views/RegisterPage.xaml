@@ -7,6 +7,8 @@
              x:Class="UniDel.Views.RegisterPage">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Register for UniDel"/>
+            
             <Label>
                 <Label.FormattedText>
                     <FormattedString>
@@ -20,15 +22,14 @@
                 </Label.FormattedText>
             </Label>
             
-            <Label Text="Register for UniDel"/>
             <Entry x:Name="regName" Placeholder="Name" />
-            <Entry x:Name="regEmail" Placeholder="Email" Keyboard="Email" />
+            <Entry x:Name="regEmail" Placeholder="Email" Keyboard="Email" TextChanged="OnRegEmailTextChanged" />
             <Entry x:Name="regPhone" Placeholder="Telephone" Keyboard="Telephone" />
             <Entry x:Name="regAddress" Placeholder="Address" />
             <Entry x:Name="regCode" Placeholder="Registration Code" />
-            <Entry x:Name="regPass" Placeholder="Password" IsPassword="True" />
-            <Entry x:Name="regPassConfirm" Placeholder="Confirm Password" IsPassword="True" />
-            <Button Text="Register" HorizontalOptions="CenterAndExpand"
+            <Entry x:Name="regPass" Placeholder="Password" IsPassword="True"/>
+            <Entry x:Name="regPassConfirm" Placeholder="Confirm Password" IsPassword="True" TextChanged="OnRegPassConfirmTextChanged" />
+            <Button x:Name="regButton" Text="Register" HorizontalOptions="CenterAndExpand"
                    CharacterSpacing="3"
                    FontAttributes="Bold"
                    TextColor="White"
