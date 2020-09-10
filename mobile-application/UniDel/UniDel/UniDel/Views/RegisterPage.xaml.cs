@@ -15,7 +15,23 @@ namespace UniDel.Views
         public RegisterPage()
         {
             InitializeComponent();
-
+            BindingContext = this;
         }
+
+        public async void onRegisterClicked(object sender, EventArgs args)
+        {
+            try
+            {
+
+            }
+            catch(Exception e)
+            {
+
+            }
+        }
+
+        public Command LoginLinkCommand => new Command(() => {
+            Application.Current.MainPage = new LoginPage();
+        });
     }
 }

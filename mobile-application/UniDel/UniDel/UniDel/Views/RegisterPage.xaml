@@ -7,9 +7,43 @@
              x:Class="UniDel.Views.RegisterPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Return" TextColor="RoyalBlue" TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginLinkCommand}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                        <Span Text=" to login page" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            
+            <Label Text="Register for UniDel"/>
+            <Entry x:Name="regName" Placeholder="Name" />
+            <Entry x:Name="regEmail" Placeholder="Email" Keyboard="Email" />
+            <Entry x:Name="regPhone" Placeholder="Telephone" Keyboard="Telephone" />
+            <Entry x:Name="regAddress" Placeholder="Address" />
+            <Entry x:Name="regCode" Placeholder="Registration Code" />
+            <Entry x:Name="regPass" Placeholder="Password" IsPassword="True" />
+            <Entry x:Name="regPassConfirm" Placeholder="Confirm Password" IsPassword="True" />
+            <Button Text="Register" HorizontalOptions="CenterAndExpand"
+                   CharacterSpacing="3"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   FontFamily="UnidelFont"
+                   BorderWidth="5"
+                   CornerRadius="5"
+                   BackgroundColor="#1b6ec2"
+                    Clicked="OnRegisterClicked" />
+
+            <ActivityIndicator x:Name="indicator" 
+                Color="RoyalBlue" 
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="False" IsVisible="False"
+                />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
