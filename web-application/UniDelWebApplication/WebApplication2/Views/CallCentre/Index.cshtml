@@ -39,7 +39,7 @@
                         <td>@item.VehicleID</td>
                         <td>@item.ClientID</td>
                         <td>@item.CourierCompanyID</td>*@
-            <td class="my-auto align-middle" cellpadding="8">
+                    <td class="my-auto align-middle" cellpadding="8">
                         @using (Html.BeginForm("QRCode", "CallCentre", FormMethod.Post))
                         {
                             <input type="hidden" id="txtQRCode" name="txtQRCode" value="@item.DeliveryID">
