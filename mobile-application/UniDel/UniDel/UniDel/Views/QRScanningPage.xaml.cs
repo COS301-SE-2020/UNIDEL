@@ -167,16 +167,6 @@ namespace UniDel.Views
                 pickupName = packet.deliveryPickupLocation,
                 dropoffName = client.ClientAddress
             });
-
-            //active_deliveries.Add(new CurrentDeliveryViewModel
-            //{
-            //    deliveryID = "IASO28G2",
-            //    pickupName = "BEX Express",
-            //    dropoffName = "Macro Centurion"
-            //});
-
-            //DeliveriesData._array[DeliveryData.DeliveryID] = "JHASDY12";
-
         }
 
         public async void Delivery(String QR_ID_Scanned)
