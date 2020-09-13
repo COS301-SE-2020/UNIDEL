@@ -13,16 +13,20 @@
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/MapPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\MapPage.xaml")]
     public partial class MapPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Label labelLoading;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.WebView googleMap;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MapPage));
             labelLoading = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "labelLoading");
+            googleMap = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.WebView>(this, "googleMap");
         }
     }
 }
