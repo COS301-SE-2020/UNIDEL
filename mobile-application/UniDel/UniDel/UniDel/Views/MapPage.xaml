@@ -5,6 +5,8 @@
              x:Class="UniDel.Views.MapPage">
     <StackLayout Margin="20,35,20,20">
         <Label x:Name="labelLoading" Text="Loading..." IsVisible="false" />
-        <WebView HeightRequest="1000" WidthRequest="1000" Source="https://www.google.co.za/maps/dir/Silver+Lakes+Golf+Estate/SUPERSPAR+Silver+Oaks,+Willow+Acres,+Silveroaks+Shopping+Centre,+Von+Backstrom,+Pretoria/@-25.7679143,28.357676,15z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x1e955ebe03b55b41:0x49413fc21fe036be!2m2!1d28.3724915!2d-25.769125!1m5!1m1!1s0x1e955e947d8d85e3:0xd5777bf43590ae48!2m2!1d28.3601789!2d-25.765062" Navigated="webviewNavigated" Navigating="webviewNavigating" />
+        <!--<WebView HeightRequest="1000" WidthRequest="1000" Source="https://www.google.co.za/maps/dir/Silver+Lakes+Golf+Estate/SUPERSPAR+Silver+Oaks,+Willow+Acres,+Silveroaks+Shopping+Centre,+Von+Backstrom,+Pretoria/@-25.7679143,28.357676,15z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x1e955ebe03b55b41:0x49413fc21fe036be!2m2!1d28.3724915!2d-25.769125!1m5!1m1!1s0x1e955e947d8d85e3:0xd5777bf43590ae48!2m2!1d28.3601789!2d-25.765062" Navigated="webviewNavigated" Navigating="webviewNavigating" />-->
+        <WebView x:Name="googleMap" HeightRequest="1000" WidthRequest="1000" Navigated="webviewNavigated" Navigating="webviewNavigating"/>
+
     </StackLayout>
 </ContentPage>

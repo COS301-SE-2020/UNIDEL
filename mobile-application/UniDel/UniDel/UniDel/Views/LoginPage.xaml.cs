@@ -44,7 +44,7 @@ namespace UniDel.Views
                 indicator.IsVisible = true;
                 await Task.Run(async () =>
                 {
-                    var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Users");
+                    var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Users/GetAllUsers");
                     users = JsonConvert.DeserializeObject<List<User>>(response);
                 });
 
