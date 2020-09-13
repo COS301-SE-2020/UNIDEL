@@ -8,13 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UniDel.Views.QRScanningPage.xaml", "Views/QRScanningPage.xaml", typeof(global::UniDel.Views.QRScanningPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UniDel.Views.EndCustomerQRScanningPage.xaml", "Views/EndCustomerQRScanningPage.xaml", typeof(global::UniDel.Views.EndCustomerQRScanningPage))]
 
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\QRScanningPage.xaml")]
-    public partial class QRScanningPage : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\EndCustomerQRScanningPage.xaml")]
+    public partial class EndCustomerQRScanningPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Button btnScan;
@@ -24,7 +24,7 @@ namespace UniDel.Views {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(QRScanningPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(EndCustomerQRScanningPage));
             btnScan = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnScan");
             txtBarcode = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Entry>(this, "txtBarcode");
         }
