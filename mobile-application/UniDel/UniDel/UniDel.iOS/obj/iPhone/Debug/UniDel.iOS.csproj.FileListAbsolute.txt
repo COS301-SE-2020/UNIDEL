@@ -127,8 +127,11 @@ C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\bin\iPhone
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\bin\iPhone\Debug\zxing.portable.dll
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\bin\iPhone\Debug\UniDel.dll
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.dll
+C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\bin\iPhone\Debug\Mono.Android.dll
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\bin\iPhone\Debug\UniDel.pdb
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\bin\iPhone\Debug\Xamarin.Forms.Platform.iOS.pdb
+C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\bin\iPhone\Debug\Mono.Android.pdb
+C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\bin\iPhone\Debug\Mono.Android.xml
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items

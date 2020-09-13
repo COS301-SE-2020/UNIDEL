@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using Android.Util;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using UniDel.Models;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Security.Cryptography;
+using System.Net;
 
 namespace UniDel.Views
 {
@@ -30,7 +35,7 @@ namespace UniDel.Views
             try
             {
                 //CHECK IF ALL FIELDS HAVE INPUT//
-                if (regName.Text == null || regName.Text == "")
+                /*if (regName.Text == null || regName.Text == "")
                 {
                     await DisplayAlert("Registration Error", "All fields are required", "OK");
                     return;
@@ -74,21 +79,81 @@ namespace UniDel.Views
                 //CHECK COMPLETE: ALL FIELDS HAVE INPUT//
 
                 //CHECK IF REGISTRATION CODE MATCHES
-                if (regPhone.Text != "a7be-fb31-ba72-5ce3-a6d2")
+                if (regCode.Text != "a7be-fb31-ba72-5ce3-a6d2")
                 {
                     await DisplayAlert("Registration Error", "Registration Code is incorrect", "OK");
                     return;
-                }
+                }*/
                 //CHECK COMPLETE: REGISTRATION CODE IS CORRECT
 
                 //WE ASSUME EMAIL IS VALID AND PASSWORDS MATCH EACH OTHER
+                //ASSIGN VALUES
+                string email = regEmail.Text;
+                string pass = regPass.Text;
+                string type = "Client";
+                string name = regName.Text;
+                string phone = regPhone.Text;
+                string address = regAddress.Text;
 
-                
+                /*User u = new User();
+                u.UserEmail = email;*/
+                //LEFT IT HERE
+                Client c = new Client();
+                c.ClientID = 61;
+                c.ClientName = "90 Degrees Shop";
+                c.ClientTelephone = "09876374";
+                c.ClientAddress = "South Park";
+                c.UserID = 3;
+                c.User = null;
 
+                //NOW WE MAKE THE API POST CALLS
+                List<User> users = null;
+                var httpClientHandler = new HttpClientHandler();
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+
+                var httpClient = new HttpClient(httpClientHandler);
+                string json = JsonConvert.SerializeObject(c);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                indicator.IsRunning = true;
+                indicator.IsVisible = true;
+
+                var response = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/PostClient", content);
+                indicator.IsRunning = false;
+                indicator.IsVisible = false;
+                if (response.StatusCode == HttpStatusCode.Created)
+                {
+                    await DisplayAlert("Registration Info", "Successfully Registered", "OK");
+                    return;
+                }
+                else
+                {
+                    await DisplayAlert("Registration Info", "Did not register successfully", "OK");
+                    return;
+                }
+
+                /*await Task.Run(async () =>
+                {
+                    var response = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/PostClient", content);
+                    indicator.IsRunning = false;
+                    indicator.IsVisible = false;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        await DisplayAlert("Registration Info", "Successfully Registered", "OK");
+                        return;
+                    }
+                    else
+                    {
+                        await DisplayAlert("Registration Info", "Did not register successfully", "OK");
+                        return;
+                    }
+                });*/
             }
             catch(Exception e)
             {
-
+                indicator.IsRunning = false;
+                indicator.IsVisible = false;
+                await DisplayAlert("Server Error", e.Message, "OK");
+                return;
             }
         }
 
