@@ -11,6 +11,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Security.Cryptography;
 using System.Net;
+using System.Net.Mail;
 
 namespace UniDel.Views
 {
@@ -35,7 +36,7 @@ namespace UniDel.Views
             try
             {
                 //CHECK IF ALL FIELDS HAVE INPUT//
-                /*if (regName.Text == null || regName.Text == "")
+                if (regName.Text == null || regName.Text == "")
                 {
                     await DisplayAlert("Registration Error", "All fields are required", "OK");
                     return;
@@ -83,7 +84,7 @@ namespace UniDel.Views
                 {
                     await DisplayAlert("Registration Error", "Registration Code is incorrect", "OK");
                     return;
-                }*/
+                }
                 //CHECK COMPLETE: REGISTRATION CODE IS CORRECT
 
                 //WE ASSUME EMAIL IS VALID AND PASSWORDS MATCH EACH OTHER
@@ -162,7 +163,27 @@ namespace UniDel.Views
                     indicator.IsVisible = false;
                     if (clientResponse.StatusCode == HttpStatusCode.Created)
                     {
-                        await DisplayAlert("Registration Info", "Successfully Registered", "OK");
+                        //SEND VERIFICATION EMAIL FOR CONFIRMATION
+                        string token = u.UserToken;
+                        MailMessage mail = new MailMessage();
+                        SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                        mail.From = new MailAddress("memoryinjectlamas@gmail.com");
+                        mail.To.Add(email);
+                        mail.Subject = "UniDel confirmation email";
+                        mail.Body = "Your UniDel account has been created. To activate your account click on the following confirmation link \r\n " +
+                            "https://www.unideldeliveries.co.za/Account/ConfirmEmail?email=" + email + "&token=" + token;
+
+                        SmtpServer.Port = 587;
+                        SmtpServer.Credentials = new System.Net.NetworkCredential("memoryinjectlamas@gmail.com", Session.GPW);
+                        SmtpServer.EnableSsl = true;
+                        ServicePointManager.ServerCertificateValidationCallback = (message, cert, chain, errors) => { return true; };
+
+                        SmtpServer.Send(mail);
+
+                        await DisplayAlert("Registration Successful", "A verification email has been sent to " + email, "OK");
+                        await DisplayAlert("Registration Complete", "You can now log into UniDel", "Proceed to Login");
+                        Application.Current.MainPage = new LoginPage();
                         return;
                     }
                     else
@@ -178,45 +199,6 @@ namespace UniDel.Views
                     await DisplayAlert("Registration failed", "An error occured while creating the User Profile", "OK");
                     return;
                 }
-
-                //NOW WE MAKE THE API POST CALLS
-                
-                ////////////////////////////////////////MAY BE REDUNDANT AND THEREFORE DELETED//////////////////////////////////////////////
-                /*var httpClient = new HttpClient(httpClientHandler);
-                
-                indicator.IsRunning = true;
-                indicator.IsVisible = true;
-
-                var response = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/PostClient", content);
-                indicator.IsRunning = false;
-                indicator.IsVisible = false;
-                if (response.StatusCode == HttpStatusCode.Created)
-                {
-                    await DisplayAlert("Registration Info", "Successfully Registered", "OK");
-                    return;
-                }
-                else
-                {
-                    await DisplayAlert("Registration Info", "Did not register successfully", "OK");
-                    return;
-                }
-
-                /*await Task.Run(async () =>
-                {
-                    var response = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/PostClient", content);
-                    indicator.IsRunning = false;
-                    indicator.IsVisible = false;
-                    if (response.IsSuccessStatusCode)
-                    {
-                        await DisplayAlert("Registration Info", "Successfully Registered", "OK");
-                        return;
-                    }
-                    else
-                    {
-                        await DisplayAlert("Registration Info", "Did not register successfully", "OK");
-                        return;
-                    }
-                });*/
             }
             catch(Exception e)
             {
