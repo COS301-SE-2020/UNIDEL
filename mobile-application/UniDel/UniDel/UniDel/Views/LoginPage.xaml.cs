@@ -66,6 +66,14 @@ namespace UniDel.Views
                     return;
                 }
 
+                if (u.UserConfirmed == false)
+                {
+                    indicator.IsRunning = false;
+                    indicator.IsVisible = false;
+                    await DisplayAlert("Login Error", "User account not confirmed. Please confirm your account via email", "OK");
+                    return;
+                }
+
                 //APPLICATION ONLY FOR DRIVERS AND CLIENTS THEREFORE ACCESS SHOULD BE DENIED TO ANYONE ELSE
                 /*
                 if (u.UserType != "Driver" && u.UserType != "Client")
