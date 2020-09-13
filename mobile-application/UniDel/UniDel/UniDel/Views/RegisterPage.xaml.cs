@@ -95,25 +95,95 @@ namespace UniDel.Views
                 string phone = regPhone.Text;
                 string address = regAddress.Text;
 
-                /*User u = new User();
-                u.UserEmail = email;*/
-                //LEFT IT HERE
-                Client c = new Client();
-                c.ClientID = 61;
-                c.ClientName = "90 Degrees Shop";
-                c.ClientTelephone = "09876374";
-                c.ClientAddress = "South Park";
-                c.UserID = 3;
-                c.User = null;
+                //HASH THE PASSWORD
+                byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(pass);
+                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
+                byte[] salt = hashAlg.ComputeHash(b64pass);
+                byte[] finalString = new byte[b64pass.Length + salt.Length];
+                for (int i = 0; i < b64pass.Length; i++)
+                {
+                    finalString[i] = b64pass[i];
+                }
+                for (int i = 0; i < salt.Length; i++)
+                {
+                    finalString[b64pass.Length + i] = salt[i];
+                }
+                string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
+                //PASSWORD HASHED
 
-                //NOW WE MAKE THE API POST CALLS
+                User u = new User();
+                u.UserEmail = email;
+                u.UserPassword = final;
+                u.UserProfilePic = null;
+                u.UserType = type;
+                u.UserConfirmed = false;
+                u.UserToken = Guid.NewGuid().ToString();
+
+                //MAKE POST CALL TO CREATE USER
                 List<User> users = null;
                 var httpClientHandler = new HttpClientHandler();
                 httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
 
                 var httpClient = new HttpClient(httpClientHandler);
-                string json = JsonConvert.SerializeObject(c);
+                string json = JsonConvert.SerializeObject(u);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                indicator.IsRunning = true;
+                indicator.IsVisible = true;
+
+                //API POST CALL TO CREATE
+                var response = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/Users/PostUser", content);
+                if (response.StatusCode == HttpStatusCode.Created)
+                {
+                    //MAKE API CALL TO RETRIEVE THE NEWLY POSTED USER
+                    var retrievedUsers = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Users/GetAllUsers");
+                    users = JsonConvert.DeserializeObject<List<User>>(retrievedUsers);
+                    u = users.Where<User>(o => o.UserEmail == email).FirstOrDefault();
+                    if (u == null)
+                    {
+                        indicator.IsRunning = false;
+                        indicator.IsVisible = false;
+                        await DisplayAlert("Registration failed", "An error occured while creating the User Profile", "OK");
+                        return;
+                    }
+
+                    //IF WE ARE HERE USER CREATION WAS SUCCESSFUL
+                    Client c = new Client();
+                    c.ClientName = name;
+                    c.ClientTelephone = phone;
+                    c.ClientAddress = address;
+                    c.UserID = u.UserID;
+                    c.User = null;
+
+                    json = JsonConvert.SerializeObject(c);
+                    content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var clientResponse = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/PostClient", content);
+                    
+                    indicator.IsRunning = false;
+                    indicator.IsVisible = false;
+                    if (clientResponse.StatusCode == HttpStatusCode.Created)
+                    {
+                        await DisplayAlert("Registration Info", "Successfully Registered", "OK");
+                        return;
+                    }
+                    else
+                    {
+                        await DisplayAlert("Registration Info", "Did not register successfully", "OK");
+                        return;
+                    }
+                }
+                else
+                {
+                    indicator.IsRunning = false;
+                    indicator.IsVisible = false;
+                    await DisplayAlert("Registration failed", "An error occured while creating the User Profile", "OK");
+                    return;
+                }
+
+                //NOW WE MAKE THE API POST CALLS
+                
+                ////////////////////////////////////////MAY BE REDUNDANT AND THEREFORE DELETED//////////////////////////////////////////////
+                /*var httpClient = new HttpClient(httpClientHandler);
+                
                 indicator.IsRunning = true;
                 indicator.IsVisible = true;
 
