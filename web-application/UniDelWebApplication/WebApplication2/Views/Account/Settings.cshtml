@@ -4,81 +4,32 @@
     ViewData["Title"] = "Settings";
 }
 
-<body class="splash">
-    <div class="container shadow p-3 mb-5 bg-white rounded">
-        <h1>Settings</h1>
+<h1>Settings</h1>
 
-        @using (Html.BeginForm("Settings", "Account", FormMethod.Post, new { id = "loginForm", enctype = "multipart/form-data", @class = "form-card" }))
-        {
-    <table class="fulltableadd">
-        <tr>
-            <td>
-                <label for="email">Email address</label>
+@using (Html.BeginForm("Settings", "Account", FormMethod.Post, new { id = "loginForm", enctype = "multipart/form-data", @class = "form-card" }))
+{
 
-            </td>
-            <td>
-                <input type="email" class="form-control" id="email" name="email" required value="@Model.User.UserEmail">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <br />
-            </td>
-            <td>
-                <br />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="propic">Profile Picture</label>
+    <div class="form-group Info">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" required value="@Model.User.UserEmail">
 
-            </td>
-            <td>
-                <input type="file" class="form-control" id="propic" name="propic" accept="image/*">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <br />
-            </td>
-            <td>
-                <br />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="compName">Courier Company Name</label>
-
-            </td>
-            <td>
-                <input type="text" class="form-control" id="compName" name="compName" required value="@Model.CourierCompanyName">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <br />
-            </td>
-            <td>
-                <br />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="tel">Telephone</label>
-            </td>
-            <td>
-                <input type="tel" class="form-control" id="tel" name="tel" required value="@Model.CourierCompanyTelephone">
-            </td>
-        </tr>
-    </table>
-                    <br />
-                    <div class="divcenter">
-                        <button type="submit" name="submit" id="login" class="btn blue greenblue btnadd" style="margin:auto">Update</button>
-                       
-                    </div>
-                    <br />
-                    <div class="divcenter">
-                      <button class="btn grey greengrey btnadd" style="margin:auto" asp-controller="FleetManagement" asp-action="Index">Cancel</button>
-                     </div>}
     </div>
-</body>
+
+    <div class="form-group Info">
+        <label for="propic">Profile Picture</label>
+        <input type="file" class="form-control" id="propic" name="propic" accept="image/*">
+    </div>
+
+    <div class="form-group Info">
+        <label for="compName">Courier Company Name</label>
+        <input type="text" class="form-control" id="compName" name="compName" required value="@Model.CourierCompanyName">
+    </div>
+
+    <div class="form-group Info">
+        <label for="tel">Telephone</label>
+        <input type="tel" class="form-control" id="tel" name="tel" required value="@Model.CourierCompanyTelephone">
+    </div>
+
+    <button type="submit" name="submit" id="login" class="btn btn-block btn-primary btn-color" style="margin:auto">Update</button><br />
+    <button class="btn btn-block btn-primary btn-color" style="margin:auto" asp-controller="FleetManagement" asp-action="Index">Cancel</button>
+}
