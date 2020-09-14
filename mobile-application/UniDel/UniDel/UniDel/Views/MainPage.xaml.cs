@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 
 using UniDel.Models;
 using UniDel.ViewModels;
+using System.Net.Http;
 
 namespace UniDel.Views
 {
@@ -34,6 +35,7 @@ namespace UniDel.Views
                 ShowNotification(evtData.Title, evtData.Message);
             };
 
+            
             string title = "Vehicle Notification";
             string message = "Mercedes-Benz C200 is overdue a service";
             notificationManager.ScheduleNotification(title, message);
