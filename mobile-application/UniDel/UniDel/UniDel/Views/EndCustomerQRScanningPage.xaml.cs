@@ -12,6 +12,11 @@ using UniDel.ViewModels;
 using System.Linq;
 using RestSharp.Extensions;
 using System.Collections.Generic;
+using System.Text;
+using static Android.Provider.SyncStateContract;
+using System.Threading.Tasks;
+using System.Net;
+using UniDel.Models;
 
 namespace UniDel.Views
 {
@@ -24,11 +29,12 @@ namespace UniDel.Views
         public Location dropOffLocation;
         public bool done = false;
         public bool doubleDone = false;
-        public List<Delivery> delivery;
+        public Delivery delivery;
         public Delivery packet;
         public double Kilos;
-        private object indicator;
-        private Client client;
+        //private object indicator;
+        private Models.Client client;
+        //private HttpClient _client = new HttpClient();
 
 
         public EndCustomerQRScanningPage()
@@ -50,99 +56,34 @@ namespace UniDel.Views
                     Console.WriteLine("QR Scanned");
 
                     // API Calls for Scanned QR-Code's ID
-                    //Delivery(result);
+                    Delivery(result);
 
-                    // Find this CourierCompany's ID
-                    //CourierCompanyID();
-
-                    // Find the Client for Dropofflocation
+                    // Find the Client's ID
                     //ClientID();
-
-                    if (client == null)
-                    {
-                        return;
-                    }
-                    if (done == false)
-                    {
-                        //await DisplayAlert("Completed", "The Delivery has already been completed.", "OK");
-                    }
-                    else if (packet.deliveryState == "Completed")
-                    {
-                        await DisplayAlert("Completed", "The Delivery has already been completed.", "OK");
-                    }
-                    else if (done == true)
-                    {
-                        // Calculates coordinates of location
-                        //ConvertToCoordinates(client.ClientAddress);
-
-                        if (doubleDone == true)
-                        {
-                            // Calculates kilometers the drop off location of package VS current location of device
-                            //LocationDistance(currentLocation, dropOffLocation);
-
-                            if (Kilos <= 30)
-                            {
-                                // POST REQUEST to change state to Delivered.
-                            }
-                            else
-                            {
-                                // Send data to Active Deliveries Page
-                                //SetUpDeliveryData(result);
-                            }
-                        }
-                    }
-
-
-
-
-
-                    //try
+                    //if (client == null)
                     //{
-                    //    Console.WriteLine("Trying to get current location...");
-                    //    var requestLocation = new GeolocationRequest(GeolocationAccuracy.Medium);
-
-                    //    Console.WriteLine("Checking last known location...");
-                    //    var location = await Geolocation.GetLastKnownLocationAsync(); 
-
-                    //    if (location == null)
-                    //    {
-                    //        Console.WriteLine("Requesting current location via API...");
-                    //        location = await Geolocation.GetLocationAsync(requestLocation);
-                    //    }
-
-                    //    if (location != null)
-                    //    {
-                    //        Console.WriteLine("Current location found...");
-                    //        Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-
-                    //        // Calculate Distance between two locations
-                    //            Location boston = new Location(42.358056, -71.063611);
-                    //            Location sanFrancisco = new Location(37.783333, -122.416667);
-
-                    //            double miles = Location.CalculateDistance(boston, sanFrancisco, DistanceUnits.Kilometers);
-
-                    //    }
-                    //    else
-                    //    {
-                    //        Console.WriteLine("Failed to obtain current location... ");
-                    //    }
+                    //    return;
                     //}
-                    //catch (FeatureNotSupportedException fnsEx)
+
+                    //Check if correct Client for package
+                    //if (client.ClientName != Session.UserEmail)
                     //{
-                    //    throw;
+                    //    DisplayAlert("Invalid package", "This delivery does not belong to you.", "OK");
                     //}
-                    //catch (FeatureNotEnabledException fneEx)
+                    //if (done)
                     //{
-                    //    throw;
-                    //}
-                    //catch (PermissionException pEx)
-                    //{
-                    //    throw;
-                    //}
-                    //catch (Exception QR_Location_ex)
-                    //{
-                    //    // Unable to get location
-                    //    throw;
+                        //if (packet == null)
+                        //{
+                        //    await DisplayAlert("Failed", "The delivery was not found.", "OK");
+                        //}
+                        //if (packet.deliveryState == "Completed")
+                        //{
+                        //    await DisplayAlert("Completed", "The delivery has already been completed.", "OK");
+                        //}
+                        //else
+                        //{
+                        //    //await ConfirmPackagePostRequest(packet, result);
+                        //}
                     //}
                 }
             }
@@ -152,6 +93,146 @@ namespace UniDel.Views
                 // QR scanned is null
                 //throw;
             }
+        }
+
+        public async Task ConfirmPackagePostRequest(Delivery item, string ID)
+        {
+            //// if Active change to Confirming
+            //if (item.deliveryState == "Active")
+            //{
+            //    item.deliveryState = "Confirming";
+            //}
+            //else if (item.deliveryState == "Completed")
+            //{
+            //    await DisplayAlert("Completed", "Delivery has already been completed.", "OK");
+            //    return;
+            //}
+            //else
+            //{
+            //    await DisplayAlert("Invalid package state", "Delivery not in correct state.", "OK");
+            //    return;
+            //}
+
+            ////MAKE POST CALL TO UPDATE DELIVERY DATA
+            //var httpClientHandler = new HttpClientHandler();
+            //httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+
+            //var httpClient = new HttpClient(httpClientHandler);
+            //string json = JsonConvert.SerializeObject(item);
+            //StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            ////indicator.IsRunning = true;
+            ////indicator.IsVisible = true;
+
+            ////API POST CALL TO CREATE
+            //var response = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/Deliveries/PutDelivery/"+ID, content);
+            //if (response.StatusCode == HttpStatusCode.NoContent)
+            //{
+            //    //await DisplayInfoChangedEventArgs("Confirmation in progress");
+            //    await DisplayAlert("Confirming", "Confirmation in progress", "OK");
+            //    return;
+            //}
+            //else
+            //{
+            //    await DisplayAlert("Confirmation failed", "An error occured while confirming your package", "OK");
+            //}
+
+        }
+
+        public async void Delivery(String QR_ID_Scanned)
+        {
+            var httpClientHandler = new HttpClientHandler();
+
+            httpClientHandler.ServerCertificateCustomValidationCallback =
+            (message, cert, chain, errors) => { return true; };
+
+            var httpClient = new HttpClient(httpClientHandler);
+
+            var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/Deliveries/"+QR_ID_Scanned);
+            delivery = JsonConvert.DeserializeObject<Delivery>(response);
+
+            packet = delivery;
+            //packet = SearchPacket(delivery, (int)Int64.Parse(QR_ID_Scanned));
+            if (packet == null)
+            {
+                txtBarcode.Text = "Delivery not found";
+                await DisplayAlert("Delivery not found", "Delivery not found on the system. Try a different QR-Code", "OK");
+                done = false;
+                return;
+            }
+            if (packet.clientID != Session.ClientID)
+            {
+                await DisplayAlert("Invalid delivery owner", "Delivery is meant for someone else. Try a different QR-Code.", "OK");
+                return;
+            }
+
+            if (packet.deliveryState == "Completed")
+            {
+                await DisplayAlert("Completed", "The delivery has already been completed.", "OK");
+                return;
+            }
+
+            Console.WriteLine("Delivery State: " + packet.deliveryState);
+
+
+            Console.WriteLine(response);
+            Console.WriteLine("....DeliveryID: " + packet.deliveryID + " CourierCompany: " + packet.CourierCompany + " PickupLocation: " + packet.deliveryPickupLocation);
+
+            done = true;
+
+            // if Active change to Confirming
+            if (packet.deliveryState == "Active")
+            {
+                packet.deliveryState = "Confirming";
+            }
+            else if (packet.deliveryState == "Confirming")
+            {
+                await DisplayAlert("Confirming", "Delivery is already being confirmed. Please let the courier company's driver scan the QR-Code for completing the delivery.", "OK");
+                return;
+            }
+            else if (packet.deliveryState == "Completed")
+            {
+                await DisplayAlert("Completed", "Delivery has already been completed.", "OK");
+                return;
+            }
+            else
+            {
+                await DisplayAlert("Invalid package state", "Delivery not in correct state.", "OK");
+                return;
+            }
+
+            //MAKE POST CALL TO UPDATE DELIVERY DATA
+            httpClientHandler = new HttpClientHandler();
+            httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+
+            httpClient = new HttpClient(httpClientHandler);
+            string json = JsonConvert.SerializeObject(packet);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            //indicator.IsRunning = true;
+            //indicator.IsVisible = true;
+
+            //API POST CALL TO CREATE
+            var response2 = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/Deliveries/PutDelivery/" + QR_ID_Scanned, content);
+            if (response2.StatusCode == HttpStatusCode.NoContent)
+            {
+                //await DisplayInfoChangedEventArgs("Confirmation in progress");
+                await DisplayAlert("Confirming", "Confirmation in progress", "OK");
+                return;
+            }
+            else
+            {
+                await DisplayAlert("Confirmation failed", "An error occured while confirming your package", "OK");
+            }
+        }
+        private Delivery SearchPacket(List<Delivery> d, int email)
+        {
+            foreach (Delivery u in d)
+            {
+                if (u.deliveryID == email)
+                {
+                    return u;
+                }
+            }
+            return null;
         }
     }
 }

@@ -100,6 +100,23 @@ namespace UniDel.Views
                 string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
                 //PASSWORD HASHED
 
+                // if User is of type Client
+                if (u.UserType == "Client")
+                {
+                    httpClientHandler = new HttpClientHandler();
+
+                    httpClientHandler.ServerCertificateCustomValidationCallback =
+                    (message, cert, chain, errors) => { return true; };
+
+                    httpClient = new HttpClient(httpClientHandler);
+                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/clients/getclients");
+
+                    List<Client> clients = JsonConvert.DeserializeObject<List<Client>>(response);
+
+                    Client c = findClient(clients, u.UserID);
+                    Session.ClientID = c.ClientID;
+                }
+
                 indicator.IsRunning = false;
                 indicator.IsVisible = false;
                 if (u.UserEmail == em && u.UserPassword == final)
@@ -107,6 +124,17 @@ namespace UniDel.Views
                     Session.UserEmail = u.UserEmail;
                     Session.UserToken = u.UserToken;
                     Session.UserType = u.UserType;
+
+                    // if User is of type Client
+                    if (u.UserType == "Client")
+                    {
+                        // do nothing, already set
+                    }
+                    else
+                    {
+                        Session.ClientID = 0;
+                    }
+
                     Application.Current.MainPage = new MainPage();
                 }
                 else
@@ -120,6 +148,18 @@ namespace UniDel.Views
                 indicator.IsVisible = false;
                 await DisplayAlert("Login Error", e.Message, "OK");
             }
+        }
+
+        private Client findClient(List<Client> c, int userID)
+        {
+            foreach (Client u in c)
+            {
+                if (u.UserID == userID)
+                {
+                    return u;
+                }
+            }
+            return null;
         }
 
         User FindUser(List<User> users,string email)
