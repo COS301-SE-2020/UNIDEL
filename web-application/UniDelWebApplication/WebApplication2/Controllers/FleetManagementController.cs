@@ -112,11 +112,19 @@ namespace UniDelWebApplication.Controllers
                 Vehicle newVehicle = new Vehicle() { VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
                 uniDelDb.Vehicles.Add(newVehicle);
                 uniDelDb.SaveChanges();
-                CompanyVehicle comVeh = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))), VehicleID = newVehicle.VehicleID };
-                uniDelDb.CompanyVehicles.Add(comVeh);
-                uniDelDb.SaveChanges();
+                Console.WriteLine("===========================");
+                Console.WriteLine("===========================");
+                Console.WriteLine("===========================");
+                Console.WriteLine("===========================");
+                Console.WriteLine(int.Parse(HttpContext.Session.GetString("ID")));
+                Console.WriteLine("===========================");
+                Console.WriteLine("===========================");
+                Console.WriteLine("===========================");
+                //CompanyVehicle comVeh = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))), VehicleID = newVehicle.VehicleID };
+                //uniDelDb.CompanyVehicles.Add(comVeh);
+                //uniDelDb.SaveChanges();
             }
-            return RedirectToAction("Alter", "FleetManagement");
+            return RedirectToAction("Index", "FleetManagement");
         }
 
         public IActionResult CaptureService(int selectV, DateTime nextService)

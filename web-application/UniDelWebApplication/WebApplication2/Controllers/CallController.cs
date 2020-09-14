@@ -25,7 +25,7 @@ namespace UniDelWebApplication.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<CallLog> c = uniDelDb.CallLogs.ToList();
+            List<CallLog> c = filterCalls();
             return View(c);
         }
 
@@ -35,28 +35,28 @@ namespace UniDelWebApplication.Controllers
         }
 
 
-        //Helper function to filter vehicles
-        private List<Vehicle> filterVehicles()
+        //Helper function to filter calls
+        private List<CallLog> filterCalls()
         {
             try
             {
                 Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
-                List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
-                List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
-                foreach (var ve in cV)
+                List<CompanyCall> cC = uniDelDb.CompanyCalls.ToList();
+                List<CompanyCall> myCall = new List<CompanyCall>();
+                foreach (var ca in cC)
                 {
-                    if (ve.CourierCompany != null)
+                    if (ca.CourierCompany != null)
                     {
-                        if (ve.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
-                            myVeh.Add(ve);
+                        if (ca.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
+                            myCall.Add(ca);
                     }
                 }
-                List<Vehicle> veh = new List<Vehicle>();
-                foreach (var ve in myVeh)
+                List<CallLog> cal = new List<CallLog>();
+                foreach (var ca in myCall)
                 {
-                    veh.Add(uniDelDb.Vehicles.Find(ve.VehicleID));
+                    cal.Add(uniDelDb.CallLogs.Find(ca.CallID));
                 }
-                return veh;
+                return cal;
             }
             catch(Exception e)
             {
