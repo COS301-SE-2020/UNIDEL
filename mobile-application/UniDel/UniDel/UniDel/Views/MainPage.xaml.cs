@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using UniDel.Models;
+using UniDel.ViewModels;
 
 namespace UniDel.Views
 {
@@ -15,6 +16,9 @@ namespace UniDel.Views
     public partial class MainPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+
+        INotificationManager notificationManager;
+
         public MainPage()
         {
             InitializeComponent();
@@ -22,6 +26,29 @@ namespace UniDel.Views
             MasterBehavior = MasterBehavior.Popover;
 
             MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+
+            notificationManager = DependencyService.Get<INotificationManager>();
+            notificationManager.NotificationReceived += (sender, args) =>
+            {
+                var evtData = (NotificationEventArgs)args;
+                ShowNotification(evtData.Title, evtData.Message);
+            };
+
+            string title = "Vehicle Notification";
+            string message = "Mercedes-Benz C200 is overdue a service";
+            notificationManager.ScheduleNotification(title, message);
+        }
+
+        void ShowNotification(string title, string message)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                var msg = new Label()
+                {
+                    Text = $"Notification Received:\nTitle: {title}\nMessage: {message}"
+                };
+                //stackLayout.Children.Add(msg);
+            });
         }
 
         public async Task NavigateFromMenu(int id)
