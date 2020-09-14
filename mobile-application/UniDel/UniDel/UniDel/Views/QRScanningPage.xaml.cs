@@ -281,17 +281,17 @@ namespace UniDel.Views
             }
         }
 
-        private Delivery SearchPacket(List<Delivery> d, int email)
-        {
-            foreach (Delivery u in d)
-            {
-                if (u.deliveryID == email)
-                {
-                    return u;
-                }
-            }
-            return null;
-        }
+        //private Delivery SearchPacket(List<Delivery> d, int email)
+        //{
+        //    foreach (Delivery u in d)
+        //    {
+        //        if (u.deliveryID == email)
+        //        {
+        //            return u;
+        //        }
+        //    }
+        //    return null;
+        //}
 
         private Client SearchClient(List<Client> d, int c)
         {
