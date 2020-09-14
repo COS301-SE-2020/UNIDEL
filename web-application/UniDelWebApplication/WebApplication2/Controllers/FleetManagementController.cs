@@ -31,10 +31,22 @@ namespace UniDelWebApplication.Controllers
                 Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
                 List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
                 List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
+                //int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
                 foreach (var ve in cV)
                 {
+                    Console.WriteLine("========================");
+                    Console.WriteLine("========================");
+                    Console.WriteLine("========================");
+                    Console.WriteLine(ve.CourierCompanyID);
+                    Console.WriteLine("========================");
+                    Console.WriteLine("========================");
+                    Console.WriteLine("========================");
                     if (ve.CourierCompany != null)
                     {
+                        Console.WriteLine("========================");
+                        Console.WriteLine(ve.CourierCompany.UserID);
+                        Console.WriteLine(int.Parse(HttpContext.Session.GetString("ID")));
+                        Console.WriteLine("=========================");
                         if (ve.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
                             myVeh.Add(ve);
                     }
@@ -59,7 +71,6 @@ namespace UniDelWebApplication.Controllers
             try
             { 
                 List<Vehicle> veh=filterVehicles();
-                //List<Vehicle> veh = uniDelDb.Vehicles.ToList();
                 List<Vehicle> v = new List<Vehicle>();
                 if (search == null)
                     v = new List<Vehicle>(veh);
@@ -112,19 +123,25 @@ namespace UniDelWebApplication.Controllers
                 Vehicle newVehicle = new Vehicle() { VehicleMake = vMake, VehicleModel = vModel, VehicleVIN = vVIN, VehicleMileage = vMileage, VehicleLicensePlate = vLicensePlate, VehicleLicenseDiskExpiry = vLicenseDiskExpiry, VehicleLastService = vLastService, VehicleNextMileageService = vNextMileageService, VehicleNextDateService = vNextDateService };
                 uniDelDb.Vehicles.Add(newVehicle);
                 uniDelDb.SaveChanges();
-                Console.WriteLine("===========================");
-                Console.WriteLine("===========================");
-                Console.WriteLine("===========================");
-                Console.WriteLine("===========================");
-                Console.WriteLine(int.Parse(HttpContext.Session.GetString("ID")));
-                Console.WriteLine("===========================");
-                Console.WriteLine("===========================");
-                Console.WriteLine("===========================");
-                //CompanyVehicle comVeh = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))), VehicleID = newVehicle.VehicleID };
-                //uniDelDb.CompanyVehicles.Add(comVeh);
-                //uniDelDb.SaveChanges();
+                int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
+                Console.WriteLine(comID);
+                CompanyVehicle comVeh = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(comID), VehicleID = newVehicle.VehicleID };
+                uniDelDb.CompanyVehicles.Add(comVeh);
+                uniDelDb.SaveChanges();
             }
             return RedirectToAction("Index", "FleetManagement");
+        }
+
+        //helper function to use user id to find courier company id
+        private int findCompany(int sesID)
+        {
+            List<CourierCompany> cC = uniDelDb.CourierCompanies.ToList();
+            foreach (var cmp in cC)
+            {
+                if (cmp.UserID == sesID)
+                    return cmp.CourierCompanyID;
+            }
+            return -1;
         }
 
         public IActionResult CaptureService(int selectV, DateTime nextService)
