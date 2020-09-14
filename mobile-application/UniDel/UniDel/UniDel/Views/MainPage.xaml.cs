@@ -30,6 +30,9 @@ namespace UniDel.Views
             {
                 switch (id)
                 {
+                    case (int)MenuItemType.Browse:
+                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        break;
                     case (int)MenuItemType.QRCode:
                         MenuPages.Add(id, new NavigationPage(new QRScanningPage()));
                         break;
@@ -38,6 +41,9 @@ namespace UniDel.Views
                         break;
                     case (int)MenuItemType.Map:
                         MenuPages.Add(id, new NavigationPage(new MapPage()));
+                        break;
+                    case (int)MenuItemType.About:
+                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.Deliveries:
                         MenuPages.Add(id, new NavigationPage(new DeliveryPage()));
