@@ -59,8 +59,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #C1DBE3;
 }
 .footer {
   position: absolute;
@@ -68,4 +69,218 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+  background-color:#fff;
 }
+
+
+/*
+    making buttons pretty
+*/
+.blue {
+    /*background-color: #0085C9;*/
+    
+    color: #fff;
+    /*transition: 0.8s;*/
+    background: linear-gradient(to right, #0085c9,#0085c9);
+    transition: all ease 0.5s;
+}
+
+.greenblue:hover {
+    /* background: linear-gradient(70deg, #26c485,#0085c9);*/
+    animation: blueToGreen 0.4s ease;
+    color: #fff;
+    background: #26c485;
+    /*transition: all ease 0.5s;*/
+}
+
+
+
+@keyframes blueToGreen
+{
+    0% {
+        background: linear-gradient(72deg, #0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#26c485,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9);
+    }
+    10% {
+        background: linear-gradient(72deg,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#26c485,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9);
+    }
+    30% {
+        background: linear-gradient(72deg, #0085c9,#0085c9,#0085c9,#0085c9,#26c485,#26c485,#26c485,#0085c9,#0085c9,#0085c9,#0085c9);
+    }
+    50% {
+        background: linear-gradient(72deg,#0085c9,#0085c9,#0085c9,#26c485,#26c485,#26c485,#26c485,#26c485,#0085c9,#0085c9,#0085c9);
+    }
+    70% {
+        background: linear-gradient(72deg, #0085c9,#0085c9,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#0085c9,#0085c9);
+    }
+    90% {
+        background: linear-gradient(72deg, #0085c9,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#0085c9);
+    }
+
+    100% {
+        background: linear-gradient(72deg, #26c485,#26c485);
+    }
+}
+
+.grey {
+    color: #fff;
+    /*transition: 0.8s;*/
+    background: linear-gradient(to right, #4a4a4a,#4a4a4a);
+    transition: all ease 0.5s;
+}
+
+.greengrey:hover {
+    animation: greyToGreen 0.4s ease;
+    color: #fff;
+    background: #26c485;
+}
+
+@keyframes greyToGreen {
+    0% {
+        background: linear-gradient(72deg, #4a4a4a,#4a4a4a,#4a4a4a,#4a4a4a,#4a4a4a,#26c485,#4a4a4a,#4a4a4a,#4a4a4a,#4a4a4a,#4a4a4a);
+    }
+    10% {
+        background: linear-gradient(72deg,#4a4a4a,#4a4a4a,#4a4a4a,#4a4a4a,#4a4a4a,#26c485,#4a4a4a,#4a4a4a,#4a4a4a,#4a4a4a,#4a4a4a);
+    }
+    30% {
+        background: linear-gradient(72deg, #4a4a4a,#4a4a4a,#4a4a4a,#4a4a4a,#26c485,#26c485,#26c485,#4a4a4a,#4a4a4a,#4a4a4a,#4a4a4a);
+    }
+    50% {
+        background: linear-gradient(72deg,#4a4a4a,#4a4a4a,#4a4a4a,#26c485,#26c485,#26c485,#26c485,#26c485,#4a4a4a,#4a4a4a,#4a4a4a);
+    }
+    70% {
+        background: linear-gradient(72deg, #4a4a4a,#4a4a4a,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#4a4a4a,#4a4a4a);
+    }
+    90% {
+        background: linear-gradient(72deg, #4a4a4a,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#4a4a4a);
+    }
+
+    100% {
+        background: linear-gradient(72deg, #26c485,#26c485);
+    }
+}
+
+    .bouncebtn:hover {
+        animation: bounce 0.5s linear;
+    }
+
+    @keyframes bounce {
+        33%,100%{
+        transform:translateY(0);
+    }
+    66% {
+        transform: translateY(-0.25vh);
+    }
+}
+    /*middle table of fleetmanagement*/
+.full
+{
+
+    width:95%;
+}
+
+.fulltable
+{
+    width:100%;
+    
+}
+
+.fulltable tr td{
+    width:50%;
+    /*background-color:red;*/
+}
+
+
+
+.searchbtn
+{
+    width:49.5%;
+
+}
+.searchbar
+{
+    width:49.5%;
+}
+.sortbtn
+{
+    width:49.5%;
+ 
+}
+.sortlabel
+{
+    width:15%;
+}
+
+.invsi td{
+    color:#fff;
+}
+
+.fulltableadd {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fulltableadd tr td {
+    width: 50%;
+    /*background-color:red;*/
+    /*/background: red;*/
+}
+
+.fullinput{
+    width:100%;
+}
+
+.doublecenter{
+    width: 49.5%;
+}   
+
+.btnadd {
+    width: 60%;
+    left:20%;
+}
+
+.divcenter {
+    display: flex;
+    justify-content: center;
+}
+
+    /*
+        Creating rounded tables
+    */
+/*.roundedtable {
+    border-radius: 25px;
+}*/
+
+.roundedtable {
+    border-radius: 15px;
+    border-collapse: collapse;
+    border-style: hidden;
+}
+
+.roundedtable th {
+    background-color: #0085c9;
+    border: none;
+}
+
+.roundedtable th:first-child {
+    border-radius: 1em 0em 0em 0em;
+}
+
+.roundedtable th:last-child {
+    border-radius: 0em 1em 0em 0em;
+}
+
+.roundedtable td {
+        border: 1px solid #C1DBE3;
+}
+
+
+
+/*tr:last-child td:first-child {
+    border-radius: 0px 0px 0px 15px;
+   
+}
+
+tr:last-child td:last-child {
+    border-radius: 0px 0px 15px 0px;
+}*/
+

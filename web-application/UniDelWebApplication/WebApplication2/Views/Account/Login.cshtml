@@ -3,7 +3,7 @@
 }
 @*@model List<UniDelWebApplication.Models.Customer> PROVIDE THIS CODE TO ACCESS THE MODEL SENT BY FUNCTION return View(uniDelDb.Customers.ToList())*@
 
-<body class="splash ">
+<body class="splash">
     <div class="container shadow p-3 mb-5 bg-white rounded">
 
         @if (ViewBag.Message != null)
@@ -13,6 +13,7 @@
 
         @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "loginForm", @class = "form-card" }))
         {
+            
             <div class="form-group">
                 <h1 class="text-center LOGIN">SIGN IN</h1>
             </div>
@@ -38,9 +39,9 @@
                 </select>
             </div>*@
 
-            <button type="submit" name="submit" id="login" class="btn btn-block btn-primary btn-color" style="margin:auto">Sign In</button>
+            <button type="submit" name="submit" id="login" class="btn btn-block blue greenblue" style="margin:auto">Sign In</button>
             <br>
-            <a asp-area="" asp-controller="Account" asp-action="Register" class="btn btn-block btn-secondary btn-color" style="margin:auto">Sign Up</a>
+            <a asp-area="" asp-controller="Account" asp-action="Register" class="btn btn-block grey greengrey" style="margin:auto">Sign Up</a>
 
             <div class="container-fluid text-center">
                 @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>*@

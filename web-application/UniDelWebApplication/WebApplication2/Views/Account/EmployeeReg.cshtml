@@ -3,66 +3,113 @@
 }
 @*@model List<UniDelWebApplication.Models.Customer> PROVIDE THIS CODE TO ACCESS THE MODEL SENT BY FUNCTION return View(uniDelDb.Customers.ToList())*@
 
-    <body class="splash">
-        <div class="container shadow p-3 mb-5 bg-white rounded">
-            @using (Html.BeginForm("EmployeeReg", "Account", FormMethod.Post, new { id = "loginForm", @class = "form-card" }))
-            {
-                <div class="form-group">
-                    <h1 class="text-center">SIGN UP YOUR EMPLOYEE</h1>
-                </div>
-            }
-            <div class="form-group Info">
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        @using (Html.BeginForm("EmployeeReg", "Account", FormMethod.Post, new { id = "loginForm", @class = "form-card" }))
+        {
+    <div class="form-group">
+        <h1 class="text-center">SIGN UP YOUR EMPLOYEE</h1>
+    </div>      }
+
+
+    <table class="fulltableadd">
+        <tr>
+            <td>
                 <label for="TypeOfUser">Position:</label>
+            </td>
+            <td>
                 <select class="form-control" id="userType" onchange="changeForm();">
                     <option value="CallCentre">Call Centre</option>
                     <option value="FleetManager">Fleet Manager</option>
                     <option value="Driver">Delivery Driver</option>
                 </select>
-            </div>
-
-            @*Always*@
-            <div class="form-group Info">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+            </td>
+            <td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <label for="email">Email address</label>
+
+            </td>
+            <td>
                 <input type="email" class="form-control" id="email" onclick="generateRandomPassword(6);" required placeholder="Enter email">
                 <small id="emailErrorMsg" class="error-msg text-danger" hidden>Invalid Email Provided, please enter valid email address</small>
-            </div>
-
-            @*Always*@
-            <div class="form-group" id="firstN">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+            </td>
+            <td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <label for="firstname">First name</label>
+
+
+            </td>
+            <td>
                 <input type="text" class="form-control" id="firstname" placeholder="Enter first name" required>
                 <small id="firstNameErrorMsg" class="error-msg text-danger" hidden>Invalid name, please enter only alphabetical characters</small>
-            </div>
 
-            @*Always*@
-            <div class="form-group Info" id="lastElem">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+            </td>
+            <td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <label for="password">Password</label>
+            </td>
+            <td>
                 <input type="password" class="form-control" id="password" required placeholder="Password">
                 <small id="passErrorMsg" class="error-msg text-danger" hidden>Invalid Password. Password must have at least one upper case, at least one lower case, at least one digit and have Minimum of eight characters in length .</small>
                 <input type="checkbox" onclick="toggleVisiblePassword()"> Show Password
-            </div>
-
-            @*Always*@
-            <div class="form-group Info">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+            </td>
+            <td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <label for="Verifypassword">Verify password</label>
+
+
+            </td>
+            <td>
                 <input type="password" class="form-control" id="Verifypassword" required placeholder="Verify password">
                 <small id="verfpassErrorMsg" class="error-msg text-danger" hidden>Passwords do not match</small>
-                @*<input type="checkbox" onclick="toggleVisiblePassword()"> Show Password*@
-            </div>
-
-
-            <button type="submit" name="submit" id="login" class="btn btn-block btn-warning btn-color" style="margin:auto">Register</button>
-            <br>
-            <a asp-area="" asp-controller="Account" asp-action="EmployeeReg" class="btn btn-block btn-primary btn-color" style="margin:auto">Register</a>
-
-            <div class="container-fluid text-center">
-                @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>*@
-                @*<a href="register.html" class="text-warning">Register</a>*@
-
-            </div>
+            </td>
+        </tr>
+    </table>
+        <br>
+        <div class="divcenter">
+            <a asp-area="" asp-controller="Account" asp-action="EmployeeReg" class="btn btn-block blue greenblue btnadd" style="margin:auto">Register</a>
+        </div>
+            
         </div>
         <script src="/lib/jquery/dist/jquery.min.js"></script>
-        <script>$(document).ready(function () {
+        <script>
+            $(document).ready(function () {
                 var validEmail = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
                 var validPw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
                 $("small#emailErrorMsg").hide();
