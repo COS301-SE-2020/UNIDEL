@@ -34,6 +34,37 @@ namespace UniDelWebApplication.Controllers
             return View();
         }
 
+
+        //Helper function to filter vehicles
+        private List<Vehicle> filterVehicles()
+        {
+            try
+            {
+                Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
+                List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
+                List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
+                foreach (var ve in cV)
+                {
+                    if (ve.CourierCompany != null)
+                    {
+                        if (ve.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
+                            myVeh.Add(ve);
+                    }
+                }
+                List<Vehicle> veh = new List<Vehicle>();
+                foreach (var ve in myVeh)
+                {
+                    veh.Add(uniDelDb.Vehicles.Find(ve.VehicleID));
+                }
+                return veh;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
         public IActionResult Log(DateTime cDateTime = new DateTime(), String reason = "", String notes = "")
         {
             if (reason != "")
