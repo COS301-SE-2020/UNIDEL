@@ -104,7 +104,49 @@ namespace UniDelWebApplication.Controllers
 
         public IActionResult Index()
         {
-            return View(uniDelDb.Deliveries.ToList());
+            //return View(uniDelDb.Deliveries.ToList());
+            List<Delivery> d = filterDeliveries();
+            return View(d);
+        }
+
+        //Helper function to filter deliveries
+        private List<Delivery> filterDeliveries()
+        {
+            try
+            {
+                Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
+                List<CompanyDelivery> cD = uniDelDb.CompanyDeliveries.ToList();
+                List<CompanyDelivery> myDel = new List<CompanyDelivery>();
+                int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
+                foreach (var de in cD)
+                {
+                    if (de.CourierCompanyID == comID)
+                        myDel.Add(de);
+                }
+                List<Delivery> del = new List<Delivery>();
+                foreach (var de in myDel)
+                {
+                    del.Add(uniDelDb.Deliveries.Find(de.DeliveryID));
+                }
+                return del;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
+        //helper function to use user id to find courier company id
+        private int findCompany(int sesID)
+        {
+            List<CourierCompany> cC = uniDelDb.CourierCompanies.ToList();
+            foreach (var cmp in cC)
+            {
+                if (cmp.UserID == sesID)
+                    return cmp.CourierCompanyID;
+            }
+            return -1;
         }
 
         public ActionResult QRCodePrint()
@@ -209,15 +251,26 @@ namespace UniDelWebApplication.Controllers
             return View();
         }
 
-        public IActionResult Add(DateTime dDateTime = new DateTime(), String pLocation = "", String dState = "", int dDriver = -1, int dVehicle = -1, int dClient = -1, int dCompany = -1)
+        public IActionResult Add(DateTime dDateTime = new DateTime(), String pLocation = "", int dClient = -1)
         {
-            if (pLocation != "")
+            try
             {
-                Delivery newDelivery = new Delivery() { DeliveryDate = dDateTime, DeliveryPickupLocation = pLocation, DeliveryState = dState, DriverID = dDriver, ClientID = dClient};
-                uniDelDb.Deliveries.Add(newDelivery);
-                uniDelDb.SaveChanges();
+                if (pLocation != "")
+                {
+                    Delivery newDelivery = new Delivery() { DeliveryDate = dDateTime, DeliveryPickupLocation = pLocation, DeliveryState = "Placed", DriverID=1, ClientID = dClient };
+                    uniDelDb.Deliveries.Add(newDelivery);
+                    uniDelDb.SaveChanges();
+                    int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
+                    CompanyDelivery comDel = new CompanyDelivery() { CourierCompanyID = comID, DeliveryID = newDelivery.DeliveryID };
+                    uniDelDb.CompanyDeliveries.Add(comDel);
+                    uniDelDb.SaveChanges();
+                }
             }
-            return RedirectToAction("Index", "Delivery");
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return RedirectToAction("Index", "CallCentre");
         }
     }
 }
