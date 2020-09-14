@@ -213,7 +213,7 @@ namespace UniDelWebApplication.Controllers
         {
             if (pLocation != "")
             {
-                Delivery newDelivery = new Delivery() { DeliveryDate = dDateTime, DeliveryPickupLocation = pLocation, DeliveryState = dState, DriverID = dDriver, VehicleID = dVehicle, ClientID = dClient, CourierCompanyID = dCompany };
+                Delivery newDelivery = new Delivery() { DeliveryDate = dDateTime, DeliveryPickupLocation = pLocation, DeliveryState = dState, DriverID = dDriver, ClientID = dClient};
                 uniDelDb.Deliveries.Add(newDelivery);
                 uniDelDb.SaveChanges();
             }
