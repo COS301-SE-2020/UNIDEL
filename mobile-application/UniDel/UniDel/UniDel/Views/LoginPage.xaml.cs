@@ -101,21 +101,18 @@ namespace UniDel.Views
                 //PASSWORD HASHED
 
                 // if User is of type Client
-                if (u.UserType == "Client")
-                {
-                    httpClientHandler = new HttpClientHandler();
+                //if (u.UserType == "Client")
+                //{
+                //    httpClientHandler = new HttpClientHandler();
 
-                    httpClientHandler.ServerCertificateCustomValidationCallback =
-                    (message, cert, chain, errors) => { return true; };
+                //    httpClientHandler.ServerCertificateCustomValidationCallback =
+                //    (message, cert, chain, errors) => { return true; };
 
-                    httpClient = new HttpClient(httpClientHandler);
-                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/clients/getclients");
-
-                    List<Client> clients = JsonConvert.DeserializeObject<List<Client>>(response);
-
-                    Client c = findClient(clients, u.UserID);
-                    Session.ClientID = c.ClientID;
-                }
+                //    httpClient = new HttpClient(httpClientHandler);
+                //    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/Deliveries/" + QR_ID_Scanned);
+                    
+                //    Client c = JsonConvert.DeserializeObject<Client>(response);
+                //}
 
                 indicator.IsRunning = false;
                 indicator.IsVisible = false;
@@ -124,15 +121,14 @@ namespace UniDel.Views
                     Session.UserEmail = u.UserEmail;
                     Session.UserToken = u.UserToken;
                     Session.UserType = u.UserType;
-
                     // if User is of type Client
                     if (u.UserType == "Client")
                     {
-                        // do nothing, already set
+                        //Session.UserID = c.UserID;
                     }
                     else
                     {
-                        Session.ClientID = 0;
+                        Session.UserID = null;
                     }
 
                     Application.Current.MainPage = new MainPage();
@@ -148,18 +144,6 @@ namespace UniDel.Views
                 indicator.IsVisible = false;
                 await DisplayAlert("Login Error", e.Message, "OK");
             }
-        }
-
-        private Client findClient(List<Client> c, int userID)
-        {
-            foreach (Client u in c)
-            {
-                if (u.UserID == userID)
-                {
-                    return u;
-                }
-            }
-            return null;
         }
 
         User FindUser(List<User> users,string email)

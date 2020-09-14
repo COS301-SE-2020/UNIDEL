@@ -159,12 +159,12 @@ namespace UniDel.Views
                 done = false;
                 return;
             }
-            if (packet.clientID != Session.ClientID)
+
+            if (packet == null)
             {
-                await DisplayAlert("Invalid delivery owner", "Delivery is meant for someone else. Try a different QR-Code.", "OK");
+                await DisplayAlert("Failed", "The delivery was not found.", "OK");
                 return;
             }
-
             if (packet.deliveryState == "Completed")
             {
                 await DisplayAlert("Completed", "The delivery has already been completed.", "OK");
@@ -186,7 +186,7 @@ namespace UniDel.Views
             }
             else if (packet.deliveryState == "Confirming")
             {
-                await DisplayAlert("Confirming", "Delivery is already being confirmed. Please let the courier company's driver scan the QR-Code for completing the delivery.", "OK");
+                await DisplayAlert("Confirming", "Delivery is already being confirmed. Please let the Courier Company's Driver scan the QR-Code for completing the delivery.", "OK");
                 return;
             }
             else if (packet.deliveryState == "Completed")
