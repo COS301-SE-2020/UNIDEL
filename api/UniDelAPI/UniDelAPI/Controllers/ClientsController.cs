@@ -21,6 +21,7 @@ namespace UniDelAPI.Controllers
         }
 
         // GET: api/Clients
+        [Route("~/api/Clients/GetAllClients")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Client>>> GetClients()
         {
@@ -28,6 +29,7 @@ namespace UniDelAPI.Controllers
         }
 
         // GET: api/Clients/5
+        [Route("~/api/GetClient/{id}")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Client>> GetClient(int id)
         {
@@ -44,8 +46,9 @@ namespace UniDelAPI.Controllers
         // PUT: api/Clients/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Route("~/api/PutClient/{id}")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutClient(int id, Client client)
+        public async Task<IActionResult> PutClient(int id,[FromBody] Client client)
         {
             if (id != client.ClientID)
             {
@@ -76,8 +79,9 @@ namespace UniDelAPI.Controllers
         // POST: api/Clients
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Route("~/api/PostClient")]
         [HttpPost]
-        public async Task<ActionResult<Client>> PostClient(Client client)
+        public async Task<ActionResult<Client>> PostClient([FromBody] Client client)
         {
             _context.Clients.Add(client);
             await _context.SaveChangesAsync();
@@ -86,6 +90,7 @@ namespace UniDelAPI.Controllers
         }
 
         // DELETE: api/Clients/5
+        [Route("~/api/DeleteClient/{id}")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Client>> DeleteClient(int id)
         {

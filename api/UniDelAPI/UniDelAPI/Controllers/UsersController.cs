@@ -21,6 +21,7 @@ namespace UniDelAPI.Controllers
         }
 
         // GET: api/Users
+        [Route("~/api/Users/GetAllUsers")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
@@ -28,6 +29,7 @@ namespace UniDelAPI.Controllers
         }
 
         // GET: api/Users/5
+        [Route("~/api/Users/GetUser/{id}")]
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
@@ -44,6 +46,7 @@ namespace UniDelAPI.Controllers
         // PUT: api/Users/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Route("~/api/Users/PutUser/{id}")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
@@ -76,6 +79,7 @@ namespace UniDelAPI.Controllers
         // POST: api/Users
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Route("~/api/Users/PostUser")]
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
@@ -86,6 +90,7 @@ namespace UniDelAPI.Controllers
         }
 
         // DELETE: api/Users/5
+        [Route("~/api/Users/DeleteUser/{id}")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteUser(int id)
         {

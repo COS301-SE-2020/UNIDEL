@@ -10,14 +10,18 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 
 [Demo 1](https://youtu.be/3lfkyC_QbbY)  
 [Demo 2](https://youtu.be/vOWNqhr-iuo)
+[Demo 3](https://drive.google.com/file/d/1bW06Qx33F5jQAfitboTdE2ikzwlpLCRs/view?usp=sharing)
 
 ## SRS Document
 
 [Version 1](https://www.overleaf.com/read/mbfchyfknqwn)  
 [Version 2](https://www.overleaf.com/read/pcvqtdmywjtr)  
+[Version 3](https://www.overleaf.com/read/trcnzbtdpshp)
 
 ## Documentation
 
+[Technology Requirements](https://www.overleaf.com/read/spbwdwtkfnsf)  
+[Technical Installation Manual](https://www.overleaf.com/read/skprkgrfczkn)  
 [User Manual](https://www.overleaf.com/read/tssghbtczsgh)  
 [Architectural Designs Documentation](https://www.overleaf.com/read/jqmcttqkwhfw)  
 [Coding Standard/Quality Documentation](https://www.overleaf.com/read/qmbsdjcpgktx)  
@@ -100,8 +104,10 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 - User Stories
 - Functional Requirement (SRS Document) 
 - Use Cases & diagrams (SRS Document)
-- Logo Design & Front-end for Account Subsystem
+- Logo Design & Front-end for Website
 - Video Editing
+- Website: QR-Code Generation
+- Mobile: QR-Code Scanning with API Calling
 </details>
 
 
