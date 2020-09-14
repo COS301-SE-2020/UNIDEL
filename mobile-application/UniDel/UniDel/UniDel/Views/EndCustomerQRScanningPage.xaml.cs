@@ -12,6 +12,9 @@ using UniDel.ViewModels;
 using System.Linq;
 using RestSharp.Extensions;
 using System.Collections.Generic;
+using System.Text;
+using static Android.Provider.SyncStateContract;
+using System.Threading.Tasks;
 
 namespace UniDel.Views
 {
@@ -29,6 +32,7 @@ namespace UniDel.Views
         public double Kilos;
         private object indicator;
         private Client client;
+        private HttpClient _client = new HttpClient();
 
 
         public EndCustomerQRScanningPage()
@@ -55,8 +59,11 @@ namespace UniDel.Views
                     // Find this CourierCompany's ID
                     //CourierCompanyID();
 
-                    // Find the Client for Dropofflocation
+                    // Find the Client's ID
                     //ClientID();
+
+                        //Check if correct Client for package
+
 
                     if (client == null)
                     {
@@ -91,59 +98,6 @@ namespace UniDel.Views
                             }
                         }
                     }
-
-
-
-
-
-                    //try
-                    //{
-                    //    Console.WriteLine("Trying to get current location...");
-                    //    var requestLocation = new GeolocationRequest(GeolocationAccuracy.Medium);
-
-                    //    Console.WriteLine("Checking last known location...");
-                    //    var location = await Geolocation.GetLastKnownLocationAsync(); 
-
-                    //    if (location == null)
-                    //    {
-                    //        Console.WriteLine("Requesting current location via API...");
-                    //        location = await Geolocation.GetLocationAsync(requestLocation);
-                    //    }
-
-                    //    if (location != null)
-                    //    {
-                    //        Console.WriteLine("Current location found...");
-                    //        Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-
-                    //        // Calculate Distance between two locations
-                    //            Location boston = new Location(42.358056, -71.063611);
-                    //            Location sanFrancisco = new Location(37.783333, -122.416667);
-
-                    //            double miles = Location.CalculateDistance(boston, sanFrancisco, DistanceUnits.Kilometers);
-
-                    //    }
-                    //    else
-                    //    {
-                    //        Console.WriteLine("Failed to obtain current location... ");
-                    //    }
-                    //}
-                    //catch (FeatureNotSupportedException fnsEx)
-                    //{
-                    //    throw;
-                    //}
-                    //catch (FeatureNotEnabledException fneEx)
-                    //{
-                    //    throw;
-                    //}
-                    //catch (PermissionException pEx)
-                    //{
-                    //    throw;
-                    //}
-                    //catch (Exception QR_Location_ex)
-                    //{
-                    //    // Unable to get location
-                    //    throw;
-                    //}
                 }
             }
             catch (Exception QR_Scanner_ex)
@@ -152,6 +106,18 @@ namespace UniDel.Views
                 // QR scanned is null
                 //throw;
             }
+        }
+
+        public async Task SaveTodoItemAsync(Delivery item, string ID)
+        {
+            string URL = "https://api.unideldeliveries.co.za/api/Deliveries/PutDelivery/"+ID;
+
+
+            //var post = new Post { Title = "Title " + DateTime.Now.Ticks };
+            var content = JsonConvert.SerializeObject(item);
+            var response = await _client.PostAsync(URL, new StringContent(content));
+
+
         }
     }
 }
