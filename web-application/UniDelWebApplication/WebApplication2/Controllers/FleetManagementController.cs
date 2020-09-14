@@ -31,25 +31,11 @@ namespace UniDelWebApplication.Controllers
                 Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
                 List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
                 List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
-                //int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
+                int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
                 foreach (var ve in cV)
                 {
-                    Console.WriteLine("========================");
-                    Console.WriteLine("========================");
-                    Console.WriteLine("========================");
-                    Console.WriteLine(ve.CourierCompanyID);
-                    Console.WriteLine("========================");
-                    Console.WriteLine("========================");
-                    Console.WriteLine("========================");
-                    if (ve.CourierCompany != null)
-                    {
-                        Console.WriteLine("========================");
-                        Console.WriteLine(ve.CourierCompany.UserID);
-                        Console.WriteLine(int.Parse(HttpContext.Session.GetString("ID")));
-                        Console.WriteLine("=========================");
-                        if (ve.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
-                            myVeh.Add(ve);
-                    }
+                    if (ve.CourierCompanyID ==comID)
+                        myVeh.Add(ve);
                 }
                 List<Vehicle> veh = new List<Vehicle>();
                 foreach (var ve in myVeh)
@@ -124,8 +110,7 @@ namespace UniDelWebApplication.Controllers
                 uniDelDb.Vehicles.Add(newVehicle);
                 uniDelDb.SaveChanges();
                 int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
-                Console.WriteLine(comID);
-                CompanyVehicle comVeh = new CompanyVehicle() { CourierCompany = uniDelDb.CourierCompanies.Find(comID), VehicleID = newVehicle.VehicleID };
+                CompanyVehicle comVeh = new CompanyVehicle() { CourierCompanyID=comID , VehicleID = newVehicle.VehicleID };
                 uniDelDb.CompanyVehicles.Add(comVeh);
                 uniDelDb.SaveChanges();
             }
@@ -195,9 +180,17 @@ namespace UniDelWebApplication.Controllers
 
         public IActionResult Delete(int selectV)
         {
-            Vehicle v = uniDelDb.Vehicles.Find(selectV);
-            uniDelDb.Vehicles.Remove(v);
-            uniDelDb.SaveChanges();
+            try
+            {
+                Vehicle v = uniDelDb.Vehicles.Find(selectV);
+                //uniDelDb.CompanyVehicles.Find()
+                uniDelDb.Vehicles.Remove(v);
+                uniDelDb.SaveChanges();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
             return RedirectToAction("Alter", "FleetManagement");
         }
     }
