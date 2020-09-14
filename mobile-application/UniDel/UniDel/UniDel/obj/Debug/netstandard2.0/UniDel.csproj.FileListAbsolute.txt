@@ -137,6 +137,7 @@ C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\nets
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\Mono.Android.dll
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\Mono.Android.pdb
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\Mono.Android.xml
+C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.csprojAssemblyReference.cache
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\CompleteDelivery.xaml.g.cs
@@ -163,4 +164,3 @@ C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\nets
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.dll
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\ref\UniDel.dll
 C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.pdb
-C:\Users\HP\Demo 4\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.csprojAssemblyReference.cache
