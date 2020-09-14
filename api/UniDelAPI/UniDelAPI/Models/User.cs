@@ -26,10 +26,17 @@ namespace UniDelAPI.Models
         public string UserPassword { get; set; }
 
         [Column("UserProfilePic")]
-        public byte[] UserProfilePic { get; set; }
+        public string UserProfilePic { get; set; }
 
         [Column("UserType")]
         [StringLength(255)]
         public string UserType { get; set; }
+
+        [Column("UserConfirmed")]
+        public bool UserConfirmed { get; set; }
+
+        [Column("UserToken")]
+        [StringLength(255)]
+        public string UserToken { get; set; }
     }
 }
