@@ -43,13 +43,11 @@ namespace UniDelWebApplication.Controllers
                 Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
                 List<CompanyCall> cC = uniDelDb.CompanyCalls.ToList();
                 List<CompanyCall> myCall = new List<CompanyCall>();
+                int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
                 foreach (var ca in cC)
                 {
-                    if (ca.CourierCompany != null)
-                    {
-                        if (ca.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
-                            myCall.Add(ca);
-                    }
+                    if (ca.CourierCompanyID == comID)
+                        myCall.Add(ca);
                 }
                 List<CallLog> cal = new List<CallLog>();
                 foreach (var ca in myCall)
@@ -58,20 +56,44 @@ namespace UniDelWebApplication.Controllers
                 }
                 return cal;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
                 return null;
             }
         }
 
+        //helper function to use user id to find courier company id
+        private int findCompany(int sesID)
+        {
+            List<CourierCompany> cC = uniDelDb.CourierCompanies.ToList();
+            foreach (var cmp in cC)
+            {
+                if (cmp.UserID == sesID)
+                    return cmp.CourierCompanyID;
+            }
+            return -1;
+        }
+
+
         public IActionResult Log(DateTime cDateTime = new DateTime(), String reason = "", String notes = "")
         {
-            if (reason != "")
+            try
             {
-                CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
-                uniDelDb.CallLogs.Add(newCall);
-                uniDelDb.SaveChanges();
+                if (reason != "")
+                {
+                    CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
+                    uniDelDb.CallLogs.Add(newCall);
+                    uniDelDb.SaveChanges();
+                    int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
+                    CompanyCall comCall = new CompanyCall() { CourierCompanyID = comID, CallID = newCall.CallID };
+                    uniDelDb.CompanyCalls.Add(comCall);
+                    uniDelDb.SaveChanges();
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
             }
             return RedirectToAction("Index", "Call");
         }
