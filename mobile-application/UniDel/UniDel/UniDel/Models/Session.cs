@@ -9,6 +9,7 @@ namespace UniDel.Models
         public static string UserEmail = null;
         public static string UserType = null;
         public static string UserToken = null;
+        public static string UserID = null;
         private const string pw = "COS301MemoryInjectLamas";
 
         public static string GPW

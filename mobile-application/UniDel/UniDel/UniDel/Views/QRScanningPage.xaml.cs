@@ -20,11 +20,12 @@ namespace UniDel.Views
     {
         public ObservableCollection<CompleteDeliveryViewModel> complete_deliveries { get; set; }
         public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }
+
         public Location currentLocation;
         public Location dropOffLocation;
         public bool done = false;
         public bool doubleDone = false;
-        public List<Delivery> delivery;
+        public Delivery delivery;
         public Delivery packet;
         public double Kilos;
         private object indicator;
@@ -180,11 +181,13 @@ namespace UniDel.Views
 
             //var httpClient = new HttpClient(new System.Net.Http.HttpClientHandler());
             //var httpClient = new HttpClient();
-            var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Deliveries");
+            var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/Deliveries/" + QR_ID_Scanned);
             //var delivery = JsonConvert.DeserializeObject<Delivery>(response);
-            delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
+            delivery = JsonConvert.DeserializeObject<Delivery>(response);
 
-            packet = SearchPacket(delivery, (int)Int64.Parse(QR_ID_Scanned));
+
+            packet = delivery;
+            //packet = SearchPacket(delivery, (int)Int64.Parse(QR_ID_Scanned));
             if (packet == null)
             {
                 txtBarcode.Text = "Delivery not found";
@@ -197,7 +200,7 @@ namespace UniDel.Views
 
 
             Console.WriteLine(response);
-            Console.WriteLine("....DeliveryID: "+packet.deliveryID + " CourierCompany: " + packet.CourierCompany + " PickupLocation: " + packet.deliveryPickupLocation);
+            Console.WriteLine("....DeliveryID: " + packet.deliveryID + " CourierCompany: " + packet.CourierCompany + " PickupLocation: " + packet.deliveryPickupLocation);
 
             done = true;
         }

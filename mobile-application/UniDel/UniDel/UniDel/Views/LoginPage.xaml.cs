@@ -107,6 +107,7 @@ namespace UniDel.Views
                     Session.UserEmail = u.UserEmail;
                     Session.UserToken = u.UserToken;
                     Session.UserType = u.UserType;
+                    //Session.UserID = u.UserID;
                     Application.Current.MainPage = new MainPage();
                 }
                 else
