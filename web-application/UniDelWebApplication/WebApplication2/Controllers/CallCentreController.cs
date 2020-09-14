@@ -203,5 +203,21 @@ namespace UniDelWebApplication.Controllers
                 return stream.ToArray();
             }
         }
+
+        public IActionResult AddDelivery()
+        {
+            return View();
+        }
+
+        public IActionResult Add(DateTime dDateTime = new DateTime(), String pLocation = "", String dState = "", int dDriver = -1, int dVehicle = -1, int dClient = -1, int dCompany = -1)
+        {
+            if (pLocation != "")
+            {
+                Delivery newDelivery = new Delivery() { DeliveryDate = dDateTime, DeliveryPickupLocation = pLocation, DeliveryState = dState, DriverID = dDriver, VehicleID = dVehicle, ClientID = dClient, CourierCompanyID = dCompany };
+                uniDelDb.Deliveries.Add(newDelivery);
+                uniDelDb.SaveChanges();
+            }
+            return RedirectToAction("Index", "Delivery");
+        }
     }
 }
