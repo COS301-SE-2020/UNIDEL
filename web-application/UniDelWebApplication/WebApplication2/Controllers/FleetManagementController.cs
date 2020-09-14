@@ -26,62 +26,78 @@ namespace UniDelWebApplication.Controllers
         //Helper function to filter vehicles
         private List<Vehicle> filterVehicles()
         {
-            Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
-            List <CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
-            List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
-            foreach (var ve in cV)
+            try
             {
-                if (ve.CourierCompany!= null)
+                Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
+                List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
+                List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
+                foreach (var ve in cV)
                 {
-                    if (ve.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
-                        myVeh.Add(ve);
+                    if (ve.CourierCompany != null)
+                    {
+                        if (ve.CourierCompany.UserID == int.Parse(HttpContext.Session.GetString("ID")))
+                            myVeh.Add(ve);
+                    }
                 }
+                List<Vehicle> veh = new List<Vehicle>();
+                foreach (var ve in myVeh)
+                {
+                    veh.Add(uniDelDb.Vehicles.Find(ve.VehicleID));
+                }
+                return veh;
             }
-            List<Vehicle> veh = new List<Vehicle>();
-            foreach (var ve in myVeh)
+            catch(Exception e)
             {
-                veh.Add(uniDelDb.Vehicles.Find(ve.VehicleID));
+                Console.WriteLine(e);
+                return null;
             }
-            return veh;
         }
 
         // GET: /<controller>/
         public IActionResult Index(String sortV, String search)
         {
-            List<Vehicle> veh=filterVehicles();
-            //List<Vehicle> veh = uniDelDb.Vehicles.ToList();
-            List<Vehicle> v = new List<Vehicle>();
-            if (search == null)
-                v = new List<Vehicle>(veh);
-            else
-            {
-                foreach (var ve in veh)
+            try
+            { 
+                List<Vehicle> veh=filterVehicles();
+                //List<Vehicle> veh = uniDelDb.Vehicles.ToList();
+                List<Vehicle> v = new List<Vehicle>();
+                if (search == null)
+                    v = new List<Vehicle>(veh);
+                else
                 {
-                    if (ve.VehicleVIN.Contains(search))
-                        v.Add(ve);
+                    foreach (var ve in veh)
+                    {
+                        if (ve.VehicleVIN.Contains(search))
+                            v.Add(ve);
+                    }
                 }
+                if (sortV == "vID")
+                    v = v.OrderBy(order => order.VehicleID).ToList();
+                else if (sortV == "vMake")
+                    v = v.OrderBy(order => order.VehicleMake).ToList();
+                else if (sortV == "vModel")
+                    v = v.OrderBy(order => order.VehicleModel).ToList();
+                else if (sortV == "vVIN")
+                    v = v.OrderBy(order => order.VehicleVIN).ToList();
+                else if (sortV == "vMileage")
+                    v = v.OrderBy(order => order.VehicleMileage).ToList();
+                else if (sortV == "vLicensePlate")
+                    v = v.OrderBy(order => order.VehicleLicensePlate).ToList();
+                else if (sortV == "vLicenseDiskExpiry")
+                    v = v.OrderBy(order => order.VehicleMileage).ToList();
+                else if (sortV == "vLastService")
+                    v = v.OrderBy(order => order.VehicleLicenseDiskExpiry).ToList();
+                else if (sortV == "vNextMileageService")
+                    v = v.OrderBy(order => order.VehicleNextMileageService).ToList();
+                else if (sortV == "vNextDateService")
+                    v = v.OrderBy(order => order.VehicleNextDateService).ToList();
+                return View(v);
             }
-            if (sortV == "vID")
-                v = v.OrderBy(order => order.VehicleID).ToList();
-            else if (sortV == "vMake")
-                v = v.OrderBy(order => order.VehicleMake).ToList();
-            else if (sortV == "vModel")
-                v = v.OrderBy(order => order.VehicleModel).ToList();
-            else if (sortV == "vVIN")
-                v = v.OrderBy(order => order.VehicleVIN).ToList();
-            else if (sortV == "vMileage")
-                v = v.OrderBy(order => order.VehicleMileage).ToList();
-            else if (sortV == "vLicensePlate")
-                v = v.OrderBy(order => order.VehicleLicensePlate).ToList();
-            else if (sortV == "vLicenseDiskExpiry")
-                v = v.OrderBy(order => order.VehicleMileage).ToList();
-            else if (sortV == "vLastService")
-                v = v.OrderBy(order => order.VehicleLicenseDiskExpiry).ToList();
-            else if (sortV == "vNextMileageService")
-                v = v.OrderBy(order => order.VehicleNextMileageService).ToList();
-            else if (sortV == "vNextDateService")
-                v = v.OrderBy(order => order.VehicleNextDateService).ToList();
-            return View(v);
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
         }
 
         public IActionResult AddVehicle()

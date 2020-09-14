@@ -44,6 +44,7 @@ namespace UniDelAPI.Controllers
         // PUT: api/Deliveries/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Route("~/api/Deliveries/PutDelivery/{id}")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDelivery(int id, Delivery delivery)
         {

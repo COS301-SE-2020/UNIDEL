@@ -130,4 +130,4 @@ C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Deb
 C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.pdb
 C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csprojAssemblyReference.cache
 C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/EndCustomerQRScanningPage.xaml.g.cs
-/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/EndCustomerQRScanningPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/EndCustomerQRScanningPage.xaml.g.cs
