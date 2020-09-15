@@ -17,6 +17,7 @@
                 <th class="my-auto align-middle text-light">Rating</th>
                 <th class="my-auto align-middle text-light">Cellphone</th>
                 <th class="my-auto align-middle text-light">Location</th>
+                <th class="my-auto align-middle text-light"> View Location</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,13 @@
                 <td>@item.DriverRating</td>
                 <td>@item.DriverCellphone</td>
                 <td>@item.DriverLocation</td>
+                <td class="my-auto align-middle" cellpadding="8">
+                    @using (Html.BeginForm("DriverLocation", "Driver", FormMethod.Post))
+                    {
+                        <input type="hidden" id="driverID" name="driverID" value="@item.DriverID">
+                        <button class="btn btn-light" type="submit"><img src="~/images/map-pin.svg" width="15" alt=""></button>
+                    }
+                </td>
             </tr>
        }
         </tbody>

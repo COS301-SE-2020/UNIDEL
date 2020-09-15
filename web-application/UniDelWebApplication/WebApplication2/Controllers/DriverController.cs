@@ -69,9 +69,10 @@ namespace UniDelWebApplication.Controllers
             }
         }
 
-        public IActionResult DriverLocation()
+        public IActionResult DriverLocation(int driverID)
         {
-            String Location = "-25.756257400000003,28.240955699999997";
+            //String Location = "-25.756257400000003,28.240955699999997";
+            String Location = uniDelDb.Drivers.Find(driverID).DriverLocation;
             String final = "https://www.google.com/maps/embed/v1/place?key=AIzaSyBO2eSzL22PogFFqA30bXPrWwvTbqpMYHM&q="+Location;
             return View((object)final);
         }
