@@ -236,19 +236,19 @@ namespace UniDel.Views
 
         public void OnRegEmailTextChanged(object sender, EventArgs args)
         {
-            if (Patterns.EmailAddress.Matcher(regEmail.Text).Matches())
-            {
-                regEmail.BackgroundColor = Color.FromHex("#88fc8c");
-                formChecks[0] = true;
-                if (allChecksClear()) regButton.IsEnabled = true;
-                else regButton.IsEnabled = false;
-            }
-            else
-            {
-                regEmail.BackgroundColor = Color.FromHex("#fc8888");
-                formChecks[0] = false;
-                regButton.IsEnabled = false;
-            }
+            //if (Patterns.EmailAddress.Matcher(regEmail.Text).Matches())
+            //{
+            //    regEmail.BackgroundColor = Color.FromHex("#88fc8c");
+            //    formChecks[0] = true;
+            //    if (allChecksClear()) regButton.IsEnabled = true;
+            //    else regButton.IsEnabled = false;
+            //}
+            //else
+            //{
+            //    regEmail.BackgroundColor = Color.FromHex("#fc8888");
+            //    formChecks[0] = false;
+            //    regButton.IsEnabled = false;
+            //}
             
         }
 
