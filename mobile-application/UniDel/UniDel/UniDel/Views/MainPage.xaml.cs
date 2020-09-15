@@ -21,7 +21,7 @@ namespace UniDel.Views
         INotificationManager notificationManager;
 
         public MainPage()
-        {
+        { 
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
@@ -59,9 +59,6 @@ namespace UniDel.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
                     case (int)MenuItemType.QRCode:
                         MenuPages.Add(id, new NavigationPage(new QRScanningPage()));
                         break;
@@ -71,17 +68,11 @@ namespace UniDel.Views
                     case (int)MenuItemType.Map:
                         MenuPages.Add(id, new NavigationPage(new MapPage()));
                         break;
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
-                    case (int)MenuItemType.Deliveries:
-                        MenuPages.Add(id, new NavigationPage(new DeliveryPage()));
-                        break;
                     case (int)MenuItemType.Logout:
                         Session.UserEmail = null;
                         Session.UserToken = null;
                         Session.UserType = null;
-                        Application.Current.MainPage = new LoginPage();
+                        Application.Current.MainPage = new UniDelHome();
                         return;
                 }
             }

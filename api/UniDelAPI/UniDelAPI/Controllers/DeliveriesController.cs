@@ -21,6 +21,7 @@ namespace UniDelAPI.Controllers
         }
 
         // GET: api/Deliveries
+        [Route("~/api/Deliveries/GetAllDeliveries")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Delivery>>> GetDeliveries()
         {

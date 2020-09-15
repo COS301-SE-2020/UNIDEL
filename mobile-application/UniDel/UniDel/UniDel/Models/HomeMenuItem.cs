@@ -6,13 +6,11 @@ namespace UniDel.Models
 {
     public enum MenuItemType
     {
-        Browse,
         QRCode,
-        Deliveries,
         Map,
-        About,
         EndCustomerQRCode,
-        Logout
+        Logout,
+        Browse
     }
     public class HomeMenuItem
     {

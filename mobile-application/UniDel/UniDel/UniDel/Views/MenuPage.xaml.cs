@@ -20,12 +20,9 @@ namespace UniDel.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.QRCode, Title="QRCode" },
                 new HomeMenuItem {Id = MenuItemType.EndCustomerQRCode, Title="CustomerQRCode"},
                 new HomeMenuItem {Id = MenuItemType.Map, Title="Map" },
-                new HomeMenuItem {Id = MenuItemType.Deliveries, Title="Deliveries" },
                 new HomeMenuItem {Id = MenuItemType.Logout, Title="Logout"}
             };
 
