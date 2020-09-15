@@ -10,8 +10,9 @@ namespace UniDel.Models
         QRCode,
         Deliveries,
         Map,
-        About,
         EndCustomerQRCode,
+        EndUserPage,
+        About,
         Logout
     }
     public class HomeMenuItem

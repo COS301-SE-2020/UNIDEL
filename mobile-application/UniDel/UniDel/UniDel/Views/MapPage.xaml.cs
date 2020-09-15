@@ -42,5 +42,10 @@ namespace UniDel.Views
             labelLoading.IsVisible = false;
             
         }
+
+        async void btnNavigate_Clicked(Object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new EndUserMapPage());
+        }
     }
 }
