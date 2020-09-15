@@ -25,5 +25,8 @@ namespace UniDelWebApplication.Models
         public DbSet<CompanyVehicle> CompanyVehicles { get; set; }
         public DbSet<CompanyDelivery> CompanyDeliveries { get; set; }
         public DbSet<CallLog> CallLogs { get; set; }
+        public DbSet<CompanyCall> CompanyCalls { get; set; }
+        public DbSet<CompanyDriver> CompanyDrivers { get; set; }
+        public DbSet<DriverVehicle> DriverVehicles { get; set; }
     }
 }
