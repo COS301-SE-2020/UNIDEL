@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/vehicles.css" />
     <link rel="stylesheet" href="~/css/mystyle.css" />
+    <link rel="icon" href="~/images/SquareLogo_transparent.png" type="image/png" />
     <script src="~/js/accountScript.js"></script>
 </head>
 <body>
@@ -48,7 +49,9 @@
                 else
                 {
                     <li class="nav-item">
-                        <a class="nav-link text-dark float-right font" asp-area="" asp-controller="Account" asp-action="Settings">Settings</a>
+                        <a class="nav-link text-dark float-right font" asp-area="" asp-controller="Account" asp-action="Settings">
+                            <img src="~/images/defaultProfilePic.png" style="width:30px;height:30px;border-radius:50%" />
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark float-right border border-dark font" asp-area="" asp-controller="Account" asp-action="Logout">Sign out</a>

@@ -352,7 +352,7 @@ namespace UniDelWebApplication.Controllers
                 mail.To.Add(email);
                 mail.Subject = "UniDel confirmation email";
                 mail.Body = "Your UniDel account has been created. To activate your account click on the following confirmation link \r\n " +
-                    "https://localhost:44394/Account/ConfirmEmail?email=" + email + "&token=" + token;
+                    "https://www.unideldeliveries.co.za/Account/ConfirmEmail?email=" + email + "&token=" + token;
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("memoryinjectlamas@gmail.com", SiteSettings.getPW);
@@ -372,7 +372,12 @@ namespace UniDelWebApplication.Controllers
         {
             ViewBag.Error = "";
             User u = uniDelDb.Users.Where(o => o.UserEmail == email).FirstOrDefault();
-            if (u.UserConfirmed == false && u.UserToken == token)
+            if (u == null)
+            {
+                ViewBag.ErrorID = 1;
+                ViewBag.Error = "Account confirmation failed. Authentication error";
+            }
+            else if (u.UserConfirmed == false && u.UserToken == token)
             {
                 u.UserConfirmed = true;
                 uniDelDb.SaveChanges();
