@@ -15,18 +15,10 @@
     <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
         <thead class="btn-primary whitefont">
             <tr>
-                <th class="my-auto align-middle text-light">Delivery ID</th>
                 <th class="my-auto align-middle text-light">Delivery Date</th>
-
-                <th class="my-auto align-middle text-light">Client</th>
-
                 <th class="my-auto align-middle text-light">Pickup Location</th>
                 <th class="my-auto align-middle text-light">Delivery State</th>
                 <th class="my-auto align-middle text-light">Confirmation Picture</th>
-                @*<th class="my-auto align-middle text-light">DriverID</th>*@
-                @*<th class="my-auto align-middle text-light">VehicleID</th>*@
-                @*<th class="my-auto align-middle text-light">ClientID</th>*@
-                @*<th class="my-auto align-middle text-light">CourierCompanyID</th>*@
             </tr>
         </thead>
         <tbody>
@@ -34,15 +26,9 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.DeliveryID</td>
                     <td>@item.DeliveryDate.ToString("yyyy-MM-dd")</td>
                     <td>@item.DeliveryPickupLocation</td>
                     <td>@item.DeliveryState</td>
-                    <td>@item.DeliveryPicture</td>
-                    @*<td>@item.DriverID</td>
-                        <td>@item.VehicleID</td>
-                        <td>@item.ClientID</td>
-                        <td>@item.CourierCompanyID</td>*@
                     <td class="my-auto align-middle" cellpadding="8">
                         @using (Html.BeginForm("QRCode", "CallCentre", FormMethod.Post))
                         {

@@ -1,13 +1,12 @@
-﻿@{
-    ViewData["Title"] = "Logged Calls";
-}
+﻿@{ ViewData["Title"] = "Logged Calls"; }
 
 <div class="text-center">
     <h1 class="display-4">Log Calls</h1>
 </div>
 
 <h2>Logged Calls</h2>
-@Html.ActionLink("Log Call", "LogCall")<br>
+@Html.ActionLink("Log Call", "LogCall")
+<br>
 
 <div style="overflow-x:auto;">
     <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
@@ -21,12 +20,11 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.CallDateTime</td>
-                    <td>@item.CallReason</td>
-                    <td>@item.CallNotes</td>
-                </tr>
-            }
+<tr>
+    <td>@item.CallDateTime</td>
+    <td>@item.CallReason</td>
+    <td>@item.CallNotes</td>
+</tr>            }
         </tbody>
     </table>
 </div>

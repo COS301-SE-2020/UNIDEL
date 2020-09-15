@@ -7,23 +7,20 @@ using System.Threading.Tasks;
 
 namespace UniDelWebApplication.Models
 {
-    [Table("CompanyVehicle")]
-    public class CompanyVehicle
+    [Table("DriverVehicle")]
+    public class DriverVehicle
     {
-        [Column("CompanyVehicleID")]
+        [Column("DriverVehicleID")]
         [Key]
         [DatabaseGenerated
             (DatabaseGeneratedOption.Identity)]
         [Required]
-        public int CompanyVehicleID { get; set; }
+        public int DriverVehicleID { get; set; }
 
-        [ForeignKey("CourierCompanyID")]
-        public int CourierCompanyID { get; set; }
+        [ForeignKey("DriverID")]
+        public int DriverID { get; set; }
 
         [Column("VehicleID")]
         public int VehicleID { get; set; }
-
-        [ForeignKey("VehicleID")]
-        public Vehicle Vehicle { get; set; }
     }
 }
