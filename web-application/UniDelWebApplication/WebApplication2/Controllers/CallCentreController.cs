@@ -225,6 +225,93 @@ namespace UniDelWebApplication.Controllers
             return File(stream, contentType, fileName);
         }
 
+        private List<Vehicle> GetComVehicles()
+        {
+            List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
+            List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
+            int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
+            foreach (var ve in cV)
+            {
+                if (ve.CourierCompanyID == comID)
+                    myVeh.Add(ve);
+            }
+            List<Vehicle> veh = new List<Vehicle>();
+            foreach (var ve in myVeh)
+            {
+                veh.Add(uniDelDb.Vehicles.Find(ve.VehicleID));
+            }
+            return veh;
+        }
+
+        private List<Driver> GetComDrivers()
+        {
+            List<CompanyDriver> cD = uniDelDb.CompanyDrivers.ToList();
+            List<CompanyDriver> myDriv = new List<CompanyDriver>();
+            int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
+            foreach (var dr in cD)
+            {
+                if (dr.CourierCompanyID == comID)
+                    myDriv.Add(dr);
+            }
+            List<Driver> driv = new List<Driver>();
+            foreach (CompanyDriver dr in myDriv)
+            {
+                driv.Add(uniDelDb.Drivers.Find(dr.DriverID));
+            }
+            return driv;
+        }
+
+        private List<Delivery> GetComDeliveries()
+        {
+            List<CompanyDelivery> cD = uniDelDb.CompanyDeliveries.ToList();
+            List<CompanyDelivery> myDel = new List<CompanyDelivery>();
+            int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
+            foreach (var de in cD)
+            {
+                if (de.CourierCompanyID == comID)
+                    myDel.Add(de);
+            }
+            List<Delivery> del = new List<Delivery>();
+            foreach (var de in myDel)
+            {
+                del.Add(uniDelDb.Deliveries.Find(de.DeliveryID));
+            }
+            return del;
+        }
+
+
+        private void AssignDrivers()
+        {
+            List<Driver> myDrivers = GetComDrivers();
+            List<Delivery> myDeliveries = GetComDeliveries();
+            int lim = myDrivers.Capacity;
+            int count = 0;
+            if (lim == 0)
+            { 
+                foreach (var de in myDeliveries)
+                {
+                    Delivery d = uniDelDb.Deliveries.Find(de.DeliveryID);
+                    d.DriverID = myDrivers[count].DriverID;
+                    d.DeliveryState = "Pending";
+                    uniDelDb.SaveChanges();
+                    if (count < lim)
+                        count++;
+                    else
+                        count = 0;
+                }
+            }
+            else
+            {
+                Console.WriteLine("No available drivers");
+            }
+        }
+
+        private void AssignVehicles()
+        {
+            List<Driver> myDrivers = GetComDrivers();
+            List<Vehicle> myVehicles = GetComVehicles();
+        }
+
         [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult QRCode(string txtQRCode)
