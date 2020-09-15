@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Android.Util;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using UniDel.Models;
@@ -183,7 +181,7 @@ namespace UniDel.Views
 
                         await DisplayAlert("Registration Successful", "A verification email has been sent to " + email, "OK");
                         await DisplayAlert("Registration Complete", "You can now log into UniDel", "Proceed to Login");
-                        Application.Current.MainPage = new LoginPage();
+                        Application.Current.MainPage = new DriverHomePage();
                         return;
                     }
                     else
@@ -236,19 +234,19 @@ namespace UniDel.Views
 
         public void OnRegEmailTextChanged(object sender, EventArgs args)
         {
-            if (Patterns.EmailAddress.Matcher(regEmail.Text).Matches())
-            {
-                regEmail.BackgroundColor = Color.FromHex("#88fc8c");
-                formChecks[0] = true;
-                if (allChecksClear()) regButton.IsEnabled = true;
-                else regButton.IsEnabled = false;
-            }
-            else
-            {
-                regEmail.BackgroundColor = Color.FromHex("#fc8888");
-                formChecks[0] = false;
-                regButton.IsEnabled = false;
-            }
+            //if (Patterns.EmailAddress.Matcher(regEmail.Text).Matches())
+            //{
+            //    regEmail.BackgroundColor = Color.FromHex("#88fc8c");
+            //    formChecks[0] = true;
+            //    if (allChecksClear()) regButton.IsEnabled = true;
+            //    else regButton.IsEnabled = false;
+            //}
+            //else
+            //{
+            //    regEmail.BackgroundColor = Color.FromHex("#fc8888");
+            //    formChecks[0] = false;
+            //    regButton.IsEnabled = false;
+            //}
             
         }
 

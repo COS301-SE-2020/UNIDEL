@@ -135,7 +135,7 @@ namespace UniDel.Views
                         Session.ClientID = 0;
                     }
 
-                    Application.Current.MainPage = new MainPage();
+                    Application.Current.MainPage = new DriverHomePage();
                 }
                 else
                 {

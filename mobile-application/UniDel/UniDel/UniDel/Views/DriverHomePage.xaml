@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:UniDel="clr-namespace:UniDel.Views"
+            BackgroundColor="#FAFAFA"
+            mc:Ignorable="d"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="#0085C9"
+            android:TabbedPage.BarItemColor="White"
+            android:TabbedPage.BarSelectedItemColor="#F8D34F"
+            BarTextColor="White"
+            x:Class="UniDel.Views.DriverHomePage">
+    <!--Pages can be added as references or inline-->
+
+    <UniDel:CurrentDelivery Title="Deliveries" IconImageSource="deliveries.png"></UniDel:CurrentDelivery>
+
+    <UniDel:VehicleMileage Title="Vehicles" IconImageSource="vehicles.png"></UniDel:VehicleMileage>
+
+    <UniDel:ClientPackageList Title="Packages" IconImageSource="box.png"></UniDel:ClientPackageList>
+
+    <UniDel:MapPage Title="Track" IconImageSource="location.png"></UniDel:MapPage>
+
+    <UniDel:ProfilePage Title="Profile" IconImageSource="profile.png"></UniDel:ProfilePage>
+
+</TabbedPage>
