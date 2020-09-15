@@ -7,10 +7,10 @@ using Xamarin.Essentials;
 
 namespace UniDel.Views
 {
-    public partial class MapPage : ContentPage
+    public partial class EndUserMapPage : ContentPage
     {
 
-        public MapPage()
+        public EndUserMapPage()
         {
             InitializeComponent();
             CurrentLocation();
@@ -26,10 +26,9 @@ namespace UniDel.Views
             Console.WriteLine("Position Longitude: {0}", position.Longitude);
             String destination = "Spar Silver Lakes";
             destination.Replace(" ", "&");
-            String currLocation = "https://www.google.com/maps/dir/?api=1&origin="+position.Latitude+","+position.Longitude+"&destination=" + destination;
+            String currLocation = "https://www.google.com/maps/search/?api=1&parameters&query=" + position.Latitude+","+position.Longitude;
             Console.WriteLine("Location: ", currLocation);
             googleMap.Source = currLocation;
-            //currentLocation = loc1;
         }
 
         void webviewNavigating(object sender, WebNavigatingEventArgs e)
@@ -41,11 +40,6 @@ namespace UniDel.Views
         {
             labelLoading.IsVisible = false;
             
-        }
-
-        async void btnNavigate_Clicked(Object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new EndUserMapPage());
         }
     }
 }

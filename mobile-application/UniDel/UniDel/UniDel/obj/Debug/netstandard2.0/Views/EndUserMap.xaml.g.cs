@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UniDel.Views.MapPage.xaml", "Views/MapPage.xaml", typeof(global::UniDel.Views.MapPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UniDel.Views.EndUserMap.xaml", "Views/EndUserMap.xaml", typeof(global::UniDel.Views.MapPage))]
 
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/MapPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/EndUserMap.xaml")]
     public partial class MapPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
@@ -23,14 +23,10 @@ namespace UniDel.Views {
         private global::Xamarin.Forms.WebView googleMap;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Button btnNavigate;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MapPage));
             labelLoading = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "labelLoading");
             googleMap = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.WebView>(this, "googleMap");
-            btnNavigate = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnNavigate");
         }
     }
 }
