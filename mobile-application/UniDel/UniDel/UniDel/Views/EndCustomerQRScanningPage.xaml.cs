@@ -13,7 +13,7 @@ using System.Linq;
 using RestSharp.Extensions;
 using System.Collections.Generic;
 using System.Text;
-//using static Android.Provider.SyncStateContract;
+using static Android.Provider.SyncStateContract;
 using System.Threading.Tasks;
 using System.Net;
 using UniDel.Models;

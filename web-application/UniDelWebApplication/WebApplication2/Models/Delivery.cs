@@ -37,7 +37,22 @@ namespace UniDelWebApplication.Models
         [ForeignKey("DriverID")]
         public Driver Driver { get; set; }
 
+        [Column("VehicleID")]
+        public int VehicleID { get; set; }
+
+        [ForeignKey("VehicleID")]
+        public Vehicle Vehicle { get; set; }
+
         [Column("ClientID")]
         public int ClientID { get; set; }
+
+        [ForeignKey("ClientID")]
+        public Client Client { get; set; }
+
+        [Column("CourierCompanyID")]
+        public int CourierCompanyID { get; set; }
+
+        [ForeignKey("CourierCompanyID")]
+        public CourierCompany CourierCompany { get; set; }
     }
 }

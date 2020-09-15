@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj": {}
+    "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj": {}
   },
   "projects": {
-    "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj": {
+    "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
+        "projectUniqueName": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
         "projectName": "UniDel.Android",
-        "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
-        "packagesPath": "/Users/khakhuramakuela/.nuget/packages/",
-        "outputPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/obj/",
+        "projectPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
+        "packagesPath": "/Users/laam/.nuget/packages/",
+        "outputPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "/Users/khakhuramakuela/.config/NuGet/NuGet.Config"
+          "/Users/laam/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "monoandroid90"
@@ -26,8 +26,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
-                "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
+              "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
+                "projectPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
               }
             }
           }
@@ -50,7 +50,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.8.0.1364, )"
+              "version": "[4.8.0.1269, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",
@@ -60,17 +60,17 @@
         }
       }
     },
-    "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
+    "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
+        "projectUniqueName": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
         "projectName": "UniDel",
-        "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
-        "packagesPath": "/Users/khakhuramakuela/.nuget/packages/",
-        "outputPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/",
+        "projectPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
+        "packagesPath": "/Users/laam/.nuget/packages/",
+        "outputPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/khakhuramakuela/.config/NuGet/NuGet.Config"
+          "/Users/laam/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -120,7 +120,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.8.0.1364, )"
+              "version": "[4.8.0.1269, )"
             },
             "ZXing.Net.Mobile": {
               "target": "Package",

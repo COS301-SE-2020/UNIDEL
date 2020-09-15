@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QRCoder;
 using UniDelWebApplication.Models;
-using System.Windows.Forms;
 
 // for PDF
 using Syncfusion.Pdf;
@@ -105,51 +104,7 @@ namespace UniDelWebApplication.Controllers
 
         public IActionResult Index()
         {
-
-            AssignDrivers();
-            //AssignVehicles();
-            List<Delivery> d = filterDeliveries();
-            return View(d);
-        }
-
-        //Helper function to filter deliveries
-        private List<Delivery> filterDeliveries()
-        {
-            try
-            {
-                Console.WriteLine(uniDelDb.CourierCompanies.Find(int.Parse(HttpContext.Session.GetString("ID"))));//Does not work without this, I don't know why
-                List<CompanyDelivery> cD = uniDelDb.CompanyDeliveries.ToList();
-                List<CompanyDelivery> myDel = new List<CompanyDelivery>();
-                int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
-                foreach (var de in cD)
-                {
-                    if (de.CourierCompanyID == comID)
-                        myDel.Add(de);
-                }
-                List<Delivery> del = new List<Delivery>();
-                foreach (var de in myDel)
-                {
-                    del.Add(uniDelDb.Deliveries.Find(de.DeliveryID));
-                }
-                return del;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return null;
-            }
-        }
-
-        //helper function to use user id to find courier company id
-        private int findCompany(int sesID)
-        {
-            List<CourierCompany> cC = uniDelDb.CourierCompanies.ToList();
-            foreach (var cmp in cC)
-            {
-                if (cmp.UserID == sesID)
-                    return cmp.CourierCompanyID;
-            }
-            return -1;
+            return View(uniDelDb.Deliveries.ToList());
         }
 
         public ActionResult QRCodePrint()
@@ -228,129 +183,6 @@ namespace UniDelWebApplication.Controllers
             return File(stream, contentType, fileName);
         }
 
-        private List<Vehicle> GetComVehicles()
-        {
-            List<CompanyVehicle> cV = uniDelDb.CompanyVehicles.ToList();
-            List<CompanyVehicle> myVeh = new List<CompanyVehicle>();
-            int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
-            foreach (var ve in cV)
-            {
-                if (ve.CourierCompanyID == comID)
-                    myVeh.Add(ve);
-            }
-            List<Vehicle> veh = new List<Vehicle>();
-            foreach (var ve in myVeh)
-            {
-                veh.Add(uniDelDb.Vehicles.Find(ve.VehicleID));
-            }
-            return veh;
-        }
-
-        private List<Driver> GetComDrivers()
-        {
-            List<CompanyDriver> cD = uniDelDb.CompanyDrivers.ToList();
-            List<CompanyDriver> myDriv = new List<CompanyDriver>();
-            int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
-            foreach (var dr in cD)
-            {
-                if (dr.CourierCompanyID == comID)
-                    myDriv.Add(dr);
-            }
-            List<Driver> driv = new List<Driver>();
-            foreach (CompanyDriver dr in myDriv)
-            {
-                driv.Add(uniDelDb.Drivers.Find(dr.DriverID));
-            }
-            return driv;
-        }
-
-        private List<Delivery> GetComTodayDeliveries()
-        {
-            List<CompanyDelivery> cD = uniDelDb.CompanyDeliveries.ToList();
-            List<CompanyDelivery> myDel = new List<CompanyDelivery>();
-            int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
-            foreach (var de in cD)
-            {
-                if (de.CourierCompanyID == comID)
-                    myDel.Add(de);
-            }
-            List<Delivery> del = new List<Delivery>();
-            foreach (var de in myDel)
-            {
-                Delivery deliv = uniDelDb.Deliveries.Find(de.DeliveryID);
-                if(deliv.DeliveryDate==DateTime.Today)
-                del.Add(deliv);
-            }
-            return del;
-        }
-
-
-        private void AssignDrivers()
-        {
-            try
-            {
-                Console.WriteLine("Assigning all drivers to deliveries");
-                List<Driver> myDrivers = GetComDrivers();
-                List<Delivery> myDeliveries = GetComTodayDeliveries();
-                int lim = myDrivers.Count;
-                int count = 0;
-                if (lim != 0)
-                { 
-                    foreach (var de in myDeliveries)
-                    {
-                        Console.WriteLine("Assigning a driver to a delivery");
-                        Delivery d = uniDelDb.Deliveries.Find(de.DeliveryID);
-                        d.DriverID = myDrivers[count].DriverID;
-                        d.DeliveryState = "Pending";
-                        uniDelDb.SaveChanges();
-                        if (count < lim)
-                            count++;
-                        else
-                            count = 0;
-                        Console.WriteLine("Assigned a driver to a delivery");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("No available drivers");
-                }
-                Console.WriteLine("Assigned all drivers for today to deliveries");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-        }
-
-        private void AssignVehicles()
-        {
-            try
-            {
-                Console.WriteLine("Assigning all vehicles to drivers");
-                List<Driver> myDrivers = GetComDrivers();
-                List<Vehicle> myVehicles = GetComVehicles();
-                int lim = myVehicles.Capacity;
-                int count = 0;
-                foreach (var dr in myDrivers)
-                {
-                    Console.WriteLine("Assigning a vehicle to a driver");
-                    DriverVehicle drivVeh = new DriverVehicle() { DriverID = dr.DriverID, VehicleID = myVehicles[count].VehicleID };
-                    uniDelDb.DriverVehicles.Add(drivVeh);
-                    uniDelDb.SaveChanges();
-                    if (count < lim)
-                        count++;
-                    else
-                        count = 0;
-                    Console.WriteLine("Assigned a vehicle to a driver");
-                }
-                Console.WriteLine("Assigned all vehicles for today to drivers");
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e);
-            }
-        }
-
         [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult QRCode(string txtQRCode)
@@ -377,26 +209,15 @@ namespace UniDelWebApplication.Controllers
             return View();
         }
 
-        public IActionResult Add(DateTime dDateTime = new DateTime(), String pLocation = "", int dClient = -1)
+        public IActionResult Add(DateTime dDateTime = new DateTime(), String pLocation = "", String dState = "", int dDriver = -1, int dVehicle = -1, int dClient = -1, int dCompany = -1)
         {
-            try
+            if (pLocation != "")
             {
-                if (pLocation != "")
-                {
-                    Delivery newDelivery = new Delivery() { DeliveryDate = dDateTime, DeliveryPickupLocation = pLocation, DeliveryState = "Placed", DriverID=1, ClientID = dClient };
-                    uniDelDb.Deliveries.Add(newDelivery);
-                    uniDelDb.SaveChanges();
-                    int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
-                    CompanyDelivery comDel = new CompanyDelivery() { CourierCompanyID = comID, DeliveryID = newDelivery.DeliveryID };
-                    uniDelDb.CompanyDeliveries.Add(comDel);
-                    uniDelDb.SaveChanges();
-                }
+                Delivery newDelivery = new Delivery() { DeliveryDate = dDateTime, DeliveryPickupLocation = pLocation, DeliveryState = dState, DriverID = dDriver, VehicleID = dVehicle, ClientID = dClient, CourierCompanyID = dCompany };
+                uniDelDb.Deliveries.Add(newDelivery);
+                uniDelDb.SaveChanges();
             }
-            catch(Exception e)
-            {
-                Console.WriteLine(e);
-            }
-            return RedirectToAction("Index", "CallCentre");
+            return RedirectToAction("Index", "Delivery");
         }
     }
 }
