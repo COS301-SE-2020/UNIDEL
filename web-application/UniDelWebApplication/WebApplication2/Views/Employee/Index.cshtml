@@ -1,0 +1,38 @@
+﻿@{ ViewData["Title"] = "Employees"; }
+
+<div class="text-center">
+    <h1 class="display-4">Employees</h1>
+</div>
+
+<div style="overflow-x:auto;">
+    <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
+        <thead class="btn-primary whitefont">
+            <tr>
+                <th class="my-auto align-middle text-light">Name</th>
+                <th class="my-auto align-middle text-light">Cellphone</th>
+                <th class="my-auto align-middle text-light">Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.EmployeeName</td>
+                <td>@item.EmployeeCellphone</td>
+                <td class="my-auto align-middle" cellpadding="8">
+                    @using (Html.BeginForm("AlterType", "Employee", FormMethod.Post))
+                    {
+                        <input type="hidden" id="employeeID" name="employeeID" value="@item.EmployeeID">
+                        <select id="empRole" name="empRole" >
+                            <option value=@item.UserType selected="selected">@item.UserType</option>
+                            <option value="CallCentre">Call Centre</option>
+                            <option value="FleetManager">Fleet Manager</option>
+                        </select>
+                        <input type="Submit">
+                    }
+                </td>
+            </tr>
+       }
+        </tbody>
+    </table>
+</div>
