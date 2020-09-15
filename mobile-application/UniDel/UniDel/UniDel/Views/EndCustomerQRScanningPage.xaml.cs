@@ -19,7 +19,6 @@ namespace UniDel.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EndCustomerQRScanningPage : ContentPage
     {
-        public ObservableCollection<CompleteDeliveryViewModel> complete_deliveries { get; set; }
         public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }
         public Location currentLocation;
         public Location dropOffLocation;

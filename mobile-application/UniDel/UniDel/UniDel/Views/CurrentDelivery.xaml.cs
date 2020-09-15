@@ -1,10 +1,12 @@
 ﻿using System;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using UniDel.ViewModels;
 using System.Collections.ObjectModel;
 
 namespace UniDel.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CurrentDelivery : ContentPage
     {
         public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }

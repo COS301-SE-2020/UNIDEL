@@ -15,7 +15,9 @@
             x:Class="UniDel.Views.DriverHomePage">
     <!--Pages can be added as references or inline-->
 
-    <UniDel:CurrentDelivery Title="Deliveries" IconImageSource="deliveries.png"></UniDel:CurrentDelivery>
+    <UniDel:DriverDeliveries Title="Deliveries" IconImageSource="deliveries.png"></UniDel:DriverDeliveries>
+
+    <UniDel:CurrentDelivery Title="Deliveries1" IconImageSource="deliveries.png"></UniDel:CurrentDelivery>
 
     <UniDel:VehicleMileage Title="Vehicles" IconImageSource="vehicles.png"></UniDel:VehicleMileage>
 
