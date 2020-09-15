@@ -1,13 +1,35 @@
-﻿@{
-    ViewData["Title"] = "Driver current location";
-}
+﻿@{ ViewData["Title"] = "Drivers"; }
 
 <div class="text-center">
-    <h1 class="display-4">Drivers Location</h1>
+    <h1 class="display-4">Log Calls</h1>
 </div>
 
-<iframe width="600"
-        height="450"
-        frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBO2eSzL22PogFFqA30bXPrWwvTbqpMYHM&q=-25.756257400000003,28.240955699999997" allowfullscreen>
-</iframe>
+<h2>Drivers</h2>
+@Html.ActionLink("Driver Location", "DriverLocation")
+<br>
+
+<div style="overflow-x:auto;">
+    <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
+        <thead class="btn-primary whitefont">
+            <tr>
+                <th class="my-auto align-middle text-light">Name</th>
+                <th class="my-auto align-middle text-light">Surname</th>
+                <th class="my-auto align-middle text-light">Rating</th>
+                <th class="my-auto align-middle text-light">Cellphone</th>
+                <th class="my-auto align-middle text-light">Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.DriverName</td>
+                <td>@item.DriverSurname</td>
+                <td>@item.DriverRating</td>
+                <td>@item.DriverCellphone</td>
+                <td>@item.DriverLocation</td>
+            </tr>
+       }
+        </tbody>
+    </table>
+</div>
