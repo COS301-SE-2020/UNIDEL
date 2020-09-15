@@ -352,7 +352,7 @@ namespace UniDelWebApplication.Controllers
                 mail.To.Add(email);
                 mail.Subject = "UniDel confirmation email";
                 mail.Body = "Your UniDel account has been created. To activate your account click on the following confirmation link \r\n " +
-                    "https://localhost:44394/Account/ConfirmEmail?email=" + email + "&token=" + token;
+                    "https://www.unideldeliveries.co.za/Account/ConfirmEmail?email=" + email + "&token=" + token;
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("memoryinjectlamas@gmail.com", SiteSettings.getPW);
@@ -372,7 +372,12 @@ namespace UniDelWebApplication.Controllers
         {
             ViewBag.Error = "";
             User u = uniDelDb.Users.Where(o => o.UserEmail == email).FirstOrDefault();
-            if (u.UserConfirmed == false && u.UserToken == token)
+            if (u == null)
+            {
+                ViewBag.ErrorID = 1;
+                ViewBag.Error = "Account confirmation failed. Authentication error";
+            }
+            else if (u.UserConfirmed == false && u.UserToken == token)
             {
                 u.UserConfirmed = true;
                 uniDelDb.SaveChanges();
@@ -389,116 +394,15 @@ namespace UniDelWebApplication.Controllers
             }
             return View();
         }
-        
-        public void RegisterClient(String email, String password, String verifyPass, String name, String number, String address)
-        {
-            /*if (password == verifyPass)
-            {
-                String salt = Convert.ToBase64String(email);
-                String p = password + salt;
-                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
-                byte[] bytValue = System.Text.Encoding.UTF8.GetBytes(p);
-                byte[] bytHash = hashAlg.ComputeHash(bytValue);
-                string base64 = Convert.ToBase64String(bytHash);
-                User us = new User() // CREATE A NEW OBJECT OF THE CORRESPONDING TYPE
-                {
-                    UserEmail = email,
-                    UserPassword = base64,
-                    UserType = "Client"
-                };
-                uniDelDb.Users.Add(us);  //ADD THE NEW OBJECT TO OUR DATABASE. NO NEED FOR ANY SQL STATEMENTS. ALL OF THAT IS DONE WITHIN THIS CLASS
-                uniDelDb.SaveChanges();
-                us = context.Unideldb.Where(User => User.UserEmail == email).FirstOrDefault();
-                int id = us.UserID;
-                Client cli = new Client()
-                {
-                    ClientName = name,
-                    ClientTelephone = number,
-                    CLientAddress = address,
-                    UserID = id
-
-                };
-                uniDelDb.Client.Add(cli);
-                uniDelDb.SaveChanges();
-
-            }*/
-            //return View();
-        }
-
-        public void RegisterCourierCompany(String email, String password, String verifyPass, String name, String number, String address)
-        {
-            /*if (password == verifyPass)
-            {
-                String salt = Convert.ToBase64String(email);
-                String p = password + salt;
-                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
-                byte[] bytValue = System.Text.Encoding.UTF8.GetBytes(p);
-                byte[] bytHash = hashAlg.ComputeHash(bytValue);
-                string base64 = Convert.ToBase64String(bytHash);
-                User us = new User()
-                {
-                    UserEmail = email,
-                    UserPassword = base64,
-                    UserType = "Client"
-                };
-                uniDelDb.Users.Add(us);
-                uniDelDb.SaveChanges();
-                us = context.Unideldb.Where(User => User.UserEmail == email).FirstOrDefault();
-                int id = us.UserID;
-                CourierCompany cc = new CourierCompany()
-                {
-                    CourierCompanyName = name,
-                    CourierCompanyTelephone = number,
-                    //CLientAddress=address,
-                    UserID = id
-
-                };
-                uniDelDb.CourierCompany.Add(cc);
-                uniDelDb.SaveChanges();
-
-            }*/
-            //return View();
-        }
-
-        public void RegisterDriver(String email, String password, String verifyPass, String name, String surname, String number)
-        {
-            /*if (password == verifyPass)
-            {
-                String salt = Convert.ToBase64String(email);
-                String p = password + salt;
-                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
-                byte[] bytValue = System.Text.Encoding.UTF8.GetBytes(p);
-                byte[] bytHash = hashAlg.ComputeHash(bytValue);
-                string base64 = Convert.ToBase64String(bytHash);
-                User us = new User()
-                {
-                    UserEmail = email,
-                    UserPassword = base64,
-                    UserType = "Driver"
-                };
-                uniDelDb.Users.Add(us);
-                uniDelDb.SaveChanges();
-                us = context.Unideldb.Where(User => User.UserEmail == email).FirstOrDefault();
-                int id = us.UserID;
-                Driver dri = new Driver()
-                {
-                    DriverName = name,
-                    DriverSurname = surname,
-                    DriverRating = 5.0,
-                    DriverCellphone = number,
-                    UserID = id
-
-                };
-                uniDelDb.Drivers.Add(dri);
-                uniDelDb.SaveChanges();
-
-            }*/
-            // return View();
-        }
 
         public IActionResult EmployeeReg(string email = "", string position = "", string firstname = "", string password = "", string verifypass = "")
         {
-            if (password == verifypass)
+            if (email == "")
+            {
+                return View();
+            }
+
+            if (true)
             {
                 byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(password);
                 HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
@@ -529,6 +433,29 @@ namespace UniDelWebApplication.Controllers
 
                 u = uniDelDb.Users.Where(o => o.UserEmail == email).FirstOrDefault();
                 int uID = u.UserID;
+
+                try
+                {
+                    MailMessage mail = new MailMessage();
+                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                    mail.From = new MailAddress("memoryinjectlamas@gmail.com");
+                    mail.To.Add(email);
+                    mail.Subject = "UniDel Employee Registration";
+                    mail.Body = "Congratulations. You have been registered as a " + position + " on UniDel. \r\n\r\n" + 
+                        "Your login credentials are: \r\n\r\n" + "Email: " + email + "\r\nPassword: " + password + 
+                        "\r\n\r\nWe look forward to seeing you. \r\n\r\nKind Regards\r\nThe UniDelTeam";
+
+                    SmtpServer.Port = 587;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential("memoryinjectlamas@gmail.com", SiteSettings.getPW);
+                    SmtpServer.EnableSsl = true;
+
+                    SmtpServer.Send(mail);
+                }
+                catch (Exception ex)
+                {
+                    
+                }
 
                 if (position == "FleetManager")
                 {
