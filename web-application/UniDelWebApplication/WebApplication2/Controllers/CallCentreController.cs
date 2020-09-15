@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QRCoder;
 using UniDelWebApplication.Models;
+using System.Windows.Forms;
 
 // for PDF
 using Syncfusion.Pdf;
@@ -104,7 +105,9 @@ namespace UniDelWebApplication.Controllers
 
         public IActionResult Index()
         {
-            //return View(uniDelDb.Deliveries.ToList());
+
+            AssignDrivers();
+            //AssignVehicles();
             List<Delivery> d = filterDeliveries();
             return View(d);
         }
@@ -261,7 +264,7 @@ namespace UniDelWebApplication.Controllers
             return driv;
         }
 
-        private List<Delivery> GetComDeliveries()
+        private List<Delivery> GetComTodayDeliveries()
         {
             List<CompanyDelivery> cD = uniDelDb.CompanyDeliveries.ToList();
             List<CompanyDelivery> myDel = new List<CompanyDelivery>();
@@ -274,7 +277,9 @@ namespace UniDelWebApplication.Controllers
             List<Delivery> del = new List<Delivery>();
             foreach (var de in myDel)
             {
-                del.Add(uniDelDb.Deliveries.Find(de.DeliveryID));
+                Delivery deliv = uniDelDb.Deliveries.Find(de.DeliveryID);
+                if(deliv.DeliveryDate==DateTime.Today)
+                del.Add(deliv);
             }
             return del;
         }
@@ -282,34 +287,68 @@ namespace UniDelWebApplication.Controllers
 
         private void AssignDrivers()
         {
-            List<Driver> myDrivers = GetComDrivers();
-            List<Delivery> myDeliveries = GetComDeliveries();
-            int lim = myDrivers.Capacity;
-            int count = 0;
-            if (lim == 0)
-            { 
-                foreach (var de in myDeliveries)
-                {
-                    Delivery d = uniDelDb.Deliveries.Find(de.DeliveryID);
-                    d.DriverID = myDrivers[count].DriverID;
-                    d.DeliveryState = "Pending";
-                    uniDelDb.SaveChanges();
-                    if (count < lim)
-                        count++;
-                    else
-                        count = 0;
-                }
-            }
-            else
+            try
             {
-                Console.WriteLine("No available drivers");
+                Console.WriteLine("Assigning all drivers to deliveries");
+                List<Driver> myDrivers = GetComDrivers();
+                List<Delivery> myDeliveries = GetComTodayDeliveries();
+                int lim = myDrivers.Count;
+                int count = 0;
+                if (lim != 0)
+                { 
+                    foreach (var de in myDeliveries)
+                    {
+                        Console.WriteLine("Assigning a driver to a delivery");
+                        Delivery d = uniDelDb.Deliveries.Find(de.DeliveryID);
+                        d.DriverID = myDrivers[count].DriverID;
+                        d.DeliveryState = "Pending";
+                        uniDelDb.SaveChanges();
+                        if (count < lim)
+                            count++;
+                        else
+                            count = 0;
+                        Console.WriteLine("Assigned a driver to a delivery");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No available drivers");
+                }
+                Console.WriteLine("Assigned all drivers for today to deliveries");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
 
         private void AssignVehicles()
         {
-            List<Driver> myDrivers = GetComDrivers();
-            List<Vehicle> myVehicles = GetComVehicles();
+            try
+            {
+                Console.WriteLine("Assigning all vehicles to drivers");
+                List<Driver> myDrivers = GetComDrivers();
+                List<Vehicle> myVehicles = GetComVehicles();
+                int lim = myVehicles.Capacity;
+                int count = 0;
+                foreach (var dr in myDrivers)
+                {
+                    Console.WriteLine("Assigning a vehicle to a driver");
+                    DriverVehicle drivVeh = new DriverVehicle() { DriverID = dr.DriverID, VehicleID = myVehicles[count].VehicleID };
+                    uniDelDb.DriverVehicles.Add(drivVeh);
+                    uniDelDb.SaveChanges();
+                    if (count < lim)
+                        count++;
+                    else
+                        count = 0;
+                    Console.WriteLine("Assigned a vehicle to a driver");
+                }
+                Console.WriteLine("Assigned all vehicles for today to drivers");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         [ValidateAntiForgeryToken]
