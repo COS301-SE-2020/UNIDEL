@@ -3,30 +3,37 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using UniDel.ViewModels;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace UniDel.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CurrentDelivery : ContentPage
     {
-        public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }
+        public List<CurrentDeliveryViewModel> active_deliveries { get; set; }
 
         public CurrentDelivery()
         {
             InitializeComponent();
             Navigation.PopToRootAsync();
             BindingContext = this;
-
+            //ListingAPI();
             //apidata = [{ }]
-            //foreach (x) {
+            //foreach (x)
+            //{
             //    complete_deliveries.Add(new CompleteDeliveryViewModel
-            //    { deliveryID = "Delivery ID: "+ X.id,
+            //    {
+            //        deliveryID = "Delivery ID: " + X.id,
             //        pickupName = "Pickup : " + X.pickupname,
-            //        dropoffName = "Drop Off : " + X.dropoffname });
+            //        dropoffName = "Drop Off : " + X.dropoffname
+            //    });
 
             //}
 
-            active_deliveries = new ObservableCollection<CurrentDeliveryViewModel>();
+            active_deliveries = new List<CurrentDeliveryViewModel>();
 
             active_deliveries.Add(new CurrentDeliveryViewModel
             { deliveryID = "Delivery ID : 135467", pickupName = "BEX Express SA", dropoffName = "SPAR: Silver Lakes" });
@@ -40,14 +47,47 @@ namespace UniDel.Views
 
         }
 
-        async void Add_Clicked(object sender, EventArgs e)
+        //public async void ListingAPI()
+        //{
+        //    List<Delivery> data = null;
+        //    var httpClientHandler = new HttpClientHandler();
+        //    httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+        //    var httpClient = new HttpClient(httpClientHandler);
+
+        //    await Task.Run(async () =>
+        //    {
+        //        Console.WriteLine("***************");
+        //        var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Deliveries?k=UDL2Avv378jBBgd772hFSbbsfwUD");
+        //        data = JsonConvert.DeserializeObject<List<Delivery>>(response);
+        //        Console.WriteLine("***************");
+        //    });
+
+        //    Console.WriteLine(data);
+        //    active_deliveries = new List<CurrentDeliveryViewModel>();
+        //    foreach (var item in data)
+        //    {
+        //        if (item.deliveryState == "pending")
+        //        {
+        //            active_deliveries.Add(new CurrentDeliveryViewModel()
+        //            {
+        //                deliveryDate = item.deliveryDate,
+        //                pickupName = item.deliveryPickupLocation,
+        //                dropoffName = item.client
+        //            });
+        //        }
+        //    }
+
+        //    activeView.ItemsSource = active_deliveries;
+        //}
+
+        void btnTrack_Clicked(System.Object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new QRScanningPage());
+            Application.Current.MainPage = new MapPage();
         }
 
-        async void Collect_Clicked(object sender, EventArgs e)
+        void btnDeliver_Clicked(System.Object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new DeliveryDetails());
+            Application.Current.MainPage = new CompleteDelivery();
         }
 
     }
