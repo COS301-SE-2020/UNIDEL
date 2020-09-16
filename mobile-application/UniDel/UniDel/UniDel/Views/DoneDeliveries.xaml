@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:UniDel.ViewModels"
+             x:Class="UniDel.Views.DoneDeliveries"
+             mc:Ignorable="d"
+             BackgroundColor="#FAFAFA">
+
+    <d:ContentPage.BindingContext>
+         <viewModel:CurrentDeliveryViewModel />
+    </d:ContentPage.BindingContext>
+
+    <ContentPage.Content>
+            <StackLayout Margin="30" BackgroundColor="#FAFAFA">
+                <Label Text="COMPLETE DELIVERIES"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#0085C9"/>
+                <ActivityIndicator x:Name="indicator" 
+                Color="#F8D34F" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="False" IsVisible="False"
+                />
+                 <ListView x:Name="doneView" HasUnevenRows="True" RowHeight="140" BackgroundColor="#FAFAFA" SeparatorColor="#F8D34F">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Vertical"
+                                                     HorizontalOptions="Fill"
+                                                     BackgroundColor="White">
+                                            <Label Text="{Binding deliveryState}"
+                                                       FontSize="13"
+                                                       TextColor="#1861ac"
+                                                       FontAttributes="Bold"
+                                                       CharacterSpacing="2"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"
+                                                       HorizontalTextAlignment="Center"
+                                                       VerticalTextAlignment="Center"/>
+                                            <Label Text="PICKUP POINT :"
+                                                       FontSize="13"
+                                                       TextColor="#1861ac"
+                                                       FontAttributes="Bold"
+                                                       CharacterSpacing="2"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"
+                                                       HorizontalTextAlignment="Start"
+                                                       VerticalTextAlignment="Center"/>
+                                           <Label Text="{Binding pickupName}"
+                                                       FontSize="Small"
+                                                       TextColor="#4a4a4a"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"/>
+                                             <Label Text="DROPOFF POINT :"
+                                                       FontSize="13"
+                                                       TextColor="#1861ac"
+                                                       FontAttributes="Bold"
+                                                       CharacterSpacing="2"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"
+                                                       HorizontalTextAlignment="Start"
+                                                       VerticalTextAlignment="Center"/>
+                                            <Label Text="{Binding dropoffName}"
+                                                       FontSize="Small"
+                                                       TextColor="#4a4a4a"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"/>
+                                             <Button   BackgroundColor="#26C485"
+                                                       Scale=".75"
+                                                       x:Name="btnReschedule"
+                                                       CharacterSpacing="1"
+                                                       FontFamily="UnidelFont"
+                                                       Text="Delivered"
+                                                       TextColor="White"
+                                                       FontAttributes="Bold"
+                                                       BorderWidth="5"
+                                                       CornerRadius="5"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalOptions="Center"
+                                                       Clicked="btnReschedule_Clicked"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                </StackLayout>
+    </ContentPage.Content>
+       
+
+</ContentPage>

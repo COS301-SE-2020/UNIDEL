@@ -11,5 +11,10 @@ namespace UniDel.Views
         {
             InitializeComponent();
         }
+
+        void btnLog_Clicked(System.Object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
