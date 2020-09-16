@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4QRuF8rKbNKSzyXTBzPN3pC6vOThy6XqHYP1P2dShNRficbqlxax6pJWkPBILJes2nFx7SL9KZ2moeGvIjggGA==",
+  "dgSpecHash": "JBnJFifWGBk17xUGXWffTdsAOKXLUU2bBZCzsClaNUVh4UaMNwgVmbIiBBLVaUcz+HdMep2xpJ43wy42/FIF6w==",
   "success": true,
   "projectFilePath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
   "expectedPackageFiles": [
@@ -58,7 +58,7 @@
     "/Users/laam/.nuget/packages/xamarin.android.support.versionedparcelable/28.0.0.3/xamarin.android.support.versionedparcelable.28.0.0.3.nupkg.sha512",
     "/Users/laam/.nuget/packages/xamarin.android.support.viewpager/28.0.0.3/xamarin.android.support.viewpager.28.0.0.3.nupkg.sha512",
     "/Users/laam/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
-    "/Users/laam/.nuget/packages/xamarin.forms/4.8.0.1269/xamarin.forms.4.8.0.1269.nupkg.sha512",
+    "/Users/laam/.nuget/packages/xamarin.forms/4.8.0.1364/xamarin.forms.4.8.0.1364.nupkg.sha512",
     "/Users/laam/.nuget/packages/zxing.net.mobile/2.4.1/zxing.net.mobile.2.4.1.nupkg.sha512"
   ],
   "logs": []

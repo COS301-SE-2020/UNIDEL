@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using UniDel.Models;
 using Newtonsoft.Json;
 using System.Security.Cryptography;
+using UniDel.Data;
 
 namespace UniDel.Views
 {
@@ -45,7 +46,7 @@ namespace UniDel.Views
                 indicator.IsVisible = true;
                 await Task.Run(async () =>
                 {
-                    var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Users/GetAllUsers");
+                    var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Users/GetAllUsers?"+Constants.Token);
                     users = JsonConvert.DeserializeObject<List<User>>(response);
                 });
 
@@ -109,7 +110,7 @@ namespace UniDel.Views
                     (message, cert, chain, errors) => { return true; };
 
                     httpClient = new HttpClient(httpClientHandler);
-                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/clients/getclients");
+                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/clients/getclients?"+Constants.Token);
 
                     List<Client> clients = JsonConvert.DeserializeObject<List<Client>>(response);
 

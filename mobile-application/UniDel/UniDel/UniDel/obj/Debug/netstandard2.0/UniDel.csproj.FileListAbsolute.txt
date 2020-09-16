@@ -112,8 +112,10 @@ C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Deb
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/App.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ClientHomePage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ClientPackageList.xaml.g.cs
+/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/CompleteDelivery.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/CurrentDelivery.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryDetails.xaml.g.cs
+/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DriverDeliveries.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DriverHomePage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/EndCustomerQRScanningPage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/LoginPage.xaml.g.cs
@@ -134,6 +136,3 @@ C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Deb
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.dll
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/ref/UniDel.dll
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.pdb
-/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csprojAssemblyReference.cache
-/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DriverDeliveries.xaml.g.cs
-/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/CompleteDelivery.xaml.g.cs

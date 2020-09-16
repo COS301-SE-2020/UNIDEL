@@ -12,6 +12,12 @@
                        FontAttributes="Bold"
                        HorizontalOptions="Center"
                        TextColor="#0085C9"/>
+                        <ActivityIndicator x:Name="indicator" 
+                Color="#F8D34F" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="False" IsVisible="False"
+                />
             <ListView ItemsSource="{Binding DeliveryDetails}" HasUnevenRows="True" RowHeight="140" SeparatorColor="#F8D34F">
                 <ListView.ItemTemplate>
                     <DataTemplate>
