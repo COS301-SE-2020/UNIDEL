@@ -45,15 +45,12 @@ namespace UniDel.Views
             var locator = CrossGeolocator.Current;
 
             var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
-            Console.WriteLine("Position Status: {0}", position.Timestamp);
-            Console.WriteLine("Position Latitude: {0}", position.Latitude);
-            Console.WriteLine("Position Longitude: {0}", position.Longitude);
             String Longitude = position.Longitude.ToString();
             String Latitude = position.Latitude.ToString();
-            Longitude.Replace(",", ".");
-            Latitude.Replace(",", ".");
+            Longitude=Longitude.Replace(",", ".");
+            Latitude=Latitude.Replace(",", ".");
             //String destination = "Spar Silver Lakes";
-            destination.Replace(" ", "&");
+            destination=destination.Replace(" ", "&");
             String currLocation = "https://www.google.com/maps/dir/?api=1&origin="+Latitude+","+Longitude+"&destination=" + destination;
             Console.WriteLine("Location: ", currLocation);
             googleMap.Source = currLocation;
