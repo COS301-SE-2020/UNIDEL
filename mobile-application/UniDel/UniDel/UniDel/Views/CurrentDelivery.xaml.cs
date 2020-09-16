@@ -61,7 +61,7 @@ namespace UniDel.Views
             indicator.IsRunning = true;
             indicator.IsVisible = true;
 
-            var response = await httpClient.GetStringAsync(Constants.BaseURL + "Deliveries?" + Constants.Token);
+            var response = await httpClient.GetStringAsync(Constants.BaseURL + "Deliveries/GetAllDeliveries?" + Constants.Token);
             delivery_data = JsonConvert.DeserializeObject<List<Delivery>>(response);
             active_deliveries = new List<CurrentDeliveryViewModel>();
             foreach (var item in delivery_data)
@@ -76,6 +76,7 @@ namespace UniDel.Views
                     //location = client_data[0].ClientAddress;
                     active_deliveries.Add(new CurrentDeliveryViewModel()
                     {
+                        deliveryState = item.deliveryState.ToUpper(),
                         pickupName = item.deliveryPickupLocation,
                         dropoffName = item.client
                     }); 
@@ -95,7 +96,7 @@ namespace UniDel.Views
 
         void btnDeliver_Clicked(System.Object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new CompleteDelivery();
+            Application.Current.MainPage = new FinalDelivery();
         }
 
     }

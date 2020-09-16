@@ -8,21 +8,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UniDel.Views.DriverDeliveries.xaml", "Views/DriverDeliveries.xaml", typeof(global::UniDel.Views.DriverDeliveries))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("UniDel.Views.FinalDelivery.xaml", "Views/FinalDelivery.xaml", typeof(global::UniDel.Views.FinalDelivery))]
 
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/DriverDeliveries.xaml")]
-    public partial class DriverDeliveries : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/FinalDelivery.xaml")]
+    public partial class FinalDelivery : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.ActivityIndicator indicator;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Button btnScan;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(DriverDeliveries));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(FinalDelivery));
             indicator = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ActivityIndicator>(this, "indicator");
+            btnScan = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnScan");
         }
     }
 }

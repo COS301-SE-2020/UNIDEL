@@ -20,7 +20,7 @@
                        FontSize="20"
                        FontAttributes="Bold"
                        HorizontalOptions="Center"
-                       TextColor="#0085C9"/>
+                       TextColor="#01579B"/>
                 <ActivityIndicator x:Name="indicator" 
                 Color="#F8D34F" 
                 VerticalOptions="CenterAndExpand" 
@@ -34,6 +34,15 @@
                                         <StackLayout Orientation="Vertical"
                                                      HorizontalOptions="Fill"
                                                      BackgroundColor="White">
+                                            <Label Text="{Binding deliveryState}"
+                                                       FontSize="13"
+                                                       TextColor="#F8D34F"
+                                                       FontAttributes="Bold"
+                                                       CharacterSpacing="2"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"
+                                                       HorizontalTextAlignment="Center"
+                                                       VerticalTextAlignment="Center"/>
                                             <Label Text="PICKUP POINT :"
                                                        FontSize="13"
                                                        TextColor="#1861ac"
@@ -73,9 +82,9 @@
                                                        CornerRadius="5"
                                                        HorizontalOptions="End"
                                                        VerticalOptions="Center"
-                                                       BackgroundColor="#26C485"
+                                                       BackgroundColor="#F8D34F"
                                                        Clicked="btnTrack_Clicked"/>
-                                             <Button   BackgroundColor="#26C485"
+                                             <Button   BackgroundColor="#F8D34F"
                                                        Scale=".75"
                                                        x:Name="btnDeliver"
                                                        CharacterSpacing="1"
