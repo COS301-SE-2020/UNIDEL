@@ -53,9 +53,21 @@
                 }
                 else
                 {
-                    <li class="nav-item">
-                        <a class="nav-link text-dark float-right font" asp-area="" asp-controller="Account" asp-action="Settings">Settings</a>
-                    </li>
+                    @if (AccountController.profilePic != "")
+                    {
+                        <li class="nav-item">
+                            <a href="@Url.Action("Settings","Account")">
+                                <!--<img style="display:block;width:50px;height:50px;border-radius:50%;" src="data:image/jpeg;base64, @AccountController.profilePic" />-->
+                                <img style="display:block;width:50px;height:50px;border-radius:50%;" src="data:image/jpeg;base64, @AccountController.profilePic" />
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="Account" asp-action="Settings">Settings</a>
+                        </li>
+                    }
                     <li class="nav-item">
                         <a class="nav-link text-dark float-right border border-dark font" asp-area="" asp-controller="Account" asp-action="Logout">Sign out</a>
                     </li>
