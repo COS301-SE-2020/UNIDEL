@@ -21,7 +21,8 @@ namespace UniDelAPI.Controllers
         }
 
         // GET: api/Deliveries
-        [HttpGet()]
+        [Route("~/api/Deliveries/GetAllDeliveries")]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<Delivery>>> GetDeliveries([FromQuery] string k="")
         {
             if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
