@@ -1,11 +1,9 @@
-﻿<Properties StartupConfiguration="{E3545572-F0ED-471A-BFD6-8AFB411D4325}|UniDelAPI">
-  <MonoDevelop.Ide.Workbench ActiveDocument="UniDelAPI/Models/UniDelDbContext.cs">
+﻿<Properties StartupConfiguration="{E3545572-F0ED-471A-BFD6-8AFB411D4325}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UniDelAPI/Controllers/DeliveriesController.cs">
     <Files>
-      <File FileName="UniDelAPI/Controllers/ClientsController.cs" Line="19" Column="10" />
-      <File FileName="UniDelAPI/Controllers/CallLogController.cs" Line="13" Column="20" />
-      <File FileName="UniDelAPI/Models/CallLog.cs" Line="7" Column="1" />
-      <File FileName="UniDelAPI/Models/Client.cs" Line="1" Column="1" />
-      <File FileName="UniDelAPI/Models/UniDelDbContext.cs" Line="25" Column="1" />
+      <File FileName="UniDelAPI/Controllers/DeliveriesController.cs" Line="22" Column="1" />
+      <File FileName="UniDelAPI/Controllers/UsersController.cs" Line="1" Column="1" />
+      <File FileName="UniDelAPI/Controllers/ClientsController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,11 +11,10 @@
           <Node name="UniDelAPI" expanded="True">
             <Node name="UniDelAPI" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="UniDelDbContext.cs" selected="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="DeliveriesController.cs" selected="True" />
               </Node>
-              <Node name="Properties" expanded="True" />
+              <Node name="Models" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>

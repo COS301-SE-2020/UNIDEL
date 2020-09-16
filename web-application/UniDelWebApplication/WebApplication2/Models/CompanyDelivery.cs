@@ -18,7 +18,7 @@ namespace UniDelWebApplication.Models
         public int CompanyDeliveryID { get; set; }
 
         [ForeignKey("CourierCompanyID")]
-        public int CourierCompanyID { get; set; }
+        public CourierCompany CourierCompany { get; set; }
 
         [Column("DeliveryID")]
         public int DeliveryID { get; set; }

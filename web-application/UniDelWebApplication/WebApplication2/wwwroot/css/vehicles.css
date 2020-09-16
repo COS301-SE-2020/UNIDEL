@@ -100,11 +100,3 @@ h1 {
     margin-top: 20px;
 }
 
-div#notification_panel {
-    bottom: 0;
-    right: 0;
-    background-color: royalblue;
-    color: white;
-    width: 100px;
-}
-
