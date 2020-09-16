@@ -27,6 +27,8 @@ namespace UniDel
             }
         }
 
+        public static App Instance;
+        readonly Image image = new Image();
         public static INavigation Nav { get; set; }
         public App()
         {
@@ -34,8 +36,16 @@ namespace UniDel
             DependencyService.Register<MockDataStore>();
             MainPage = new UniDelHome();
 
+            Instance = this;
             /*var myNavigationPage = new NavigationPage(new CurrentDelivery());
             Nav = myNavigationPage.Navigation;*/
+        }
+
+        public event Action ShouldTakePicture = () => { };
+
+        public void ShowImage(string filepath)
+        {
+            image.Source = ImageSource.FromFile(filepath);
         }
 
         protected override void OnStart()
