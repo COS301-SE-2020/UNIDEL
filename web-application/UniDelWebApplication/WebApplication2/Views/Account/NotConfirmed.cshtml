@@ -4,8 +4,13 @@
 @{
     ViewData["Title"] = "User Not Confirmed";
 }
-
-<div class="col-lg col-xl col-md col-lg">
-    <p class="text-body">@Model has not been confirmed</p>
-    <p class="text-body">Please check email inbox for confirmation email or @Html.ActionLink("Resend confirmation email","ConfirmationSent","Account",new { em = Model})</p>
-</div>
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="center">
+            <div class="col-lg col-xl col-md col-lg">
+                <p class="text-body">@Model has not been confirmed</p>
+                <p class="text-body">Please check email inbox for confirmation email or @Html.ActionLink("Resend confirmation email", "ConfirmationSent", "Account", new { em = Model })</p>
+            </div>
+        </div>
+    </div>
+</body>

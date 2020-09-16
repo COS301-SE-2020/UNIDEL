@@ -24,12 +24,12 @@
                                 @using (Html.BeginForm("AlterType", "Employee", FormMethod.Post))
                                 {
                                     <input type="hidden" id="employeeID" name="employeeID" value="@item.EmployeeID">
-                                    <select id="empRole" name="empRole">
+                                    <select id="empRole" name="empRole" class="doublecenter">
                                         <option value=@item.UserType selected="selected">@item.UserType</option>
                                         <option value="CallCentre">Call Centre</option>
                                         <option value="FleetManager">Fleet Manager</option>
                                     </select>
-                                    <input type="Submit">
+                                    <input type="Submit" class="btn blue greenblue doublecenter" value="Submit Change">
                                 }
                             </td>
                         </tr>
