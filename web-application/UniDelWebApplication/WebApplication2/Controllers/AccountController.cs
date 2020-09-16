@@ -496,11 +496,28 @@ namespace UniDelWebApplication.Controllers
             // return View();
         }
 
-        public IActionResult EmployeeReg(string email = "", string position = "", string firstname = "", string password = "", string verifypass = "")
+        //helper function to use user id to find courier company id
+        private int findCompany(int sesID)
         {
-            if (password == verifypass)
+            List<CourierCompany> cC = uniDelDb.CourierCompanies.ToList();
+            foreach (var cmp in cC)
             {
-                byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(password);
+                if (cmp.UserID == sesID)
+                    return cmp.CourierCompanyID;
+            }
+            return -1;
+        }
+
+        public IActionResult EmployeeReg()
+        {
+            return View();
+        }
+
+        public IActionResult RegEmp(string userEmail = "", string userType = "", string firstname = "", string userPassword = "", string verifypass = "", string empCell="")
+        {
+            if (userPassword == verifypass)
+            {
+                byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(userPassword);
                 HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
                 byte[] salt = hashAlg.ComputeHash(b64pass);
                 byte[] finalString = new byte[b64pass.Length + salt.Length];
@@ -517,49 +534,47 @@ namespace UniDelWebApplication.Controllers
 
                 User u = new User();
                 //u.UserID = 1;
-                u.UserEmail = email;
+                u.UserEmail = userEmail;
                 u.UserPassword = final;
-                u.UserType = position;
+                u.UserType = userType;
                 u.UserProfilePic = null;
                 u.UserConfirmed = true;
                 u.UserToken = Guid.NewGuid().ToString();
-
                 uniDelDb.Users.Add(u);
                 uniDelDb.SaveChanges();
 
-                u = uniDelDb.Users.Where(o => o.UserEmail == email).FirstOrDefault();
                 int uID = u.UserID;
+                int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
 
-                if (position == "FleetManager")
+                if (userType == "FleetManager" || userType == "CallCentre")
                 {
-                    FleetManager fm = new FleetManager();
-                    fm.FleetManagerID = uID;
-                    fm.FleetManagerName = firstname;
-                    uniDelDb.FleetManagers.Add(fm);
+                    Employee e = new Employee();
+                    e.EmployeeCellphone =empCell;
+                    e.EmployeeName = firstname;
+                    e.UserID = uID;
+                    e.UserType = userType;
+                    uniDelDb.Employees.Add(e);
                     uniDelDb.SaveChanges();
-                    return RedirectToAction("Index", "FleetManagement");
+                    CompanyEmployee comEmp = new CompanyEmployee() { CourierCompanyID = comID, EmployeeID = e.EmployeeID };
+                    uniDelDb.CompanyEmployees.Add(comEmp);
+                    uniDelDb.SaveChanges();
                 }
 
-                if (position == "Driver")
+                if (userType == "Driver")
                 {
                     Driver dri = new Driver();
                     dri.DriverName = firstname;
                     dri.UserID = uID;
+                    dri.DriverCellphone = empCell;
                     uniDelDb.Drivers.Add(dri);
                     uniDelDb.SaveChanges();
-                    return RedirectToAction("Index", "Delivery");
-                }
-
-                if (position == "CallCentre")
-                {
-                    return RedirectToAction("Index", "CallCentre");
+                    CompanyDriver comDriv = new CompanyDriver() { CourierCompanyID = comID, DriverID = dri.DriverID };
+                    uniDelDb.CompanyDrivers.Add(comDriv);
+                    uniDelDb.SaveChanges();
                 }
 
             }
-
-
-            return View();
-
+            return RedirectToAction("Index", "CallCentre");
         }
 
         public async Task<IActionResult> Settings(string email = "", IFormFile propic = null, string compName = "", string tel = "")
