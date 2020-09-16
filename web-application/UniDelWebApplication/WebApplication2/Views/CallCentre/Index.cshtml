@@ -1,43 +1,52 @@
-﻿@{
-    ViewData["Title"] = "Deliveries";
-}
+﻿@{ ViewData["Title"] = "Deliveries"; }
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
 
-<div class="text-center">
-    <h1 class="display-4">Deliveries</h1>
-</div>
-
-<h2>Deliveries</h2>
-@Html.ActionLink("Add Delivery", "AddDelivery")
-<br>
-
-@model dynamic
-<div style="overflow-x:auto;">
-    <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
-        <thead class="btn-primary whitefont">
+        <div class="text-center">
+            <h1 class="display-4">Deliveries</h1>
+        </div>
+        <table class="fulltable">
             <tr>
-                <th class="my-auto align-middle text-light">Delivery Date</th>
-                <th class="my-auto align-middle text-light">Pickup Location</th>
-                <th class="my-auto align-middle text-light">Delivery State</th>
-                <th class="my-auto align-middle text-light">Confirmation Picture</th>
+                <td>
+                    <h2>Current Deliveries:</h2>
+                </td>
+                <td>
+                    @Html.ActionLink("Add Delivery", "AddDelivery", null, null, new { @class = "btn blue greenblue fullinput" })
+                </td>
             </tr>
-        </thead>
-        <tbody>
+        </table>
+        <br>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.DeliveryDate.ToString("yyyy-MM-dd")</td>
-                    <td>@item.DeliveryPickupLocation</td>
-                    <td>@item.DeliveryState</td>
-                    <td class="my-auto align-middle" cellpadding="8">
-                        @using (Html.BeginForm("QRCode", "CallCentre", FormMethod.Post))
-                        {
-                            <input type="hidden" id="txtQRCode" name="txtQRCode" value="@item.DeliveryID">
-                            <button class="btn btn-light" type="submit"><img src="~/images/qrcode-512.png" width="15" alt=""></button>
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+
+        @model dynamic
+        <div style="overflow-x:auto;">
+            <table cellpadding="13" class="table table-hover shadow p-2 rounded active table-striped roundedtable">
+                <thead class="blue whitefont">
+                    <tr>
+                        <th class="my-auto align-middle text-light">Delivery Date</th>
+                        <th class="my-auto align-middle text-light">Pickup Location</th>
+                        <th class="my-auto align-middle text-light">Delivery State</th>
+                        <th class="my-auto align-middle text-light">Confirmation Picture</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+        <tr>
+            <td>@item.DeliveryDate.ToString("yyyy-MM-dd")</td>
+            <td>@item.DeliveryPickupLocation</td>
+            <td>@item.DeliveryState</td>
+            <td class="my-auto align-middle" cellpadding="8">
+                @using (Html.BeginForm("QRCode", "CallCentre", FormMethod.Post))
+                {
+    <input type="hidden" id="txtQRCode" name="txtQRCode" value="@item.DeliveryID">
+                        <button class="btn btn-light" type="submit"><img src="~/images/qrcode-512.png" width="15" alt=""></button>}
+            </td>
+        </tr>
+}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
