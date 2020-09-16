@@ -15,6 +15,12 @@ namespace UniDel.Views
             InitializeComponent();
             CurrentLocation();
         }
+        
+        public MapPage(int deliveryID)
+        {
+            InitializeComponent();
+            CurrentLocation();
+        }
 
         private async void CurrentLocation()
         {
