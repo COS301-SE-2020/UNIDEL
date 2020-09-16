@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {}
+    "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
+    "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
+        "projectUniqueName": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
         "projectName": "UniDel",
-        "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj",
-        "packagesPath": "C:\\Users\\Blue Fox\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\obj\\",
+        "projectPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj",
+        "packagesPath": "/Users/khakhuramakuela/.nuget/packages/",
+        "outputPath": "/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Blue Fox\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/khakhuramakuela/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -70,7 +64,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.8.0.1269, )"
+              "version": "[4.8.0.1364, )"
             },
             "ZXing.Net.Mobile": {
               "target": "Package",
@@ -87,7 +81,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
         }
       }
     }
