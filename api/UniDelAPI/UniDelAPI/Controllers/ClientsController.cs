@@ -23,16 +23,26 @@ namespace UniDelAPI.Controllers
         // GET: api/Clients
         [Route("~/api/Clients/GetAllClients")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Client>>> GetClients()
+        public async Task<ActionResult<IEnumerable<Client>>> GetClients([FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             return await _context.Clients.ToListAsync();
         }
 
         // GET: api/Clients/5
         [Route("~/api/GetClient/{id}")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<Client>> GetClient(int id)
+        public async Task<ActionResult<Client>> GetClient(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var client = await _context.Clients.FindAsync(id);
 
             if (client == null)
@@ -48,8 +58,13 @@ namespace UniDelAPI.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [Route("~/api/PutClient/{id}")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutClient(int id,[FromBody] Client client)
+        public async Task<IActionResult> PutClient(int id,[FromBody] Client client, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             if (id != client.ClientID)
             {
                 return BadRequest();
@@ -81,8 +96,13 @@ namespace UniDelAPI.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [Route("~/api/PostClient")]
         [HttpPost]
-        public async Task<ActionResult<Client>> PostClient([FromBody] Client client)
+        public async Task<ActionResult<Client>> PostClient([FromBody] Client client, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             _context.Clients.Add(client);
             await _context.SaveChangesAsync();
 
@@ -92,8 +112,13 @@ namespace UniDelAPI.Controllers
         // DELETE: api/Clients/5
         [Route("~/api/DeleteClient/{id}")]
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Client>> DeleteClient(int id)
+        public async Task<ActionResult<Client>> DeleteClient(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var client = await _context.Clients.FindAsync(id);
             if (client == null)
             {
