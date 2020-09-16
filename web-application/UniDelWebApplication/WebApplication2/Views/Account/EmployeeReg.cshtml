@@ -1,19 +1,17 @@
-﻿@{
-    ViewData["Title"] = "EmployeeReg";
-}
+﻿@{ ViewData["Title"] = "Employee Registration"; }
 @*@model List<UniDelWebApplication.Models.Customer> PROVIDE THIS CODE TO ACCESS THE MODEL SENT BY FUNCTION return View(uniDelDb.Customers.ToList())*@
 
-    <body class="splash">
-        <div class="container shadow p-3 mb-5 bg-white rounded">
-            @using (Html.BeginForm("EmployeeReg", "Account", FormMethod.Post, new { id = "loginForm", @class = "form-card" }))
-            {
-                <div class="form-group">
-                    <h1 class="text-center">SIGN UP YOUR EMPLOYEE</h1>
-                </div>
-            }
-            <div class="form-group Info">
-                <label for="TypeOfUser">Position:</label>
-                <select class="form-control" id="userType" onchange="changeForm();">
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        @using (Html.BeginForm("RegEmp", "Account", FormMethod.Post))
+        {
+            <div class="form-group">
+                <h1 class="text-center">SIGN UP YOUR EMPLOYEE</h1>
+            </div>
+
+            <div class="form-group Info fulltableadd">
+                <label for="TypeOfUser" class="dcenter">UserType:</label>
+                <select class="form-control dcenter" id="userType" name="userType">
                     <option value="CallCentre">Call Centre</option>
                     <option value="FleetManager">Fleet Manager</option>
                     <option value="Driver">Delivery Driver</option>
@@ -21,98 +19,104 @@
             </div>
 
             @*Always*@
-            <div class="form-group Info">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" onclick="generateRandomPassword(6);" required placeholder="Enter email">
+            <div class="form-group Info fulltableadd">
+                <label for="email" class="dcenter">Email address</label>
+                <input type="email" class="form-control dcenter" id="userEmail" name="userEmail" required placeholder="Enter email">
                 <small id="emailErrorMsg" class="error-msg text-danger" hidden>Invalid Email Provided, please enter valid email address</small>
             </div>
 
             @*Always*@
-            <div class="form-group" id="firstN">
-                <label for="firstname">First name</label>
-                <input type="text" class="form-control" id="firstname" placeholder="Enter first name" required>
+            <div class="form-group fulltableadd" id="firstN">
+                <label for="firstname" class="dcenter">First name</label>
+                <input type="text" class="form-control dcenter" id="firstname" name="firstname" placeholder="Enter first name" required>
                 <small id="firstNameErrorMsg" class="error-msg text-danger" hidden>Invalid name, please enter only alphabetical characters</small>
             </div>
 
             @*Always*@
-            <div class="form-group Info" id="lastElem">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" required placeholder="Password">
+            <div class="form-group fulltableadd" id="cellP">
+                <label for="empCell" class="dcenter">Cellphone</label>
+                <input type="text" class="form-control dcenter" id="empCell" name="empCell" placeholder="Enter cellphone number" required>
+            </div>
+
+            @*Always*@
+            <div class="form-group Info fulltableadd" id="lastElem">
+                <label for="password" class="dcenter">Password</label>
+                <input type="password" class="form-control dcenter" id="userPassword" name="userPassword" required placeholder="Password">
                 <small id="passErrorMsg" class="error-msg text-danger" hidden>Invalid Password. Password must have at least one upper case, at least one lower case, at least one digit and have Minimum of eight characters in length .</small>
                 <input type="checkbox" onclick="toggleVisiblePassword()"> Show Password
             </div>
 
             @*Always*@
-            <div class="form-group Info">
-                <label for="Verifypassword">Verify password</label>
-                <input type="password" class="form-control" id="Verifypassword" required placeholder="Verify password">
+            <div class="form-group Info fulltableadd">
+                <label for="Verifypassword" class="dcenter">Verify password</label>
+                <input type="password" class="form-control dcenter" id="verifypass" name="verifypass" required placeholder="Verify password">
                 <small id="verfpassErrorMsg" class="error-msg text-danger" hidden>Passwords do not match</small>
                 @*<input type="checkbox" onclick="toggleVisiblePassword()"> Show Password*@
             </div>
 
 
-            <button type="submit" name="submit" id="login" class="btn btn-block btn-warning btn-color" style="margin:auto">Register</button>
-            <br>
-            <a asp-area="" asp-controller="Account" asp-action="EmployeeReg" class="btn btn-block btn-primary btn-color" style="margin:auto">Register</a>
-
-            <div class="container-fluid text-center">
-                @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>*@
-                @*<a href="register.html" class="text-warning">Register</a>*@
-
+            @*<div class="divcenter">
+                <a asp-area="" asp-controller="Account" asp-action="RegEmp" class="btn btn-block blue greenblue btnadd" style="margin:auto">Register</a>
+            </div>*@
+            <div class="divcenter">
+                <input type="submit" value="Register" class="btn blue greenblue btnadd">
             </div>
-        </div>
-        <script src="/lib/jquery/dist/jquery.min.js"></script>
-        <script>$(document).ready(function () {
-                var validEmail = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-                var validPw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
-                $("small#emailErrorMsg").hide();
-                $("small#passErrorMsg").hide();
-                $("small#verfpassErrorMsg").hide();
+        }
+    </div>
 
-                $("input#email").on("keyup", function () {
-                    var emInput = this.value;
-                    if (validEmail.test(emInput)) {
-                        $("small#emailErrorMsg").hide();
-                        $("input#email").removeClass("is-invalid");
-                        $("input#email").addClass("is-valid")
-                    } else {
-                        $("small#emailErrorMsg").show();
-                        if (!$("input#email").hasClass("is-invalid")) {
-                            $("input#email").addClass("is-invalid");
-                        }
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var validEmail = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var validPw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+            $("small#emailErrorMsg").hide();
+            $("small#passErrorMsg").hide();
+            $("small#verfpassErrorMsg").hide();
+
+            $("input#email").on("keyup", function () {
+                var emInput = this.value;
+                if (validEmail.test(emInput)) {
+                    $("small#emailErrorMsg").hide();
+                    $("input#email").removeClass("is-invalid");
+                    $("input#email").addClass("is-valid")
+                } else {
+                    $("small#emailErrorMsg").show();
+                    if (!$("input#email").hasClass("is-invalid")) {
+                        $("input#email").addClass("is-invalid");
                     }
-                });
+                }
+            });
 
-                $("input#password").on("keyup", function () {
-                    var pwInput = this.value;
-                    if (validPw.test(pwInput)) {
-                        $("small#passErrorMsg").hide();
-                        $("input#password").removeClass("is-invalid");
-                        $("input#password").addClass("is-valid");
-                    } else {
-                        $("small#passErrorMsg").show();
-                        $("input#password").removeClass("is-valid");
-                        if (!$("input#password").hasClass("is-invalid")) {
-                            $("input#password").addClass("is-invalid");
-                        }
+            $("input#password").on("keyup", function () {
+                var pwInput = this.value;
+                if (validPw.test(pwInput)) {
+                    $("small#passErrorMsg").hide();
+                    $("input#password").removeClass("is-invalid");
+                    $("input#password").addClass("is-valid");
+                } else {
+                    $("small#passErrorMsg").show();
+                    $("input#password").removeClass("is-valid");
+                    if (!$("input#password").hasClass("is-invalid")) {
+                        $("input#password").addClass("is-invalid");
                     }
-                });
+                }
+            });
 
-                $("input#Verifypassword").on("keyup", function () {
-                    var originalPass = $("input#password").val();
-                    var confPass = this.value;
+            $("input#Verifypassword").on("keyup", function () {
+                var originalPass = $("input#password").val();
+                var confPass = this.value;
 
-                    if (confPass == originalPass && $("input#password").hasClass("is-valid")) {
-                        $("small#verfpassErrorMsg").hide();
-                        $("input#Verifypassword").removeClass("is-invalid");
-                        $("input#Verifypassword").addClass("is-valid");
-                    } else {
-                        $("small#verfpassErrorMsg").show();
-                        $("input#Verifypassword").removeClass("is-valid");
-                        if (!$("input#Verifypassword").hasClass("is-invalid")) {
-                            $("input#Verifypassword").addClass("is-invalid");
-                        }
+                if (confPass == originalPass && $("input#password").hasClass("is-valid")) {
+                    $("small#verfpassErrorMsg").hide();
+                    $("input#Verifypassword").removeClass("is-invalid");
+                    $("input#Verifypassword").addClass("is-valid");
+                } else {
+                    $("small#verfpassErrorMsg").show();
+                    $("input#Verifypassword").removeClass("is-valid");
+                    if (!$("input#Verifypassword").hasClass("is-invalid")) {
+                        $("input#Verifypassword").addClass("is-invalid");
                     }
-                });
-            });</script>
+                }
+            });
+        });</script>
 </body>

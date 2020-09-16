@@ -28,12 +28,12 @@ namespace UniDel.Views
 
             active_deliveries = new ObservableCollection<CurrentDeliveryViewModel>();
 
-            active_deliveries.Add(new CurrentDeliveryViewModel
-            { deliveryID = "Delivery ID : 135467", pickupName = "BEX Express SA", dropoffName = "SPAR: Silver Lakes" });
-            active_deliveries.Add(new CurrentDeliveryViewModel
-            { deliveryID = "Delivery ID : 135468", pickupName = "Dawn Wing ", dropoffName = "SPAR: Silver Lakes" });
-            active_deliveries.Add(new CurrentDeliveryViewModel
-            { deliveryID = "Delivery ID : 135469", pickupName = "Courierit Pty Ltd Pretoria", dropoffName = "SPAR: Silver Lakes" });
+            //active_deliveries.Add(new CurrentDeliveryViewModel
+            //{ deliveryID = "Delivery ID : 135467", pickupName = "BEX Express SA", dropoffName = "SPAR: Silver Lakes" });
+            //active_deliveries.Add(new CurrentDeliveryViewModel
+            //{ deliveryID = "Delivery ID : 135468", pickupName = "Dawn Wing ", dropoffName = "SPAR: Silver Lakes" });
+            //active_deliveries.Add(new CurrentDeliveryViewModel
+            //{ deliveryID = "Delivery ID : 135469", pickupName = "Courierit Pty Ltd Pretoria", dropoffName = "SPAR: Silver Lakes" });
 
 
             activeView.ItemsSource = active_deliveries;

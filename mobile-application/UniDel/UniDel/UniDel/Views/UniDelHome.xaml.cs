@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using UniDel.Models;
 
 namespace UniDel.Views
 {
@@ -21,6 +22,7 @@ namespace UniDel.Views
 
         void driver_clicked(object sender, EventArgs e)
         {
+            Session.ClientID = -1;
             Application.Current.MainPage = new LoginPage();
 
         }

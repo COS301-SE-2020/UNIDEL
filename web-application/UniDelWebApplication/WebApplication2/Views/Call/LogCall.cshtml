@@ -1,24 +1,81 @@
 ﻿@{
     ViewData["Title"] = "Log call";
 }
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="text-center">
+            <h1 class="display-4">Log Call</h1>
+        </div>
 
-<div class="text-center">
-    <h1 class="display-4">Log Call</h1>
-</div>
+        @using (Html.BeginForm("Log", "Call", FormMethod.Post))
+        {
+    <table class="fulltableadd">
+        <tr>
+            <td>
+                <label for="cDateTime">Call date and time:</label>
 
-@using (Html.BeginForm("Log", "Call", FormMethod.Post))
-{
-    <label for="cDateTime">Call date and time:</label>
-    <input type="datetime-local" id="cDateTime" name="cDateTime" required><br>
-    <label for="reason">Reason for call:</label>
-    <input type="text" name="reason" list="reason" required/>
-    <datalist id="reason">
-      <option>Delivery not arrived</option>
-      <option>Incorrect package</option>
-      <option>Bad delivery time</option>
-      <option>Damaged Goods</option>
-    </datalist><br>
-    <label for="notes">Notes:</label>
-    <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br>
-    <input type="submit" value="Log Call">
-}
+
+            </td>
+            <td>
+                <input class="fullinput" type="datetime-local" id="cDateTime" name="cDateTime" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+            </td>
+            <td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="reason">Reason for call:</label>
+
+
+            </td>
+            <td>
+                <input class="fullinput" type="text" name="reason" list="reason" required />
+                <datalist id="reason">
+                    <option>Delivery not arrived</option>
+                    <option>Incorrect package</option>
+                    <option>Bad delivery time</option>
+                    <option>Damaged Goods</option>
+                </datalist>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+            </td>
+            <td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="cellphone">Cellphone:</label>
+
+            </td>
+            <td>
+                <input id="cellphone" name="cellphone" rows="4" cols="50"></input>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="notes">Notes:</label>
+
+            </td>
+            <td>
+                <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
+            </td>
+        </tr>
+    </table>
+
+
+            <div class="divcenter">
+                <input type="submit" value="Log Call" class="btn blue greenblue btnadd">
+            </div>
+        }
+    </div>
+</body>

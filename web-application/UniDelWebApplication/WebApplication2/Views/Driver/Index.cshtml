@@ -1,39 +1,42 @@
 ﻿@{ ViewData["Title"] = "Drivers"; }
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="text-center">
+            <h1 class="display-4">Drivers</h1>
+        </div>
 
-<div class="text-center">
-    <h1 class="display-4">Drivers</h1>
-</div>
-
-<div style="overflow-x:auto;">
-    <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
-        <thead class="btn-primary whitefont">
-            <tr>
-                <th class="my-auto align-middle text-light">Name</th>
-                <th class="my-auto align-middle text-light">Surname</th>
-                <th class="my-auto align-middle text-light">Rating</th>
-                <th class="my-auto align-middle text-light">Cellphone</th>
-                <th class="my-auto align-middle text-light">Location</th>
-                <th class="my-auto align-middle text-light"> View Location</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td>@item.DriverName</td>
-                <td>@item.DriverSurname</td>
-                <td>@item.DriverRating</td>
-                <td>@item.DriverCellphone</td>
-                <td>@item.DriverLocation</td>
-                <td class="my-auto align-middle" cellpadding="8">
-                    @using (Html.BeginForm("DriverLocation", "Driver", FormMethod.Post))
+        <div style="overflow-x:auto;">
+            <table cellpadding="13" class="table table-hover shadow p-2 rounded active table-striped roundedtable">
+                <thead class="blue whitefont">
+                    <tr>
+                        <th class="my-auto align-middle text-light">Name</th>
+                        <th class="my-auto align-middle text-light">Surname</th>
+                        <th class="my-auto align-middle text-light">Rating</th>
+                        <th class="my-auto align-middle text-light">Cellphone</th>
+                        <th class="my-auto align-middle text-light">Location</th>
+                        <th class="my-auto align-middle text-light"> View Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
                     {
-                        <input type="hidden" id="driverID" name="driverID" value="@item.DriverID">
-                        <button class="btn btn-light" type="submit"><img src="~/images/map-pin.svg" width="15" alt=""></button>
+                        <tr>
+                            <td>@item.DriverName</td>
+                            <td>@item.DriverSurname</td>
+                            <td>@item.DriverRating</td>
+                            <td>@item.DriverCellphone</td>
+                            <td>@item.DriverLocation</td>
+                            <td class="my-auto align-middle" cellpadding="8">
+                                @using (Html.BeginForm("DriverLocation", "Driver", FormMethod.Post))
+                                {
+                                    <input type="hidden" id="driverID" name="driverID" value="@item.DriverID">
+                                    <button class="btn btn-light" type="submit"><img src="~/images/map-pin.svg" width="15" alt=""></button>
+                                }
+                            </td>
+                        </tr>
                     }
-                </td>
-            </tr>
-       }
-        </tbody>
-    </table>
-</div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

@@ -1,30 +1,165 @@
 ﻿@{
     ViewData["Title"] = "Add Vehicle";
 }
+<div class="container shadow p-3 mb-5 bg-white rounded">
+    <div class="text-center">
+        <h1 class="display-4">Add Vehicle</h1>
+    </div>
+    @using (Html.BeginForm("Add", "FleetManagement", FormMethod.Post))
+    {
+        <table class="fulltableadd">
+            <tr>
+                <td>
+                    <label for="vMake">Make:</label>
 
-<div class="text-center">
-    <h1 class="display-4">Add Vehicle</h1>
+                </td>
+                <td>
+                    <input type="text" id="vMake" name="vMake" placeholder="SUBARU" class="fullinput">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="vModel">Model:</label>
+
+                </td>
+                <td>
+                    <input type="text" id="vModel" name="vModel" placeholder="Legacy" class="fullinput">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="vVIN">VIN:</label>
+
+                </td>
+                <td>
+                    <input type="text" id="vVIN" name="vVIN" placeholder="4S3BMHB68B3286050" class="fullinput">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="vMileage">Mileage:</label>
+
+                </td>
+                <td>
+                    <input type="number" id="vMileage" name="vMileage" placeholder="100 000" class="fullinput">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="vLicensePlate">License Plate:</label>
+
+                </td>
+                <td>
+                    <input type="text" id="vLicensePlate" name="vLicensePlate" placeholder="AB 45 XY GP" class="fullinput">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="vLicenseDiskExpiry">License Disk Expiry:</label>
+
+                </td>
+                <td>
+                    <input type="date" id="vLicenseDiskExpiry" name="vLicenseDiskExpiry" class="fullinput">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="vLastService">Last Service:</label>
+
+                </td>
+                <td>
+                    <input type="date" id="vLastService" name="vLastService" class="fullinput">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="vNextMileageService">Next Service Mileage:</label>
+
+                </td>
+                <td>
+                    <input type="number" id="vNextMileageService" name="vNextMileageService" placeholder="300 000" class="fullinput">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="vNextDateService">Next Date Service:</label>
+                </td>
+                <td>
+                    <input type="date" id="vNextDateService" name="vNextDateService" class="fullinput">
+                </td>
+            </tr>
+
+
+
+        </table>
+        <br />
+        <div class="divcenter">
+            <input type="submit" value="Add Vehicle" class="btn blue greenblue btnadd">
+        </div>
+
+    }
 </div>
-
-@using (Html.BeginForm("Add", "FleetManagement", FormMethod.Post))
-{
-    <label for="vMake">Make:</label>
-    <input type="text" id="vMake" name="vMake" placeholder="SUBARU"><br>
-    <label for="vModel">Model:</label>
-    <input type="text" id="vModel" name="vModel" placeholder="Legacy"><br>
-    <label for="vVIN">VIN:</label>
-    <input type="text" id="vVIN" name="vVIN" placeholder="4S3BMHB68B3286050"><br>
-    <label for="vMileage">Mileage:</label>
-    <input type="number" id="vMileage" name="vMileage" placeholder="100 000"><br>
-    <label for="vLicensePlate">License Plate:</label>
-    <input type="text" id="vLicensePlate" name="vLicensePlate" placeholder="AB 45 XY GP"><br>
-    <label for="vLicenseDiskExpiry">License Disk Expiry:</label>
-    <input type="date" id="vLicenseDiskExpiry" name="vLicenseDiskExpiry"><br>
-    <label for="vLastService">Last Service:</label>
-    <input type="date" id="vLastService" name="vLastService"><br>
-    <label for="vNextMileageService">Next Service Mileage:</label>
-    <input type="number" id="vNextMileageService" name="vNextMileageService" placeholder="300 000"><br>
-    <label for="vNextDateService">Next Date Service:</label>
-    <input type="date" id="vNextDateService" name="vNextDateService"><br>
-    <input type="submit" value="Add Vehicle">
-}
