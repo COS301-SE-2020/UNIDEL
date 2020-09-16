@@ -76,13 +76,13 @@ namespace UniDelWebApplication.Controllers
         }
 
 
-        public IActionResult Log(DateTime cDateTime = new DateTime(), String reason = "", String notes = "")
+        public IActionResult Log(DateTime cDateTime = new DateTime(), String reason = "", String notes = "",String cellphone="")
         {
             try
             {
                 if (reason != "")
                 {
-                    CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes };
+                    CallLog newCall = new CallLog() { CallDateTime = cDateTime, CallReason = reason, CallNotes = notes, CallCellphone=cellphone };
                     uniDelDb.CallLogs.Add(newCall);
                     uniDelDb.SaveChanges();
                     int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));

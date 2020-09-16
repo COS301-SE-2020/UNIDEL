@@ -28,17 +28,19 @@
                 <tr>
                     <th class="my-auto align-middle text-light">Date and Time</th>
                     <th class="my-auto align-middle text-light">Reason</th>
+                    <th class="my-auto align-middle text-light">Cellphone</th>
                     <th class="my-auto align-middle text-light">Notes</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@item.CallDateTime</td>
-                        <td>@item.CallReason</td>
-                        <td>@item.CallNotes</td>
-                    </tr>
+                <tr>
+                    <td>@item.CallDateTime</td>
+                    <td>@item.CallReason</td>
+                    <td>@item.CallCellphone</td>
+                    <td>@item.CallNotes</td>
+                </tr>
                 }
             </tbody>
         </table>
