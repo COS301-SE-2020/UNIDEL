@@ -1,70 +1,99 @@
 ﻿@{
     ViewData["Title"] = "Fleet Management";
 }
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="text-center">
+            <h1 class="display-4">Fleet Management</h1>
+        </div>
 
-<div class="text-center">
-    <h1 class="display-4">Fleet Management</h1>
-</div>
+        <h2>Vehicles</h2>
 
-<h2>Vehicles</h2>
-@Html.ActionLink("Add", "AddVehicle", "FleetManagement")<br>
-@Html.ActionLink("Manage Vehicles", "Alter", "FleetManagement")<br>
-
-@using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
-{
-    <input type="text" name="search" placeholder="Search using VIN">
-    <input type="submit" value="Search">
-}
-
-
-@using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
-{
-    <label for="sortV">Sort by:</label>
-    <select name="sortV" id="sortV">
-        <option value="vId">ID</option>
-        <option value="vMake">Make</option>
-        <option value="vModel">Model</option>
-        <option value="vVIN">VIN</option>
-        <option value="vMileage">Mileage</option>
-        <option value="vLicensePlate">License Plate</option>
-        <option value="vLicenseDiskExpiry">License Disk Expiry</option>
-        <option value="vLastService">Last Service</option>
-        <option value="vNextMileageService">Next Mileage Service</option>
-        <option value="vNextDateService">Next Date Service</option>
-    </select>
-    <input type="submit" value="Sort">
-}
-
-<div style="overflow-x:auto;">
-    <table cellpadding="13" class="table table-bordered table-hover shadow p-2">
-        <thead class="btn-primary whitefont">
+        <table class="fulltable">
             <tr>
-                <th class="my-auto align-middle text-light">Make</th>
-                <th class="my-auto align-middle text-light">Model</th>
-                <th class="my-auto align-middle text-light">VIN</th>
-                <th class="my-auto align-middle text-light">License Plate</th>
-                <th class="my-auto align-middle text-light">License Disk Expiry</th>
-                <th class="my-auto align-middle text-light">Mileage</th>
-                <th class="my-auto align-middle text-light">Next Mileage Service</th>
-                <th class="my-auto align-middle text-light">Last Service</th>
-                <th class="my-auto align-middle text-light">Next Date Service</th>
+                <td>
+
+                    @Html.ActionLink("Add A Vehicle", "AddVehicle", "FleetManagement", null, new { @class = "btn blue greenblue full" })
+
+                </td>
+                <td>
+                    @using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
+                    {
+                        <input type="text" name="search" placeholder="Search using VIN" class="searchbar">
+                        <input type="submit" value="Search" class="btn blue greenblue searchbtn">
+                    }
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.VehicleMake</td>
-                    <td>@item.VehicleModel</td>
-                    <td>@item.VehicleVIN</td>
-                    <td style="white-space:nowrap">@item.VehicleLicensePlate</td>
-                    <td>@item.VehicleLicenseDiskExpiry</td>
-                    <td>@item.VehicleMileage</td>
-                    <td>@item.VehicleNextMileageService</td>
-                    <td>@item.VehicleLastService</td>
-                    <td>@item.VehicleNextDateService</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+            <tr class="invsi">
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.ActionLink("Manage Vehicles", "Alter", "FleetManagement", null, new { @class = "btn grey greengrey full" })
+                </td>
+                <td>
+                    @using (Html.BeginForm("Index", "FleetManagement", FormMethod.Post))
+                    {
+                        <label for="sortV" class="sortlabel">Sort by:</label>
+                        <select name="sortV" id="sortV" class="sortdropdown">
+                            <option value="vId">ID</option>
+                            <option value="vMake">Make</option>
+                            <option value="vModel">Model</option>
+                            <option value="vVIN">VIN</option>
+                            <option value="vMileage">Mileage</option>
+                            <option value="vLicensePlate">License Plate</option>
+                            <option value="vLicenseDiskExpiry">License Disk Expiry</option>
+                            <option value="vLastService">Last Service</option>
+                            <option value="vNextMileageService">Next Mileage Service</option>
+                            <option value="vNextDateService">Next Date Service</option>
+                        </select>
+                        <input type="submit" value="Sort" class="btn grey greengrey sortbtn">
+                    }
+                </td>
+            </tr>
+        </table>
+
+        <br>
+
+        <div>
+            <table cellpadding="13" class="table table-hover shadow p-2 rounded active table-striped roundedtable">
+                <thead class="blue whitefont">
+                    <tr>
+                        <th class="my-auto align-middle text-light">Make</th>
+                        <th class="my-auto align-middle text-light">Model</th>
+                        <th class="my-auto align-middle text-light">VIN</th>
+                        <th class="my-auto align-middle text-light">License Plate</th>
+                        <th class="my-auto align-middle text-light">License Disk Expiry</th>
+                        <th class="my-auto align-middle text-light">Mileage</th>
+                        <th class="my-auto align-middle text-light">Next Mileage Service</th>
+                        <th class="my-auto align-middle text-light">Last Service</th>
+                        <th class="my-auto align-middle text-light">Next Date Service</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.VehicleMake</td>
+                            <td>@item.VehicleModel</td>
+                            <td>@item.VehicleVIN</td>
+                            <td style="white-space:nowrap">@item.VehicleLicensePlate</td>
+                            <td>@item.VehicleLicenseDiskExpiry</td>
+                            <td>@item.VehicleMileage</td>
+                            <td>@item.VehicleNextMileageService</td>
+                            <td>@item.VehicleLastService</td>
+                            <td>@item.VehicleNextDateService</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
