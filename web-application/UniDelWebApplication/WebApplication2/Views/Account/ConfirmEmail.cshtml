@@ -3,22 +3,27 @@
 *@
 @{
 }
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="center">
+            <div class="col-lg col-xl col-md col-lg">
+                @if (ViewBag.Error == "")
+                {
+                    <p class="text-body">Your account has been confirmed</p>
+                    <p class="text-body">@Html.ActionLink("Sign In", "Login", "Account")</p>
+                }
+                else if (ViewBag.ErrorID == 2)
+                {
+                    <p class="text-body">@ViewBag.Error</p>
+                    <p class="text-body">@Html.ActionLink("Sign In", "Login", "Account")</p>
+                }
+                else
+                {
+                    <p class="text-body">@ViewBag.Error</p>
+                    <p class="text-body">@Html.ActionLink("Resend Email", "ConfirmationSent", "Account")</p>
+                }
 
-    <div class="col-lg col-xl col-md col-lg">
-        @if (ViewBag.Error == "")
-        {
-            <p class="text-body">Your account has been confirmed</p>
-            <p class="text-body">@Html.ActionLink("Sign In", "Login", "Account")</p>
-        }
-        else if (ViewBag.ErrorID == 2)
-        {
-            <p class="text-body">@ViewBag.Error</p>
-            <p class="text-body">@Html.ActionLink("Sign In", "Login", "Account")</p>
-        }
-        else
-        {
-            <p class="text-body">@ViewBag.Error</p>
-            <p class="text-body">@Html.ActionLink("Resend Email", "ConfirmationSent", "Account")</p>
-        }
-
+            </div>
+        </div>
     </div>
+</body>
