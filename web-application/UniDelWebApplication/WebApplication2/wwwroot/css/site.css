@@ -134,10 +134,53 @@ body {
     transition: all ease 0.5s;
 }
 
+.whitegreen:hover {
+    animation: whiteToGreen 0.4s ease;
+    color: #fff;
+    background: #26c485;
+}
+
+.whiteblue:hover {
+    animation: whiteToBlue 0.4s ease;
+    color: #fff;
+    background: #0085c9;
+    font
+}
+
 .greengrey:hover {
     animation: greyToGreen 0.4s ease;
     color: #fff;
     background: #26c485;
+}
+
+@keyframes whiteToBlue {
+    0% {
+        background: linear-gradient(72deg, #ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#0085c9,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff);
+    }
+
+    10% {
+        background: linear-gradient(72deg,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#0085c9,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff);
+    }
+
+    30% {
+        background: linear-gradient(72deg, #ffffff,#ffffff,#ffffff,#ffffff,#0085c9,#0085c9,#0085c9,#ffffff,#ffffff,#ffffff,#ffffff);
+    }
+
+    50% {
+        background: linear-gradient(72deg,#ffffff,#ffffff,#ffffff,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#ffffff,#ffffff,#ffffff);
+    }
+
+    70% {
+        background: linear-gradient(72deg, #ffffff,#ffffff,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#ffffff,#ffffff);
+    }
+
+    90% {
+        background: linear-gradient(72deg, #ffffff,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#0085c9,#ffffff);
+    }
+
+    100% {
+        background: linear-gradient(72deg, #0085c9,#0085c9);
+    }
 }
 
 @keyframes greyToGreen {
@@ -163,6 +206,36 @@ body {
 
     90% {
         background: linear-gradient(72deg, #4a4a4a,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#4a4a4a);
+    }
+
+    100% {
+        background: linear-gradient(72deg, #26c485,#26c485);
+    }
+}
+
+@keyframes whiteToGreen {
+    0% {
+        background: linear-gradient(72deg, #ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#26c485,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff);
+    }
+
+    10% {
+        background: linear-gradient(72deg,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#26c485,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff);
+    }
+
+    30% {
+        background: linear-gradient(72deg, #ffffff,#ffffff,#ffffff,#ffffff,#26c485,#26c485,#26c485,#ffffff,#ffffff,#ffffff,#ffffff);
+    }
+
+    50% {
+        background: linear-gradient(72deg,#ffffff,#ffffff,#ffffff,#26c485,#26c485,#26c485,#26c485,#26c485,#ffffff,#ffffff,#ffffff);
+    }
+
+    70% {
+        background: linear-gradient(72deg, #ffffff,#ffffff,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#ffffff,#ffffff);
+    }
+
+    90% {
+        background: linear-gradient(72deg, #ffffff,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#26c485,#ffffff);
     }
 
     100% {
@@ -213,6 +286,10 @@ body {
 
 .sortlabel {
     width: 15%;
+}
+
+.sortdropdown{
+    width:34%;
 }
 
 .invsi td {
