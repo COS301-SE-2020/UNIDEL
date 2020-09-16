@@ -30,8 +30,8 @@ namespace UniDel.Views
             Console.WriteLine("Position Status: {0}", position.Timestamp);
             Console.WriteLine("Position Latitude: {0}", position.Latitude);
             Console.WriteLine("Position Longitude: {0}", position.Longitude);
-            String Longitude=position.Longitude;
-            String Latitude=position.Latitude;
+            String Longitude=position.Longitude.ToString();
+            String Latitude=position.Latitude.ToString();
             Longitude.Replace(",", ".");
             Latitude.Replace(",", ".");
             String destination = "Spar Silver Lakes";
