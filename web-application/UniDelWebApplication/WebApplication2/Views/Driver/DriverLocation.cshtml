@@ -1,27 +1,32 @@
 ﻿@{
     ViewData["Title"] = "Driver current location";
 }
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="center">
+            <div class="text-center">
+                <h1 class="display-4">Drivers Location</h1>
+            </div>
 
-<div class="text-center">
-    <h1 class="display-4">Drivers Location</h1>
-</div>
-
-<iframe width="1200"
-        height="450"
-        frameborder="0" style="border:0"
-        src=@Model allowfullscreen>
-</iframe>
+            <iframe class="widthy heighty"
+                    
+                    frameborder="0" style="border:0"
+                    src=@Model allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</body>
 
 @*@{
-    ViewData["Title"] = "Driver current location";
-}
+        ViewData["Title"] = "Driver current location";
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Drivers Location</h1>
-</div>
+    <div class="text-center">
+        <h1 class="display-4">Drivers Location</h1>
+    </div>
 
-<iframe width="600"
-        height="450"
-        frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBO2eSzL22PogFFqA30bXPrWwvTbqpMYHM&q=-25.756257400000003,28.240955699999997" allowfullscreen>
-</iframe>*@
+    <iframe width="600"
+            height="450"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBO2eSzL22PogFFqA30bXPrWwvTbqpMYHM&q=-25.756257400000003,28.240955699999997" allowfullscreen>
+    </iframe>*@

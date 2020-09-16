@@ -4,12 +4,24 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             BackgroundColor="#FAFAFA"
              x:Class="UniDel.Views.QRScanningPage">
     <ContentPage.Content>
-        <StackLayout Spacing="10">
-           <Button Text="SCAN CODE HERE"
+        <StackLayout Margin="50" Spacing="10">
+           <Label Text="COMPLETE DELIVERY"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#0085C9"/>
+             <Label Text="Scan the QR code to pickup delivery"
+                       Margin="20"
+                       Padding="10"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="#0085C9"/>
+              <Button Text="SCAN QR CODE"
                    x:Name="btnScan"
-                   Margin="30"
+                   Margin="50"
                    Scale=".95"
                    CharacterSpacing="3"
                    FontAttributes="Bold"
@@ -17,8 +29,8 @@
                    FontFamily="UnidelFont"
                    BorderWidth="5"
                    CornerRadius="5"
-                   BackgroundColor="#1b6ec2"
-                   Clicked="btnScan_Clicked"/>
+                   BackgroundColor="#F8D34F"
+                   Clicked="btnScan_Clicked"/>   
             <Entry x:Name="txtBarcode"
                    Placeholder="QR-Code result goes here"
                    VerticalTextAlignment="Center"
