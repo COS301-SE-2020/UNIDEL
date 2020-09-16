@@ -22,15 +22,25 @@ namespace UniDelAPI.Controllers
 
         // GET: api/CompanyVehicles
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CompanyVehicle>>> GetCompanyVehicles()
+        public async Task<ActionResult<IEnumerable<CompanyVehicle>>> GetCompanyVehicles([FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             return await _context.CompanyVehicles.ToListAsync();
         }
 
         // GET: api/CompanyVehicles/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<CompanyVehicle>> GetCompanyVehicle(int id)
+        public async Task<ActionResult<CompanyVehicle>> GetCompanyVehicle(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var companyVehicle = await _context.CompanyVehicles.FindAsync(id);
 
             if (companyVehicle == null)
@@ -45,8 +55,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCompanyVehicle(int id, CompanyVehicle companyVehicle)
+        public async Task<IActionResult> PutCompanyVehicle(int id, CompanyVehicle companyVehicle, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             if (id != companyVehicle.CompanyVehicleID)
             {
                 return BadRequest();
@@ -77,8 +92,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<CompanyVehicle>> PostCompanyVehicle(CompanyVehicle companyVehicle)
+        public async Task<ActionResult<CompanyVehicle>> PostCompanyVehicle(CompanyVehicle companyVehicle, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             _context.CompanyVehicles.Add(companyVehicle);
             await _context.SaveChangesAsync();
 
@@ -87,8 +107,13 @@ namespace UniDelAPI.Controllers
 
         // DELETE: api/CompanyVehicles/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<CompanyVehicle>> DeleteCompanyVehicle(int id)
+        public async Task<ActionResult<CompanyVehicle>> DeleteCompanyVehicle(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var companyVehicle = await _context.CompanyVehicles.FindAsync(id);
             if (companyVehicle == null)
             {

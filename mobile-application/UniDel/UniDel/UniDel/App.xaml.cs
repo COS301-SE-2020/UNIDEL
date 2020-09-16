@@ -32,7 +32,7 @@ namespace UniDel
         {
             InitializeComponent();
             DependencyService.Register<MockDataStore>();
-            MainPage = new LoginPage();
+            MainPage = new UniDelHome();
 
             /*var myNavigationPage = new NavigationPage(new CurrentDelivery());
             Nav = myNavigationPage.Navigation;*/

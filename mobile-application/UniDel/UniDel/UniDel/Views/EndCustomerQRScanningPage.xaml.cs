@@ -3,17 +3,13 @@ using UniDel.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Plugin.Geolocator;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using UniDel.ViewModels;
 //using System.Collections.Generic;
-using System.Linq;
-using RestSharp.Extensions;
 using System.Collections.Generic;
 using System.Text;
-using static Android.Provider.SyncStateContract;
 using System.Threading.Tasks;
 using System.Net;
 using UniDel.Models;
@@ -23,7 +19,6 @@ namespace UniDel.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EndCustomerQRScanningPage : ContentPage
     {
-        public ObservableCollection<CompleteDeliveryViewModel> complete_deliveries { get; set; }
         public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }
         public Location currentLocation;
         public Location dropOffLocation;
