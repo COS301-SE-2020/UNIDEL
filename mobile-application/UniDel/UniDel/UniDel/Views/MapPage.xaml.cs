@@ -30,9 +30,13 @@ namespace UniDel.Views
             Console.WriteLine("Position Status: {0}", position.Timestamp);
             Console.WriteLine("Position Latitude: {0}", position.Latitude);
             Console.WriteLine("Position Longitude: {0}", position.Longitude);
+            String Longitude=position.Longitude;
+            String Latitude=position.Latitude;
+            Longitude.Replace(",", ".");
+            Latitude.Replace(",", ".");
             String destination = "Spar Silver Lakes";
             destination.Replace(" ", "&");
-            String currLocation = "https://www.google.com/maps/dir/?api=1&origin="+position.Latitude+","+position.Longitude+"&destination=" + destination;
+            String currLocation = "https://www.google.com/maps/dir/?api=1&origin="+Latitude+","+Longitude+"&destination=" + destination;
             Console.WriteLine("Location: ", currLocation);
             googleMap.Source = currLocation;
             //currentLocation = loc1;
