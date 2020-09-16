@@ -7,12 +7,16 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using UniDel.Data;
+using UniDel.Services;
 
 namespace UniDel.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CurrentDelivery : ContentPage
     {
+        private string location;
+
         public List<CurrentDeliveryViewModel> active_deliveries { get; set; }
 
         public CurrentDelivery()
@@ -20,7 +24,7 @@ namespace UniDel.Views
             InitializeComponent();
             Navigation.PopToRootAsync();
             BindingContext = this;
-            //ListingAPI();
+            ListingAPI();
             //apidata = [{ }]
             //foreach (x)
             //{
@@ -33,52 +37,56 @@ namespace UniDel.Views
 
             //}
 
-            active_deliveries = new List<CurrentDeliveryViewModel>();
+            //active_deliveries = new List<CurrentDeliveryViewModel>();
 
-            active_deliveries.Add(new CurrentDeliveryViewModel
-            { deliveryID = "Delivery ID : 135467", pickupName = "BEX Express SA", dropoffName = "SPAR: Silver Lakes" });
-            active_deliveries.Add(new CurrentDeliveryViewModel
-            { deliveryID = "Delivery ID : 135468", pickupName = "Dawn Wing ", dropoffName = "SPAR: Silver Lakes" });
-            active_deliveries.Add(new CurrentDeliveryViewModel
-            { deliveryID = "Delivery ID : 135469", pickupName = "Courierit Pty Ltd Pretoria", dropoffName = "SPAR: Silver Lakes" });
+            //active_deliveries.Add(new CurrentDeliveryViewModel
+            //{ deliveryID = "Delivery ID : 135467", pickupName = "BEX Express SA", dropoffName = "SPAR: Silver Lakes" });
+            //active_deliveries.Add(new CurrentDeliveryViewModel
+            //{ deliveryID = "Delivery ID : 135468", pickupName = "Dawn Wing ", dropoffName = "SPAR: Silver Lakes" });
+            //active_deliveries.Add(new CurrentDeliveryViewModel
+            //{ deliveryID = "Delivery ID : 135469", pickupName = "Courierit Pty Ltd Pretoria", dropoffName = "SPAR: Silver Lakes" });
 
 
-            activeView.ItemsSource = active_deliveries;
+            //activeView.ItemsSource = active_deliveries;
 
         }
 
-        //public async void ListingAPI()
-        //{
-        //    List<Delivery> data = null;
-        //    var httpClientHandler = new HttpClientHandler();
-        //    httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-        //    var httpClient = new HttpClient(httpClientHandler);
+        public async void ListingAPI()
+        {
+            List<Delivery> delivery_data = null;
+            var httpClientHandler = new HttpClientHandler();
+            httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+            var httpClient = new HttpClient(httpClientHandler);
 
-        //    await Task.Run(async () =>
-        //    {
-        //        Console.WriteLine("***************");
-        //        var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Deliveries?k=UDL2Avv378jBBgd772hFSbbsfwUD");
-        //        data = JsonConvert.DeserializeObject<List<Delivery>>(response);
-        //        Console.WriteLine("***************");
-        //    });
+            indicator.IsRunning = true;
+            indicator.IsVisible = true;
 
-        //    Console.WriteLine(data);
-        //    active_deliveries = new List<CurrentDeliveryViewModel>();
-        //    foreach (var item in data)
-        //    {
-        //        if (item.deliveryState == "pending")
-        //        {
-        //            active_deliveries.Add(new CurrentDeliveryViewModel()
-        //            {
-        //                deliveryDate = item.deliveryDate,
-        //                pickupName = item.deliveryPickupLocation,
-        //                dropoffName = item.client
-        //            });
-        //        }
-        //    }
+            var response = await httpClient.GetStringAsync(Constants.BaseURL + "Deliveries?" + Constants.Token);
+            delivery_data = JsonConvert.DeserializeObject<List<Delivery>>(response);
+            active_deliveries = new List<CurrentDeliveryViewModel>();
+            foreach (var item in delivery_data)
+            {
+                if (item.deliveryState.ToLower() == "pending")
+                {
+                    int id = item.clientID;
+                    List<Client> client_data = null;
+                    var response2 = await httpClient.GetStringAsync(Constants.BaseURL + "Clients/" + id +"?" + Constants.Token);
+                    client_data = JsonConvert.DeserializeObject<List<Client>>(response2);
 
-        //    activeView.ItemsSource = active_deliveries;
-        //}
+                    location = client_data[0].ClientAddress;
+                    active_deliveries.Add(new CurrentDeliveryViewModel()
+                    {
+                        pickupName = item.deliveryPickupLocation,
+                        dropoffName = location
+                    }); 
+                }
+            }
+
+            indicator.IsRunning = false;
+            indicator.IsVisible = false;
+
+            activeView.ItemsSource = active_deliveries;
+        }
 
         void btnTrack_Clicked(System.Object sender, System.EventArgs e)
         {

@@ -21,6 +21,12 @@
                        FontAttributes="Bold"
                        HorizontalOptions="Center"
                        TextColor="#0085C9"/>
+                <ActivityIndicator x:Name="indicator" 
+                Color="#F8D34F" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="False" IsVisible="False"
+                />
                  <ListView x:Name="activeView" HasUnevenRows="True" RowHeight="140" BackgroundColor="#FAFAFA" SeparatorColor="#F8D34F">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
@@ -28,8 +34,8 @@
                                         <StackLayout Orientation="Vertical"
                                                      HorizontalOptions="Fill"
                                                      BackgroundColor="White">
-                                            <Label Text="{Binding deliveryID}"
-                                                       FontSize="15"
+                                            <Label Text="PICKUP POINT :"
+                                                       FontSize="13"
                                                        TextColor="#1861ac"
                                                        FontAttributes="Bold"
                                                        CharacterSpacing="2"
@@ -37,16 +43,23 @@
                                                        Padding="3"
                                                        HorizontalTextAlignment="Start"
                                                        VerticalTextAlignment="Center"/>
-                                            <Label Text="{Binding pickupName}"
+                                           <Label Text="{Binding pickupName}"
                                                        FontSize="Small"
-                                                       TextColor="#1861ac"
-                                                       CharacterSpacing="2"
+                                                       TextColor="#4a4a4a"
                                                        FontFamily="UnidelFont"
                                                        Padding="3"/>
+                                             <Label Text="DROPOFF POINT :"
+                                                       FontSize="13"
+                                                       TextColor="#1861ac"
+                                                       FontAttributes="Bold"
+                                                       CharacterSpacing="2"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"
+                                                       HorizontalTextAlignment="Start"
+                                                       VerticalTextAlignment="Center"/>
                                             <Label Text="{Binding dropoffName}"
                                                        FontSize="Small"
-                                                       TextColor="#1861ac"
-                                                       CharacterSpacing="2"
+                                                       TextColor="#4a4a4a"
                                                        FontFamily="UnidelFont"
                                                        Padding="3"/>
                                             <Button Text="Track"

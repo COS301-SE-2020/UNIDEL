@@ -1,8 +1,53 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             BackgroundColor="#FAFAFA"
              x:Class="UniDel.Views.VehicleMileage">
     <ContentPage.Content>
-        <Label Text="Enter vehicle mileag for the day"/>
+        <StackLayout Margin="30" BackgroundColor="#FAFAFA">
+                <Label Text="VEHICLE MILEAGE"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#0085C9"/>
+                <Label Text="Enter the mileage of the vehicle used today"
+                       Margin="20"
+                       Padding="10"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="#0085C9"/>
+                 <Entry  x:Name="logPlate"
+                        Placeholder="License Plate"
+                        FontFamily="UnidelFont"
+                        Margin="5"/>
+                <Entry  x:Name="logKM"
+                        Placeholder="Mileage in km"
+                        FontFamily="UnidelFont"
+                        Margin="5"/>
+                <Entry  x:Name="logName"
+                        Placeholder="Sign name"
+                        FontFamily="UnidelFont"
+                        Margin="5"/>
+                <Button x:Name = "btnLog"
+                        Text="log mileage"
+                        HorizontalOptions="CenterAndExpand"
+                        CharacterSpacing="3"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        FontFamily="UnidelFont"
+                        BorderWidth="5"
+                        CornerRadius="5"
+                        BackgroundColor="#26C485"
+                        Margin="10"
+                        Padding="10"/>
+
+                 <ActivityIndicator x:Name="indicator" 
+                Color="#F8D34F" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="False" IsVisible="False"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
