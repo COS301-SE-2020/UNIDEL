@@ -17,7 +17,7 @@
                        Padding="10"
                        FontSize="13"
                        HorizontalOptions="Center"
-                       TextColor="#0085C9"/>
+                       TextColor="#01579B"/>
                  <Entry  x:Name="logPlate"
                         Placeholder="License Plate"
                         FontFamily="UnidelFont"
@@ -41,7 +41,8 @@
                         CornerRadius="5"
                         BackgroundColor="#26C485"
                         Margin="10"
-                        Padding="10"/>
+                        Padding="10"
+                        Clicked="btnLog_Clicked"/>
 
                  <ActivityIndicator x:Name="indicator" 
                 Color="#F8D34F" 

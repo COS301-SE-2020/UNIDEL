@@ -13,13 +13,12 @@ using UniDel.Services;
 namespace UniDel.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CurrentDelivery : ContentPage
+    public partial class DoneDeliveries : ContentPage
     {
-        private string location;
 
-        public List<CurrentDeliveryViewModel> active_deliveries { get; set; }
+        public List<CurrentDeliveryViewModel> done_deliveries { get; set; }
 
-        public CurrentDelivery()
+        public DoneDeliveries()
         {
             InitializeComponent();
             Navigation.PopToRootAsync();
@@ -59,43 +58,39 @@ namespace UniDel.Views
             var httpClient = new HttpClient(httpClientHandler);
 
             indicator.IsRunning = true;
-            indicator.IsVisible = true;
+
 
             var response = await httpClient.GetStringAsync(Constants.BaseURL + "Deliveries/GetAllDeliveries?" + Constants.Token);
             delivery_data = JsonConvert.DeserializeObject<List<Delivery>>(response);
-            active_deliveries = new List<CurrentDeliveryViewModel>();
+            done_deliveries = new List<CurrentDeliveryViewModel>();
             foreach (var item in delivery_data)
             {
-                if (item.deliveryState.ToLower() == "pending")
+                if (item.deliveryState.ToLower() == "completed" || item.deliveryState.ToLower() == "failed")
                 {
                     int id = item.clientID;
                     Client client_data = null;
                     var response2 = await httpClient.GetStringAsync(Constants.BaseURL + "Clients/" + id + "?" + Constants.Token);
                     client_data = JsonConvert.DeserializeObject<Client>(response2);
 
-                    active_deliveries.Add(new CurrentDeliveryViewModel()
+                    done_deliveries.Add(new CurrentDeliveryViewModel()
                     {
                         deliveryState = item.deliveryState.ToUpper(),
                         pickupName = item.deliveryPickupLocation,
                         dropoffName = client_data.ClientAddress
-                }); 
+                    });
                 }
             }
 
             indicator.IsRunning = false;
             indicator.IsVisible = false;
 
-            activeView.ItemsSource = active_deliveries;
+            doneView.ItemsSource = done_deliveries;
+
         }
 
-        void btnTrack_Clicked(System.Object sender, System.EventArgs e)
+        void btnReschedule_Clicked(System.Object sender, System.EventArgs e)
         {
             Application.Current.MainPage = new MapPage();
-        }
-
-        void btnDeliver_Clicked(System.Object sender, System.EventArgs e)
-        {
-            Application.Current.MainPage = new QRScanningPage();
         }
 
     }
