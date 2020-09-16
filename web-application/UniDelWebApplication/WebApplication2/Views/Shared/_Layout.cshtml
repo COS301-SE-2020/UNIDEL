@@ -23,7 +23,7 @@
                     @if (UniDelWebApplication.Controllers.AccountController.UserType == "CourierCompany")
                     {
                         <li class="nav-item">
-                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="Account" asp-action="EmployeeReg">Employees</a>
+                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="Account" asp-action="EmployeeReg">Registration</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="FleetManagement" asp-action="Index">Fleet Management</a>
@@ -33,6 +33,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="CallCentre" asp-action="Index">Deliveries</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="Driver" asp-action="Index">Drivers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="Employee" asp-action="Index">Employees</a>
                         </li>
                     }
                 </ul>

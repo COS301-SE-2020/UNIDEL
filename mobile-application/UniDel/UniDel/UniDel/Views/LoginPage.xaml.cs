@@ -109,7 +109,7 @@ namespace UniDel.Views
                     (message, cert, chain, errors) => { return true; };
 
                     httpClient = new HttpClient(httpClientHandler);
-                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/clients/getclients?k=UDL2Avv378jBBgd772hFSbbsfwUD");
+                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/clients/getallclients?k=UDL2Avv378jBBgd772hFSbbsfwUD");
 
                     List<Client> clients = JsonConvert.DeserializeObject<List<Client>>(response);
 

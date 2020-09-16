@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace UniDelWebApplication.Models
 {
-    public class UniDelDbContext:DbContext
+    public class UniDelDbContext : DbContext
     {
-        public UniDelDbContext(DbContextOptions<UniDelDbContext> options):base(options)
+        public UniDelDbContext(DbContextOptions<UniDelDbContext> options) : base(options)
         {
 
         }
@@ -25,5 +25,10 @@ namespace UniDelWebApplication.Models
         public DbSet<CompanyVehicle> CompanyVehicles { get; set; }
         public DbSet<CompanyDelivery> CompanyDeliveries { get; set; }
         public DbSet<CallLog> CallLogs { get; set; }
+        public DbSet<CompanyCall> CompanyCalls { get; set; }
+        public DbSet<CompanyDriver> CompanyDrivers { get; set; }
+        public DbSet<DriverVehicle> DriverVehicles { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<CompanyEmployee> CompanyEmployees { get; set; }
     }
 }

@@ -37,5 +37,9 @@ namespace UniDelWebApplication.Models
         [Column("DriverCellphone")]
         [StringLength(20)]
         public string DriverCellphone { get; set; }
+
+        [Column("DriverLocation")]
+        [StringLength(20)]
+        public string DriverLocation { get; set; }
     }
 }

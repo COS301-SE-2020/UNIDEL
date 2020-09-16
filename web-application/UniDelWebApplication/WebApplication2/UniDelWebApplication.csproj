@@ -27,5 +27,7 @@
   <ItemGroup>
     <Folder Include="Views\FleetManagement\" />
     <Folder Include="Views\Call\" />
+    <Folder Include="Views\Driver\" />
+    <Folder Include="Views\Employee\" />
   </ItemGroup>
 </Project>

@@ -7,8 +7,8 @@ namespace UniDelWebApplication.Models
 {
     public static class SiteSettings
     {
-        public const string GoogleRecaptchaSecretKey = "6LfwXa0ZAAAAAHg3QL2cRTDiKC3iAK6NniRpscQ7";
-        public const string GoogleRecaptchaSiteKey = "6LfwXa0ZAAAAAHxG4qGdO6wbXMUcfxCZPDQnmvIv";
+        public const string GoogleRecaptchaSecretKey = "6LeMQ8wZAAAAADPCHPiiXAypuKty3wrffFWyoyey";
+        public const string GoogleRecaptchaSiteKey = "6LeMQ8wZAAAAACR_B9H-Pld6OWSATr6mb76bKqkC";
         private const string pw = "COS301MemoryInjectLamas";
 
         public static string getPW
