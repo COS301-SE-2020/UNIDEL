@@ -68,16 +68,16 @@ namespace UniDel.Views
             {
                 if (item.deliveryState.ToLower() == "pending")
                 {
-                    int id = item.clientID;
-                    List<Client> client_data = null;
-                    var response2 = await httpClient.GetStringAsync(Constants.BaseURL + "Clients/" + id +"?" + Constants.Token);
-                    client_data = JsonConvert.DeserializeObject<List<Client>>(response2);
+                    //int id = item.clientID;
+                    //List<Client> client_data = null;
+                    //var response2 = await httpClient.GetStringAsync(Constants.BaseURL + "Clients/" + id +"?" + Constants.Token);
+                    //client_data = JsonConvert.DeserializeObject<List<Client>>(response2);
 
-                    location = client_data[0].ClientAddress;
+                    //location = client_data[0].ClientAddress;
                     active_deliveries.Add(new CurrentDeliveryViewModel()
                     {
                         pickupName = item.deliveryPickupLocation,
-                        dropoffName = location
+                        dropoffName = item.client
                     }); 
                 }
             }
