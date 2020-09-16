@@ -1,53 +1,48 @@
-﻿@{
-    ViewData["Title"] = "Login";
-}
+﻿@{ ViewData["Title"] = "Login"; }
 @*@model List<UniDelWebApplication.Models.Customer> PROVIDE THIS CODE TO ACCESS THE MODEL SENT BY FUNCTION return View(uniDelDb.Customers.ToList())*@
 
-<body class="splash ">
+<body class="splash">
     <div class="container shadow p-3 mb-5 bg-white rounded">
 
         @if (ViewBag.Message != null)
         {
-            <small>@ViewBag.Message</small>
-        }
+<small>@ViewBag.Message</small>}
 
         @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "loginForm", @class = "form-card" }))
         {
-            <div class="form-group">
-                <h1 class="text-center LOGIN">SIGN IN</h1>
-            </div>
 
-            <div class="form-group Info">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" required placeholder="Enter email">
-                <small id="emailErrorMsg" class="error-msg text-danger" hidden>Invalid Email Provided, please enter valid email address</small>
-            </div>
+<div class="form-group">
+    <h1 class="text-center LOGIN">SIGN IN</h1>
+</div>
 
-            <div class="form-group Info">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="pass" required placeholder="Password">
-                <small id="passErrorMsg" class="error-msg text-danger" hidden>Invalid Password. Password must have at least one upper case, at least one lower case, at least one digit and have Minimum of eight characters in length .</small>
-                <input type="checkbox" onclick="toggleVisiblePassword()"> Show Password
-            </div>
+                <div class="form-group Info">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="Enter email">
+                    <small id="emailErrorMsg" class="error-msg text-danger" hidden>Invalid Email Provided, please enter valid email address</small>
+                </div>
 
-            @*<div class="form-group Info">
-                <label for="TypeOfUser">User Type:</label>
-                <select class="form-control" id="userType">
-                    <option>Call Centre</option>
-                    <option>Fleet Manager</option>
-                </select>
-            </div>*@
+                                <div class="form-group Info">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="pass" required placeholder="Password">
+                                    <small id="passErrorMsg" class="error-msg text-danger" hidden>Invalid Password. Password must have at least one upper case, at least one lower case, at least one digit and have Minimum of eight characters in length .</small>
+                                    <input type="checkbox" onclick="toggleVisiblePassword()"> Show Password
+                                </div> @*<div class="form-group Info">
+                                                        <label for="TypeOfUser">User Type:</label>
+                                                        <select class="form-control" id="userType">
+                                                            <option>Call Centre</option>
+                                                            <option>Fleet Manager</option>
+                                                        </select>
+                                                    </div>*@
 
-            <button type="submit" name="submit" id="login" class="btn btn-block btn-primary btn-color" style="margin:auto">Sign In</button>
-            <br>
-            <a asp-area="" asp-controller="Account" asp-action="Register" class="btn btn-block btn-secondary btn-color" style="margin:auto">Sign Up</a>
+                                                <button type="submit" name="submit" id="login" class="btn btn-block blue greenblue" style="margin:auto">Sign In</button>
+                                                                <br>
+                                                                                <a asp-area="" asp-controller="Account" asp-action="Register" class="btn btn-block grey greengrey" style="margin:auto">Sign Up</a>
 
-            <div class="container-fluid text-center">
-                @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>*@
-                @*<a href="register.html" class="text-warning">Register</a>*@
+                                                                                                <div class="container-fluid text-center">
+                                                                                                    @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Register">Register</a>*@
+                                                                                                    @*<a href="register.html" class="text-warning">Register</a>*@
 
-            </div>
-        }
+                                                                                                </div>}
 
 
     </div>

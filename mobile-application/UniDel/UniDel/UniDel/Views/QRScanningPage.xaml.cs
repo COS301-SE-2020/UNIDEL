@@ -93,7 +93,7 @@ namespace UniDel.Views
                             else
                             {
                                 // Send data to Active Deliveries Page
-                                SetUpDeliveryData(result);
+                                SetUpDeliveryData(Convert.ToInt32(result));
                             }
                         }
                     }
@@ -112,98 +112,107 @@ namespace UniDel.Views
 
         private async void DriverAPI(string QR_ID_Scanned)
         {
-            var httpClientHandler = new HttpClientHandler();
-
-            httpClientHandler.ServerCertificateCustomValidationCallback =
-            (message, cert, chain, errors) => { return true; };
-
-            var httpClient = new HttpClient(httpClientHandler);
-
-            var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/Deliveries/" + QR_ID_Scanned);
-            packet = JsonConvert.DeserializeObject<Delivery>(response);
-            
-            if (packet == null)
+            try
             {
-                txtBarcode.Text = "Delivery not found";
-                await DisplayAlert("Delivery not found", "Delivery not found on the system. Try a different QR-Code", "OK");
-                done = false;
-                return;
+
+                var httpClientHandler = new HttpClientHandler();
+
+                httpClientHandler.ServerCertificateCustomValidationCallback =
+                (message, cert, chain, errors) => { return true; };
+
+                var httpClient = new HttpClient(httpClientHandler);
+
+                var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/Deliveries/" + QR_ID_Scanned + "?k=UDL2Avv378jBBgd772hFSbbsfwUD");
+                packet = JsonConvert.DeserializeObject<Delivery>(response);
+
+                if (packet == null)
+                {
+                    txtBarcode.Text = "Delivery not found";
+                    await DisplayAlert("Delivery not found", "Delivery not found on the system. Try a different QR-Code", "OK");
+                    done = false;
+                    return;
+                }
+
+                if (packet.deliveryState == "Completed")
+                {
+                    await DisplayAlert("Completed", "The delivery has already been completed.", "OK");
+                    return;
+                }
+
+                Console.WriteLine("Delivery State: " + packet.deliveryState);
+
+
+                Console.WriteLine(response);
+                Console.WriteLine("....DeliveryID: " + packet.deliveryID + " CourierCompany: " + packet.CourierCompany + " PickupLocation: " + packet.deliveryPickupLocation);
+
+                done = true;
+
+                // if Active change to Confirming
+                if (packet.deliveryState == "Pending")
+                {
+                    packet.deliveryState = "Active";
+                }
+                else if (packet.deliveryState == "Confirming")
+                {
+                    packet.deliveryState = "Completed";
+                }
+                else if (packet.deliveryState == "Active")
+                {
+                    await DisplayAlert("Delivery already active", "Delivery is already being delivered. Check the active page for more details.", "OK");
+                    return;
+                }
+                else if (packet.deliveryState == "Completed")
+                {
+                    await DisplayAlert("Completed", "Delivery has already been completed.", "OK");
+                    return;
+                }
+                else if (packet.deliveryState == "Placed")
+                {
+                    await DisplayAlert("Delivery not assigned", "Please contact your courier company for the correct package.", "OK");
+                    return;
+                }
+                else
+                {
+                    await DisplayAlert("Invalid package state", "Delivery not in correct state.", "OK");
+                    return;
+                }
+
+                //MAKE POST CALL TO UPDATE DELIVERY DATA
+                httpClientHandler = new HttpClientHandler();
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+
+                httpClient = new HttpClient(httpClientHandler);
+                string json = JsonConvert.SerializeObject(packet);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                //indicator.IsRunning = true;
+                //indicator.IsVisible = true;
+
+                //API POST CALL TO CREATE
+                var response2 = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/Deliveries/PutDelivery/" + QR_ID_Scanned + "?k=UDL2Avv378jBBgd772hFSbbsfwUD", content);
+                if (response2.StatusCode == HttpStatusCode.NoContent)
+                {
+                    //await DisplayInfoChangedEventArgs("Confirmation in progress");
+                    //await DisplayAlert("Confirming", "Confirmation in progress", "OK");
+                    return;
+                }
+                else
+                {
+                    await DisplayAlert("Confirmation failed", "An error occured while confirming your package", "OK");
+                }
             }
-
-            if (packet.deliveryState == "Completed")
+            catch (Exception e)
             {
-                await DisplayAlert("Completed", "The delivery has already been completed.", "OK");
-                return;
-            }
-
-            Console.WriteLine("Delivery State: " + packet.deliveryState);
-
-
-            Console.WriteLine(response);
-            Console.WriteLine("....DeliveryID: " + packet.deliveryID + " CourierCompany: " + packet.CourierCompany + " PickupLocation: " + packet.deliveryPickupLocation);
-
-            done = true;
-
-            // if Active change to Confirming
-            if (packet.deliveryState == "Pending")
-            {
-                packet.deliveryState = "Active";
-            }
-            else if(packet.deliveryState == "Confirming")
-            {
-                packet.deliveryState = "Completed";
-            }
-            else if (packet.deliveryState == "Active")
-            {
-                await DisplayAlert("Delivery already active", "Delivery is already being delivered. Check the active page for more details.", "OK");
-                return;
-            }
-            else if (packet.deliveryState == "Completed")
-            {
-                await DisplayAlert("Completed", "Delivery has already been completed.", "OK");
-                return;
-            }
-            else if (packet.deliveryState == "Placed")
-            {
-                await DisplayAlert("Delivery not assigned", "Please contact your courier company for the correct package.", "OK");
-                return;
-            }
-            else
-            {
-                await DisplayAlert("Invalid package state", "Delivery not in correct state.", "OK");
-                return;
-            }
-
-            //MAKE POST CALL TO UPDATE DELIVERY DATA
-            httpClientHandler = new HttpClientHandler();
-            httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-
-            httpClient = new HttpClient(httpClientHandler);
-            string json = JsonConvert.SerializeObject(packet);
-            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-            //indicator.IsRunning = true;
-            //indicator.IsVisible = true;
-
-            //API POST CALL TO CREATE
-            var response2 = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/Deliveries/PutDelivery/" + QR_ID_Scanned, content);
-            if (response2.StatusCode == HttpStatusCode.NoContent)
-            {
-                //await DisplayInfoChangedEventArgs("Confirmation in progress");
-                //await DisplayAlert("Confirming", "Confirmation in progress", "OK");
-                return;
-            }
-            else
-            {
-                await DisplayAlert("Confirmation failed", "An error occured while confirming your package", "OK");
+                await DisplayAlert("QR-Scanning Error", e.Message, "OK");
             }
         }
 
-        public void SetUpDeliveryData(string id)
+        public void SetUpDeliveryData(int id)
         {
             active_deliveries = new ObservableCollection<CurrentDeliveryViewModel>();
             active_deliveries.Add(new CurrentDeliveryViewModel
             {
                 deliveryID = id,
+                // clientname = client.ClientName,
                 pickupName = packet.deliveryPickupLocation,
                 dropoffName = client.ClientAddress
             });
