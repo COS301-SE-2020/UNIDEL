@@ -89,7 +89,7 @@
                                                        x:Name="btnDeliver"
                                                        CharacterSpacing="1"
                                                        FontFamily="UnidelFont"
-                                                       Text="Delivered"
+                                                       Text="Deliver"
                                                        TextColor="White"
                                                        FontAttributes="Bold"
                                                        BorderWidth="5"

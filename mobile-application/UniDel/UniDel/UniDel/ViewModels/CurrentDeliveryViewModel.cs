@@ -8,5 +8,6 @@ namespace UniDel.ViewModels
         public string dropoffName { get; set; }
         public DateTime deliveryDate { get; set; }
         public string deliveryState { get; set; }
+        public string deliveryComment { get; set; }
     }
 }

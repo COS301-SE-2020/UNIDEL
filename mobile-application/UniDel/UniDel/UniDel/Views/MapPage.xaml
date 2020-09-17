@@ -3,10 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              x:Class="UniDel.Views.MapPage">
-    <StackLayout Margin="20,35,20,20">
-        <Label x:Name="labelLoading" Text="Loading..." IsVisible="false" />
+    <StackLayout Margin="30" BackgroundColor="#FAFAFA">
+                                   <Grid Padding="2" RowSpacing="10" BackgroundColor="#FAFAFA">
+                             <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ImageButton Grid.Row="1" Grid.Column="0"
+                                             Source="back.png"
+                                             BackgroundColor="#FAFAFA"
+                                             WidthRequest="20"
+                                             Clicked="back_Clicked"/>
+                                <Label Grid.Row="1" Grid.Column="1"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="#0085C9"
+                                       HorizontalTextAlignment="Center"
+                                       Text="NAVIGATE">
+                                </Label>
+                            </Grid> 
+                        <ActivityIndicator x:Name="indicator" 
+                Color="#F8D34F" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="False" IsVisible="False"
+                />
         <!--<WebView HeightRequest="1000" WidthRequest="1000" Source="https://www.google.co.za/maps/dir/Silver+Lakes+Golf+Estate/SUPERSPAR+Silver+Oaks,+Willow+Acres,+Silveroaks+Shopping+Centre,+Von+Backstrom,+Pretoria/@-25.7679143,28.357676,15z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x1e955ebe03b55b41:0x49413fc21fe036be!2m2!1d28.3724915!2d-25.769125!1m5!1m1!1s0x1e955e947d8d85e3:0xd5777bf43590ae48!2m2!1d28.3601789!2d-25.765062" Navigated="webviewNavigated" Navigating="webviewNavigating" />-->
         <WebView x:Name="googleMap" HeightRequest="1000" WidthRequest="1000" Navigated="webviewNavigated" Navigating="webviewNavigating"/>
-
     </StackLayout>
 </ContentPage>

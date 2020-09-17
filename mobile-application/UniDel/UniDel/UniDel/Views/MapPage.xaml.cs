@@ -4,12 +4,12 @@ using RestSharp;
 using Xamarin.Forms;
 using Plugin.Geolocator;
 using Xamarin.Essentials;
+using UniDel.ViewModels;
 
 namespace UniDel.Views
 {
     public partial class MapPage : ContentPage
     {
-
         public MapPage()
         {
             InitializeComponent();
@@ -21,6 +21,7 @@ namespace UniDel.Views
             InitializeComponent();
             CurrentLocation();
         }
+
 
         private async void CurrentLocation()
         {
@@ -44,13 +45,20 @@ namespace UniDel.Views
 
         void webviewNavigating(object sender, WebNavigatingEventArgs e)
         {
-            labelLoading.IsVisible = true;
+            indicator.IsVisible = true;
         }
 
         void webviewNavigated(object sender, WebNavigatedEventArgs e)
         {
-            labelLoading.IsVisible = false;
+            indicator.IsVisible = false;
             
         }
+
+        void back_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Application.Current.MainPage = new DriverHomePage();
+        }
+
+
     }
 }

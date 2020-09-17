@@ -8,11 +8,30 @@
              x:Class="UniDel.Views.QRScanningPage">
     <ContentPage.Content>
         <StackLayout Margin="50" Spacing="10">
-           <Label Text="COMPLETE DELIVERY"
-                       FontSize="20"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       TextColor="#0085C9"/>
+                 <Grid Padding="2" RowSpacing="10" BackgroundColor="#FAFAFA">
+                             <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ImageButton Grid.Row="1" Grid.Column="0"
+                                             Source="back.png"
+                                             BackgroundColor="#FAFAFA"
+                                             WidthRequest="20"
+                                             Clicked="back_Clicked"/>
+                                <Label Grid.Row="1" Grid.Column="1"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="#0085C9"
+                                       HorizontalTextAlignment="Center"
+                                       Text="COMPLETE DELIVERY">
+                                </Label>
+                            </Grid> 
              <Label Text="Scan the QR code to pickup delivery"
                        Margin="20"
                        Padding="10"
