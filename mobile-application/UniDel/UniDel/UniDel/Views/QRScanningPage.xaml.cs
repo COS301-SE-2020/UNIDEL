@@ -55,6 +55,10 @@ namespace UniDel.Views
                     // Make the API calls here.
                     DriverAPI(result);
 
+                    changePage();
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new DriverHomePage(), true);
+
+
                     // API Calls for Scanned QR-Code's ID
                     //Delivery(result);
 
@@ -76,27 +80,28 @@ namespace UniDel.Views
                     {
                         await DisplayAlert("Completed", "The Delivery has already been completed.", "OK");
                     }
-                    else if (done == true)
-                    {
+                    //else if (done == true)
+                    //{
                         // Calculates coordinates of location
                         ConvertToCoordinates(client.ClientAddress);
 
-                        if (doubleDone == true)
-                        {
-                            // Calculates kilometers the drop off location of package VS current location of device
-                            LocationDistance(currentLocation, dropOffLocation);
+                        //if (doubleDone == true)
+                        //{
+                        //    // Calculates kilometers the drop off location of package VS current location of device
+                        //    LocationDistance(currentLocation, dropOffLocation);
 
-                            if (Kilos <= 30)
-                            {
-                                // POST REQUEST to change state to Delivered.
-                            }
-                            else
-                            {
+                        //    if (Kilos <= 30)
+                        //    {
+                        //        // POST REQUEST to change state to Delivered.
+                        //    }
+                        //    else
+                        //    {
                                 // Send data to Active Deliveries Page
                                 SetUpDeliveryData(Convert.ToInt32(result));
-                            }
-                        }
-                    }
+                        
+                        //}
+                        //}
+                    //}
                 }
             }
             catch (Exception QR_Scanner_ex)
@@ -107,7 +112,12 @@ namespace UniDel.Views
             }
 
 
-           
+            changePage();
+        }
+
+        private static Page changePage()
+        {
+            return new NavigationPage(new DriverHomePage());
         }
 
         private async void DriverAPI(string QR_ID_Scanned)
