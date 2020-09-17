@@ -66,7 +66,7 @@ namespace UniDel.Views
             active_deliveries = new List<CurrentDeliveryViewModel>();
             foreach (var item in delivery_data)
             {
-                if (item.deliveryState.ToLower() == "pending")
+                if (item.deliveryState.ToLower() == "pending" || item.deliveryState.ToLower() == "active" || item.deliveryState.ToLower() == "confirming")
                 {
                     int id = item.clientID;
                     Client client_data = null;
