@@ -25,16 +25,6 @@ namespace UniDelWebApplication.Controllers
         public IActionResult Index()
         {
             List<Employee> u = filterEmployees();
-            Console.WriteLine("============");
-            Console.WriteLine("============");
-            Console.WriteLine("============");
-            foreach (var em in u)
-            {
-                Console.WriteLine("User Type: "+em.UserType);
-            }
-            Console.WriteLine("============");
-            Console.WriteLine("============");
-            Console.WriteLine("============");
             return View(u);
         }
 

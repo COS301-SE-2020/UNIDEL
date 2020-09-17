@@ -34,7 +34,7 @@ namespace UniDel
         {
             InitializeComponent();
             DependencyService.Register<MockDataStore>();
-            MainPage = new UniDelHome();
+            MainPage = new DriverHomePage();
 
             Instance = this;
             /*var myNavigationPage = new NavigationPage(new CurrentDelivery());
