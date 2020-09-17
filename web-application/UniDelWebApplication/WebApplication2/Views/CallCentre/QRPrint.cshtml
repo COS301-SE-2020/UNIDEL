@@ -1,14 +1,18 @@
 ﻿@{
     ViewData["Title"] = "QRPrint";
 }
-    <div class="float-right">
-        @{ Html.BeginForm("QRCodePrint", "CallCentre", FormMethod.Get);
-            {
-                <input type="hidden" id="data" name="data" value="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(Model))">
-                <button class="btn btn-light" type="submit">
-                    <img src="~/images/download-solid.svg" width="25" alt="" style="padding: 5px;" />PDF
-                </button>
-            }
-            Html.EndForm();
-        }
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+
+
+        <div class="float-right">
+            @{ Html.BeginForm("QRCodePrint", "CallCentre", FormMethod.Get);
+                {
+                    <input type="hidden" id="data" name="data" value="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(Model))">
+                    <button class="btn btn-light" type="submit">
+                        <img src="~/images/download-solid.svg" width="25" alt="" style="padding: 5px;" />PDF
+                    </button> }
+                Html.EndForm(); }
+        </div>
     </div>
+</body>

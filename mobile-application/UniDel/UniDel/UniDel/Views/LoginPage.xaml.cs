@@ -19,13 +19,14 @@ namespace UniDel.Views
         public LoginPage()
         {
             InitializeComponent();
+            BindingContext = this;
         }
 
         public async void OnLoginClicked(object sender, EventArgs args)
         {
             try
             {
-                if (loginEmail.Text == null || loginPassword.Text == null)
+                if (loginEmail.Text == null || loginPassword.Text == null || loginEmail.Text == "" || loginPassword.Text == "")
                 {
                     await DisplayAlert("Login Error", "All fields are required", "OK");
                     return;
@@ -44,24 +45,32 @@ namespace UniDel.Views
                 indicator.IsVisible = true;
                 await Task.Run(async () =>
                 {
-                    var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Users/GetAllUsers");
+                    var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Users/GetAllUsers?k=UDL2Avv378jBBgd772hFSbbsfwUD");
                     users = JsonConvert.DeserializeObject<List<User>>(response);
                 });
 
                 if (users == null)
                 {
-                    await DisplayAlert("Login Error", "Server Error", "OK");
                     indicator.IsRunning = false;
                     indicator.IsVisible = false;
+                    await DisplayAlert("Login Error", "Server error", "OK");
                     return;
                 }
 
                 User u = FindUser(users, em);
                 if (u == null)
                 {
-                    await DisplayAlert("Login Error", "Login failed. Email or password is incorrect", "OK");
                     indicator.IsRunning = false;
                     indicator.IsVisible = false;
+                    await DisplayAlert("Login Error", "Login failed. Email or password is incorrect", "OK");
+                    return;
+                }
+
+                if (u.UserConfirmed == false)
+                {
+                    indicator.IsRunning = false;
+                    indicator.IsVisible = false;
+                    await DisplayAlert("Login Error", "User account not confirmed. Please confirm your account via email", "OK");
                     return;
                 }
 
@@ -91,26 +100,68 @@ namespace UniDel.Views
                 string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
                 //PASSWORD HASHED
 
+                // if User is of type Client
+                if (u.UserType == "Client")
+                {
+                    httpClientHandler = new HttpClientHandler();
+
+                    httpClientHandler.ServerCertificateCustomValidationCallback =
+                    (message, cert, chain, errors) => { return true; };
+
+                    httpClient = new HttpClient(httpClientHandler);
+                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/clients/getallclients?k=UDL2Avv378jBBgd772hFSbbsfwUD");
+
+                    List<Client> clients = JsonConvert.DeserializeObject<List<Client>>(response);
+
+                    Client c = findClient(clients, u.UserID);
+                    Session.ClientID = c.ClientID;
+                }
+
+                indicator.IsRunning = false;
+                indicator.IsVisible = false;
                 if (u.UserEmail == em && u.UserPassword == final)
                 {
                     Session.UserEmail = u.UserEmail;
                     Session.UserToken = u.UserToken;
                     Session.UserType = u.UserType;
-                    Application.Current.MainPage = new MainPage();
+
+                    // if User is of type Client
+                    if (u.UserType == "Client")
+                    {
+                        // do nothing, already set
+                        //Application.Current.MainPage = new ClientHomePage();
+                    }
+                    else
+                    {
+                        Session.ClientID = 0;
+                        //Application.Current.MainPage = new DriverHomePage();
+                    }
+                    Application.Current.MainPage = new ClientHomePage();
+
                 }
                 else
                 {
                     await DisplayAlert("Login Error", "Login failed. Email or password is incorrect", "OK");
                 }
-                indicator.IsRunning = false;
-                indicator.IsVisible = false;
             }
             catch(Exception e)
             {
-                await DisplayAlert("Login Error", e.Message, "OK");
                 indicator.IsRunning = false;
                 indicator.IsVisible = false;
+                await DisplayAlert("Login Error", e.Message, "OK");
             }
+        }
+
+        private Client findClient(List<Client> c, int userID)
+        {
+            foreach (Client u in c)
+            {
+                if (u.UserID == userID)
+                {
+                    return u;
+                }
+            }
+            return null;
         }
 
         User FindUser(List<User> users,string email)
@@ -124,5 +175,9 @@ namespace UniDel.Views
             }
             return null;
         }
+
+        public Command RegisterLinkCommand => new Command(() => {
+            Application.Current.MainPage = new RegisterPage();
+        } );
     }
 }

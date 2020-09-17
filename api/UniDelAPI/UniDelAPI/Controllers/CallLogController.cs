@@ -22,15 +22,25 @@ namespace UniDelAPI.Controllers
 
         // GET: api/CallLog
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CallLog>>> GetLog()
+        public async Task<ActionResult<IEnumerable<CallLog>>> GetLog([FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             return await _context.CallLogs.ToListAsync();
         }
 
         // GET: api/CallLog/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<CallLog>> GetLog(int id)
+        public async Task<ActionResult<CallLog>> GetLog(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var log = await _context.CallLogs.FindAsync(id);
 
             if (log == null)
@@ -45,8 +55,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLog(int id, CallLog log)
+        public async Task<IActionResult> PutLog(int id, CallLog log, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             if (id != log.CallLogID)
             {
                 return BadRequest();
@@ -77,8 +92,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<CallLog>> PostLog(CallLog log)
+        public async Task<ActionResult<CallLog>> PostLog(CallLog log, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             _context.CallLogs.Add(log);
             await _context.SaveChangesAsync();
 
@@ -87,8 +107,13 @@ namespace UniDelAPI.Controllers
 
         // DELETE: api/CallLog/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<CallLog>> DeleteLog(int id)
+        public async Task<ActionResult<CallLog>> DeleteLog(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var log = await _context.CallLogs.FindAsync(id);
             if (log == null)
             {

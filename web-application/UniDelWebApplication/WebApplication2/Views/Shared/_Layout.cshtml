@@ -23,16 +23,22 @@
                     @if (UniDelWebApplication.Controllers.AccountController.UserType == "CourierCompany")
                     {
                         <li class="nav-item">
-                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="Account" asp-action="EmployeeReg">Employees</a>
+                            <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="Account" asp-action="EmployeeReg">Registration</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="FleetManagement" asp-action="Index">Fleet Management</a>
+                            <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="FleetManagement" asp-action="Index">Fleet Management</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="Call" asp-action="Index">Call Centre</a>
+                            <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="Call" asp-action="Index">Call Centre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark font border border-light" asp-area="" asp-controller="CallCentre" asp-action="Index">Deliveries</a>
+                            <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="CallCentre" asp-action="Index">Deliveries</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="Driver" asp-action="Index">Drivers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="Employee" asp-action="Index">Employees</a>
                         </li>
                     }
                 </ul>
@@ -48,10 +54,13 @@
                 else
                 {
                     <li class="nav-item">
-                        <a class="nav-link text-dark float-right font" asp-area="" asp-controller="Account" asp-action="Settings">Settings</a>
+                        <a class="nav-link text-dark float-right font whiteblue" asp-area="" asp-controller="Account" asp-action="Settings">
+                            <img src="~/images/noun_profile.png" alt="" class="align-middle mr-2 profileimage" />
+
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark float-right border border-dark font" asp-area="" asp-controller="Account" asp-action="Logout">Sign out</a>
+                        <a class="nav-link text-dark float-right border border-dark font whiteblue" asp-area="" asp-controller="Account" asp-action="Logout">Sign out</a>
                     </li>
                 }
             </ul>

@@ -12,23 +12,27 @@ using UniDel.ViewModels;
 using System.Linq;
 using RestSharp.Extensions;
 using System.Collections.Generic;
+using System.Text;
+using System.Net;
 
 namespace UniDel.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class QRScanningPage : ContentPage
     {
-        public ObservableCollection<CompleteDeliveryViewModel> complete_deliveries { get; set; }
         public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }
+
         public Location currentLocation;
         public Location dropOffLocation;
         public bool done = false;
         public bool doubleDone = false;
-        public List<Delivery> delivery;
+        public Delivery delivery;
         public Delivery packet;
         public double Kilos;
         private object indicator;
-        private Client client;
+        private Services.Client client;
+        private string pickupData;
+        private string clientAddrData;
 
         public QRScanningPage()
         {
@@ -50,157 +54,248 @@ namespace UniDel.Views
 
                     Console.WriteLine("QR Scanned");
 
-                    // API Calls for Scanned QR-Code's ID
-                    Delivery(result);
+                    try
+                    {
+                        // Make the API calls here.
+                        DriverAPI(result);
+                    }
+                    catch (Exception APIError)
+                    {
+                        await DisplayAlert("APIError Error", APIError.Message, "OK");
+                    }
+                    //changePage();
+                    
 
-                    // Find this CourierCompany's ID
-                    CourierCompanyID();
+
+                    // API Calls for Scanned QR-Code's ID
+                    //Delivery(result);
+
+                    // Find this CourierCompany's ID: https://api.unideldeliveries.co.za/api/CourierCompanies
+                    //CourierCompanyID();
 
                     // Find the Client for Dropofflocation
-                    ClientID();
+                    //ClientID();
 
-                    if (client == null)
-                    {
-                        return;
-                    }
-                    if(done == false)
-                    {
-                        //await DisplayAlert("Completed", "The Delivery has already been completed.", "OK");
-                    }
-                    else if(packet.deliveryState == "Completed")
-                    {
-                        await DisplayAlert("Completed", "The Delivery has already been completed.", "OK");
-                    }
-                    else if (done == true)
-                    {
-                        // Calculates coordinates of location
-                        ConvertToCoordinates(client.ClientAddress);
-
-                        if (doubleDone == true)
-                        {
-                            // Calculates kilometers the drop off location of package VS current location of device
-                            LocationDistance(currentLocation, dropOffLocation);
-
-                            if (Kilos <= 30)
-                            {
-                                // POST REQUEST to change state to Delivered.
-                            }
-                            else
-                            {
-                                // Send data to Active Deliveries Page
-                                SetUpDeliveryData(result);
-                            }
-                        }
-                    }
-                    
-
-                    
-                    
-
-                    //try
+                    //if(packet.deliveryState == "Completed")
                     //{
-                    //    Console.WriteLine("Trying to get current location...");
-                    //    var requestLocation = new GeolocationRequest(GeolocationAccuracy.Medium);
+                    //    await DisplayAlert("Completed", "The Delivery has already been completed.", "OK");
+                    //}
+                    //else if (done == true)
+                    //{
+                    // Calculates coordinates of location
+                    //ConvertToCoordinates(client.ClientAddress);
 
-                    //    Console.WriteLine("Checking last known location...");
-                    //    var location = await Geolocation.GetLastKnownLocationAsync(); 
+                    //if (doubleDone == true)
+                    //{
+                    //    // Calculates kilometers the drop off location of package VS current location of device
+                    //    LocationDistance(currentLocation, dropOffLocation);
 
-                    //    if (location == null)
+                    //    if (Kilos <= 30)
                     //    {
-                    //        Console.WriteLine("Requesting current location via API...");
-                    //        location = await Geolocation.GetLocationAsync(requestLocation);
-                    //    }
-
-                    //    if (location != null)
-                    //    {
-                    //        Console.WriteLine("Current location found...");
-                    //        Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-
-                    //        // Calculate Distance between two locations
-                    //            Location boston = new Location(42.358056, -71.063611);
-                    //            Location sanFrancisco = new Location(37.783333, -122.416667);
-
-                    //            double miles = Location.CalculateDistance(boston, sanFrancisco, DistanceUnits.Kilometers);
-
+                    //        // POST REQUEST to change state to Delivered.
                     //    }
                     //    else
                     //    {
-                    //        Console.WriteLine("Failed to obtain current location... ");
-                    //    }
+                    
                     //}
-                    //catch (FeatureNotSupportedException fnsEx)
-                    //{
-                    //    throw;
                     //}
-                    //catch (FeatureNotEnabledException fneEx)
-                    //{
-                    //    throw;
                     //}
-                    //catch (PermissionException pEx)
-                    //{
-                    //    throw;
-                    //}
-                    //catch (Exception QR_Location_ex)
-                    //{
-                    //    // Unable to get location
-                    //    throw;
-                    //}
+
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new DriverHomePage(), true);
                 }
             }
             catch (Exception QR_Scanner_ex)
             {
-                throw;
+                await DisplayAlert("QR-Scanning Error", QR_Scanner_ex.Message, "OK");
                 // QR scanned is null
                 //throw;
             }
 
 
-           
+            //changePage();
         }
 
-        public void SetUpDeliveryData(string id)
+        private static Page changePage()
         {
+            return new NavigationPage(new DriverHomePage());
+        }
+
+        private async void DriverAPI(string QR_ID_Scanned)
+        {
+            try
+            {
+
+                var httpClientHandler = new HttpClientHandler();
+
+                httpClientHandler.ServerCertificateCustomValidationCallback =
+                (message, cert, chain, errors) => { return true; };
+
+                var httpClient = new HttpClient(httpClientHandler);
+
+                var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/Deliveries/" + QR_ID_Scanned + "?k=UDL2Avv378jBBgd772hFSbbsfwUD");
+                packet = JsonConvert.DeserializeObject<Delivery>(response);
+
+                if (packet == null)
+                {
+                    txtBarcode.Text = "Delivery not found";
+                    await DisplayAlert("Delivery not found", "Delivery not found on the system. Try a different QR-Code", "OK");
+                    done = false;
+                    return;
+                }
+
+                //if (packet.deliveryState == "Completed")
+                //{
+                //    await DisplayAlert("Completed", "The delivery has already been completed.", "OK");
+                //    return;
+                //}
+
+                Console.WriteLine("Delivery State: " + packet.deliveryState);
+
+
+                Console.WriteLine(response);
+                Console.WriteLine("....DeliveryID: " + packet.deliveryID + " CourierCompany: " + packet.CourierCompany + " PickupLocation: " + packet.deliveryPickupLocation);
+                //pickupData = packet.deliveryPickupLoca.tion;
+                //clientAddrData = client.ClientAddress;
+
+                done = true;
+                var displayMsg = "";
+                // if Active change to Confirming
+                if (packet.deliveryState == "Pending")
+                {
+                    packet.deliveryState = "Active";
+                    displayMsg = "Delivery is now set to Active. Once you have delivered the packages, ask the Client to scan the QR-Code.";
+                }
+                else if (packet.deliveryState == "Confirming")
+                {
+                    packet.deliveryState = "Completed";
+                    displayMsg = "Delivery is now Completed.";
+                }
+                else if (packet.deliveryState == "Active")
+                {
+                    await DisplayAlert("Delivery already active", "Delivery is already being delivered. Check the active page for more details.", "OK");
+                    return;
+                }
+                else if (packet.deliveryState == "Completed")
+                {
+                    await DisplayAlert("Completed", "Delivery has already been completed.", "OK");
+                    return;
+                }
+                else if (packet.deliveryState == "Placed")
+                {
+                    await DisplayAlert("Delivery not assigned", "Please contact your courier company for the correct package.", "OK");
+                    return;
+                }
+                else
+                {
+                    await DisplayAlert("Invalid package state", "Delivery not in correct state.", "OK");
+                    return;
+                }
+
+                //MAKE POST CALL TO UPDATE DELIVERY DATA
+                httpClientHandler = new HttpClientHandler();
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+
+                httpClient = new HttpClient(httpClientHandler);
+                string json = JsonConvert.SerializeObject(packet);
+                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                //indicator.IsRunning = true;
+                //indicator.IsVisible = true;
+
+                //API POST CALL TO CREATE
+                var response2 = await httpClient.PostAsync("https://api.unideldeliveries.co.za/api/Deliveries/PutDelivery/" + QR_ID_Scanned + "?k=UDL2Avv378jBBgd772hFSbbsfwUD", content);
+                if (response2.StatusCode == HttpStatusCode.NoContent)
+                {
+                    await DisplayAlert(packet.deliveryState, displayMsg, "OK");
+                    //await DisplayInfoChangedEventArgs("Confirmation in progress");
+                    //await DisplayAlert("Confirming", "Confirmation in progress", "OK");
+                    return;
+                }
+                else
+                {
+                    await DisplayAlert("Confirmation failed", "An error occured while confirming your package", "OK");
+                }
+            }
+            catch (Exception e)
+            {
+                await DisplayAlert("QR-Scanning Error", e.Message, "OK");
+            }
+
+            //Console.WriteLine("SETUP DELIVERY DATA");
+            //Console.WriteLine("Delivery ID: " + Convert.ToInt32(packet.deliveryID));
+            //Console.WriteLine("pickup name locl: " + pickupData);
+            //Console.WriteLine("dropoff name local: " + clientAddrData);
+            //Console.WriteLine("pickup name: " + packet.deliveryPickupLocation);
+            //Console.WriteLine("dropoff name: " + client.ClientAddress);
+
+            //active_deliveries = new ObservableCollection<CurrentDeliveryViewModel>();
+            //active_deliveries.Add(new CurrentDeliveryViewModel
+            //{
+            //    deliveryID = Convert.ToInt32(packet.deliveryID),
+            //    // clientname = client.ClientName,
+            //    pickupName = packet.deliveryPickupLocation,
+            //    dropoffName = client.ClientAddress,
+            //    deliveryDate = packet.deliveryDate,
+            //    deliveryState = packet.deliveryState,
+            //    deliveryComment = "Nothing"
+            //});
+        }
+
+        public void SetUpDeliveryData(int id)
+        {
+            Console.WriteLine("SETUP DELIVERY DATA");
+            Console.WriteLine("Delivery ID: " + id);
+            Console.WriteLine("pickup name locl: " + pickupData);
+            Console.WriteLine("dropoff name local: " + clientAddrData);
+            Console.WriteLine("pickup name: " + packet.deliveryPickupLocation);
+            Console.WriteLine("dropoff name: " + client.ClientAddress);
+
             active_deliveries = new ObservableCollection<CurrentDeliveryViewModel>();
             active_deliveries.Add(new CurrentDeliveryViewModel
             {
                 deliveryID = id,
+                // clientname = client.ClientName,
                 pickupName = packet.deliveryPickupLocation,
-                dropoffName = client.ClientAddress
+                dropoffName = client.ClientAddress,
+                deliveryDate = packet.deliveryDate,
+                deliveryState = packet.deliveryState,
+                deliveryComment = "Nothing"
             });
         }
 
-        public async void Delivery(String QR_ID_Scanned)
-        {
-            var httpClientHandler = new HttpClientHandler();
+        //public async void Delivery(String QR_ID_Scanned)
+        //{
+        //    var httpClientHandler = new HttpClientHandler();
 
-            httpClientHandler.ServerCertificateCustomValidationCallback =
-            (message, cert, chain, errors) => { return true; };
+        //    httpClientHandler.ServerCertificateCustomValidationCallback =
+        //    (message, cert, chain, errors) => { return true; };
 
-            var httpClient = new HttpClient(httpClientHandler);
+        //    var httpClient = new HttpClient(httpClientHandler);
 
-            //var httpClient = new HttpClient(new System.Net.Http.HttpClientHandler());
-            //var httpClient = new HttpClient();
-            var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Deliveries");
-            //var delivery = JsonConvert.DeserializeObject<Delivery>(response);
-            delivery = JsonConvert.DeserializeObject<List<Delivery>>(response);
-
-            packet = SearchPacket(delivery, (int)Int64.Parse(QR_ID_Scanned));
-            if (packet == null)
-            {
-                txtBarcode.Text = "Delivery not found";
-                await DisplayAlert("Delivery not found", "Delivery not found on the system. Try a different QR-Code", "OK");
-                done = false;
-                return;
-            }
-
-            Console.WriteLine("Delivery State: " + packet.deliveryState);
+        //    //var httpClient = new HttpClient(new System.Net.Http.HttpClientHandler());
+        //    //var httpClient = new HttpClient();
+        //    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/Deliveries/" + QR_ID_Scanned);
+        //    //var delivery = JsonConvert.DeserializeObject<Delivery>(response);
+        //    delivery = JsonConvert.DeserializeObject<Delivery>(response);
 
 
-            Console.WriteLine(response);
-            Console.WriteLine("....DeliveryID: "+packet.deliveryID + " CourierCompany: " + packet.CourierCompany + " PickupLocation: " + packet.deliveryPickupLocation);
+        //    packet = delivery;
+        //    //packet = SearchPacket(delivery, (int)Int64.Parse(QR_ID_Scanned));
+        //    if (packet == null)
+        //    {
+        //        txtBarcode.Text = "Delivery not found";
+        //        await DisplayAlert("Delivery not found", "Delivery not found on the system. Try a different QR-Code", "OK");
+        //        done = false;
+        //        return;
+        //    }
 
-            done = true;
-        }
+        //    Console.WriteLine("Delivery State: " + packet.deliveryState);
+
+
+        //    Console.WriteLine(response);
+        //    Console.WriteLine("....DeliveryID: " + packet.deliveryID + " CourierCompany: " + packet.CourierCompany + " PickupLocation: " + packet.deliveryPickupLocation);
+
+        //    done = true;
+        //}
 
         private void LocationDistance(Location loc1, Location loc2)
         {
@@ -278,17 +373,17 @@ namespace UniDel.Views
             }
         }
 
-        private Delivery SearchPacket(List<Delivery> d, int email)
-        {
-            foreach (Delivery u in d)
-            {
-                if (u.deliveryID == email)
-                {
-                    return u;
-                }
-            }
-            return null;
-        }
+        //private Delivery SearchPacket(List<Delivery> d, int email)
+        //{
+        //    foreach (Delivery u in d)
+        //    {
+        //        if (u.deliveryID == email)
+        //        {
+        //            return u;
+        //        }
+        //    }
+        //    return null;
+        //}
 
         private Client SearchClient(List<Client> d, int c)
         {
@@ -363,7 +458,15 @@ namespace UniDel.Views
             Console.WriteLine("...ClientID: "+client.ClientID+ " ClientAddress: " +client.ClientAddress + " ClientName: " + client.ClientName);
         }
 
+
+
+        void back_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Application.Current.MainPage = new DriverHomePage();
+        }
+
+
     }
 
-    
+
 }

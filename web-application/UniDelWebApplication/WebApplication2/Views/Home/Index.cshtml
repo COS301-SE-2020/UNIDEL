@@ -1,55 +1,108 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@{ ViewData["Title"] = "Unidel"; }
 @*@model List<UniDelWebApplication.Models.Customer> PROVIDE THIS CODE TO ACCESS THE MODEL SENT BY FUNCTION return View(uniDelDb.Customers.ToList())*@
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="form-group">
+            <h1 class="text-center LOGIN">WELCOME TO UNIDEL</h1>
+            <h2 class="text-center">What we offer:</h2>
+            <div class="center">
+                <div class="hometext">
+                    UniDel is a unified delivery tracking system that supports fleet management. The system manages the deliveries of products using mobile devices that scan QR codes to track the statuses of the deliveries. Courier companies can track deliveries and manage their fleets and drivers in a single unified system. The system consists of a web application that manages the entire system and a mobile application, used by drivers and customers, in order to track and manage the progress of deliveries.
+                </div>
+            </div>
+        </div>
 
-<!--THIS HERE IS AN HTML PAGE ON STEROIDS... IMAGINE YOURSELF EDITING ONLY THE BODY OF AN HTML PAGE THATS WHATS GOING ON HERE.
-    ALL THAT OTHER STUFF IS RENDERED ON ANOTHER PAGE
 
-    ASP.NET MVC HAS A COOL FEATURE CALLED RAZOR THAT ALLOWS YOU TO RENDER C# CODE ON AN HTML PAGE MUCH LIKE PHP ON A NORMAL HTML FILE.
-    TO USE THIS FEATURE YOU MAKE USE OF THE 'AT' SYMBOL... (CAN'T EVEN USE IT NOW COZ ITS ALREADY FIRED UP EVEN IN THE COMMENTS)
-    -->
+        <div class="center">
+            <table class="fulltable">
+                <tr>
+                    <td>
+                        <img src="~/images/noun_QRcode.png" alt="QR CODE" class="doublecenter">
+                    </td>
+                    <td style="text-align:center">
+                        Use QR codes to save data, as to have a paperless system.
+                    </td>
 
-@{
-    //THIS CAN BE USED TO RENDER A BLOCK OF C# CODE AND WHATS COOL IS THAT YOU CAN SWITCH BETWEEN HTML AND C# EASILY
-}
+                </tr>
+                <tr>
+                    <td>
+                        <br />
 
-@* THIS IS A RAZOR COMMENT *@
+                    </td>
+                    <td>
+                        <br />
 
-@*
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="~/images/noun_Camera.png" alt="QR CODE" class="doublecenter">
+                    </td>
+                    <td style="text-align:center">
+                        Share images of the product before and after transit, to give clients peace of mind.
+                    </td>
 
-    <h1>List of Customers</h1>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
 
-    <table border="1" cellpadding="11">     THIS IS THE CODE TO CREATE A TABLE TO
-        @foreach(var item in Model)         THIS CODE WOULD ECHO ALL ITEMS IN OUR MODEL LIST TO THE VIEW (NOTE MODEL DOES NOT ALWAYS HAVE TO BE A LIST)
-        {
-            <tr>
-                <td>@item.CustomerID</td>   MIXTURE OF HTML AND C#... C# IS CALLED USING THE @ SIGN
-                <td>@item.CompanyName</td>
-            </tr>
-        }
-    </table>
+                    </td>
+                    <td>
+                        <br />
 
-    THE BIGGEST DIFFERENCES WITH STANDARD HTML IS NAVIGATION BETWEEN PAGES... WE WOULD NOT USE STANDARD <a href=''></a> tags...
-    INSTEAD WE WOULD USE @HTML.ActionLink("Text on link","Action i.e. function to call","controllername") e.g. @Html.ActionLink("Go to page","Index","Home") this
-    would create a tag like this <a href='Home/Index'>Go to page</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="~/images/noun_Location.png" alt="QR CODE" class="doublecenter">
+                    </td>
+                    <td style="text-align:center">
+                        Track the delivery drivers' live locations, as well as their delivery status.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
 
-    ANOTHER OF THE MAJOR DIFFERENCES IS CREATING FORMS
+                    </td>
+                    <td>
+                        <br />
 
-    @using(Html.BeginForm("Add","Home",FormMethod.Post)) if image will be submitted -> ("Add","Home",FormMethod.Post,new { enctype="mutlipart/form-data"})
-    { //CONSIDER THIS THE <form method='post' action='home/add/'> tag
-        
-        IN HERE IT'S STANDARD HTML FORM INPUT. NOTHING FANCY
-        <input type='text' name='INCLUDE NAME SO THAT IT IS ACCESSIBLE BY THE CONTROLLER' /> <br>
-        <input type="submit" value="Add" />
-    
-    } //AND CONSIDER THIS THE </form> tag
-*@
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="~/images/noun_route.png" alt="QR CODE" class="doublecenter">
+                    </td>
+                    <td style="text-align:center">
+                        Get the best route to the delivery location.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+
+                    </td>
+                    <td>
+                        <br />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="~/images/noun_traffic jam.png" alt="QR CODE" class="doublecenter">
+                    </td>
+                    <td style="text-align:center">
+                        Manage your company's fleet, this includes their service dates and license expiry.
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</body>
 
 
 

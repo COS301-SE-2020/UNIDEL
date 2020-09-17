@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Add Delivery";
+}
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="text-center">
+            <h1 class="display-4">Add Deliveries</h1>
+        </div>
+
+        @using (Html.BeginForm("Add", "CallCentre", FormMethod.Post))
+        {
+            <table class="fulltableadd">
+                <tr>
+                    <td>
+                        <label for="dDateTime">Delivery date and time:</label>
+
+                    </td>
+                    <td>
+                        <input class="fullinput" type="datetime-local" id="dDateTime" name="dDateTime" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                    </td>
+                    <td>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="pLocation">Pickup Location:</label>
+
+                    </td>
+                    <td>
+                        <input class="fullinput" type="text" name="pLocation" list="pLocation" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                    </td>
+                    <td>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="dClient">Client:</label>
+
+                    </td>
+                    <td>
+                        <input class="fullinput" type="number" name="dClient" list="dClient" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                    </td>
+                    <td>
+                        <br />
+                    </td>
+                </tr>
+            </table>
+            <div class="divcenter">
+                <input type="submit" value="Add Delivery" class="btn blue greenblue btnadd">
+                </div>
+                }
+            </div>
+</body>

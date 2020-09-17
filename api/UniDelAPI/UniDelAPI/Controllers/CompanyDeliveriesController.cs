@@ -22,15 +22,25 @@ namespace UniDelAPI.Controllers
 
         // GET: api/CompanyDeliveries
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CompanyDelivery>>> GetCompanyDeliveries()
+        public async Task<ActionResult<IEnumerable<CompanyDelivery>>> GetCompanyDeliveries([FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             return await _context.CompanyDeliveries.ToListAsync();
         }
 
         // GET: api/CompanyDeliveries/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<CompanyDelivery>> GetCompanyDelivery(int id)
+        public async Task<ActionResult<CompanyDelivery>> GetCompanyDelivery(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var companyDelivery = await _context.CompanyDeliveries.FindAsync(id);
 
             if (companyDelivery == null)
@@ -45,8 +55,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCompanyDelivery(int id, CompanyDelivery companyDelivery)
+        public async Task<IActionResult> PutCompanyDelivery(int id, CompanyDelivery companyDelivery, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             if (id != companyDelivery.CompanyDeliveryID)
             {
                 return BadRequest();
@@ -77,8 +92,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<CompanyDelivery>> PostCompanyDelivery(CompanyDelivery companyDelivery)
+        public async Task<ActionResult<CompanyDelivery>> PostCompanyDelivery(CompanyDelivery companyDelivery, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             _context.CompanyDeliveries.Add(companyDelivery);
             await _context.SaveChangesAsync();
 
@@ -87,8 +107,13 @@ namespace UniDelAPI.Controllers
 
         // DELETE: api/CompanyDeliveries/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<CompanyDelivery>> DeleteCompanyDelivery(int id)
+        public async Task<ActionResult<CompanyDelivery>> DeleteCompanyDelivery(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var companyDelivery = await _context.CompanyDeliveries.FindAsync(id);
             if (companyDelivery == null)
             {

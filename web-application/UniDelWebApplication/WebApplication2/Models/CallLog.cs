@@ -27,5 +27,10 @@ namespace UniDelWebApplication.Models
         [Column("CallReason")]
         [StringLength(255)]
         public string CallReason { get; set; }
+
+
+        [Column("CallCellphone")]
+        [StringLength(255)]
+        public string CallCellphone { get; set; }
     }
 }
