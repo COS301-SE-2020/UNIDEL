@@ -3470,23 +3470,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kevin\\.nuget\\packages\\": {},
+    "C:\\Users\\Blue Fox\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kevin\\Documents\\GitHub\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
+      "projectUniqueName": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
       "projectName": "UniDelWebAppUnitTesting",
-      "projectPath": "C:\\Users\\Kevin\\Documents\\GitHub\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
-      "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kevin\\Documents\\GitHub\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\obj\\",
+      "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\UniDelWebAppUnitTesting.csproj",
+      "packagesPath": "C:\\Users\\Blue Fox\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\web-application\\UniDelWebApplication\\UniDelWebAppUnitTesting\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Blue Fox\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -3543,7 +3543,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
