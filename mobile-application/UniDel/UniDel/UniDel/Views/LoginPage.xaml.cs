@@ -45,7 +45,7 @@ namespace UniDel.Views
                 indicator.IsVisible = true;
                 await Task.Run(async () =>
                 {
-                    var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Users/GetAllUsers");
+                    var response = await httpClient.GetStringAsync("http://api.unideldeliveries.co.za/api/Users/GetAllUsers?k=UDL2Avv378jBBgd772hFSbbsfwUD");
                     users = JsonConvert.DeserializeObject<List<User>>(response);
                 });
 
@@ -109,7 +109,7 @@ namespace UniDel.Views
                     (message, cert, chain, errors) => { return true; };
 
                     httpClient = new HttpClient(httpClientHandler);
-                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/clients/getclients");
+                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/clients/getallclients?k=UDL2Avv378jBBgd772hFSbbsfwUD");
 
                     List<Client> clients = JsonConvert.DeserializeObject<List<Client>>(response);
 
@@ -129,13 +129,15 @@ namespace UniDel.Views
                     if (u.UserType == "Client")
                     {
                         // do nothing, already set
+                        //Application.Current.MainPage = new ClientHomePage();
                     }
                     else
                     {
                         Session.ClientID = 0;
+                        //Application.Current.MainPage = new DriverHomePage();
                     }
+                    Application.Current.MainPage = new ClientHomePage();
 
-                    Application.Current.MainPage = new MainPage();
                 }
                 else
                 {

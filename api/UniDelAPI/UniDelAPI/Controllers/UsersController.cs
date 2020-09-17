@@ -23,16 +23,26 @@ namespace UniDelAPI.Controllers
         // GET: api/Users
         [Route("~/api/Users/GetAllUsers")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers([FromQuery] string k="")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             return await _context.Users.ToListAsync();
         }
 
         // GET: api/Users/5
         [Route("~/api/Users/GetUser/{id}")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<User>> GetUser(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var user = await _context.Users.FindAsync(id);
 
             if (user == null)
@@ -48,8 +58,13 @@ namespace UniDelAPI.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [Route("~/api/Users/PutUser/{id}")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        public async Task<IActionResult> PutUser(int id, User user, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             if (id != user.UserID)
             {
                 return BadRequest();
@@ -81,8 +96,13 @@ namespace UniDelAPI.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [Route("~/api/Users/PostUser")]
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<User>> PostUser(User user, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
@@ -92,8 +112,13 @@ namespace UniDelAPI.Controllers
         // DELETE: api/Users/5
         [Route("~/api/Users/DeleteUser/{id}")]
         [HttpDelete("{id}")]
-        public async Task<ActionResult<User>> DeleteUser(int id)
+        public async Task<ActionResult<User>> DeleteUser(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var user = await _context.Users.FindAsync(id);
             if (user == null)
             {

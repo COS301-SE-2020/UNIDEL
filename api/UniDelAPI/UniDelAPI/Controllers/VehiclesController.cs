@@ -22,15 +22,25 @@ namespace UniDelAPI.Controllers
 
         // GET: api/Vehicles
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Vehicle>>> GetVehicles()
+        public async Task<ActionResult<IEnumerable<Vehicle>>> GetVehicles([FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             return await _context.Vehicles.ToListAsync();
         }
 
         // GET: api/Vehicles/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Vehicle>> GetVehicle(int id)
+        public async Task<ActionResult<Vehicle>> GetVehicle(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var vehicle = await _context.Vehicles.FindAsync(id);
 
             if (vehicle == null)
@@ -45,8 +55,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutVehicle(int id, Vehicle vehicle)
+        public async Task<IActionResult> PutVehicle(int id, Vehicle vehicle, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             if (id != vehicle.VehicleID)
             {
                 return BadRequest();
@@ -77,8 +92,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Vehicle>> PostVehicle(Vehicle vehicle)
+        public async Task<ActionResult<Vehicle>> PostVehicle(Vehicle vehicle, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             _context.Vehicles.Add(vehicle);
             await _context.SaveChangesAsync();
 
@@ -87,8 +107,13 @@ namespace UniDelAPI.Controllers
 
         // DELETE: api/Vehicles/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Vehicle>> DeleteVehicle(int id)
+        public async Task<ActionResult<Vehicle>> DeleteVehicle(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var vehicle = await _context.Vehicles.FindAsync(id);
             if (vehicle == null)
             {

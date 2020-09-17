@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using UniDel.Data;
 
 namespace UniDel
 {
@@ -23,7 +25,7 @@ namespace UniDel
         public string client { get; set; }
         public int courierCompanyID { get; set; }
         public string CourierCompany { get; set; }
-
+        public string comment { get; set; }
 
     }
 

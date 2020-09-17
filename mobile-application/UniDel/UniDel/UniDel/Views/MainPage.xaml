@@ -20,7 +20,7 @@
             </NavigationPage.Icon>
             <x:Arguments>
                 <!--<views:ItemsPage />-->
-                <views:HomePage />
+                <views:MenuPage />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
