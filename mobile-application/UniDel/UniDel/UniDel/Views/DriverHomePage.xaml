@@ -22,10 +22,6 @@
 
     <UniDel:VehicleMileage Title="Vehicles" IconImageSource="vehicles.png"></UniDel:VehicleMileage>
 
-    <UniDel:ClientPackageList Title="Packages" IconImageSource="box.png"></UniDel:ClientPackageList>
-
-    <UniDel:MapPage Title="Track" IconImageSource="location.png"></UniDel:MapPage>
-
     <UniDel:ProfilePage Title="Profile" IconImageSource="profile.png"></UniDel:ProfilePage>
 
 </TabbedPage>

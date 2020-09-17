@@ -267,14 +267,14 @@ namespace UniDel.Views
                     if (u.UserType == "Client")
                     {
                         // do nothing, already set
-                        //Application.Current.MainPage = new ClientHomePage();
+                        Application.Current.MainPage = new ClientHomePage();
                     }
                     else
                     {
                         Session.ClientID = 0;
-                        //Application.Current.MainPage = new DriverHomePage();
+                        Application.Current.MainPage = new DriverHomePage();
                     }
-                    Application.Current.MainPage = new ClientHomePage();
+                    //Application.Current.MainPage = new ClientHomePage();
 
                 }
                 else
