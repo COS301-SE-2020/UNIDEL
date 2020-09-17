@@ -2472,39 +2472,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Blue Fox\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/Users/laam/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
+      "projectUniqueName": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
       "projectName": "UniDel.Android",
-      "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\UniDel.Android.csproj",
-      "packagesPath": "C:\\Users\\Blue Fox\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel.Android\\obj\\",
+      "projectPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/UniDel.Android.csproj",
+      "packagesPath": "/Users/laam/.nuget/packages/",
+      "outputPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel.Android/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Blue Fox\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/laam/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "monoandroid90"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj": {
-              "projectPath": "C:\\Users\\Blue Fox\\Desktop\\UNIDEL\\mobile-application\\UniDel\\UniDel\\UniDel\\UniDel.csproj"
+            "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj": {
+              "projectPath": "/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/UniDel.csproj"
             }
           }
         }

@@ -13,7 +13,7 @@
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\ClientHomePage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/ClientHomePage.xaml")]
     public partial class ClientHomePage : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
