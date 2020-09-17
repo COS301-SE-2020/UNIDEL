@@ -16,7 +16,7 @@
 
     <ContentPage.Content>
             <StackLayout Margin="30" BackgroundColor="#FAFAFA">
-                <Label Text="ACTIVE DELIVERIES"
+                <Label Text="CURRENT DELIVERIES"
                        FontSize="20"
                        FontAttributes="Bold"
                        HorizontalOptions="Center"
@@ -27,7 +27,7 @@
                 HorizontalOptions="CenterAndExpand"
                 IsRunning="False" IsVisible="False"
                 />
-                 <ListView x:Name="activeView" HasUnevenRows="True" RowHeight="140" ClassId="{Binding deliveryID}" BackgroundColor="#FAFAFA" SeparatorColor="#F8D34F">
+                 <ListView x:Name="activeView" HasUnevenRows="True" RowHeight="140" BackgroundColor="#FAFAFA" SeparatorColor="#F8D34F">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
@@ -83,14 +83,13 @@
                                                        HorizontalOptions="End"
                                                        VerticalOptions="Center"
                                                        BackgroundColor="#26C485"
-                                                       ClassId="{Binding deliveryID}"
                                                        Clicked="btnTrack_Clicked"/>
                                              <Button   BackgroundColor="#26C485"
-                                                       Scale=".75"
+                                                       Scale=".80"
                                                        x:Name="btnDeliver"
                                                        CharacterSpacing="1"
                                                        FontFamily="UnidelFont"
-                                                       Text="Delivered"
+                                                       Text="Deliver"
                                                        TextColor="White"
                                                        FontAttributes="Bold"
                                                        BorderWidth="5"
