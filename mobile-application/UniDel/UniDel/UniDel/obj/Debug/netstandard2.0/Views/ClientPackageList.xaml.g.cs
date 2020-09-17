@@ -13,7 +13,7 @@
 namespace UniDel.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\ClientPackageList.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views/ClientPackageList.xaml")]
     public partial class ClientPackageList : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

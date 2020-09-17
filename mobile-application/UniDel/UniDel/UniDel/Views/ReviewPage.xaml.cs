@@ -36,7 +36,7 @@ namespace UniDel.Views
 
         void back_Clicked(System.Object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new CurrentDelivery();
+            Application.Current.MainPage = new DriverHomePage();
         }
 
     }

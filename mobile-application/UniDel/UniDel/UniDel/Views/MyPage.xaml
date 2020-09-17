@@ -85,7 +85,7 @@
                                                        BackgroundColor="#26C485"
                                                        Clicked="btnTrack_Clicked"/>
                                              <Button   BackgroundColor="#26C485"
-                                                       Scale=".75"
+                                                       Scale=".80"
                                                        x:Name="btnDeliver"
                                                        CharacterSpacing="1"
                                                        FontFamily="UnidelFont"
