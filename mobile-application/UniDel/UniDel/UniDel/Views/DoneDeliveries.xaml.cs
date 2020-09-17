@@ -76,7 +76,9 @@ namespace UniDel.Views
                     {
                         deliveryState = item.deliveryState.ToUpper(),
                         pickupName = item.deliveryPickupLocation,
-                        dropoffName = client_data.ClientAddress
+                        dropoffName = client_data.ClientAddress,
+                        deliveryID = item.deliveryID,
+                        deliveryDate = item.deliveryDate
                     });
                 }
             }
@@ -88,10 +90,13 @@ namespace UniDel.Views
 
         }
 
-        void btnReschedule_Clicked(System.Object sender, System.EventArgs e)
+        void btnMore_Clicked(System.Object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new MapPage();
-        }
+            //add a comment about the parcel/delivery
+            //or reschedule if delivery failed
+            Application.Current.MainPage = new ReviewPage();
 
+
+        }
     }
 }

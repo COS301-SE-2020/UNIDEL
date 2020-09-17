@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniDel.Views.ReviewPage"
+             mc:Ignorable="d"
+             BackgroundColor="#FAFAFA">
+
+    <ContentPage.Content>
+        <StackLayout Margin="50" Spacing="10">
+                     <Grid Padding="2" RowSpacing="10" BackgroundColor="#FAFAFA">
+                             <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ImageButton Grid.Row="1" Grid.Column="0"
+                                             Source="back.png"
+                                             BackgroundColor="#FAFAFA"
+                                             WidthRequest="20"
+                                             Clicked="back_Clicked"/>
+                                <Label Grid.Row="1" Grid.Column="1"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="#0085C9"
+                                       HorizontalTextAlignment="Center"
+                                       Text="SUCCESSFUL DELIVERY">
+                                </Label>
+                     </Grid> 
+           <!--<Label Text="SUCCESSFUL DELIVERY"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#0085C9"/>-->
+             <Label Text="Add a review on this delivery"
+                       Margin="10"
+                       Padding="10"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="#0085C9"/>
+             <Entry x:Name="txtComment"
+                       Placeholder="Comment"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+            <Label Text="OR"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#F8D34F"/>
+             <Label Text="FAILED DELIVERY"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#0085C9"/>
+             <Label Text="Give a reason for failed delivery"
+                       Margin="20"
+                       Padding="10"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="#0085C9"/>
+             <Entry x:Name="txtReason"
+                       Placeholder="Reason"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+            <StackLayout Orientation="Horizontal"
+                         Margin="0, 0, 0, 30">
+                <Label   Text="Do you want to reschedule this delivery? "
+                         Padding="10"
+                         VerticalOptions="Center"
+                         TextColor="#0085C9"/>
+                <Switch x:Name="switch"
+                        Toggled="OnSwitchToggled" />
+            </StackLayout>
+            <DatePicker IsVisible="false"
+                        x:Name="pickDate"
+                        Format="D"
+                        Margin="30, 0, 0, 30"
+                        DateSelected="OnDateSelected" />
+
+        </StackLayout>
+    </ContentPage.Content>
+       
+
+</ContentPage>

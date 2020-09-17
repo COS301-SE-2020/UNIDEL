@@ -77,8 +77,9 @@ namespace UniDel.Views
                     {
                         deliveryState = item.deliveryState.ToUpper(),
                         pickupName = item.deliveryPickupLocation,
-                        dropoffName = client_data.ClientAddress
-                }); 
+                        dropoffName = client_data.ClientAddress,
+                        deliveryID = item.deliveryID,
+                    }) ; 
                 }
             }
 
@@ -90,7 +91,16 @@ namespace UniDel.Views
 
         void btnTrack_Clicked(System.Object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new MapPage();
+            //Application.Current.MainPage = new MapPage(int.Parse(activeView.ClassId));
+            try
+            {
+                Application.Current.MainPage = new MapPage(int.Parse(((Button)sender).ClassId));
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Exception: " + ex);
+                Application.Current.MainPage = new MapPage(128993);
+            }
         }
 
         void btnDeliver_Clicked(System.Object sender, System.EventArgs e)

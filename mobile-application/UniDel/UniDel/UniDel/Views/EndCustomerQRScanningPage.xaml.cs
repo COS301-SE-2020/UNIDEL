@@ -224,6 +224,8 @@ namespace UniDel.Views
             {
                 await DisplayAlert("QR-Scanning Error", e.Message, "OK");
             }
+
+            await Application.Current.MainPage.Navigation.PushModalAsync(new ClientHomePage(), true);
         }
         private Delivery SearchPacket(List<Delivery> d, int email)
         {
