@@ -23,7 +23,6 @@
                         FontFamily="UnidelFont"
                         Margin="5"/>
                 <Entry  x:Name="logKM"
-                        Text="{Binding Kilos}"
                         Placeholder="Mileage in km"
                         FontFamily="UnidelFont"
                         Keyboard="Numeric"
