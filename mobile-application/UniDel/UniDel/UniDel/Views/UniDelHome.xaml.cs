@@ -16,6 +16,7 @@ namespace UniDel.Views
 
         void customer_clicked(object sender, EventArgs e)
         {
+            Session.DriverID = -1;
             Application.Current.MainPage = new LoginPage();
 
         }
