@@ -26,6 +26,7 @@ namespace UniDel.Views
         {
             try
             {
+                Session.ClientID = 0;
                 if (loginEmail.Text == null || loginPassword.Text == null || loginEmail.Text == "" || loginPassword.Text == "")
                 {
                     await DisplayAlert("Login Error", "All fields are required", "OK");
@@ -101,7 +102,7 @@ namespace UniDel.Views
                 //PASSWORD HASHED
 
                 // if User is of type Client
-                if (u.UserType == "Client")
+                if (u.UserType == "Client"||u.UserType== "CourierCompany")
                 {
                     httpClientHandler = new HttpClientHandler();
 
@@ -109,12 +110,20 @@ namespace UniDel.Views
                     (message, cert, chain, errors) => { return true; };
 
                     httpClient = new HttpClient(httpClientHandler);
-                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/clients/getallclients?k=UDL2Avv378jBBgd772hFSbbsfwUD");
+                    var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/Clients/getAllClients?k=UDL2Avv378jBBgd772hFSbbsfwUD");
 
                     List<Client> clients = JsonConvert.DeserializeObject<List<Client>>(response);
-
-                    Client c = findClient(clients, u.UserID);
-                    Session.ClientID = c.ClientID;
+                    Session.ClientID = clients[0].ClientID;
+                    for(int k=0;k<clients.Count;k++)
+                    {
+                        if(clients[k].UserID==u.UserID)
+                        {
+                            Session.ClientID = clients[k].ClientID;
+                        }
+                    }
+                    
+                  /*  Client c = findClient(clients, u.UserID);
+                    Session.ClientID = c.ClientID;*/
                 }
 
                 indicator.IsRunning = false;
@@ -133,7 +142,7 @@ namespace UniDel.Views
                     }
                     else
                     {
-                        Session.ClientID = 0;
+                        //Session.ClientID = 0;
                         Application.Current.MainPage = new DriverHomePage();
                     }
                     //Application.Current.MainPage = new ClientHomePage();
