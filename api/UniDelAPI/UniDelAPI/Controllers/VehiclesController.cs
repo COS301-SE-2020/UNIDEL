@@ -21,6 +21,7 @@ namespace UniDelAPI.Controllers
         }
 
         // GET: api/Vehicles
+        [Route("~/api/Vehicles/GetAll")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Vehicle>>> GetVehicles([FromQuery] string k = "")
         {
@@ -33,6 +34,7 @@ namespace UniDelAPI.Controllers
         }
 
         // GET: api/Vehicles/5
+        [Route("~/api/Vehicles/Get/{id}")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Vehicle>> GetVehicle(int id, [FromQuery] string k = "")
         {
@@ -54,6 +56,7 @@ namespace UniDelAPI.Controllers
         // PUT: api/Vehicles/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Route("~/api/Vehicles/Put/{id}")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutVehicle(int id, Vehicle vehicle, [FromQuery] string k = "")
         {
@@ -91,6 +94,7 @@ namespace UniDelAPI.Controllers
         // POST: api/Vehicles
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Route("~/api/Vehicles/Post")]
         [HttpPost]
         public async Task<ActionResult<Vehicle>> PostVehicle(Vehicle vehicle, [FromQuery] string k = "")
         {
@@ -106,6 +110,7 @@ namespace UniDelAPI.Controllers
         }
 
         // DELETE: api/Vehicles/5
+        [Route("~/api/Vehicles/Delete/{id}")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Vehicle>> DeleteVehicle(int id, [FromQuery] string k = "")
         {

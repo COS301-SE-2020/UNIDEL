@@ -4,6 +4,9 @@
              BackgroundColor="#FAFAFA"
              x:Class="UniDel.Views.ProfilePage">
     <ContentPage.Content>
-        <Label Text="User profile settings page"/>
+        <StackLayout>
+            <Label Text="User profile settings page"/>
+            <Button Text="Logout" BackgroundColor="#26C485" TextColor="White" FontAttributes="Bold" FontFamily="UnidelFont" WidthRequest="100" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
