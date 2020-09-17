@@ -18,13 +18,15 @@
                        FontSize="13"
                        HorizontalOptions="Center"
                        TextColor="#01579B"/>
-                 <Entry  x:Name="logPlate"
+                 <Entry x:Name="logPlate"
                         Placeholder="License Plate"
                         FontFamily="UnidelFont"
                         Margin="5"/>
                 <Entry  x:Name="logKM"
+                        Text="{Binding Kilos}"
                         Placeholder="Mileage in km"
                         FontFamily="UnidelFont"
+                        Keyboard="Numeric"
                         Margin="5"/>
                 <Entry  x:Name="logName"
                         Placeholder="Sign name"
