@@ -54,9 +54,15 @@ namespace UniDel.Views
                 btnSave.Clicked += Save;
                 btnLogout.Clicked += Logout;
 
-                address.Text = c.ClientAddress;
-                tel.Text = c.ClientTelephone;
+                //try
+                //{
+                    address.Text = c.ClientAddress;
+                    tel.Text = c.ClientTelephone;
+                //}
+                //catch (Exception clientFillin)
+                //{
 
+                //}
                 stackLayout.Children.Add(tel);
                 stackLayout.Children.Add(address);
                 stackLayout.Children.Add(btnSave);
@@ -64,29 +70,47 @@ namespace UniDel.Views
             }
             else
             {
-                var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/Drivers/?k=UDL2Avv378jBBgd772hFSbbsfwUD");
-                d = JsonConvert.DeserializeObject<Driver>(response);
-                tel = new Entry();
-                btnSave = new Button();
-                btnSave.Text = "Save Changes";
-                btnSave.WidthRequest = 100;
-                btnSave.BackgroundColor = Color.FromHex("#26C485");
-                btnSave.FontAttributes = FontAttributes.Bold;
-                btnSave.FontFamily = "UnidelFont";
-                btnLogout = new Button();
-                btnLogout.WidthRequest = 100;
-                btnLogout.Text = "Logout";
-                btnLogout.BackgroundColor = Color.FromHex("#26C485");
-                btnLogout.FontAttributes = FontAttributes.Bold;
-                btnLogout.FontFamily = "UnidelFont";
+                try
+                {
+                    try
+                    {
+                        var response = await httpClient.GetStringAsync("https://api.unideldeliveries.co.za/api/Drivers/" + Session.DriverID + "?k=UDL2Avv378jBBgd772hFSbbsfwUD");
+                        d = JsonConvert.DeserializeObject<Driver>(response);
+                        //await DisplayAlert("Driver", d.DriverID.ToString(), "OK");
+                    }
+                    catch (Exception DriverAPI)
+                    {
+                        await DisplayAlert("DriverAPI Error", DriverAPI.Message, "OK");
+                    }
+                    tel = new Entry();
+                    btnSave = new Button();
+                    btnSave.Text = "Save Changes";
+                    btnSave.WidthRequest = 100;
+                    btnSave.BackgroundColor = Color.FromHex("#26C485");
+                    btnSave.FontAttributes = FontAttributes.Bold;
+                    btnSave.FontFamily = "UnidelFont";
+                    btnLogout = new Button();
+                    btnLogout.WidthRequest = 100;
+                    btnLogout.Text = "Logout";
+                    btnLogout.BackgroundColor = Color.FromHex("#26C485");
+                    btnLogout.FontAttributes = FontAttributes.Bold;
+                    btnLogout.FontFamily = "UnidelFont";
 
-                btnSave.Clicked += Save;
-                btnLogout.Clicked += Logout;
+                    btnSave.Clicked += Save;
+                    btnLogout.Clicked += Logout;
 
-                tel.Text = c.ClientTelephone;
-                stackLayout.Children.Add(address);
-                stackLayout.Children.Add(btnSave);
-                stackLayout.Children.Add(btnLogout);
+                    //try
+                    //{
+                        tel.Text = d.DriverCellphone;
+                    //}
+                    stackLayout.Children.Add(tel);
+                    stackLayout.Children.Add(btnSave);
+                    stackLayout.Children.Add(btnLogout);
+                }
+                catch (Exception o)
+                {
+                    await DisplayAlert("Profile Page Error", o.Message, "OK");
+                }
             }
             
         }
