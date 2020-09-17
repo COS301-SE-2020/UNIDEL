@@ -19,7 +19,7 @@ namespace UniDel.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EndCustomerQRScanningPage : ContentPage
     {
-        public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }
+        //public ObservableCollection<CurrentDeliveryViewModel> active_deliveries { get; set; }
         public Location currentLocation;
         public Location dropOffLocation;
         public bool done = false;
@@ -50,8 +50,15 @@ namespace UniDel.Views
 
                     Console.WriteLine("QR Scanned");
 
-                    // API Calls for Scanned QR-Code's ID
-                    Delivery(result);
+                    try
+                    {
+                        // Make the API calls here.
+                        Delivery(result);
+                    }
+                    catch (Exception APIError)
+                    {
+                        await DisplayAlert("APIError Error", APIError.Message, "OK");
+                    }
 
                     // Find the Client's ID
                     //ClientID();
@@ -67,24 +74,25 @@ namespace UniDel.Views
                     //}
                     //if (done)
                     //{
-                        //if (packet == null)
-                        //{
-                        //    await DisplayAlert("Failed", "The delivery was not found.", "OK");
-                        //}
-                        //if (packet.deliveryState == "Completed")
-                        //{
-                        //    await DisplayAlert("Completed", "The delivery has already been completed.", "OK");
-                        //}
-                        //else
-                        //{
-                        //    //await ConfirmPackagePostRequest(packet, result);
-                        //}
+                    //if (packet == null)
+                    //{
+                    //    await DisplayAlert("Failed", "The delivery was not found.", "OK");
                     //}
+                    //if (packet.deliveryState == "Completed")
+                    //{
+                    //    await DisplayAlert("Completed", "The delivery has already been completed.", "OK");
+                    //}
+                    //else
+                    //{
+                    //    //await ConfirmPackagePostRequest(packet, result);
+                    //}
+                    //}
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new ClientHomePage(), true);
                 }
             }
             catch (Exception QR_Scanner_ex)
             {
-                throw;
+                await DisplayAlert("QR-Scanning Error", QR_Scanner_ex.Message, "OK");
                 // QR scanned is null
                 //throw;
             }
@@ -148,6 +156,7 @@ namespace UniDel.Views
                 delivery = JsonConvert.DeserializeObject<Delivery>(response);
 
                 packet = delivery;
+                var displayMsg = "";
                 //packet = SearchPacket(delivery, (int)Int64.Parse(QR_ID_Scanned));
                 if (packet == null)
                 {
@@ -162,11 +171,11 @@ namespace UniDel.Views
                     return;
                 }
 
-                if (packet.deliveryState == "Completed")
-                {
-                    await DisplayAlert("Completed", "The delivery has already been completed.", "OK");
-                    return;
-                }
+                //if (packet.deliveryState == "Completed")
+                //{
+                //    await DisplayAlert("Completed", "The delivery has already been completed.", "OK");
+                //    return;
+                //}
 
                 Console.WriteLine("Delivery State: " + packet.deliveryState);
 
@@ -176,9 +185,11 @@ namespace UniDel.Views
 
                 done = true;
 
+
                 // if Active change to Confirming
                 if (packet.deliveryState == "Active")
                 {
+                    displayMsg = "Confirmation in progress. Please ask the courier company's driver to scan the QR-Code for validation.";
                     packet.deliveryState = "Confirming";
                 }
                 else if (packet.deliveryState == "Confirming")
@@ -212,7 +223,7 @@ namespace UniDel.Views
                 if (response2.StatusCode == HttpStatusCode.NoContent)
                 {
                     //await DisplayInfoChangedEventArgs("Confirmation in progress");
-                    await DisplayAlert("Confirming", "Confirmation in progress", "OK");
+                    await DisplayAlert(packet.deliveryState, displayMsg, "OK");
                     return;
                 }
                 else
