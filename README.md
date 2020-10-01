@@ -6,8 +6,9 @@
 
 UniDel is a unified delivery tracking system that supports fleet management. The system manages the deliveries of products using mobile devices that scan QR codes to track the statuses of the deliveries. Courier companies can track deliveries and manage their fleets and drivers in a single unified system. The system will consist of a web application that manages the entire system and a mobile application, used by drivers and customers, in order to track and manage the progress of deliveries.
 
-## Link to UniDel Website
-https://unideldeliveries.co.za/
+## Link to UniDel System
+[Website](https://unideldeliveries.co.za/) Used by courier companies and their employees such as fleet managers and call centre employees.  
+[Mobile App](https://drive.google.com/drive/folders/1h0P0vq8YEQaKjR_EJb9StjTjO5NFQ3M-?usp=sharing) Used by end-customers (customers from registered courier companies) and delivery drivers of registered courier companies.   
 
 ## Link to videos
 
