@@ -102,19 +102,19 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  <p>I study BSc Computer Science who enjoys challenging coding. My favourite programming languages are Java, Python, JavaScript and BASIC. My hobbies include basic video editing and designs in Paint.net. I always strive to improve my skills and help my fellow colleagues.</p>
  
  #### What I Did 
-- User Stories
-- Functional Requirement (SRS Document) 
-- Use Cases & diagrams (SRS Document)
-- Logo Design
-- Video Editing
-- Website: 
- - QR-Code Generation
- - QR-Code PDF feature
- - Front-end layout
-- Mobile: 
- - Full QR-Code implementation: 
-  - Scanning
-  - API Calling
+Markup : - User Stories
+         - Functional Requirement (SRS Document) 
+         - Use Cases & diagrams (SRS Document)
+         - Logo Design
+         - Video Editing
+         - Website: 
+           - QR-Code Generation
+           - QR-Code PDF feature
+           - Front-end layout
+         - Mobile: 
+           - Full QR-Code implementation: 
+            - Scanning
+            - API Calling
 </details>
 
 
