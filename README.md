@@ -105,10 +105,16 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 - User Stories
 - Functional Requirement (SRS Document) 
 - Use Cases & diagrams (SRS Document)
-- Logo Design & Front-end for Website
+- Logo Design
 - Video Editing
-- Website: QR-Code Generation
-- Mobile: QR-Code Scanning with API Calling
+- Website: 
+ - QR-Code Generation
+ - QR-Code PDF feature
+ - Front-end layout
+- Mobile: 
+ - Full QR-Code implementation: 
+  - Scanning
+  - API Calling
 </details>
 
 
