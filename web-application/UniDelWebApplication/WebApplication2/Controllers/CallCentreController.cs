@@ -152,27 +152,31 @@ namespace UniDelWebApplication.Controllers
             return -1;
         }
 
-        public ActionResult QRCodePrint()
+        public ActionResult QRCodePrint(string QR, int clientID, DateTime DeliveryDate)
         {
-            //Drawing QR Barcode
+            // Client 
+            Client c = uniDelDb.Clients.Find(clientID);
+            string clientName = c.ClientName;
+
+            // Drawing QR Barcode
             PdfQRBarcode barcode = new PdfQRBarcode();
 
-            //Set Error Correction Level
+            // Set Error Correction Level
             barcode.ErrorCorrectionLevel = PdfErrorCorrectionLevel.High;
 
-            //Set XDimension
+            // Set XDimension
             barcode.XDimension = 3;
 
-            barcode.Text = textQRCode;
-            barcode.Text = textQRCode;
+            barcode.Text = QR;
+            barcode.Text = QR;
 
-            //Creating new PDF Document
+            // Creating new PDF Document
             PdfDocument doc = new PdfDocument();
 
-            //Adding new page to PDF document
+            // Adding new page to PDF document
             PdfPage page = doc.Pages.Add();
 
-            //Printing barcode on to the Pdf
+            // Printing barcode on to the Pdf
             barcode.Draw(page, new PointF(25, 70));
             barcode.Draw(page, new PointF(125, 70));
             barcode.Draw(page, new PointF(225, 70));
@@ -208,23 +212,67 @@ namespace UniDelWebApplication.Controllers
             barcode.Draw(page, new PointF(225, 670));
             barcode.Draw(page, new PointF(325, 670));
 
-            //Save the document into stream.
+            // Create PDF graphics for the page.
+
+            PdfGraphics graphics = page.Graphics;
+
+            // Set the standard font.
+            PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 11);
+
+            // Draw the text.
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(25, 60));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(125, 60));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(225, 60));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(325, 60));
+
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(25, 160));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(125, 160));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(225, 160));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(325, 160));
+
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(25, 260));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(125, 260));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(225, 260));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(325, 260));
+
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(25, 360));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(125, 360));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(225, 360));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(325, 360));
+
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(25, 460));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(125, 460));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(225, 460));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(325, 460));
+
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(25, 560));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(125, 560));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(225, 560));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(325, 560));
+
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(25, 660));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(125, 660));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(225, 660));
+            graphics.DrawString(clientName, font, PdfBrushes.Black, new Syncfusion.Drawing.PointF(325, 660));
+
+
+            // Save the document into stream.
             MemoryStream stream = new MemoryStream();
 
             doc.Save(stream);
 
             stream.Position = 0;
 
-            //Close the documents
+            // Close the documents
             doc.Close(true);
 
-            //Defining the ContentType for pdf file.
+            // Defining the ContentType for pdf file.
             string contentType = "application/pdf";
 
-            //Define the file name.
-            string fileName = " QRBarcode.pdf";
+            // Define the file name.
+            string fileName = " " + clientName + "_" + DeliveryDate + ".pdf";
 
-            //Creates a FileContentResult object by using the file contents, content type, and file name.
+            // Creates a FileContentResult object by using the file contents, content type, and file name.
             return File(stream, contentType, fileName);
         }
 
