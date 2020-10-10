@@ -67,16 +67,24 @@ D:/Documents/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandar
 /Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/LoginPage.xaml.g.cs
 /Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MyPage.xaml.g.cs
 /Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/EndCustomerQRScanningPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ClientHomePage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ClientPackageList.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DoneDeliveries.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DriverHomePage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ProfilePage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/RegisterPage.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/UniDelHome.xaml.g.cs
+/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/VehicleMileage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/UniDel.deps.json
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/UniDel.dll
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/ref/UniDel.dll
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/UniDel.pdb
-/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csprojAssemblyReference.cache
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/App.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ClientHomePage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ClientPackageList.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/CurrentDelivery.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryDetails.xaml.g.cs
+/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DoneDeliveries.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DriverHomePage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/EndCustomerQRScanningPage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/LoginPage.xaml.g.cs
@@ -88,6 +96,7 @@ D:/Documents/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandar
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ProfilePage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/QRScanningPage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/RegisterPage.xaml.g.cs
+/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ReviewPage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/UniDelHome.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/VehicleMileage.xaml.g.cs
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.AssemblyInfoInputs.cache
@@ -97,49 +106,39 @@ D:/Documents/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandar
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.dll
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/ref/UniDel.dll
 /Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.pdb
-/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DoneDeliveries.xaml.g.cs
-/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ClientHomePage.xaml.g.cs
-/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ClientPackageList.xaml.g.cs
-/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DoneDeliveries.xaml.g.cs
-/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DriverHomePage.xaml.g.cs
-/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ProfilePage.xaml.g.cs
-/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/RegisterPage.xaml.g.cs
-/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/UniDelHome.xaml.g.cs
-/Users/khakhuramakuela/Documents/COS 301/Capstone/Code/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/VehicleMileage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/UniDel.deps.json
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/UniDel.dll
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/ref/UniDel.dll
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/UniDel.pdb
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/Mono.Android.dll
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/Mono.Android.pdb
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/bin/Debug/netstandard2.0/Mono.Android.xml
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/App.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ClientHomePage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ClientPackageList.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/CurrentDelivery.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DeliveryDetails.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DoneDeliveries.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/DriverHomePage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/EndCustomerQRScanningPage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/LoginPage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MapPage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MenuPage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/MyPage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/NewItemPage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ProfilePage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/QRScanningPage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/RegisterPage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ReviewPage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/UniDelHome.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/VehicleMileage.xaml.g.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.AssemblyInfoInputs.cache
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.AssemblyInfo.cs
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csproj.CoreCompileInputs.cache
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/XamlC.stamp
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csproj.CopyComplete
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.dll
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/ref/UniDel.dll
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.pdb
-C:/Users/Blue Fox/Desktop/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/UniDel.csprojAssemblyReference.cache
-/Users/laam/Documents/GitHub/UNIDEL/mobile-application/UniDel/UniDel/UniDel/obj/Debug/netstandard2.0/Views/ReviewPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\UniDel.deps.json
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\UniDel.dll
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\ref\UniDel.dll
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\UniDel.pdb
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\Mono.Android.dll
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\Mono.Android.pdb
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\bin\Debug\netstandard2.0\Mono.Android.xml
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\ClientHomePage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\ClientPackageList.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\CurrentDelivery.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\DeliveryDetails.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\DoneDeliveries.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\DriverHomePage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\EndCustomerQRScanningPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\MapPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\MenuPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\MyPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\ProfilePage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\QRScanningPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\RegisterPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\ReviewPage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\UniDelHome.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\Views\VehicleMileage.xaml.g.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.AssemblyInfoInputs.cache
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.AssemblyInfo.cs
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.csproj.CoreCompileInputs.cache
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.csproj.CopyComplete
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.dll
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\ref\UniDel.dll
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.pdb
+C:\Users\Blue Fox\Desktop\UNIDEL\mobile-application\UniDel\UniDel\UniDel\obj\Debug\netstandard2.0\UniDel.csprojAssemblyReference.cache
