@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UniDelAPI.Models;
 
 namespace UniDelAPI.Models
 {
@@ -25,5 +26,6 @@ namespace UniDelAPI.Models
         public DbSet<CompanyVehicle> CompanyVehicles { get; set; }
         public DbSet<CompanyDelivery> CompanyDeliveries { get; set; }
         public DbSet<CallLog> CallLogs { get; set; }
+        public DbSet<UniDelAPI.Models.DriverVehicle> DriverVehicle { get; set; }
     }
 }

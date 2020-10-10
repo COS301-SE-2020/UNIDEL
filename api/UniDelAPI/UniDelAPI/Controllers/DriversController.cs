@@ -22,15 +22,25 @@ namespace UniDelAPI.Controllers
 
         // GET: api/Drivers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Driver>>> GetDrivers()
+        public async Task<ActionResult<IEnumerable<Driver>>> GetDrivers([FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             return await _context.Drivers.ToListAsync();
         }
 
         // GET: api/Drivers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Driver>> GetDriver(int id)
+        public async Task<ActionResult<Driver>> GetDriver(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var driver = await _context.Drivers.FindAsync(id);
 
             if (driver == null)
@@ -45,8 +55,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDriver(int id, Driver driver)
+        public async Task<IActionResult> PutDriver(int id, Driver driver, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             if (id != driver.DriverID)
             {
                 return BadRequest();
@@ -77,8 +92,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Driver>> PostDriver(Driver driver)
+        public async Task<ActionResult<Driver>> PostDriver(Driver driver, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             _context.Drivers.Add(driver);
             await _context.SaveChangesAsync();
 
@@ -87,8 +107,13 @@ namespace UniDelAPI.Controllers
 
         // DELETE: api/Drivers/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Driver>> DeleteDriver(int id)
+        public async Task<ActionResult<Driver>> DeleteDriver(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var driver = await _context.Drivers.FindAsync(id);
             if (driver == null)
             {

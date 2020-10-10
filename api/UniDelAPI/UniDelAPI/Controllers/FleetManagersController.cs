@@ -22,15 +22,25 @@ namespace UniDelAPI.Controllers
 
         // GET: api/FleetManagers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FleetManager>>> GetFleetManagers()
+        public async Task<ActionResult<IEnumerable<FleetManager>>> GetFleetManagers([FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             return await _context.FleetManagers.ToListAsync();
         }
 
         // GET: api/FleetManagers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<FleetManager>> GetFleetManager(int id)
+        public async Task<ActionResult<FleetManager>> GetFleetManager(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var fleetManager = await _context.FleetManagers.FindAsync(id);
 
             if (fleetManager == null)
@@ -45,8 +55,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFleetManager(int id, FleetManager fleetManager)
+        public async Task<IActionResult> PutFleetManager(int id, FleetManager fleetManager, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             if (id != fleetManager.FleetManagerID)
             {
                 return BadRequest();
@@ -77,8 +92,13 @@ namespace UniDelAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<FleetManager>> PostFleetManager(FleetManager fleetManager)
+        public async Task<ActionResult<FleetManager>> PostFleetManager(FleetManager fleetManager, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             _context.FleetManagers.Add(fleetManager);
             await _context.SaveChangesAsync();
 
@@ -87,8 +107,13 @@ namespace UniDelAPI.Controllers
 
         // DELETE: api/FleetManagers/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<FleetManager>> DeleteFleetManager(int id)
+        public async Task<ActionResult<FleetManager>> DeleteFleetManager(int id, [FromQuery] string k = "")
         {
+            if (k != "UDL2Avv378jBBgd772hFSbbsfwUD")
+            {
+                return Unauthorized(new { message = "Request requires a valid API key" });
+            }
+
             var fleetManager = await _context.FleetManagers.FindAsync(id);
             if (fleetManager == null)
             {

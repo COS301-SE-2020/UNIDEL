@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#FAFAFA"
+             x:Class="UniDel.Views.ProfilePage">
+    <ContentPage.Content>
+        <StackLayout x:Name="stackLayout">
+            <Label Text="User profile settings page"/>
+            <!--<Button Text="Logout" BackgroundColor="#26C485" TextColor="White" FontAttributes="Bold" FontFamily="UnidelFont" WidthRequest="100" 
+                    Clicked="Logout" />-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

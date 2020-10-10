@@ -4,16 +4,49 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             BackgroundColor="#FAFAFA"
              x:Class="UniDel.Views.LoginPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to UniDel! Please enter your login details" />
-            <Entry x:Name="loginEmail" Placeholder="Email" Keyboard="Email" />
-            <Entry x:Name="loginPassword" Placeholder="Password" IsPassword="True" />
-            <Button Text="Login" HorizontalOptions="CenterAndExpand" Clicked="OnLoginClicked" />
+
+        <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <Entry  x:Name="loginEmail"
+                    Placeholder="Email"
+                    Keyboard="Email"
+                    FontFamily="UnidelFont"
+                    Margin="5"/>
+            <Entry  x:Name="loginPassword"
+                    Placeholder="Password"
+                    IsPassword="True"
+                    FontFamily="UnidelFont"
+                    Margin="5"/>
+            <Button x:Name = "btnLogin"
+                    Text="Login"
+                    HorizontalOptions="CenterAndExpand"
+                    CharacterSpacing="3"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    FontFamily="UnidelFont"
+                    BorderWidth="5"
+                    CornerRadius="5"
+                    BackgroundColor="#26C485"
+                    Margin="10"
+                    Padding="10"
+                    Clicked="OnLoginClicked"/>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="If you are a new user, register " />
+                        <Span Text="here" TextColor="#01579B" TextDecorations="Underline" FontAttributes="Bold">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RegisterLinkCommand}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
 
             <ActivityIndicator x:Name="indicator" 
-                Color="RoyalBlue" 
+                Color="#F8D34F" 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"
                 IsRunning="False" IsVisible="False"

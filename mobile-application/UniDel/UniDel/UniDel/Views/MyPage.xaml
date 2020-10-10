@@ -5,6 +5,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UniDel.Views.CurrentDelivery"
              mc:Ignorable="d"
+             BackgroundColor="#FAFAFA"
              xmlns:viewModel="clr-namespace:UniDel.ViewModels"
              Title="Current Deliveries"
              x:Name="ActiveDeliveries">
@@ -14,34 +15,36 @@
     </d:ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <Frame HasShadow="True"
-               IsClippedToBounds="True"
-               Padding="1"
-               BorderColor="#1861ac"
-               Margin="15"
-               HeightRequest="300">
-            <StackLayout>
-                <Button Text="ADD DELIVERY"
-                   x:Name="btnAdd"
-                   Margin="30"
-                   Scale=".95"
-                   CharacterSpacing="3"
-                   FontAttributes="Bold"
-                   TextColor="White"
-                   FontFamily="UnidelFont"
-                   BorderWidth="5"
-                   CornerRadius="5"
-                   BackgroundColor="#1b6ec2"
-                   Clicked="Add_Clicked"/>
-                 <ListView x:Name="activeView" RowHeight="140">
+            <StackLayout Margin="30" BackgroundColor="#FAFAFA">
+                <Label Text="CURRENT DELIVERIES"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#0085C9"/>
+                <ActivityIndicator x:Name="indicator" 
+                Color="#F8D34F" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                IsRunning="False" IsVisible="False"
+                />
+                 <ListView x:Name="activeView" HasUnevenRows="True" RowHeight="140" BackgroundColor="#FAFAFA" SeparatorColor="#F8D34F">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <StackLayout Orientation="Vertical"
                                                      HorizontalOptions="Fill"
                                                      BackgroundColor="White">
-                                            <Label Text="{Binding deliveryID}"
-                                                       FontSize="15"
+                                            <Label Text="{Binding deliveryState}"
+                                                       FontSize="13"
+                                                       TextColor="#1861ac"
+                                                       FontAttributes="Bold"
+                                                       CharacterSpacing="2"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"
+                                                       HorizontalTextAlignment="Center"
+                                                       VerticalTextAlignment="Center"/>
+                                            <Label Text="PICKUP POINT :"
+                                                       FontSize="13"
                                                        TextColor="#1861ac"
                                                        FontAttributes="Bold"
                                                        CharacterSpacing="2"
@@ -49,22 +52,29 @@
                                                        Padding="3"
                                                        HorizontalTextAlignment="Start"
                                                        VerticalTextAlignment="Center"/>
-                                            <Label Text="{Binding pickupName}"
+                                           <Label Text="{Binding pickupName}"
                                                        FontSize="Small"
-                                                       TextColor="#1861ac"
-                                                       CharacterSpacing="2"
+                                                       TextColor="#4a4a4a"
                                                        FontFamily="UnidelFont"
                                                        Padding="3"/>
+                                             <Label Text="DROPOFF POINT :"
+                                                       FontSize="13"
+                                                       TextColor="#1861ac"
+                                                       FontAttributes="Bold"
+                                                       CharacterSpacing="2"
+                                                       FontFamily="UnidelFont"
+                                                       Padding="3"
+                                                       HorizontalTextAlignment="Start"
+                                                       VerticalTextAlignment="Center"/>
                                             <Label Text="{Binding dropoffName}"
                                                        FontSize="Small"
-                                                       TextColor="#1861ac"
-                                                       CharacterSpacing="2"
+                                                       TextColor="#4a4a4a"
                                                        FontFamily="UnidelFont"
                                                        Padding="3"/>
-                                            <Button Text="COLLECT"
-                                                       x:Name="btnCollect"
-                                                       Scale=".75"
-                                                       CharacterSpacing="2"
+                                            <Button Text="Track"
+                                                       x:Name="btnTrack"
+                                                       Scale=".80"
+                                                       CharacterSpacing="1"
                                                        FontAttributes="Bold"
                                                        TextColor="White"
                                                        FontFamily="UnidelFont"
@@ -72,15 +82,27 @@
                                                        CornerRadius="5"
                                                        HorizontalOptions="End"
                                                        VerticalOptions="Center"
-                                                       BackgroundColor="#1b6ec2"
-                                                       Clicked="Collect_Clicked"/>
+                                                       BackgroundColor="#26C485"
+                                                       Clicked="btnTrack_Clicked"/>
+                                             <Button   BackgroundColor="#26C485"
+                                                       Scale=".80"
+                                                       x:Name="btnDeliver"
+                                                       CharacterSpacing="1"
+                                                       FontFamily="UnidelFont"
+                                                       Text="Deliver"
+                                                       TextColor="White"
+                                                       FontAttributes="Bold"
+                                                       BorderWidth="5"
+                                                       CornerRadius="5"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalOptions="Center"
+                                                       Clicked="btnDeliver_Clicked"/>
                                         </StackLayout>
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
                 </StackLayout>
-        </Frame>
     </ContentPage.Content>
        
 
