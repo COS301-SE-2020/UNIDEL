@@ -28,7 +28,7 @@ namespace UniDelWebApplication
             //ADDED SESSION MANAGEMENT CODE FROM HERE
             services.AddDistributedMemoryCache();
             services.AddSession(options => {
-                options.IdleTimeout = TimeSpan.FromMinutes(60);
+                options.IdleTimeout = TimeSpan.FromMinutes(1000);
             });
             //TO HERE
 

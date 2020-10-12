@@ -140,6 +140,12 @@ namespace UniDelWebApplication.Controllers
                     return View();
                 }
 
+                if (u.UserConfirmed == false)
+                {
+                    TempData["email"] = u.UserEmail;
+                    return RedirectToAction("NotConfirmed", "Account");
+                }
+
                 byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(pass);
                 HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
                 byte[] salt = hashAlg.ComputeHash(b64pass);
@@ -218,7 +224,6 @@ namespace UniDelWebApplication.Controllers
             //VALIDATE RECAPTCHA
             if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"],SiteSettings.GoogleRecaptchaSecretKey,_logger))
             {
-                //ModelState.AddModelError(string.Empty, "You failed the CAPTCHA, stupid robot. Go play some 1x1 on SFs instead.");
                 ViewBag["Error"] = "ReCaptcha Failed. Please validate ReCaptcha";
                 return View();
             }
@@ -339,7 +344,7 @@ namespace UniDelWebApplication.Controllers
                 mail.To.Add(email);
                 mail.Subject = "UniDel confirmation email";
                 mail.Body = "Your UniDel account has been created. To activate your account click on the following confirmation link \r\n " +
-                    "https://localhost:44394/Account/ConfirmEmail?email=" + email + "&token=" + token;
+                    "https://unideldeliveries.co.za/Account/ConfirmEmail?email=" + email + "&token=" + token;
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("memoryinjectlamas@gmail.com", SiteSettings.getPW);
@@ -362,6 +367,7 @@ namespace UniDelWebApplication.Controllers
             if (u.UserConfirmed == false && u.UserToken == token)
             {
                 u.UserConfirmed = true;
+                u.UserToken = Guid.NewGuid().ToString();
                 uniDelDb.SaveChanges();
             } 
             else if (u.UserToken != token)
@@ -615,6 +621,116 @@ namespace UniDelWebApplication.Controllers
             await uniDelDb.SaveChangesAsync();
 
             return RedirectToAction("Index", "FleetManagement");
+        }
+
+        public IActionResult ForgotPassword(string email="")
+        {
+            ViewBag.Success = false;
+            ViewBag.Error = false;
+            if (email == "")
+            {
+                return View();
+            }
+
+            User u = uniDelDb.Users.Where(o => o.UserEmail == email).FirstOrDefault();
+
+            if (u == null)
+            {
+                ViewBag.Error = true;
+                object e = "Email: " + email + " is not registered in UniDel";
+                return View(e);
+            }
+
+            string token = u.UserToken;
+
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("memoryinjectlamas@gmail.com");
+                mail.To.Add(email);
+                mail.Subject = "UniDel Password Reset";
+                mail.Body = "Your UniDel password has been reset. To create a new one click on the following link \r\n " +
+                    "https://unideldeliveries.co.za/Account/CreateNewPassword?email=" + email + "&token=" + token;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("memoryinjectlamas@gmail.com", SiteSettings.getPW);
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                ViewBag.Success = true;
+                object e = "A password reset email has been sent to " + email;
+                return View(e);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = true;
+                object e = ex.Message;
+                return View(e);
+            }
+        }
+
+        public IActionResult CreateNewPassword(string email="", string token="", string pass="")
+        {
+            ViewBag.Error = "";
+            ViewBag.Success = false;
+            ViewBag.CreateNew = false;
+            User u = uniDelDb.Users.Where(o => o.UserEmail == email).FirstOrDefault();
+
+            //IF PASSWORD IS NULL RETURN DEFAULT PAGE
+            if (pass == "")
+            {
+                ViewBag.CreateNew = true;
+                return View(u);
+            }
+            
+            if (u == null)
+            {
+                ViewBag.ErrorID = 3;
+                ViewBag.Error = "User authentication error";
+                return View();
+            }
+
+            if (u.UserConfirmed == false)
+            {
+                ViewBag.ErrorID = 4;
+                ViewBag.Error = "Your account is not confirmed. Please confirm your account by following the link in your email inbox.";
+                return View();
+            }
+            
+            if (u.UserToken == token)
+            {
+                byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(pass);
+                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
+                byte[] salt = hashAlg.ComputeHash(b64pass);
+                byte[] finalString = new byte[b64pass.Length + salt.Length];
+                for (int i = 0; i < b64pass.Length; i++)
+                {
+                    finalString[i] = b64pass[i];
+                }
+                for (int i = 0; i < salt.Length; i++)
+                {
+                    finalString[b64pass.Length + i] = salt[i];
+                }
+                string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
+                
+                u.UserPassword = final;
+                u.UserToken = Guid.NewGuid().ToString();
+                uniDelDb.SaveChanges();
+                ViewBag.Success = true;
+            }
+            else if (u.UserToken != token)
+            {
+                ViewBag.ErrorID = 1;
+                ViewBag.Error = "Authentication error. Failed to renew password";
+            }
+            else
+            {
+                ViewBag.ErrorID = 2;
+                ViewBag.Error = "Password creation failed. Contact system administrator.";
+            }
+            return View(u);
         }
 
         //THIS VIEW IS ACCESSIBLE BY TYPING IN http://localhost/Home/Privacy/
