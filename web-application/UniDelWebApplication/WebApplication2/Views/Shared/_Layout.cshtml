@@ -1,4 +1,5 @@
 ﻿@using UniDelWebApplication.Controllers
+@using Microsoft.AspNetCore.Http
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="~/css/vehicles.css" />
     <link rel="stylesheet" href="~/css/mystyle.css" />
     <script src="~/js/accountScript.js"></script>
+    <link rel="icon" href="~/images/SquareLogo_transparent.png" />
 </head>
 <body>
     <header>
@@ -20,7 +22,7 @@
                     <li class="nav-item">
                         <a class="navbar-brand font text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/Logo.png" width="45" alt="" class="d-inline-block align-middle mr-2">UniDel</a>
                     </li>
-                    @if (UniDelWebApplication.Controllers.AccountController.UserType == "CallCentre")
+                    @if (Context.Session.GetString("UserType") == "CallCentre")
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="Call" asp-action="Index">Call Centre</a>
@@ -32,7 +34,7 @@
                             <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="Driver" asp-action="Index">Drivers</a>
                         </li>
                     }
-                    @if (UniDelWebApplication.Controllers.AccountController.UserType == "FleetManager")
+                    @if (Context.Session.GetString("UserType") == "FleetManager")
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="FleetManagement" asp-action="Index">Fleet Management</a>
@@ -44,7 +46,7 @@
                             <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="Driver" asp-action="Index">Drivers</a>
                         </li>
                     }
-                    @if (UniDelWebApplication.Controllers.AccountController.UserType == "CourierCompany")
+                    @if (Context.Session.GetString("UserType") == "CourierCompany")
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark font whiteblue" asp-area="" asp-controller="Account" asp-action="EmployeeReg">Registration</a>
@@ -69,7 +71,7 @@
                 @*</div>
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">*@
             <ul class="nav justify-content-end">
-                @if (UniDelWebApplication.Controllers.AccountController.UserType == null)
+                @if (string.IsNullOrEmpty(Context.Session.GetString("ID")))
                 {
                     <li class="nav-item">
                         <a class="nav-link text-dark float-right border border-dark font" asp-area="" asp-controller="Account" asp-action="Login">Sign in</a>
