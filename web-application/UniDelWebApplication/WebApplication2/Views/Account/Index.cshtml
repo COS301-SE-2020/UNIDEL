@@ -1,23 +1,22 @@
-﻿@using Microsoft.AspNetCore.Http
-@*
+﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
     This view is purely for testing purposes... I use it to make run time checks...
 *@
 @{
-    
+
 }
 @using UniDelWebApplication.Controllers
 
 <h1>ID</h1>
-<p>@Context.Session.GetString("ID")</p>
+<p>@AccountController.loginId</p>
 
 <h1>Email</h1>
-<p>@Context.Session.GetString("Email")</p>
+<p>@AccountController.loginEmail</p>
 
 <h1>UserType</h1>
-<p>@Context.Session.GetString("UserType")</p>
+<p>@AccountController.UserType</p>
 
-@if (Context.Session.GetString("UserType") == "CourierCompany")
+@if (AccountController.UserType == "CourierCompany")
 {
     <p>This is a paragraph displayed because user type is CourierCompany</p>
 } else

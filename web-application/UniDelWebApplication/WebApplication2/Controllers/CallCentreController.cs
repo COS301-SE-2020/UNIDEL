@@ -374,7 +374,7 @@ namespace UniDelWebApplication.Controllers
 
         public IActionResult AddDelivery()
         {
-            return View();
+            return View(uniDelDb.Clients.ToList());
         }
 
         public IActionResult Add(DateTime dDateTime = new DateTime(), String pLocation = "", int dClient = -1)
