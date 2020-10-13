@@ -9,5 +9,6 @@ namespace UniDel.ViewModels
         public DateTime deliveryDate { get; set; }
         public string deliveryState { get; set; }
         public string deliveryComment { get; set; }
+        public string courierCompany { get; set; }
     }
 }

@@ -18,32 +18,52 @@
         <br>
 
 
-        @model dynamic
+       @model dynamic
         <div style="overflow-x:auto;">
             <table cellpadding="13" class="table table-hover shadow p-2 rounded active table-striped roundedtable">
                 <thead class="blue whitefont">
                     <tr>
-                        <th class="my-auto align-middle text-light">Delivery Date</th>
+                        <th class="my-auto align-middle text-light">Deliveries</th>
                         <th class="my-auto align-middle text-light">Pickup Location</th>
                         <th class="my-auto align-middle text-light">Delivery State</th>
                         <th class="my-auto align-middle text-light">Confirmation Picture</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
 
                     @foreach (var item in Model)
                     {
-        <tr>
-            <td>@item.DeliveryDate.ToString("yyyy-MM-dd")</td>
-            <td>@item.DeliveryPickupLocation</td>
-            <td>@item.DeliveryState</td>
-            <td class="my-auto align-middle" cellpadding="8">
-                @using (Html.BeginForm("QRCode", "CallCentre", FormMethod.Post))
-                {
-    <input type="hidden" id="txtQRCode" name="txtQRCode" value="@item.DeliveryID">
-                        <button class="btn btn-light" type="submit"><img src="~/images/qrcode-512.png" width="15" alt=""></button>}
-            </td>
-        </tr>
+                    <tr>
+                        <td>@item.DeliveryDate.ToString("yyyy-MM-dd")</td>
+                        <td>@item.DeliveryPickupLocation</td>
+                        <td>@item.DeliveryState</td>
+                        <td>@item.DeliveryPicture</td>
+                        <td class="my-auto align-middle" cellpadding="8">
+                            @using (Html.BeginForm("QRCode", "CallCentre", FormMethod.Post))
+                            {
+                                <input type="hidden" id="txtQRCode" name="txtQRCode" value="@item.DeliveryID">
+                                <button class="btn btn-light" type="submit"><img src="~/images/qrcode-512.png" width="15" alt=""></button>
+                            }
+                        </td>
+                        <td class="my-auto align-middle" cellpadding="8">
+                            @using (Html.BeginForm("QRCodePrint", "CallCentre", FormMethod.Get))
+                            {
+                                <input type="hidden" id="QR" name="QR" value="@item.DeliveryID">
+                                <input type="hidden" id="clientID" name="clientID" value="@item.ClientID">
+                                <input type="hidden" id="DeliveryDate" name="DeliveryDate" value="@item.DeliveryDate">
+
+                                <button class="btn btn-light" type="submit">
+                                    <img src="~/images/download-solid.svg" width="25" alt="" style="padding: 5px;" />
+                                    @*<a class="navbar-brand font text-dark float-left" asp-controller="CallCentre" asp-action="QRCodePrint">
+                        <img src="~/images/download-solid.svg" width="25" alt="" style="padding: 5px;" />PDF
+                    </a>*@
+                                </button>
+
+                            }
+                        </td>
+                    </tr>
 }
                 </tbody>
             </table>

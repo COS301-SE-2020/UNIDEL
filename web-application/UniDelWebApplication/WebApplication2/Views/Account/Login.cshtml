@@ -4,11 +4,8 @@
 <body class="splash">
     <div class="container shadow p-3 mb-5 bg-white rounded">
 
-
-
         @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "loginForm", @class = "form-card" }))
         {
-
         <div class="form-group">
             <h1 class="text-center LOGIN">SIGN IN</h1>
         </div>
@@ -32,9 +29,12 @@
             </select>
         </div>*@
 
-        @if (ViewBag.Message != null)
+       @if (ViewBag.Message != null)
         {
-        <small>@ViewBag.Message</small>}
+            <small>
+              @ViewBag.Message
+            </small>
+        }
         <button type="submit" name="submit" id="login" class="btn btn-block blue greenblue" style="margin:auto">Sign In</button>
         <br>
         <a asp-area="" asp-controller="Account" asp-action="Register" class="btn btn-block grey greengrey" style="margin:auto">Sign Up</a>
@@ -44,6 +44,7 @@
             @*<a href="register.html" class="text-warning">Register</a>*@
 
         </div>}
+
 
 
     </div>

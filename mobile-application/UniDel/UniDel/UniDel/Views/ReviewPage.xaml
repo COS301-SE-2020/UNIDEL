@@ -22,11 +22,11 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <ImageButton Grid.Row="1" Grid.Column="0"
+                                <!--<ImageButton Grid.Row="1" Grid.Column="0"
                                              Source="back.png"
                                              BackgroundColor="#FAFAFA"
                                              WidthRequest="20"
-                                             Clicked="back_Clicked"/>
+                                             Clicked="back_Clicked"/>-->
                                 <Label Grid.Row="1" Grid.Column="1"
                                        FontSize="20"
                                        FontAttributes="Bold"

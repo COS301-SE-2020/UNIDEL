@@ -1,70 +1,96 @@
 ﻿@{
     ViewData["Title"] = "Add Delivery";
 }
-<body class="splash">
-    <div class="container shadow p-3 mb-5 bg-white rounded">
-        <div class="text-center">
-            <h1 class="display-4">Add Deliveries</h1>
-        </div>
-
-        @using (Html.BeginForm("Add", "CallCentre", FormMethod.Post))
-        {
-            <table class="fulltableadd">
-                <tr>
-                    <td>
-                        <label for="dDateTime">Delivery date and time:</label>
-
-                    </td>
-                    <td>
-                        <input class="fullinput" type="datetime-local" id="dDateTime" name="dDateTime" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <br />
-                    </td>
-                    <td>
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="pLocation">Pickup Location:</label>
-
-                    </td>
-                    <td>
-                        <input class="fullinput" type="text" name="pLocation" list="pLocation" required />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <br />
-                    </td>
-                    <td>
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="dClient">Client:</label>
-
-                    </td>
-                    <td>
-                        <input class="fullinput" type="number" name="dClient" list="dClient" required />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <br />
-                    </td>
-                    <td>
-                        <br />
-                    </td>
-                </tr>
-            </table>
-            <div class="divcenter">
-                <input type="submit" value="Add Delivery" class="btn blue greenblue btnadd">
-                </div>
-                }
+    <body class="splash">
+        <div class="container shadow p-3 mb-5 bg-white rounded">
+            <div class="text-center">
+                <h1 class="display-4">Add Deliveries</h1>
             </div>
-</body>
+
+            @using (Html.BeginForm("Add", "CallCentre", FormMethod.Post))
+            {
+        <table class="fulltableadd">
+            <tr>
+                <td>
+                    <label for="dDateTime">Delivery date and time:</label>
+
+                </td>
+                <td>
+                    <input class="fullinput" type="datetime-local" id="dDateTime" name="dDateTime" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="pLocation">Pickup Location:</label>
+
+                </td>
+                <td>
+                    <input class="fullinput" type="text" name="pLocation" list="pLocation" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="dClient">Client:</label>
+
+                </td>
+                <td>
+                    <input class="fullinput" type="number" name="dClient" list="dClient" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+                <td>
+                    <br />
+                </td>
+            </tr>
+        </table>
+                        <div class="divcenter">
+                            <input type="submit" value="Add Delivery" class="btn blue greenblue btnadd">
+                        </div>}
+            <br>
+            <br>
+
+            @model dynamic
+            <div style="overflow-x:auto;">
+                <table cellpadding="13" class="table table-hover shadow p-2 rounded active table-striped roundedtable">
+                    <thead class="blue whitefont">
+                        <tr>
+                            <th class="my-auto align-middle text-light">Client ID</th>
+                            <th class="my-auto align-middle text-light">Client Name</th>
+                            <th class="my-auto align-middle text-light">Client Telephone</th>
+                            <th class="my-auto align-middle text-light">Client Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+            <tr>
+                <td>@item.ClientID</td>
+                <td>@item.ClientName</td>
+                <td>@item.ClientTelephone</td>
+                <td>@item.ClientAddress</td>
+            </tr>}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
