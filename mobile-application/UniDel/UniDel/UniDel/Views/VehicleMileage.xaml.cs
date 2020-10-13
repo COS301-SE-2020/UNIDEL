@@ -109,7 +109,7 @@ namespace UniDel.Views
                 Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@");
             }
 
-            Application.Current.MainPage = new DriverHomePage();
+            Application.Current.MainPage = new NavigationPage(new DriverHomePage());
 
         }
 

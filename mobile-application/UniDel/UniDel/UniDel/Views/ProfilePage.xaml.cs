@@ -23,6 +23,7 @@ namespace UniDel.Views
         Entry tel;
         Button btnSave;
         Button btnLogout;
+        Button btnChange;
 
         async void LoadData()
         {
@@ -42,21 +43,31 @@ namespace UniDel.Views
                 btnSave.Text = "Save Changes";
                 btnSave.WidthRequest = 100;
                 btnSave.BackgroundColor = Color.FromHex("#26C485");
+                btnSave.TextColor = Color.White;
                 btnSave.FontAttributes = FontAttributes.Bold;
                 btnSave.FontFamily = "UnidelFont";
                 btnLogout = new Button();
                 btnLogout.WidthRequest = 100;
                 btnLogout.Text = "Logout";
-                btnLogout.BackgroundColor = Color.FromHex("#26C485");
+                btnLogout.BackgroundColor = Color.Crimson;
+                btnLogout.TextColor = Color.White;
                 btnLogout.FontAttributes = FontAttributes.Bold;
                 btnLogout.FontFamily = "UnidelFont";
+                btnChange = new Button();
+                btnChange.WidthRequest = 100;
+                btnChange.Text = "Change Password";
+                btnChange.BackgroundColor = Color.FromHex("#26C485");
+                btnChange.TextColor = Color.White;
+                btnChange.FontAttributes = FontAttributes.Bold;
+                btnChange.FontFamily = "UnidelFont";
 
                 btnSave.Clicked += Save;
                 btnLogout.Clicked += Logout;
+                btnChange.Clicked += ChangePassPage;
 
                 //try
                 //{
-                    address.Text = c.ClientAddress;
+                address.Text = c.ClientAddress;
                     tel.Text = c.ClientTelephone;
                 //}
                 //catch (Exception clientFillin)
@@ -65,6 +76,7 @@ namespace UniDel.Views
                 //}
                 stackLayout.Children.Add(tel);
                 stackLayout.Children.Add(address);
+                stackLayout.Children.Add(btnChange);
                 stackLayout.Children.Add(btnSave);
                 stackLayout.Children.Add(btnLogout);
             }
@@ -87,23 +99,34 @@ namespace UniDel.Views
                     btnSave.Text = "Save Changes";
                     btnSave.WidthRequest = 100;
                     btnSave.BackgroundColor = Color.FromHex("#26C485");
+                    btnSave.TextColor = Color.White;
                     btnSave.FontAttributes = FontAttributes.Bold;
                     btnSave.FontFamily = "UnidelFont";
                     btnLogout = new Button();
                     btnLogout.WidthRequest = 100;
                     btnLogout.Text = "Logout";
-                    btnLogout.BackgroundColor = Color.FromHex("#26C485");
+                    btnLogout.TextColor = Color.White;
+                    btnLogout.BackgroundColor = Color.Crimson;
                     btnLogout.FontAttributes = FontAttributes.Bold;
                     btnLogout.FontFamily = "UnidelFont";
+                    btnChange = new Button();
+                    btnChange.WidthRequest = 100;
+                    btnChange.Text = "Change Password";
+                    btnChange.BackgroundColor = Color.FromHex("#26C485");
+                    btnChange.TextColor = Color.White;
+                    btnChange.FontAttributes = FontAttributes.Bold;
+                    btnChange.FontFamily = "UnidelFont";
 
                     btnSave.Clicked += Save;
                     btnLogout.Clicked += Logout;
+                    btnChange.Clicked += ChangePassPage;
 
                     //try
                     //{
                         tel.Text = d.DriverCellphone;
                     //}
                     stackLayout.Children.Add(tel);
+                    stackLayout.Children.Add(btnChange);
                     stackLayout.Children.Add(btnSave);
                     stackLayout.Children.Add(btnLogout);
                 }
@@ -157,6 +180,11 @@ namespace UniDel.Views
                 btnSave.IsEnabled = false;
             }
 
+        }
+
+        public void ChangePassPage(object sender, EventArgs args)
+        {
+            Navigation.PushAsync(new ChangePasswordPage());
         }
     }
 }
