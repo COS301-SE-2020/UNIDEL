@@ -83,7 +83,7 @@ namespace UniDel.Views
             //Application.Current.MainPage = new MapPage(int.Parse(activeView.ClassId));
             try
             {
-                Application.Current.MainPage = new MapPage(int.Parse(((Button)sender).ClassId));
+                Navigation.PushAsync(new MapPage(int.Parse(((Button)sender).ClassId)));
             }
             catch (Exception ex)
             {

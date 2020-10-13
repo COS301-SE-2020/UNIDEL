@@ -32,21 +32,21 @@ namespace UniDel.Views
         public async void btnComment_Clicked(System.Object sender, System.EventArgs e)
         {
             await DisplayAlert("Success", "Review added", "OK");
-            Application.Current.MainPage = new DriverHomePage();
+            Application.Current.MainPage = new NavigationPage(new DriverHomePage());
 
         }
 
         public async void btnReason_Clicked(System.Object sender, System.EventArgs e)
         {
             await DisplayAlert("Success", "Comment added", "OK");
-            Application.Current.MainPage = new DriverHomePage();
+            Application.Current.MainPage = new NavigationPage(new DriverHomePage());
         }
 
 
         public async void OnDateSelected(object sender, DateChangedEventArgs args)
         {
             await DisplayAlert("Success", "Delivery rescheduled", "OK");
-            Application.Current.MainPage = new DriverHomePage();
+            Application.Current.MainPage = new NavigationPage(new DriverHomePage());
         }
 
     }
