@@ -31,9 +31,10 @@
             </div>
 
             @*Always*@
-            <div class="form-group fulltableadd" id="cellP">
+            <div class="form-group Info fulltableadd" id="cellP">
                 <label for="empCell" class="dcenter">Cellphone</label>
                 <input type="text" class="form-control dcenter" id="empCell" name="empCell" placeholder="Enter cellphone number" required>
+                <small id="telErrorMsg" class="error-msg text-danger">Invalid cellphone number, please enter valid cellphone number</small>
             </div>
 
             @*Always*@
@@ -67,9 +68,11 @@
         $(document).ready(function () {
             var validEmail = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
             var validPw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+            var validPhone = /^(27|0)[0-9]{9}$/;
             $("small#emailErrorMsg").hide();
             $("small#passErrorMsg").hide();
             $("small#verfpassErrorMsg").hide();
+            $("small#telErrorMsg").hide();
 
             $("input#userEmail").on("keyup", function () {
                 var emInput = this.value;
@@ -84,6 +87,21 @@
                     }
                 }
             });
+
+            $("input#empCell").on("keyup", function () {
+                var emCellInput = this.value;
+                if (validPhone.test(emCellInput)) {
+                    $("small#telErrorMsg").hide();
+                    $("input#empCell").removeClass("is-invalid");
+                    $("input#empCell").addClass("is-valid")
+                } else {
+                    $("small#telErrorMsg").show();
+                    if (!$("input#empCell").hasClass("is-invalid")) {
+                        $("input#empCell").addClass("is-invalid");
+                    }
+                }
+            });
+
 
             $("input#userPassword").on("keyup", function () {
                 var pwInput = this.value;
