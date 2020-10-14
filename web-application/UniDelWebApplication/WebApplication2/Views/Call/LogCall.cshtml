@@ -1,15 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Log call";
 }
-<body class="splash">
-    <div class="container shadow p-3 mb-5 bg-white rounded">
-        <div class="text-center">
-            <h1 class="display-4">Log Call</h1>
-        </div>
+    <body class="splash">
+        <div class="container shadow p-3 mb-5 bg-white rounded">
+            <div class="text-center">
+                <h1 class="display-4">Log Call</h1>
+            </div>
 
-        @using (Html.BeginForm("Log", "Call", FormMethod.Post))
-        {
-    <table class="table table-hover shadow p-2 rounded active table-striped roundedtable">
+            @using (Html.BeginForm("Log", "Call", FormMethod.Post))
+            {
+    <table class="fulltableadd">
         <tr>
             <td>
                 <label for="cDateTime">Call date and time:</label>
@@ -56,9 +56,11 @@
             <td>
                 <label for="cellphone">Cellphone:</label>
 
+
             </td>
             <td>
-                <input id="cellphone" name="cellphone" rows="4" cols="50"></input>
+                <input type="text" id="cellphone" name="cellphone" required></input><br />
+                <small id="telErrorMsg" class="error-msg text-danger">Invalid cellphone number</small>
             </td>
         </tr>
         <tr>
@@ -72,10 +74,33 @@
         </tr>
     </table>
 
+                    <br />
+                                    <div class="divcenter">
+                                        <input type="submit" value="Log Call" class="btn blue greenblue btnadd">
+                                    </div>}
+        </div>
 
-            <div class="divcenter">
-                <input type="submit" value="Log Call" class="btn blue greenblue btnadd">
-            </div>
-        }
-    </div>
-</body>
+
+
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
+        <script>$(document).ready(function () {
+                var validPhone = /^(27|0)[0-9]{9}$/;
+                $("small#telErrorMsg").hide();
+
+    $("input#cellphone").on("keyup", function () {
+                    var emCellInput = this.value;
+                    if (validPhone.test(emCellInput)) {
+                        $("small#telErrorMsg").hide();
+                        $("input#cellphone").removeClass("is-invalid");
+                        $("input#cellphone").addClass("is-valid")
+                    } else {
+                        $("small#telErrorMsg").show();
+                        if (!$("input#cellphone").hasClass("is-invalid")) {
+                            $("input#cellphone").addClass("is-invalid");
+                        }
+                    }
+                });
+
+               
+            });</script>
+    </body>
