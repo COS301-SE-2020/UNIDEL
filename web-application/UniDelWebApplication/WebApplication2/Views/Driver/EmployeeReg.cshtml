@@ -1,0 +1,129 @@
+﻿@{ ViewData["Title"] = "Driver Registration"; }
+@*@model List<UniDelWebApplication.Models.Customer> PROVIDE THIS CODE TO ACCESS THE MODEL SENT BY FUNCTION return View(uniDelDb.Customers.ToList())*@
+
+<body class="splash">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        @using (Html.BeginForm("RegEmp", "Driver", FormMethod.Post))
+        {
+            <div class="form-group">
+                <h1 class="text-center">SIGN UP YOUR DELIVERY DRIVER</h1>
+            </div>
+
+            @*Always*@
+            <div class="form-group Info fulltableadd">
+                <label for="email" class="dcenter">Email address</label>
+                <input type="email" class="form-control dcenter" id="userEmail" name="userEmail" required placeholder="Enter email">
+                <small id="emailErrorMsg" class="error-msg text-danger">Invalid Email Provided, please enter valid email address</small>
+            </div>
+
+            @*Always*@
+            <div class="form-group fulltableadd" id="firstN">
+                <label for="firstname" class="dcenter">First name</label>
+                <input type="text" class="form-control dcenter" id="firstname" name="firstname" placeholder="Enter first name" required>
+                <small id="firstNameErrorMsg" class="error-msg text-danger" hidden>Invalid name, please enter only alphabetical characters</small>
+            </div>
+
+            @*Always*@
+            <div class="form-group fulltableadd" id="lastN">
+                <label for="lastname" class="dcenter">Surname</label>
+                <input type="text" class="form-control dcenter" id="lastname" name="lastname" placeholder="Enter surname" required>
+                <small id="firstNameErrorMsg" class="error-msg text-danger" hidden>Invalid surname, please enter only alphabetical characters</small>
+            </div>
+
+            @*Always*@
+            <div class="form-group fulltableadd" id="cellP">
+                <label for="empCell" class="dcenter">Cellphone</label>
+                <input type="text" class="form-control dcenter" id="empCell" name="empCell" placeholder="Enter cellphone number" required>
+            </div>
+
+            @*Always*@
+            <div class="form-group Info fulltableadd" id="lastElem">
+                <label for="password" class="dcenter">Password</label>
+                <input type="password" class="form-control dcenter" id="userPassword" name="userPassword" required placeholder="Password">
+                <small id="passErrorMsg" class="error-msg text-danger">Invalid Password. Password must have at least one upper case, at least one lower case, at least one digit and have Minimum of eight characters in length .</small><br />
+                <input type="checkbox" onclick="toggleVisiblePassEmpReg()"> Show Password
+            </div>
+
+            @*Always*@
+            <div class="form-group Info fulltableadd">
+                <label for="Verifypassword" class="dcenter">Verify password</label>
+                <input type="password" class="form-control dcenter" id="verifypass" name="verifypass" required placeholder="Verify password">
+                <small id="verfpassErrorMsg" class="error-msg text-danger">Passwords do not match</small>
+                @*<input type="checkbox" onclick="toggleVisiblePassword()"> Show Password*@
+            </div>
+
+
+            @*<div class="divcenter">
+                <a asp-area="" asp-controller="Account" asp-action="RegEmp" class="btn btn-block blue greenblue btnadd" style="margin:auto">Register</a>
+            </div>*@
+            <div class="divcenter">
+                <input type="submit" value="Register" class="btn blue greenblue btnadd">
+            </div>
+        }
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var validEmail = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var validPw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+            $("small#emailErrorMsg").hide();
+            $("small#passErrorMsg").hide();
+            $("small#verfpassErrorMsg").hide();
+
+            $("input#userEmail").on("keyup", function () {
+                var emInput = this.value;
+                if (validEmail.test(emInput)) {
+                    $("small#emailErrorMsg").hide();
+                    $("input#userEmail").removeClass("is-invalid");
+                    $("input#userEmail").addClass("is-valid")
+                } else {
+                    $("small#emailErrorMsg").show();
+                    if (!$("input#userEmail").hasClass("is-invalid")) {
+                        $("input#userEmail").addClass("is-invalid");
+                    }
+                }
+            });
+
+            $("input#userPassword").on("keyup", function () {
+                var pwInput = this.value;
+                if (validPw.test(pwInput)) {
+                    $("small#passErrorMsg").hide();
+                    $("input#userPassword").removeClass("is-invalid");
+                    $("input#userPassword").addClass("is-valid");
+                } else {
+                    $("small#passErrorMsg").show();
+                    $("input#userPassword").removeClass("is-valid");
+                    if (!$("input#userPassword").hasClass("is-invalid")) {
+                        $("input#userPassword").addClass("is-invalid");
+                    }
+                }
+            });
+
+            $("input#verifypass").on("keyup", function () {
+                var originalPass = $("input#userPassword").val();
+                var confPass = this.value;
+
+                if (confPass == originalPass && $("input#userPassword").hasClass("is-valid")) {
+                    $("small#verfpassErrorMsg").hide();
+                    $("input#verifypass").removeClass("is-invalid");
+                    $("input#verifypass").addClass("is-valid");
+                } else {
+                    $("small#verfpassErrorMsg").show();
+                    $("input#verifypass").removeClass("is-valid");
+                    if (!$("input#verifypass").hasClass("is-invalid")) {
+                        $("input#verifypass").addClass("is-invalid");
+                    }
+                }
+            });
+
+            $("input[type='checkbox']").on("click", function () {
+                var pswInput = document.getElementById("userPassword");
+                if (pswInput.type === "password") {
+                    pswInput.type = "text";
+                } else {
+                    pswInput.type = "password";
+                }
+            });
+        });</script>
+</body>

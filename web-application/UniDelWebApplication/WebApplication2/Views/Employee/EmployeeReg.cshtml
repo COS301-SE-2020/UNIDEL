@@ -3,7 +3,7 @@
 
 <body class="splash">
     <div class="container shadow p-3 mb-5 bg-white rounded">
-        @using (Html.BeginForm("RegEmp", "Account", FormMethod.Post))
+        @using (Html.BeginForm("RegEmp", "Employee", FormMethod.Post))
         {
             <div class="form-group">
                 <h1 class="text-center">SIGN UP YOUR EMPLOYEE</h1>
@@ -14,7 +14,6 @@
                 <select class="form-control dcenter" id="userType" name="userType">
                     <option value="CallCentre">Call Centre</option>
                     <option value="FleetManager">Fleet Manager</option>
-                    <option value="Driver">Delivery Driver</option>
                 </select>
             </div>
 

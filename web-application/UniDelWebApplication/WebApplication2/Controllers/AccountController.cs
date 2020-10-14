@@ -500,79 +500,7 @@ namespace UniDelWebApplication.Controllers
             }
             return -1;
         }
-
-        public IActionResult EmployeeReg()
-        {
-            return View();
-        }
-
-        public IActionResult RegEmp(string userEmail = "", string userType = "", string firstname = "", string userPassword = "", string verifypass = "", string empCell="")
-        {
-            if (userPassword == verifypass)
-            {
-                byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(userPassword);
-                HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
-                byte[] salt = hashAlg.ComputeHash(b64pass);
-                byte[] finalString = new byte[b64pass.Length + salt.Length];
-                for (int i = 0; i < b64pass.Length; i++)
-                {
-                    finalString[i] = b64pass[i];
-                }
-                for (int i = 0; i < salt.Length; i++)
-                {
-                    finalString[b64pass.Length + i] = salt[i];
-                }
-                string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
-
-
-                User u = new User();
-                //u.UserID = 1;
-                u.UserEmail = userEmail;
-                u.UserPassword = final;
-                u.UserType = userType;
-                u.UserProfilePic = null;
-                u.UserConfirmed = true;
-                u.UserToken = Guid.NewGuid().ToString();
-                uniDelDb.Users.Add(u);
-                uniDelDb.SaveChanges();
-
-                int uID = u.UserID;
-                int comID = findCompany(int.Parse(HttpContext.Session.GetString("ID")));
-
-                if (userType == "FleetManager" || userType == "CallCentre")
-                {
-                    Employee e = new Employee();
-                    e.EmployeeCellphone =empCell;
-                    e.EmployeeName = firstname;
-                    e.UserID = uID;
-                    e.UserType = userType;
-                    uniDelDb.Employees.Add(e);
-                    uniDelDb.SaveChanges();
-                    CompanyEmployee comEmp = new CompanyEmployee() { CourierCompanyID = comID, EmployeeID = e.EmployeeID };
-                    uniDelDb.CompanyEmployees.Add(comEmp);
-                    uniDelDb.SaveChanges();
-                }
-
-                if (userType == "Driver")
-                {
-                    Driver dri = new Driver();
-                    dri.DriverName = firstname;
-                    dri.UserID = uID;
-                    dri.DriverCellphone = empCell;
-                    uniDelDb.Drivers.Add(dri);
-                    uniDelDb.SaveChanges();
-                    CompanyDriver comDriv = new CompanyDriver() { CourierCompanyID = comID, DriverID = dri.DriverID };
-                    uniDelDb.CompanyDrivers.Add(comDriv);
-                    uniDelDb.SaveChanges();
-                }
-
-            }
-
-            TempData["email"] = userEmail;
-            TempData["pw"] = userPassword;
-            TempData["type"] = userType;
-            return RedirectToAction("EmailNewEmployee", "Account");
-        }
+    
 
         public async Task<IActionResult> Settings(string email = "", IFormFile propic = null, string compName = "", string tel = "")
         {
@@ -730,39 +658,6 @@ namespace UniDelWebApplication.Controllers
                 ViewBag.Error = "Password creation failed. Contact system administrator.";
             }
             return View(u);
-        }
-
-        public IActionResult EmailNewEmployee()
-        {
-            string em = TempData["email"].ToString();
-            string pw = TempData["pw"].ToString();
-            string type = TempData["type"].ToString();
-            object e = (object)em;
-
-            try
-            {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-
-                mail.From = new MailAddress("memoryinjectlamas@gmail.com");
-                mail.To.Add(em);
-                mail.Subject = "UniDel Employee Registration";
-                mail.Body = "Congratulations you have been successfully registered in unidel as a " + type + "\r\n" +
-                    "Your login credentials are as follows: \r\nEmail: " + em + "\r\nPassword: " + pw +
-                    "\r\n\r\n You can change your password on the UniDel website after logging in. \r\n\r\n Kind Regards\r\nThe UniDel Team.";
-
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("memoryinjectlamas@gmail.com", SiteSettings.getPW);
-                SmtpServer.EnableSsl = true;
-
-                SmtpServer.Send(mail);
-                return View(e);
-            }
-            catch (Exception ex)
-            {
-                e = (object)ex.Message;
-                return View(e);
-            }
         }
 
         public IActionResult ChangePassword(string email="", string token="", string pass="", string cpass="")

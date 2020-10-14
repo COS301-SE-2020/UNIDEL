@@ -5,6 +5,18 @@
             <h1 class="display-4">Employees</h1>
         </div>
 
+        <table class="fulltable">
+            <tr>
+                <td>
+                    <h2>Current Employees:</h2>
+                </td>
+                <td>
+                    @Html.ActionLink("Register Employee", "EmployeeReg", null, null, new { @class = "btn blue greenblue fullinput" })
+                </td>
+            </tr>
+        </table>
+        <br>
+
         <div style="overflow-x:auto;">
             <table cellpadding="13" class="table table-hover shadow p-2 rounded active table-striped roundedtable">
                 <thead class="blue whitefont">
