@@ -376,6 +376,9 @@ body {
         border: 1px solid #C1DBE3;
     }
 
+td {
+    word-break: break-all;
+}
 
 
 /*tr:last-child td:first-child {
