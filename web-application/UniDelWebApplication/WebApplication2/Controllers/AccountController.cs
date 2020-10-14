@@ -580,7 +580,11 @@ namespace UniDelWebApplication.Controllers
                 }
 
             }
-            return RedirectToAction("Index", "CallCentre");
+
+            TempData["email"] = userEmail;
+            TempData["pw"] = userPassword;
+            TempData["type"] = userType;
+            return RedirectToAction("EmailNewEmployee", "Account");
         }
 
         public async Task<IActionResult> Settings(string email = "", IFormFile propic = null, string compName = "", string tel = "")
@@ -740,6 +744,74 @@ namespace UniDelWebApplication.Controllers
                 ViewBag.Error = "Password creation failed. Contact system administrator.";
             }
             return View(u);
+        }
+
+        public IActionResult EmailNewEmployee()
+        {
+            string em = TempData["email"].ToString();
+            string pw = TempData["pw"].ToString();
+            string type = TempData["type"].ToString();
+            object e = (object)em;
+
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("memoryinjectlamas@gmail.com");
+                mail.To.Add(em);
+                mail.Subject = "UniDel Employee Registration";
+                mail.Body = "Congratulations you have been successfully registered in unidel as a " + type + "\r\n" +
+                    "Your login credentials are as follows: \r\nEmail: " + em + "\r\nPassword: " + pw +
+                    "\r\n\r\n You can change your password on the UniDel website after logging in. \r\n\r\n Kind Regards\r\nThe UniDel Team.";
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("memoryinjectlamas@gmail.com", SiteSettings.getPW);
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                return View(e);
+            }
+            catch (Exception ex)
+            {
+                e = (object)ex.Message;
+                return View(e);
+            }
+        }
+
+        public IActionResult ChangePassword(string email="", string token="", string pass="", string cpass="")
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Email")))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            string e = HttpContext.Session.GetString("Email");
+            User u = uniDelDb.Users.Where(o => o.UserEmail == e).FirstOrDefault();
+            
+            if (pass == "")
+            {
+                return View(u);
+            }
+
+            byte[] b64pass = System.Text.Encoding.Unicode.GetBytes(pass);
+            HashAlgorithm hashAlg = new SHA256CryptoServiceProvider();
+            byte[] salt = hashAlg.ComputeHash(b64pass);
+            byte[] finalString = new byte[b64pass.Length + salt.Length];
+            for (int i = 0; i < b64pass.Length; i++)
+            {
+                finalString[i] = b64pass[i];
+            }
+            for (int i = 0; i < salt.Length; i++)
+            {
+                finalString[b64pass.Length + i] = salt[i];
+            }
+            string final = Convert.ToBase64String(hashAlg.ComputeHash(finalString));
+
+            u.UserPassword = final;
+            uniDelDb.SaveChanges();
+
+            return RedirectToAction("Settings", "Account");
         }
 
         //THIS VIEW IS ACCESSIBLE BY TYPING IN http://localhost/Home/Privacy/

@@ -22,7 +22,7 @@
             <div class="form-group Info fulltableadd">
                 <label for="email" class="dcenter">Email address</label>
                 <input type="email" class="form-control dcenter" id="userEmail" name="userEmail" required placeholder="Enter email">
-                <small id="emailErrorMsg" class="error-msg text-danger" hidden>Invalid Email Provided, please enter valid email address</small>
+                <small id="emailErrorMsg" class="error-msg text-danger">Invalid Email Provided, please enter valid email address</small>
             </div>
 
             @*Always*@
@@ -42,15 +42,15 @@
             <div class="form-group Info fulltableadd" id="lastElem">
                 <label for="password" class="dcenter">Password</label>
                 <input type="password" class="form-control dcenter" id="userPassword" name="userPassword" required placeholder="Password">
-                <small id="passErrorMsg" class="error-msg text-danger" hidden>Invalid Password. Password must have at least one upper case, at least one lower case, at least one digit and have Minimum of eight characters in length .</small>
-                <input type="checkbox" onclick="toggleVisiblePassword()"> Show Password
+                <small id="passErrorMsg" class="error-msg text-danger">Invalid Password. Password must have at least one upper case, at least one lower case, at least one digit and have Minimum of eight characters in length .</small><br />
+                <input type="checkbox" onclick="toggleVisiblePassEmpReg()"> Show Password
             </div>
 
             @*Always*@
             <div class="form-group Info fulltableadd">
                 <label for="Verifypassword" class="dcenter">Verify password</label>
                 <input type="password" class="form-control dcenter" id="verifypass" name="verifypass" required placeholder="Verify password">
-                <small id="verfpassErrorMsg" class="error-msg text-danger" hidden>Passwords do not match</small>
+                <small id="verfpassErrorMsg" class="error-msg text-danger">Passwords do not match</small>
                 @*<input type="checkbox" onclick="toggleVisiblePassword()"> Show Password*@
             </div>
 
@@ -73,49 +73,58 @@
             $("small#passErrorMsg").hide();
             $("small#verfpassErrorMsg").hide();
 
-            $("input#email").on("keyup", function () {
+            $("input#userEmail").on("keyup", function () {
                 var emInput = this.value;
                 if (validEmail.test(emInput)) {
                     $("small#emailErrorMsg").hide();
-                    $("input#email").removeClass("is-invalid");
-                    $("input#email").addClass("is-valid")
+                    $("input#userEmail").removeClass("is-invalid");
+                    $("input#userEmail").addClass("is-valid")
                 } else {
                     $("small#emailErrorMsg").show();
-                    if (!$("input#email").hasClass("is-invalid")) {
-                        $("input#email").addClass("is-invalid");
+                    if (!$("input#userEmail").hasClass("is-invalid")) {
+                        $("input#userEmail").addClass("is-invalid");
                     }
                 }
             });
 
-            $("input#password").on("keyup", function () {
+            $("input#userPassword").on("keyup", function () {
                 var pwInput = this.value;
                 if (validPw.test(pwInput)) {
                     $("small#passErrorMsg").hide();
-                    $("input#password").removeClass("is-invalid");
-                    $("input#password").addClass("is-valid");
+                    $("input#userPassword").removeClass("is-invalid");
+                    $("input#userPassword").addClass("is-valid");
                 } else {
                     $("small#passErrorMsg").show();
-                    $("input#password").removeClass("is-valid");
-                    if (!$("input#password").hasClass("is-invalid")) {
-                        $("input#password").addClass("is-invalid");
+                    $("input#userPassword").removeClass("is-valid");
+                    if (!$("input#userPassword").hasClass("is-invalid")) {
+                        $("input#userPassword").addClass("is-invalid");
                     }
                 }
             });
 
-            $("input#Verifypassword").on("keyup", function () {
-                var originalPass = $("input#password").val();
+            $("input#verifypass").on("keyup", function () {
+                var originalPass = $("input#userPassword").val();
                 var confPass = this.value;
 
-                if (confPass == originalPass && $("input#password").hasClass("is-valid")) {
+                if (confPass == originalPass && $("input#userPassword").hasClass("is-valid")) {
                     $("small#verfpassErrorMsg").hide();
-                    $("input#Verifypassword").removeClass("is-invalid");
-                    $("input#Verifypassword").addClass("is-valid");
+                    $("input#verifypass").removeClass("is-invalid");
+                    $("input#verifypass").addClass("is-valid");
                 } else {
                     $("small#verfpassErrorMsg").show();
-                    $("input#Verifypassword").removeClass("is-valid");
-                    if (!$("input#Verifypassword").hasClass("is-invalid")) {
-                        $("input#Verifypassword").addClass("is-invalid");
+                    $("input#verifypass").removeClass("is-valid");
+                    if (!$("input#verifypass").hasClass("is-invalid")) {
+                        $("input#verifypass").addClass("is-invalid");
                     }
+                }
+            });
+
+            $("input[type='checkbox']").on("click", function () {
+                var pswInput = document.getElementById("userPassword");
+                if (pswInput.type === "password") {
+                    pswInput.type = "text";
+                } else {
+                    pswInput.type = "password";
                 }
             });
         });</script>

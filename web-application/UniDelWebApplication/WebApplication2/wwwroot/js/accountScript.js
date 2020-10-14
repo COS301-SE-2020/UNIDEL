@@ -178,3 +178,12 @@ function toggleVisiblePassword()
         pswInput.type = "password";
     }
 }
+
+function toggleVisiblePassEmpReg() {
+    var pswInput = document.getElementById("userPassword");
+    if (pswInput.type === "password") {
+        pswInput.type = "text";
+    } else {
+        pswInput.type = "password";
+    }
+}
