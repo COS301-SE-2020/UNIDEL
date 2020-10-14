@@ -1,6 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Manage Vehicles";
 }
+<script>
+    document.getElementById('nextService').max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+</script>
 <div class="container shadow p-3 mb-5 bg-white rounded">
     <div class="text-center">
         <h1 class="display-4">Manage Vehicles</h1>
@@ -15,7 +18,7 @@
                 <label for="selectV" class="doublecenter">Vehicle Id:</label>
                 <input type="number" id="selectV" name="selectV" placeholder="1" class="doublecenter">
                 <label for="nextService" class="input-group-text" id="inputGroup-sizing-sm">New Service</label>
-                <input type="date" class="form-control" aria-label="New Service Date" aria-describedby="inputGroup-sizing-sm" name="nextService">
+                <input type="date" class="form-control" aria-label="Next Service Date" id="nextService" aria-describedby="inputGroup-sizing-sm" name="nextService">
                 <br />
                 <input type="submit" value="Log Service Date" class="btn btn-block blue greenblue">
             }
@@ -64,7 +67,7 @@
                     <td>@item.VehicleModel</td>
                     <td>@item.VehicleVIN</td>
                     <td style="white-space:nowrap">@item.VehicleLicensePlate</td>
-                    <td>@item.VehicleLicenseDiskExpiry</td>
+                    <td malength="10">@item.VehicleLicenseDiskExpiry</td>
                     <td>@item.VehicleMileage</td>
                     <td>@item.VehicleNextMileageService</td>
                     <td>@item.VehicleLastService</td>
