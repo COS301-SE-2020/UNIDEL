@@ -30,11 +30,6 @@ namespace UniDelWebApplication.Controllers
 
     public class AccountController : Controller
     {
-        public static int loginId=-1;
-        public static string loginName;
-        public static string loginEmail;
-        public static string UserType;
-        public static string profilePic = "";
         private readonly ILogger<HomeController> _logger;
         private readonly UniDelDbContext uniDelDb; //EVERY CONTROLLER IN OUR PROJECT SHOULD INCLUDE THIS TO HAVE ACCESS TO THE DATABASE
 
@@ -111,9 +106,6 @@ namespace UniDelWebApplication.Controllers
         public IActionResult Logout()
         {
             //Go to a different page?
-            loginId = -1;
-            loginEmail = "";
-            UserType = null;
             HttpContext.Session.Clear();
             return RedirectToAction("Login","Account");
         }
@@ -174,11 +166,6 @@ namespace UniDelWebApplication.Controllers
                     HttpContext.Session.SetString("ID", u.UserID.ToString()); //Store User ID Retrieve using HttpContext.Session.GetString("ID")
                     HttpContext.Session.SetString("Email", u.UserEmail);      //Store User Email Retrieve using HttpContext.Session.GetString("Email")
                     HttpContext.Session.SetString("UserType", u.UserType);    //Store User type Retrieve using HttpContext.Session.GetString("UserType")
-                    loginId = Convert.ToInt16(HttpContext.Session.GetString("ID"));
-                    loginEmail = HttpContext.Session.GetString("Email");
-                    UserType = HttpContext.Session.GetString("UserType");
-                    if (u.UserProfilePic != null)
-                        profilePic = u.UserProfilePic;
                     return RedirectToAction("Index", "FleetManagement");
                 }
 
@@ -589,8 +576,8 @@ namespace UniDelWebApplication.Controllers
 
         public async Task<IActionResult> Settings(string email = "", IFormFile propic = null, string compName = "", string tel = "")
         {
-            User u = uniDelDb.Users.Where<User>(o => o.UserID == loginId).FirstOrDefault();
-            CourierCompany cc = uniDelDb.CourierCompanies.Where<CourierCompany>(o => o.UserID == loginId).FirstOrDefault();
+            User u = uniDelDb.Users.Where<User>(o => o.UserID == int.Parse(HttpContext.Session.GetString("ID"))).FirstOrDefault();
+            CourierCompany cc = uniDelDb.CourierCompanies.Where<CourierCompany>(o => o.UserID == int.Parse(HttpContext.Session.GetString("ID"))).FirstOrDefault();
             cc.User = u;
             if (email == "")
             {
@@ -631,7 +618,6 @@ namespace UniDelWebApplication.Controllers
             cc.CourierCompanyName = compName;
             cc.CourierCompanyTelephone = tel;
             await uniDelDb.SaveChangesAsync();
-            profilePic = u.UserProfilePic;
 
             return RedirectToAction("Index", "FleetManagement");
         }
