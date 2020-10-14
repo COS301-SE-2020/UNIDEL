@@ -94,7 +94,7 @@ namespace UniDel.Views
         {
             //add a comment about the parcel/delivery
             //or reschedule if delivery failed
-            Application.Current.MainPage = new ReviewPage();
+            Navigation.PushAsync(new ReviewPage());
 
 
         }

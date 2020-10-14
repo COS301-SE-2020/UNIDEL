@@ -121,7 +121,7 @@ namespace UniDel.Views
                             Session.UserType = u.UserType;
                             Session.DriverID = d.DriverID;
 
-                            Application.Current.MainPage = new DriverHomePage();
+                            Application.Current.MainPage = new NavigationPage(new DriverHomePage());
                         }
                         else
                         {
@@ -147,7 +147,8 @@ namespace UniDel.Views
                             Session.UserType = u.UserType;
                             Session.DriverID = -1;
 
-                            Application.Current.MainPage = new ClientHomePage();
+                            NavigationPage n = new NavigationPage(new ClientHomePage());
+                            Application.Current.MainPage = n;
                         } 
                         else
                         {

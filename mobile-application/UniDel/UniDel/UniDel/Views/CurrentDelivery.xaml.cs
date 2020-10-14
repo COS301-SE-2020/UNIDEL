@@ -94,18 +94,18 @@ namespace UniDel.Views
             //Application.Current.MainPage = new MapPage(int.Parse(activeView.ClassId));
             try
             {
-                Application.Current.MainPage = new MapPage(int.Parse(((Button)sender).ClassId));
+                Navigation.PushAsync(new MapPage(int.Parse(((Button)sender).ClassId)));
             }
             catch(Exception ex)
             {
                 Console.WriteLine("Exception: " + ex);
-                Application.Current.MainPage = new MapPage(128993);
+                Navigation.PushAsync(new MapPage(128993));
             }
         }
 
         void btnDeliver_Clicked(System.Object sender, System.EventArgs e)
         {
-            Application.Current.MainPage = new QRScanningPage();
+            Navigation.PushAsync(new QRScanningPage());
         }
 
     }

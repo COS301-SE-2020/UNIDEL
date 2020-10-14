@@ -28,7 +28,7 @@ namespace UniDelWebApplication
             //ADDED SESSION MANAGEMENT CODE FROM HERE
             services.AddDistributedMemoryCache();
             services.AddSession(options => {
-                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.IdleTimeout = TimeSpan.FromMinutes(1000);
             });
             //TO HERE
 
@@ -66,7 +66,7 @@ namespace UniDelWebApplication
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=Login}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
