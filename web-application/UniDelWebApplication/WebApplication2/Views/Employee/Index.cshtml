@@ -33,16 +33,31 @@
                             <td>@item.EmployeeName</td>
                             <td>@item.EmployeeCellphone</td>
                             <td class="my-auto align-middle" cellpadding="8">
-                                @using (Html.BeginForm("AlterType", "Employee", FormMethod.Post))
+                                @if (@item.UserType == "CallCentre")
                                 {
-                                    <input type="hidden" id="employeeID" name="employeeID" value="@item.EmployeeID">
-                                    <select id="empRole" name="empRole" class="doublecenter">
-                                        <option value=@item.UserType selected="selected">@item.UserType</option>
-                                        <option value="CallCentre">Call Centre</option>
-                                        <option value="FleetManager">Fleet Manager</option>
-                                    </select>
-                                    <input type="Submit" class="btn blue greenblue doublecenter" value="Submit Change">
+                                    @using (Html.BeginForm("AlterType", "Employee", FormMethod.Post))
+                                    {
+                                        <input type="hidden" id="employeeID" name="employeeID" value="@item.EmployeeID">
+                                        <select id="empRole" name="empRole" class="doublecenter">
+                                            <option value=@item.UserType selected="selected">@item.UserType</option>
+                                            <option value="FleetManager">Fleet Manager</option>
+                                        </select>
+                                        <input type="Submit" class="btn blue greenblue doublecenter" value="Submit Change">
+                                    }
                                 }
+                                @if (@item.UserType == "FleetManager")
+                                {
+                                    @using (Html.BeginForm("AlterType", "Employee", FormMethod.Post))
+                                    {
+                                        <input type="hidden" id="employeeID" name="employeeID" value="@item.EmployeeID">
+                                        <select id="empRole" name="empRole" class="doublecenter">
+                                            <option value=@item.UserType selected="selected">@item.UserType</option>
+                                            <option value="CallCentre">Call Centre</option>
+                                        </select>
+                                        <input type="Submit" class="btn blue greenblue doublecenter" value="Submit Change">
+                                    }
+                                }
+
                             </td>
                         </tr>
                     }
