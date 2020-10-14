@@ -86,11 +86,23 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  <p>I am a BSc Information Technology student who is passionate about coding. Coming from an IT background, I aspire to reach great heights and make a statement in the world of computer science. I have been exposed to projects that are outside the realm of academics and believe that because of that exposure I am well positioned to make my own mark on the IT industry.</p>
  
  #### What I Did 
-- Setting up Azure Account
-- Intergration & Unit Testing
-- Quality Requirements
-- Database Management
-- Git Management
+* Intergration & Unit Testing
+* Quality Requirements
+* Database Management
+* Git Management
+* Website:
+  * User Registration
+  * Login and profile settings
+  * ReCaptcha
+  * Confirmation Emails
+  * Employee Registration
+  * Hosting and Publishing
+* Mobile:
+  * User Registration
+  * Login and profile settings
+  * Hosting and Publishing
+* API:
+  * API hosting
 </details>
 
 
