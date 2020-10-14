@@ -6,20 +6,3 @@
 
 }
 @using UniDelWebApplication.Controllers
-
-<h1>ID</h1>
-<p>@AccountController.loginId</p>
-
-<h1>Email</h1>
-<p>@AccountController.loginEmail</p>
-
-<h1>UserType</h1>
-<p>@AccountController.UserType</p>
-
-@if (AccountController.UserType == "CourierCompany")
-{
-    <p>This is a paragraph displayed because user type is CourierCompany</p>
-} else
-{
-    <p>This is a paragraph displayed because it ISNT</p>
-}
