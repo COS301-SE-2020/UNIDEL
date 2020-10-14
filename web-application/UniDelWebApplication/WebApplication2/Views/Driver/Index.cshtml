@@ -32,17 +32,44 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@item.DriverName</td>
-                            <td>@item.DriverSurname</td>
-                            <td>@item.DriverRating</td>
-                            <td>@item.DriverCellphone</td>
-                            <td>@item.DriverLocation</td>
+                    <tr>
+                        <td>@item.DriverName</td>
+                        <td>@item.DriverSurname</td>
+                        <td>
+                            @if (@item.DriverRating != 0)
+                            {
+                                @item.DriverRating
+
+                            }
+                            else
+                            {
+                                <p>Driver has not been rated yet</p>
+                            }
+                        </td>
+                        <td>@item.DriverCellphone</td>
+                        <td>
+                            @if (@item.DriverLocation != null)
+                            {
+                                @item.DriverLocation
+
+                            }
+                            else
+                            {
+                                <p>Driver location not logged</p>
+                            }
+                        </td>
                             <td class="my-auto align-middle" cellpadding="8">
-                                @using (Html.BeginForm("DriverLocation", "Driver", FormMethod.Post))
+                                @if (@item.DriverLocation != null)
                                 {
-                                    <input type="hidden" id="driverID" name="driverID" value="@item.DriverID">
-                                    <button class="btn btn-light" type="submit"><img src="~/images/map-pin.svg" width="15" alt=""></button>
+                                    @using (Html.BeginForm("DriverLocation", "Driver", FormMethod.Post))
+                                    {
+                                        <input type="hidden" id="driverID" name="driverID" value="@item.DriverID">
+                                        <button class="btn btn-light" type="submit"><img src="~/images/map-pin.svg" width="15" alt=""></button>
+                                    }
+                                }
+                                else
+                                {
+                                    <p>Driver location not logged</p>
                                 }
                             </td>
                         </tr>
