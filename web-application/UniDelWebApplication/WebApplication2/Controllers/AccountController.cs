@@ -512,7 +512,7 @@ namespace UniDelWebApplication.Controllers
                 return View(cc);
             }
 
-            if (propic.Length > 0)
+            if (propic != null)
             {
                 using (var ms = new MemoryStream())
                 {
