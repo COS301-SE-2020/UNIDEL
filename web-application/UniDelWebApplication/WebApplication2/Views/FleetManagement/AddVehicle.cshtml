@@ -1,165 +1,183 @@
-﻿@{
-    ViewData["Title"] = "Add Vehicle";
-}
+﻿@{ ViewData["Title"] = "Add Vehicle"; }
 <div class="container shadow p-3 mb-5 bg-white rounded">
     <div class="text-center">
         <h1 class="display-4">Add Vehicle</h1>
     </div>
     @using (Html.BeginForm("Add", "FleetManagement", FormMethod.Post))
     {
-        <table class="fulltableadd">
-            <tr>
-                <td>
-                    <label for="vMake">Make:</label>
+<table class="fulltableadd">
+    <tr>
+        <td>
+            <label for="vMake">Make:</label>
 
-                </td>
-                <td>
-                    <input type="text" id="vMake" name="vMake" placeholder="SUBARU" class="fullinput">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-                <td>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="vModel">Model:</label>
+        </td>
+        <td>
+            <input type="text" id="vMake" name="vMake" placeholder="SUBARU" class="fullinput">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+        <td>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="vModel">Model:</label>
 
-                </td>
-                <td>
-                    <input type="text" id="vModel" name="vModel" placeholder="Legacy" class="fullinput">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-                <td>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="vVIN">VIN:</label>
+        </td>
+        <td>
+            <input type="text" id="vModel" name="vModel" placeholder="Legacy" class="fullinput">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+        <td>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="vVIN">VIN:</label>
 
-                </td>
-                <td>
-                    <input type="text" id="vVIN" name="vVIN" placeholder="4S3BMHB68B3286050" class="fullinput">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-                <td>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="vMileage">Mileage:</label>
+        </td>
+        <td>
+            <input type="text" id="vVIN" name="vVIN" placeholder="4S3BMHB68B3286050" class="fullinput">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+        <td>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="vMileage">Mileage:</label>
 
-                </td>
-                <td>
-                    <input type="number" min="0" id="vMileage" name="vMileage" placeholder="100 000" class="fullinput">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-                <td>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="vLicensePlate">License Plate:</label>
+        </td>
+        <td>
+            <input type="number" min="0" id="vMileage" name="vMileage" placeholder="100 000" class="fullinput">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+        <td>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="vLicensePlate">License Plate:</label>
 
-                </td>
-                <td>
-                    <input type="text" id="vLicensePlate" name="vLicensePlate" placeholder="AB 45 XY GP" class="fullinput">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-                <td>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="vLicenseDiskExpiry">License Disk Expiry:</label>
+        </td>
+        <td>
+            <input type="text" id="vLicensePlate" name="vLicensePlate" placeholder="AB 45 XY GP" class="fullinput">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+        <td>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="vLicenseDiskExpiry">License Disk Expiry:</label>
 
-                </td>
-                <td>
-                    <input type="date" id="vLicenseDiskExpiry" name="vLicenseDiskExpiry" class="fullinput">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-                <td>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="vLastService">Last Service:</label>
+        </td>
+        <td>
+            <input type="date" id="vLicenseDiskExpiry" name="vLicenseDiskExpiry" class="fullinput">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+        <td>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="vLastService">Last Service:</label>
 
-                </td>
-                <td>
-                    <input type="date" id="vLastService" name="vLastService" class="fullinput">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-                <td>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="vNextMileageService">Next Service Mileage:</label>
+        </td>
+        <td>
+            <input type="date" id="vLastService" name="vLastService" class="fullinput">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+        <td>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="vNextMileageService">Next Service Mileage:</label>
 
-                </td>
-                <td>
-                    <input type="number" min="0" id="vNextMileageService" name="vNextMileageService" placeholder="300 000" class="fullinput">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                </td>
-                <td>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="vNextDateService">Next Date Service:</label>
-                </td>
-                <td>
-                    <input type="date" id="vNextDateService" name="vNextDateService" class="fullinput">
-                </td>
-            </tr>
+        </td>
+        <td>
+            <input type="number" min="0" id="vNextMileageService" name="vNextMileageService" placeholder="300 000" class="fullinput">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+        <td>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="vNextDateService">Next Date Service:</label>
+        </td>
+        <td>
+            <input type="date" id="vNextDateService" name="vNextDateService" class="fullinput">
+        </td>
+    </tr>
 
 
 
-        </table>
-        <br />
-        <div class="divcenter">
-            <input type="submit" value="Add Vehicle" class="btn blue greenblue btnadd">
-        </div>
-
-    }
+</table>
+                <br />
+                                <div class="divcenter">
+                                    <input type="submit" value="Add Vehicle" class="btn blue greenblue btnadd">
+                                </div>}
 </div>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("vLicenseDiskExpiry").setAttribute("min", today);
+    document.getElementById("vLastService").setAttribute("max", today);
+    document.getElementById("vNextDateService").setAttribute("min", today);
+
+
+            });</script>

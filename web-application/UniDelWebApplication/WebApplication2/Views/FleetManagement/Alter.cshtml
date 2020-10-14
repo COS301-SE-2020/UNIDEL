@@ -1,9 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Manage Vehicles";
 }
-<script>
-    document.getElementById('nextService').max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
-</script>
 <div class="container shadow p-3 mb-5 bg-white rounded">
     <div class="text-center">
         <h1 class="display-4">Manage Vehicles</h1>
@@ -17,7 +14,7 @@
                 <h2>Service Vehicle</h2>
                 <label for="selectV" class="doublecenter">Vehicle Id:</label>
                 <input type="number" id="selectV" name="selectV" placeholder="1" class="doublecenter">
-                <label for="nextService" class="input-group-text" id="inputGroup-sizing-sm">New Service</label>
+                <label for="nextService" class="input-group-text" id="inputGroup-sizing-sm">Next Service Date</label>
                 <input type="date" class="form-control" aria-label="Next Service Date" id="nextService" aria-describedby="inputGroup-sizing-sm" name="nextService">
                 <br />
                 <input type="submit" value="Log Service Date" class="btn btn-block blue greenblue">
@@ -31,7 +28,7 @@
                 <label for="selectV" class="doublecenter">Vehicle Id:</label>
                 <input type="number" id="selectV" name="selectV" placeholder="1" class="doublecenter">
                 <label for="newExp" class="input-group-text" id="inputGroup-sizing-sm">New Expiry Date</label>
-                <input type="date" class="form-control" aria-label="New Expiry Date" aria-describedby="inputGroup-sizing-sm" name="newExp">
+                <input type="date" class="form-control" aria-label="New Expiry Date" aria-describedby="inputGroup-sizing-sm" id="newExp" name="newExp">
                 <br />
                 <input type="submit" value="Renew License Disk" class="btn btn-block blue greenblue">
             }
@@ -92,3 +89,22 @@
     </table>
 
 </div>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script>$(document).ready(function () {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1;
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("nextService").setAttribute("min", today);
+        document.getElementById("newExp").setAttribute("min", today);
+
+
+    });</script>
