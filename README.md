@@ -17,15 +17,10 @@ UniDel is a unified delivery tracking system that supports fleet management. The
 [Demo 3](https://drive.google.com/file/d/1bW06Qx33F5jQAfitboTdE2ikzwlpLCRs/view?usp=sharing)  
 [Demo 4](https://drive.google.com/file/d/1IDY19B4NOl9qWEgPjXGmhTvnLZKv-emh/view?usp=sharing)
 
-## SRS Document
-
-[Version 1](https://www.overleaf.com/read/mbfchyfknqwn)  
-[Version 2](https://www.overleaf.com/read/pcvqtdmywjtr)  
-[Version 3](https://www.overleaf.com/read/trcnzbtdpshp)  
-[Version 4](https://www.overleaf.com/read/trcnzbtdpshp)
-
 ## Documentation
 
+[Software Requirements Specification](https://www.overleaf.com/read/dpmxyrctfzqc)  
+[Testing Policy Document](https://www.overleaf.com/read/fqctkhjzkmzh)  
 [Technology Requirements](https://www.overleaf.com/read/spbwdwtkfnsf)  
 [Technical Installation Manual](https://www.overleaf.com/read/skprkgrfczkn)  
 [User Manual](https://www.overleaf.com/read/tssghbtczsgh)  
@@ -91,11 +86,23 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  <p>I am a BSc Information Technology student who is passionate about coding. Coming from an IT background, I aspire to reach great heights and make a statement in the world of computer science. I have been exposed to projects that are outside the realm of academics and believe that because of that exposure I am well positioned to make my own mark on the IT industry.</p>
  
  #### What I Did 
-- Setting up Azure Account
-- Intergration & Unit Testing
-- Quality Requirements
-- Database Management
-- Git Management
+* Intergration & Unit Testing
+* Quality Requirements
+* Database Management
+* Git Management
+* Website:
+  * User Registration
+  * Login and profile settings
+  * ReCaptcha
+  * Confirmation Emails
+  * Employee Registration
+  * Hosting and Publishing
+* Mobile:
+  * User Registration
+  * Login and profile settings
+  * Hosting and Publishing
+* API:
+  * API hosting
 </details>
 
 
@@ -107,13 +114,24 @@ UniDel is a unified delivery tracking system that supports fleet management. The
  <p>I study BSc Computer Science who enjoys challenging coding. My favourite programming languages are Java, Python, JavaScript and BASIC. My hobbies include basic video editing and designs in Paint.net. I always strive to improve my skills and help my fellow colleagues.</p>
  
  #### What I Did 
-- User Stories
-- Functional Requirement (SRS Document) 
-- Use Cases & diagrams (SRS Document)
-- Logo Design & Front-end for Website
-- Video Editing
-- Website: QR-Code Generation
-- Mobile: QR-Code Scanning with API Calling
+ * User Stories
+ * Documentation: 
+   * SRS Document
+     * Functional Requirement 
+     * Use Cases & diagrams
+   * User Manual
+     * Website: Deliveries section & viewing QR-Code
+     * Mobile: Adding/Changing Deliveries via QR-Code scanning
+ * Logo Design
+ * Video Editing
+ * Website: 
+   * QR-Code Generation
+     * QR-Code PDF feature
+     * Front-end layout
+ * Mobile: 
+    * Full QR-Code implementation: 
+      * Scanning
+      * API Calling
 </details>
 
 
